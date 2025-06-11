@@ -2,27 +2,21 @@
 
 import { motion } from 'framer-motion'
 import { Eye, Target, Sparkles } from 'lucide-react'
+import Squares from './reactBits/Squares'
 
-const MissionVision = () => {
+const MissionVision: React.FC = () => {
   return (
     <section className='py-32 px-6 relative overflow-hidden'>
-      {/* Background SVG Pattern */}
-      <div className='absolute inset-0 opacity-5'>
-        <svg
-          className='w-full h-full'
-          viewBox='0 0 100 100'
-          preserveAspectRatio='none'
-        >
-          <pattern id='grid' width='8' height='8' patternUnits='userSpaceOnUse'>
-            <path
-              d='M 8 0 L 0 0 0 8'
-              fill='none'
-              stroke='currentColor'
-              strokeWidth='0.5'
-            />
-          </pattern>
-          <rect width='100%' height='100%' fill='url(#grid)' />
-        </svg>
+      {/* Squares Background */}
+      <div className='absolute inset-0 z-0'>
+        <Squares
+          direction='diagonal'
+          speed={0.3}
+          borderColor='rgba(255, 255, 255, 0.15)'
+          hoverFillColor='rgba(100, 150, 255, 0.1)'
+          squareSize={60}
+          opacity={0.15}
+        />
       </div>
 
       <div className='max-w-7xl mx-auto relative z-10'>
@@ -58,8 +52,8 @@ const MissionVision = () => {
             whileHover={{ scale: 1.02 }}
             className='relative group'
           >
-            <div className='relative backdrop-blur-lg bg-white/5 border border-white/10 rounded-2xl p-8 overflow-hidden min-h-full'>
-              <div className='absolute -inset-1 bg-gradient-to-r from-white/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg' />
+            <div className='relative backdrop-blur-sm bg-transparent border border-white/10 rounded-2xl p-8 overflow-hidden min-h-full'>
+              <div className='absolute -inset-1 bg-gradient-to-r from-white/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg' />
 
               <div className='relative z-10'>
                 <motion.div
@@ -114,8 +108,8 @@ const MissionVision = () => {
             whileHover={{ scale: 1.02 }}
             className='relative group'
           >
-            <div className='relative backdrop-blur-lg bg-white/5 border border-white/10 rounded-2xl p-8 overflow-hidden'>
-              <div className='absolute -inset-1 bg-gradient-to-r from-transparent to-white/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg' />
+            <div className='relative backdrop-blur-sm bg-transparent border border-white/10 rounded-2xl p-8 overflow-hidden'>
+              <div className='absolute -inset-1 bg-gradient-to-r from-transparent to-white/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg' />
 
               <div className='relative z-10'>
                 <motion.div

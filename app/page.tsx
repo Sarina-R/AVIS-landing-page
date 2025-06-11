@@ -1,7 +1,6 @@
 'use client'
 
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { useState, useEffect } from 'react'
 import {
   Sparkles,
   ArrowRight,
@@ -532,11 +531,11 @@ export default function ModernAvisLanding() {
             <ModernCard className='text-left'>
               <div className='space-y-8'>
                 <blockquote className='text-xl md:text-2xl font-light leading-relaxed text-white/90'>
-                  "We position ourselves as architects of the digital future,
-                  where technology serves not just functionality, but human
-                  potential. Our mission transcends conventional boundaries—we
-                  engineer solutions that elevate consciousness and empower
-                  global transformation."
+                  &quot;We position ourselves as architects of the digital
+                  future, where technology serves not just functionality, but
+                  human potential. Our mission transcends conventional
+                  boundaries—we engineer solutions that elevate consciousness
+                  and empower global transformation.&quot;
                 </blockquote>
                 <div className='flex items-center gap-4'>
                   <div className='w-12 h-12 rounded-full bg-gradient-to-br from-white/20 to-transparent flex items-center justify-center'>

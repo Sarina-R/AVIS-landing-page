@@ -15,6 +15,12 @@ import {
 import AvisTripleCore from '@/components/AvisTripleCore'
 import MissionVision from '@/components/MissionVision'
 
+interface ComponentsProps {
+  children: React.ReactNode
+  className?: string
+  delay?: number
+}
+
 const AnimatedBackground = () => {
   return (
     <div className='fixed inset-0 z-0 overflow-hidden'>
@@ -123,7 +129,11 @@ const ParticleSystem = ({ count = 50 }) => {
   )
 }
 
-const ModernCard = ({ children, className = '', delay = 0 }) => {
+const ModernCard: React.FC<ComponentsProps> = ({
+  children,
+  className = '',
+  delay = 0,
+}) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -152,7 +162,10 @@ const ModernCard = ({ children, className = '', delay = 0 }) => {
 }
 
 // Glitch Text Effect Component
-const GlitchText = ({ children, className = '' }) => {
+const GlitchText: React.FC<ComponentsProps> = ({
+  children,
+  className = '',
+}) => {
   return (
     <div className={`relative ${className}`}>
       <span className='relative z-10'>{children}</span>

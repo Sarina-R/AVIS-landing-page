@@ -12,6 +12,8 @@ import {
   Palette,
   Target,
 } from 'lucide-react'
+import AvisTripleCore from '@/components/AvisTripleCore'
+import MissionVision from '@/components/MissionVision'
 
 const AnimatedBackground = () => {
   return (
@@ -156,7 +158,7 @@ const GlitchText = ({ children, className = '' }) => {
     <div className={`relative ${className}`}>
       <span className='relative z-10'>{children}</span>
       <span
-        className='absolute top-0 left-0 text-red-500 opacity-70 animate-pulse'
+        className='absolute top-0 left-0 text-red-500 opacity-30 font-thin animate-pulse'
         style={{
           animation: 'glitch 0.3s infinite',
           clipPath: 'polygon(0 0, 100% 0, 100% 45%, 0 45%)',
@@ -165,7 +167,7 @@ const GlitchText = ({ children, className = '' }) => {
         {children}
       </span>
       <span
-        className='absolute top-0 left-0 text-blue-500 opacity-70'
+        className='absolute top-0 left-0 text-blue-500 opacity-30 font-thin'
         style={{
           animation: 'glitch 0.3s infinite reverse',
           clipPath: 'polygon(0 55%, 100% 55%, 100% 100%, 0 100%)',
@@ -269,9 +271,7 @@ export default function ModernAvisLanding() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
           >
-            <GlitchText className='text-7xl md:text-9xl font-thin mb-8'>
-              AVIS
-            </GlitchText>
+            <GlitchText className='text-7xl md:text-9xl mb-8'>AVIS</GlitchText>
           </motion.div>
 
           <motion.p
@@ -556,6 +556,14 @@ export default function ModernAvisLanding() {
             </ModernCard>
           </motion.div>
         </div>
+      </section>
+
+      <section className='py-32 px-6 relative'>
+        <AvisTripleCore />
+      </section>
+
+      <section className='py-32 px-6 relative'>
+        <MissionVision />
       </section>
 
       {/* Stats Section */}

@@ -1,7 +1,7 @@
 'use client'
 
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
-import { useState, useEffect, useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useState, useEffect } from 'react'
 import {
   Sparkles,
   ArrowRight,
@@ -91,7 +91,6 @@ const AnimatedBackground = () => {
   )
 }
 
-// Particle System Component
 const ParticleSystem = ({ count = 50 }) => {
   const particles = Array.from({ length: count }, (_, i) => ({
     id: i,
@@ -193,28 +192,8 @@ const GlitchText: React.FC<ComponentsProps> = ({
 
 export default function ModernAvisLanding() {
   const { scrollYProgress } = useScroll()
-  const [activeSection, setActiveSection] = useState(0)
   const heroOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0])
   const heroScale = useTransform(scrollYProgress, [0, 0.3], [1, 1.1])
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = document.querySelectorAll('section')
-      const scrollPosition = window.scrollY + window.innerHeight / 2
-
-      sections.forEach((section, index) => {
-        if (
-          scrollPosition >= section.offsetTop &&
-          scrollPosition < section.offsetTop + section.offsetHeight
-        ) {
-          setActiveSection(index)
-        }
-      })
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   return (
     <div className='min-h-screen bg-black text-white overflow-hidden'>

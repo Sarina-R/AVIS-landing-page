@@ -123,7 +123,6 @@ const ParticleSystem = ({ count = 50 }) => {
   )
 }
 
-// Modern Card Component
 const ModernCard = ({ children, className = '', delay = 0 }) => {
   return (
     <motion.div
@@ -517,7 +516,15 @@ export default function ModernAvisLanding() {
         </div>
       </section>
 
-      {/* Vision Section */}
+      <section id='tripleCore' className='py-32 px-6 relative'>
+        <AvisTripleCore />
+      </section>
+
+      <section id='missionVision' className='py-32 px-6 relative'>
+        <MissionVision />
+      </section>
+
+      {/* Beyond Tomorrow */}
       <section id='vision' className='py-32 px-6 relative'>
         <div className='max-w-4xl mx-auto text-center'>
           <motion.div
@@ -556,14 +563,6 @@ export default function ModernAvisLanding() {
             </ModernCard>
           </motion.div>
         </div>
-      </section>
-
-      <section className='py-32 px-6 relative'>
-        <AvisTripleCore />
-      </section>
-
-      <section className='py-32 px-6 relative'>
-        <MissionVision />
       </section>
 
       {/* Stats Section */}

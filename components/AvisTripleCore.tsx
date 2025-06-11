@@ -17,7 +17,7 @@ const AvisTripleCore = () => {
       ],
       color: 'from-green-400 to-emerald-500',
       bgGradient: 'from-green-500/20 to-emerald-500/20',
-      position: { top: '5%', left: '42%', transform: 'translate(-50%, 0)' }, // Adjusted position
+      position: { top: '5%', left: '41%', transform: 'translate(-50%, 0)' },
     },
     {
       id: 'Q',
@@ -31,7 +31,7 @@ const AvisTripleCore = () => {
       ],
       color: 'from-blue-400 to-cyan-500',
       bgGradient: 'from-blue-500/20 to-cyan-500/20',
-      position: { bottom: '18%', left: '5%', transform: 'translate(-50%, 0)' }, // Adjusted position
+      position: { bottom: '18%', left: '5%', transform: 'translate(-50%, 0)' },
     },
     {
       id: 'G',
@@ -45,7 +45,7 @@ const AvisTripleCore = () => {
       ],
       color: 'from-purple-400 to-pink-500',
       bgGradient: 'from-purple-500/20 to-pink-500/20',
-      position: { bottom: '18%', right: '5%', transform: 'translate(50%, 0)' }, // Adjusted position
+      position: { bottom: '18%', right: '5%', transform: 'translate(50%, 0)' },
     },
   ]
 
@@ -123,10 +123,10 @@ const AvisTripleCore = () => {
                 >
                   <div className='relative group cursor-pointer'>
                     <div
-                      className={`w-28 h-28 rounded-full bg-gradient-to-br ${element.bgGradient} border-2 border-white/10 flex items-center justify-center backdrop-blur-md shadow-lg shadow-black/30 group-hover:scale-110 group-hover:border-white/30 transition-all duration-500`}
+                      className={`w-[70px] h-[70px] md:w-32 md:h-32 rounded-full bg-gradient-to-br ${element.bgGradient} border-2 border-white/10 flex items-center justify-center backdrop-blur-md shadow-lg shadow-black/30 group-hover:scale-110 group-hover:border-white/30 transition-all duration-500`}
                     >
                       <Icon
-                        className={`w-12 h-12 text-transparent bg-gradient-to-br ${element.color} bg-clip-text drop-shadow-lg group-hover:scale-110 transition-transform duration-500`}
+                        className={`w-8 h-8 md:w-12 md:h-12 text-transparent bg-gradient-to-br ${element.color} bg-clip-text drop-shadow-lg group-hover:scale-110 transition-transform duration-500`}
                       />
                     </div>
                     <div className='absolute top-full left-1/2 transform -translate-x-1/2 mt-4 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none'>
@@ -148,8 +148,10 @@ const AvisTripleCore = () => {
               transition={{ duration: 0.8, delay: 1.5 }}
               className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
             >
-              <div className='w-20 h-20 rounded-full bg-black/60 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-500'>
-                <span className='text-3xl font-thin text-white/90'>A</span>
+              <div className='w-16 h-16 md:w-20 md:h-20 rounded-full bg-black/60 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-500'>
+                <span className='text-2xl md:text-3xl font-thin text-white/90'>
+                  A
+                </span>
               </div>
             </motion.div>
           </div>

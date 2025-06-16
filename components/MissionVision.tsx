@@ -63,7 +63,7 @@ const MissionVision: React.FC<MissionVisionProps> = () => {
               <>
                 <p className='text-white/80 leading-relaxed text-lg'>
                   To become a{' '}
-                  <span className='text-white font-medium bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent'>
+                  <span className='text-white font-medium bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text'>
                     shining star
                   </span>{' '}
                   in the technology and digital marketing sky, pioneering
@@ -71,7 +71,7 @@ const MissionVision: React.FC<MissionVisionProps> = () => {
                 </p>
                 <p className='text-white/70 leading-relaxed'>
                   A place where customers recognize us as a{' '}
-                  <span className='text-white/90 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent'>
+                  <span className='text-white/90 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text'>
                     trusted and creative partner
                   </span>
                   , and sustainable foreign currency revenue serves as proof of
@@ -100,7 +100,7 @@ const MissionVision: React.FC<MissionVisionProps> = () => {
               <>
                 <p className='text-white/80 leading-relaxed text-lg'>
                   At AVIS Group, we are{' '}
-                  <span className='text-white font-medium bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent'>
+                  <span className='text-white font-medium bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text'>
                     passionately committed
                   </span>{' '}
                   to creating technological products and delivering exceptional
@@ -108,7 +108,7 @@ const MissionVision: React.FC<MissionVisionProps> = () => {
                 </p>
                 <p className='text-white/70 leading-relaxed'>
                   We bring businesses to the{' '}
-                  <span className='text-white/90 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent'>
+                  <span className='text-white/90 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text'>
                     peak of success
                   </span>{' '}
                   by focusing on quality, innovation, and customer-centricity,

@@ -6,9 +6,7 @@ import { useRef, useState } from 'react'
 import { HolographicText } from '@/app/page'
 import Squares from './reactBits/Squares'
 
-interface MissionVisionProps {}
-
-const MissionVision: React.FC<MissionVisionProps> = () => {
+const MissionVision = () => {
   return (
     <section id='vision' className='py-32 px-6 relative overflow-hidden'>
       <div className='absolute inset-0 z-0'>

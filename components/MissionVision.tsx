@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Eye, Target, Sparkles } from 'lucide-react'
 import { useRef, useState } from 'react'
 import { HolographicText } from '@/app/page'

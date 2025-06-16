@@ -890,11 +890,11 @@ const VisionSection = () => {
           <ModernCard className='text-left'>
             <div className='space-y-8'>
               <blockquote className='text-xl md:text-2xl font-light leading-relaxed text-white/90'>
-                "We position ourselves as architects of the digital future,
+                &quot;We position ourselves as architects of the digital future,
                 where technology serves not just functionality, but human
                 potential. Our mission transcends conventional boundaries—we
                 engineer solutions that elevate consciousness and empower global
-                transformation."
+                transformation.&quot;
               </blockquote>
               <div className='flex items-center gap-4'>
                 <motion.div

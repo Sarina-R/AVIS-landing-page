@@ -1,32 +1,22 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from 'react'
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useMotionValue,
-  useSpring,
-} from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import {
   Sparkles,
   ArrowRight,
   Star,
   Zap,
-  Globe,
   Code,
   Palette,
   Target,
-  Clock,
   Play,
   Menu,
   X,
-  ChevronDown,
-  MousePointer2,
-  Gamepad2,
   Rocket,
   Heart,
 } from 'lucide-react'
+import Waves from '@/components/reactBits/Wave'
 
 interface Particle {
   x: number
@@ -708,9 +698,13 @@ const HeroSection = () => {
 }
 
 const AboutSection = () => {
+  const { scrollYProgress } = useScroll()
+  const waveAmpX = useTransform(scrollYProgress, [0, 1], [40, 60])
+  const waveAmpY = useTransform(scrollYProgress, [0, 1], [20, 30])
+
   return (
     <section id='about' className='py-32 px-6 relative'>
-      <div className='max-w-7xl mx-auto'>
+      <div className='max-w-7xl mx-auto h-full'>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -769,36 +763,20 @@ const AboutSection = () => {
             </div>
           </ModernCard>
 
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className='relative'
-          >
-            <div className='aspect-square rounded-3xl border border-white/10 bg-gradient-to-br from-purple-500/10 via-transparent to-blue-500/10 p-8 flex items-center justify-center backdrop-blur-xl'>
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{
-                  duration: 40,
-                  repeat: Infinity,
-                  ease: 'linear',
-                }}
-                whileHover={{ scale: 1.1 }}
-                className='relative w-64 h-64 cursor-pointer'
-              >
-                <div className='absolute inset-0 rounded-full border-2 border-dashed border-purple-400/30' />
-                <div className='absolute inset-4 rounded-full border border-blue-400/20' />
-                <motion.div
-                  whileHover={{ rotate: -360, scale: 1.3 }}
-                  transition={{ duration: 1 }}
-                  className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
-                >
-                  <Globe className='w-12 h-12 text-purple-400' />
-                </motion.div>
-              </motion.div>
-            </div>
-          </motion.div>
+          <Waves
+            lineColor='color-mix(in oklab, oklch(71.4% 0.203 305.504) 50%, transparent)'
+            backgroundColor='black'
+            waveSpeedX={0.02}
+            waveSpeedY={0.01}
+            waveAmpX={waveAmpX.get()}
+            waveAmpY={waveAmpY.get()}
+            friction={0.9}
+            tension={0.01}
+            maxCursorMove={120}
+            xGap={16}
+            yGap={36}
+            className='max-h-[369px] right-0 rounded-xl'
+          />
         </div>
       </div>
     </section>

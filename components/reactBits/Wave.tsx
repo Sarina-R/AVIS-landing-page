@@ -1,13 +1,6 @@
 import { useRef, useEffect } from 'react'
 
-interface Grad {
-  x: number
-  y: number
-  z: number
-  dot2(x: number, y: number): number
-}
-
-class Grad implements Grad {
+class Grad {
   constructor(public x: number, public y: number, public z: number) {}
   dot2(x: number, y: number): number {
     return this.x * x + this.y * y
@@ -63,7 +56,8 @@ class Noise {
     seed = Math.floor(seed)
     if (seed < 256) seed |= seed << 8
     for (let i = 0; i < 256; i++) {
-      let v = i & 1 ? this.p[i] ^ (seed & 255) : this.p[i] ^ ((seed >> 8) & 255)
+      const v =
+        i & 1 ? this.p[i] ^ (seed & 255) : this.p[i] ^ ((seed >> 8) & 255)
       this.perm[i] = this.perm[i + 256] = v
       this.gradP[i] = this.gradP[i + 256] = this.grad3[v % 12]
     }
@@ -237,11 +231,9 @@ const Waves: React.FC<WavesProps> = ({
     ctxRef.current = canvas.getContext('2d')
 
     function setSize() {
-      if (!container) return
+      if (!container || !canvas) return
       boundingRef.current = container.getBoundingClientRect()
-      // @ts-ignore
       canvas.width = boundingRef.current.width
-      // @ts-ignore
       canvas.height = boundingRef.current.height
     }
 
@@ -427,7 +419,7 @@ const Waves: React.FC<WavesProps> = ({
         backgroundColor,
         ...style,
       }}
-      className={`absolutew-full h-full overflow-hidden ${className}`}
+      className={`absolute w-full h-full overflow-hidden ${className}`}
     >
       <div
         className='absolute top-0 left-0 bg-[#160000] rounded-full w-[0.5rem] h-[0.5rem]'

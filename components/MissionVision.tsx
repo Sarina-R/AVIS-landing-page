@@ -9,10 +9,6 @@ import Squares from './reactBits/Squares'
 interface MissionVisionProps {}
 
 const MissionVision: React.FC<MissionVisionProps> = () => {
-  const { scrollYProgress } = useScroll()
-  const waveAmpX = useTransform(scrollYProgress, [0, 1], [40, 60])
-  const waveAmpY = useTransform(scrollYProgress, [0, 1], [20, 30])
-
   return (
     <section id='vision' className='py-32 px-6 relative overflow-hidden'>
       <div className='absolute inset-0 z-0'>

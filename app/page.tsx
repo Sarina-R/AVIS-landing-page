@@ -13,8 +13,6 @@ import {
   Play,
   Menu,
   X,
-  Rocket,
-  Heart,
 } from 'lucide-react'
 import Waves from '@/components/reactBits/Wave'
 import AvisTripleCore from '@/components/AvisTripleCore'

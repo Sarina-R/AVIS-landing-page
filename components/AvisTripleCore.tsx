@@ -3,7 +3,6 @@
 import { HolographicText } from '@/app/page'
 import { motion } from 'framer-motion'
 import { DollarSign, Award, TrendingUp } from 'lucide-react'
-import { useRef, useState } from 'react'
 
 const AvisTripleCore = () => {
   const coreElements = [

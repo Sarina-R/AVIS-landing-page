@@ -136,7 +136,6 @@ const MissionVision: React.FC<MissionVisionProps> = () => {
   )
 }
 
-// New VisionMissionCard component to encapsulate card logic
 const VisionMissionCard: React.FC<{
   icon: React.FC<{ className?: string }>
   title: string

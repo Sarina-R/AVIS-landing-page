@@ -17,6 +17,8 @@ import {
   Heart,
 } from 'lucide-react'
 import Waves from '@/components/reactBits/Wave'
+import AvisTripleCore from '@/components/AvisTripleCore'
+import MissionVision from '@/components/MissionVision'
 
 interface Particle {
   x: number
@@ -408,7 +410,7 @@ const ModernCard: React.FC<ModernCardProps> = ({
   )
 }
 
-const HolographicText: React.FC<{
+export const HolographicText: React.FC<{
   children: React.ReactNode
   className?: string
 }> = ({ children, className = '' }) => {
@@ -1002,77 +1004,6 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  )
-}
-
-const AvisTripleCore = () => {
-  return (
-    <section className='py-32 px-6 relative'>
-      <div className='max-w-7xl mx-auto text-center'>
-        <motion.h2
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className='text-5xl md:text-6xl font-thin mb-20'
-        >
-          Triple <HolographicText>Core</HolographicText>
-        </motion.h2>
-
-        <div className='grid md:grid-cols-3 gap-8'>
-          {[
-            { icon: Rocket, title: 'Innovation', desc: 'Pushing boundaries' },
-            { icon: Heart, title: 'Passion', desc: 'Loving what we do' },
-            {
-              icon: Target,
-              title: 'Excellence',
-              desc: 'Delivering perfection',
-            },
-          ].map((item, i) => (
-            <ModernCard key={item.title} delay={i * 0.2}>
-              <motion.div
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.8 }}
-                className='mb-6'
-              >
-                <item.icon className='w-12 h-12 text-purple-400 mx-auto' />
-              </motion.div>
-              <h3 className='text-2xl font-light mb-4'>{item.title}</h3>
-              <p className='text-white/70'>{item.desc}</p>
-            </ModernCard>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-const MissionVision = () => {
-  return (
-    <section className='py-32 px-6 relative'>
-      <div className='max-w-7xl mx-auto'>
-        <div className='grid md:grid-cols-2 gap-16'>
-          <ModernCard>
-            <h3 className='text-3xl font-light mb-6 text-purple-400'>
-              Mission
-            </h3>
-            <p className='text-white/80 leading-relaxed'>
-              To revolutionize digital experiences through innovative technology
-              solutions that empower businesses and individuals to achieve their
-              full potential in the digital age.
-            </p>
-          </ModernCard>
-
-          <ModernCard delay={0.2}>
-            <h3 className='text-3xl font-light mb-6 text-blue-400'>Vision</h3>
-            <p className='text-white/80 leading-relaxed'>
-              To become the global leader in digital transformation, creating a
-              world where technology seamlessly integrates with human creativity
-              to solve tomorrow's challenges today.
-            </p>
-          </ModernCard>
-        </div>
-      </div>
-    </section>
   )
 }
 

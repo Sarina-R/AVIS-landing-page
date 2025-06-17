@@ -240,11 +240,9 @@ const Waves: React.FC<WavesProps> = ({
     function setLines() {
       const { width, height } = boundingRef.current
       linesRef.current = []
-      const oWidth = width + 200,
-        oHeight = height + 30
       const { xGap, yGap } = configRef.current
-      const totalLines = Math.ceil(oWidth / xGap)
-      const totalPoints = Math.ceil(oHeight / yGap)
+      const totalLines = Math.ceil(width / xGap)
+      const totalPoints = Math.ceil(height / yGap)
       const xStart = (width - xGap * totalLines) / 2
       const yStart = (height - yGap * totalPoints) / 2
       for (let i = 0; i <= totalLines; i++) {
@@ -417,9 +415,12 @@ const Waves: React.FC<WavesProps> = ({
       ref={containerRef}
       style={{
         backgroundColor,
+        position: 'relative',
+        width: '100%',
+        height: '100%',
         ...style,
       }}
-      className={`absolute w-full h-full overflow-hidden ${className}`}
+      className={`overflow-hidden rounded-xl ${className}`}
     >
       <div
         className='absolute top-0 left-0 bg-[#160000] rounded-full w-[0.5rem] h-[0.5rem]'

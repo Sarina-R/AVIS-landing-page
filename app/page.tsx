@@ -1005,7 +1005,7 @@ const Footer = () => {
   )
 }
 
-export default function ModernGalaxyAvisLanding() {
+export default function AvisLandingPage() {
   useEffect(() => {
     const style = document.createElement('style')
     style.textContent = `

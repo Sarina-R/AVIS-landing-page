@@ -3,8 +3,8 @@
 import { motion } from 'framer-motion'
 import { Eye, Target, Sparkles } from 'lucide-react'
 import { useRef, useState } from 'react'
-import { HolographicText } from '@/app/page'
 import Squares from './reactBits/Squares'
+import { HolographicText } from './HolographicText'
 
 const MissionVision = () => {
   return (

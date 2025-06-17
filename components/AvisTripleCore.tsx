@@ -1,8 +1,8 @@
 'use client'
 
-import { HolographicText } from '@/app/page'
 import { motion } from 'framer-motion'
 import { DollarSign, Award, TrendingUp } from 'lucide-react'
+import { HolographicText } from './HolographicText'
 
 const AvisTripleCore = () => {
   const coreElements = [

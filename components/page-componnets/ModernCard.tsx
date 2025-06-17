@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
+import { ModernCardProps } from '@/app/type'
 
 export const ModernCard: React.FC<ModernCardProps> = ({
   children,

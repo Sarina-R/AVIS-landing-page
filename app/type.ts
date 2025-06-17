@@ -1,4 +1,4 @@
-interface Particle {
+export interface Particle {
   x: number
   y: number
   size: number
@@ -8,7 +8,7 @@ interface Particle {
   color: string
 }
 
-interface TextParticleProps {
+export interface TextParticleProps {
   text: string
   fontSize?: number
   fontFamily?: string
@@ -19,7 +19,7 @@ interface TextParticleProps {
   className?: string
 }
 
-interface ModernCardProps {
+export interface ModernCardProps {
   children: React.ReactNode
   className?: string
   delay?: number

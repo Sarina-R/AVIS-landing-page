@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { Particle, TextParticleProps } from '@/app/type'
 import { useEffect, useRef, useState } from 'react'
 
 export const TextParticle: React.FC<TextParticleProps> = ({

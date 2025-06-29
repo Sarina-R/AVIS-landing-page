@@ -12,6 +12,7 @@ import Navigation from '@/components/page-componnets/Navigation'
 import FloatingParticles from '@/components/page-componnets/FloatingParticles'
 import GalaxyBackground from '@/components/page-componnets/GalaxyBackground'
 import HeroSection from '@/components/page-componnets/HeroSection'
+import SliderComponent from '@/components/page-componnets/SliderComponent'
 
 export default function AvisLandingPage() {
   useEffect(() => {
@@ -44,6 +45,7 @@ export default function AvisLandingPage() {
 
       <Navigation />
       <HeroSection />
+      <SliderComponent />
       <AboutSection />
       <AvisTripleCore />
       <MissionVision />

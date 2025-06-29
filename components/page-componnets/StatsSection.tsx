@@ -27,7 +27,7 @@ export default function StatsSection() {
               className='text-center p-6 rounded-2xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 backdrop-blur-xl cursor-pointer'
             >
               <motion.div
-                className='text-4xl md:text-5xl font-thin mb-4 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent'
+                className='text-4xl md:text-5xl font-thin mb-4 bg-gradient-to-r from-white to-white bg-clip-text text-transparent'
                 whileHover={{ scale: 1.2 }}
               >
                 {stat.value}

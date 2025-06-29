@@ -16,7 +16,7 @@ const AvisTripleCore = () => {
         'Developing innovative and sustainable business models to ensure long-term economic growth',
         'Fair distribution of benefits from financial successes among all stakeholders',
       ],
-      color: 'from-purple-400 to-blue-400',
+      color: 'from-white to-white',
       bgGradient: 'from-purple-600/20 to-blue-600/20',
       position: { top: '5%', left: '41%', transform: 'translate(-50%, 0)' },
     },
@@ -67,7 +67,7 @@ const AvisTripleCore = () => {
             </HolographicText>
           </h2>
           <motion.div
-            className='w-24 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 mx-auto mb-8'
+            className='w-24 h-0.5 bg-gradient-to-r from-white to-white mx-auto mb-8'
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             transition={{ duration: 1 }}

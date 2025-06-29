@@ -17,10 +17,6 @@ export const PlayfulButton: React.FC<{
   return (
     <motion.button
       onClick={handleClick}
-      whileHover={{
-        scale: 1.05,
-        rotateZ: clicks % 2 === 0 ? 2 : -2,
-      }}
       whileTap={{
         scale: 0.95,
         rotateZ: clicks % 2 === 0 ? -5 : 5,

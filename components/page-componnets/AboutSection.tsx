@@ -22,7 +22,7 @@ export default function AboutSection() {
             Digital{' '}
             <HolographicText className='font-light'>Evolution</HolographicText>
           </h2>
-          <div className='w-24 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 mx-auto mb-8' />
+          <div className='w-24 h-0.5 bg-gradient-to-r from-white to-white mx-auto mb-8' />
           <p className='text-xl text-white/70 max-w-3xl mx-auto'>
             AVIS Group pioneers the convergence of technology and creativity,
             crafting digital experiences that transcend conventional boundaries.
@@ -30,13 +30,10 @@ export default function AboutSection() {
         </motion.div>
 
         <div className='grid md:grid-cols-2 gap-16 items-center'>
-          <ModernCard delay={0.2}>
+          <ModernCard>
             <div className='space-y-6'>
               <div className='flex items-center gap-3 mb-6'>
-                <motion.div
-                  whileHover={{ rotate: 360, scale: 1.2 }}
-                  transition={{ duration: 0.5 }}
-                >
+                <motion.div transition={{ duration: 0.5 }}>
                   <Zap className='w-6 h-6 text-purple-400' />
                 </motion.div>
                 <h3 className='text-2xl font-light'>Innovation DNA</h3>
@@ -48,10 +45,7 @@ export default function AboutSection() {
                 prowess and creative excellence.
               </p>
               <div className='grid grid-cols-2 gap-4 pt-6'>
-                <motion.div
-                  className='text-center p-4 rounded-xl bg-white/5 border border-white/10 cursor-pointer'
-                  whileHover={{ scale: 1.05, rotateY: 10 }}
-                >
+                <motion.div className='text-center p-4 rounded-xl bg-white/5 border border-white/10 cursor-pointer'>
                   <div className='text-3xl font-thin mb-2 text-purple-400'>
                     ∞
                   </div>
@@ -59,10 +53,7 @@ export default function AboutSection() {
                     Infinite Possibilities
                   </div>
                 </motion.div>
-                <motion.div
-                  className='text-center p-4 rounded-xl bg-white/5 border border-white/10 cursor-pointer'
-                  whileHover={{ scale: 1.05, rotateY: -10 }}
-                >
+                <motion.div className='text-center p-4 rounded-xl bg-white/5 border border-white/10 cursor-pointer'>
                   <div className='text-3xl font-thin mb-2 text-blue-400'>◊</div>
                   <div className='text-sm text-white/60'>Precision Craft</div>
                 </motion.div>

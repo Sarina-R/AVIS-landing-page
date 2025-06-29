@@ -29,12 +29,11 @@ export default function Navigation() {
               transition={{ delay: i * 0.1 }}
               onMouseEnter={() => setHoveredItem(item)}
               onMouseLeave={() => setHoveredItem(null)}
-              whileHover={{ scale: 1.1, y: -2 }}
               className='relative text-white/80 hover:text-white transition-colors group'
             >
               {item}
               <motion.span
-                className='absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400'
+                className='absolute -bottom-1 left-0 h-0.5 '
                 initial={{ width: 0 }}
                 animate={{ width: hoveredItem === item ? '100%' : 0 }}
                 transition={{ duration: 0.3 }}
@@ -67,7 +66,6 @@ export default function Navigation() {
                 href={`#${item.toLowerCase()}`}
                 className='block text-white/80 hover:text-white transition-colors'
                 onClick={() => setIsOpen(false)}
-                whileHover={{ x: 10 }}
               >
                 {item}
               </motion.a>

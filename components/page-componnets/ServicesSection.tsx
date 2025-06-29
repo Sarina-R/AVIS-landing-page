@@ -44,7 +44,7 @@ export default function ServicesSection() {
             Quantum{' '}
             <HolographicText className='font-light'>Services</HolographicText>
           </h2>
-          <div className='w-24 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 mx-auto' />
+          <div className='w-24 h-0.5 bg-gradient-to-r from-white to-white mx-auto' />
         </motion.div>
 
         <div className='grid md:grid-cols-3 gap-8'>

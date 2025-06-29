@@ -36,7 +36,7 @@ const MissionVision = () => {
             </HolographicText>
           </h2>
           <motion.div
-            className='w-24 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 mx-auto mb-8'
+            className='w-24 h-0.5 bg-gradient-to-r from-white to-white mx-auto mb-8'
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             transition={{ duration: 1 }}
@@ -57,7 +57,7 @@ const MissionVision = () => {
               <>
                 <p className='text-white/80 leading-relaxed text-lg'>
                   To become a{' '}
-                  <span className='text-white font-medium bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text'>
+                  <span className='text-white font-medium bg-gradient-to-r from-white to-white bg-clip-text'>
                     shining star
                   </span>{' '}
                   in the technology and digital marketing sky, pioneering
@@ -65,7 +65,7 @@ const MissionVision = () => {
                 </p>
                 <p className='text-white/70 leading-relaxed'>
                   A place where customers recognize us as a{' '}
-                  <span className='text-white/90 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text'>
+                  <span className='text-white/90 bg-gradient-to-r from-white to-white bg-clip-text'>
                     trusted and creative partner
                   </span>
                   , and sustainable foreign currency revenue serves as proof of
@@ -94,7 +94,7 @@ const MissionVision = () => {
               <>
                 <p className='text-white/80 leading-relaxed text-lg'>
                   At AVIS Group, we are{' '}
-                  <span className='text-white font-medium bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text'>
+                  <span className='text-white font-medium bg-gradient-to-r from-white to-white bg-clip-text'>
                     passionately committed
                   </span>{' '}
                   to creating technological products and delivering exceptional
@@ -102,7 +102,7 @@ const MissionVision = () => {
                 </p>
                 <p className='text-white/70 leading-relaxed'>
                   We bring businesses to the{' '}
-                  <span className='text-white/90 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text'>
+                  <span className='text-white/90 bg-gradient-to-r from-white to-white bg-clip-text'>
                     peak of success
                   </span>{' '}
                   by focusing on quality, innovation, and customer-centricity,
@@ -219,7 +219,7 @@ const VisionMissionCard: React.FC<{
           >
             <Icon className='w-6 h-6 text-purple-400' />
           </motion.div>
-          <h3 className='text-2xl font-light bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent'>
+          <h3 className='text-2xl font-light bg-gradient-to-r from-white to-white bg-clip-text text-transparent'>
             {title}
           </h3>
         </motion.div>

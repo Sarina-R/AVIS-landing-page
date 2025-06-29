@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { ModernCardProps } from '@/app/type'
+import { GlowingEffect } from '../ui/glowing-effect'
 
 export const ModernCard: React.FC<ModernCardProps> = ({
   children,
@@ -28,10 +29,6 @@ export const ModernCard: React.FC<ModernCardProps> = ({
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay }}
-      whileHover={{
-        scale: 1.02,
-        y: -8,
-      }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       onMouseMove={handleMouseMove}
@@ -42,6 +39,15 @@ export const ModernCard: React.FC<ModernCardProps> = ({
        ${className}
      `}
     >
+      <GlowingEffect
+        glow
+        blur={20}
+        spread={25}
+        proximity={80}
+        className='z-0'
+        disabled={false}
+        variant='default'
+      />
       <div className='relative z-10'>{children}</div>
 
       {/* Minimal glow effect */}

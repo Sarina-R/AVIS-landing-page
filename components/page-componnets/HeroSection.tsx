@@ -120,9 +120,7 @@ export default function HeroSection() {
             <motion.div
               whileHover={{ rotate: 180, scale: 1.2 }}
               className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
-            >
-              <Sparkles className='w-8 h-8 text-purple-400' />
-            </motion.div>
+            ></motion.div>
           </div>
         </motion.div>
       </div>

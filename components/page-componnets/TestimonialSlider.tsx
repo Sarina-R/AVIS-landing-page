@@ -220,24 +220,24 @@ const InfiniteSlider: React.FC<{
     }
   }, [])
 
-  const handleMouseMove = useCallback(
-    (e: React.MouseEvent) => {
-      if (!isDragging) return
+  // const handleMouseMove = useCallback(
+  //   (e: React.MouseEvent) => {
+  //     if (!isDragging) return
 
-      const deltaX = e.clientX - dragStartRef.current.x
-      setDragOffset(deltaX)
-    },
-    [isDragging]
-  )
+  //     const deltaX = e.clientX - dragStartRef.current.x
+  //     setDragOffset(deltaX)
+  //   },
+  //   [isDragging]
+  // )
 
-  const handleMouseUp = useCallback(() => {
-    if (!isDragging) return
+  // const handleMouseUp = useCallback(() => {
+  //   if (!isDragging) return
 
-    basePositionRef.current += dragOffset
-    setDragOffset(0)
-    setIsDragging(false)
-    setIsPaused(false)
-  }, [isDragging, dragOffset])
+  //   basePositionRef.current += dragOffset
+  //   setDragOffset(0)
+  //   setIsDragging(false)
+  //   setIsPaused(false)
+  // }, [isDragging, dragOffset])
 
   const handleTouchStart = useCallback((e: React.TouchEvent) => {
     setIsDragging(true)

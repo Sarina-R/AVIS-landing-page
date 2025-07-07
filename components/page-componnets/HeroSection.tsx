@@ -12,7 +12,7 @@ export default function HeroSection() {
   const [funMode, setFunMode] = useState(false)
 
   return (
-    <section className='h-screen relative flex items-center justify-center overflow-hidden'>
+    <section className='h-screen relative flex items-center justify-center overflow-hidden bg-background'>
       <motion.div
         style={{ opacity: heroOpacity, scale: heroScale }}
         className='z-20 text-center px-6'
@@ -25,13 +25,13 @@ export default function HeroSection() {
         >
           <div className='flex flex-col items-center'>
             <motion.h1
-              className='text-7xl md:text-8xl font-light text-white mb-4 cursor-pointer'
+              className='text-7xl md:text-8xl font-light text-foreground mb-4 cursor-pointer'
               whileHover={{ scale: 1.05, rotateY: 10 }}
               onClick={() => setFunMode(!funMode)}
               animate={
                 funMode
                   ? {
-                      color: ['#ffffff', '#9333ea', '#3b82f6', '#ffffff'],
+                      color: ['#F5F5F5', '#8B1A25', '#FFD700', '#F5F5F5'],
                       scale: [1, 1.1, 1],
                     }
                   : {}
@@ -44,7 +44,7 @@ export default function HeroSection() {
               <TextParticle
                 text='GROUP'
                 fontSize={100}
-                particleColor='#9333ea'
+                particleColor='#8B1A25'
                 particleSize={2}
                 particleDensity={4}
               />
@@ -56,7 +56,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1 }}
-          className='text-xl md:text-2xl font-light mb-12 max-w-3xl mx-auto text-white/70'
+          className='text-xl md:text-2xl font-light mb-12 max-w-3xl mx-auto text-primary-lighter'
         >
           Where Innovation Meets{' '}
           <HolographicText className='inline'>Infinity</HolographicText>
@@ -74,7 +74,7 @@ export default function HeroSection() {
               animate={{ x: [0, 5, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             >
-              <ArrowRight className='w-4 h-4' />
+              <ArrowRight className='w-4 h-4 text-accent' />
             </motion.div>
           </PlayfulButton>
 
@@ -83,7 +83,7 @@ export default function HeroSection() {
               animate={{ rotate: [0, 360] }}
               transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
             >
-              <Play className='w-4 h-4' />
+              <Play className='w-4 h-4 text-accent' />
             </motion.div>
             Watch Demo
           </PlayfulButton>
@@ -109,7 +109,7 @@ export default function HeroSection() {
                 key={i}
                 className={`absolute inset-${
                   i * 4
-                } rounded-full border border-purple-500/20`}
+                } rounded-full border border-primary-lighter/30`}
                 style={{
                   animation: `spin ${8 + i * 4}s linear infinite ${
                     i % 2 === 0 ? '' : 'reverse'

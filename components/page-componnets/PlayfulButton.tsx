@@ -22,15 +22,15 @@ export const PlayfulButton: React.FC<{
         rotateZ: clicks % 2 === 0 ? -5 : 5,
       }}
       className={`
-       group relative px-8 py-4 rounded-full overflow-hidden shadow-2xl
-       transition-all duration-300 font-medium
-       ${
-         variant === 'primary'
-           ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white'
-           : 'border border-white/30 backdrop-blur-sm hover:bg-white/10'
-       }
-       ${className}
-     `}
+        group relative px-8 py-4 rounded-full overflow-hidden shadow-2xl
+        transition-all duration-300 font-medium
+        ${
+          variant === 'primary'
+            ? 'bg-primary-gradient text-foreground'
+            : 'border border-border backdrop-blur-sm hover:bg-secondary/10'
+        }
+        ${className}
+      `}
     >
       <span className='relative z-10 flex items-center gap-2'>{children}</span>
 
@@ -38,7 +38,7 @@ export const PlayfulButton: React.FC<{
       {clicks > 0 && (
         <motion.div
           key={clicks}
-          className='absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-pink-400/20'
+          className='absolute inset-0 bg-gradient-to-r from-primary-lighter/20 to-accent/20'
           initial={{ scale: 0, opacity: 1 }}
           animate={{ scale: 2, opacity: 0 }}
           transition={{ duration: 0.6 }}
@@ -50,7 +50,7 @@ export const PlayfulButton: React.FC<{
         {Array.from({ length: 8 }).map((_, i) => (
           <motion.div
             key={i}
-            className='absolute w-1 h-1 bg-white rounded-full'
+            className='absolute w-1 h-1 bg-accent rounded-full'
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,

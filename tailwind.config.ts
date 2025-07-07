@@ -14,15 +14,11 @@ export default {
           lighter: '#67121A',
           darker: '#2B0508',
         },
-        accent: '#FFD700',
-        background: '#F5F5F5',
-        foreground: '#1A1A1A',
-        muted: '#D1D5DB',
-        border: '#E5E7EB',
-        'dark-background': '#1A1A1A',
-        'dark-foreground': '#F5F5F5',
-        'dark-muted': '#4B5563',
-        'dark-border': '#374151',
+        accent: '#D14975',
+        background: '#000000',
+        foreground: '#F5F5F5',
+        muted: '#4B5563',
+        border: '#374151',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
@@ -32,10 +28,10 @@ export default {
           'linear-gradient(135deg, #8B1A25, #650d14, #45080E)',
         'secondary-gradient':
           'linear-gradient(135deg, #67121A, #43080d, #2B0508)',
-        'accent-gradient': 'linear-gradient(135deg, #FFD700, #D4AF37)',
+        'accent-gradient': 'linear-gradient(135deg, #D14975, #B03A60)',
       },
     },
   },
   plugins: [],
-  darkMode: 'class', // Enable class-based dark mode
+  darkMode: 'class',
 }

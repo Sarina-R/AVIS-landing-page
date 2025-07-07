@@ -27,63 +27,65 @@ const steps: Step[] = [
     title: 'One-Click Cycle Creation',
     description:
       "Effortlessly create cycles with intelligent templates and automated workflows that adapt to your team's rhythm.",
-    icon: <Plus className='w-4 h-4' />,
-    color: 'from-violet-500 to-purple-600',
-    gradient: 'bg-gradient-to-br from-violet-500/10 to-purple-600/10',
+    icon: <Plus className='w-4 h-4 text-accent' />,
+    color: 'from-primary-lighter to-primary',
+    gradient: 'bg-primary-gradient',
     content: (
       <ModernCard>
         <div className='space-y-6'>
           <div className='flex items-center gap-3 mb-6'>
             <motion.div transition={{ duration: 0.5 }}>
-              <Plus className='w-6 h-6 text-violet-400' />
+              <Plus className='w-6 h-6 text-accent' />
             </motion.div>
-            <h3 className='text-2xl font-light text-white'>Cycle Creation</h3>
+            <h3 className='text-2xl font-light text-foreground'>
+              Cycle Creation
+            </h3>
           </div>
           <div className='flex items-center gap-3 mb-4'>
-            <div className='w-3 h-3 rounded-full bg-red-500 animate-pulse' />
-            <span className='text-white/60 text-sm font-medium'>
+            <div className='w-3 h-3 rounded-full bg-primary animate-pulse' />
+            <span className='text-muted text-sm font-medium'>
               No active cycles
             </span>
           </div>
-          <div className='bg-white/5 rounded-xl p-6 border border-white/10'>
+          <div className='bg-muted/20 rounded-xl p-6 border border-border'>
             <div className='flex items-center justify-between mb-4'>
-              <span className='text-white font-semibold text-lg'>
+              <span className='text-foreground font-semibold text-lg'>
                 New Cycle
               </span>
               <div className='flex items-center gap-2'>
-                <Sparkles className='w-4 h-4 text-violet-400' />
-                <span className='text-white/60 text-sm'>AI-powered naming</span>
+                <Sparkles className='w-4 h-4 text-accent' />
+                <span className='text-muted text-sm'>AI-powered naming</span>
               </div>
             </div>
             <div className='space-y-3'>
               {[
-                { color: 'bg-blue-500', label: 'Backlog', count: 12 },
-                { color: 'bg-amber-500', label: 'In Progress', count: 5 },
-                { color: 'bg-emerald-500', label: 'Done', count: 23 },
+                { color: 'bg-primary', label: 'Backlog', count: 12 },
+                { color: 'bg-secondary', label: 'In Progress', count: 5 },
+                { color: 'bg-accent', label: 'Done', count: 23 },
               ].map((status, i) => (
                 <motion.div
                   key={i}
-                  className='flex items-center gap-3 p-2 rounded-lg hover:bg-white/10 transition-colors'
+                  className='flex items-center gap-3 p-2 rounded-lg hover:bg-muted/30 transition-colors'
                   whileHover={{ scale: 1.02 }}
                 >
                   <div
                     className={`w-3 h-3 rounded-full ${status.color} shadow-lg`}
                   />
-                  <span className='text-white/80 text-sm font-medium flex-1'>
+                  <span className='text-foreground text-sm font-medium flex-1'>
                     {status.label}
                   </span>
-                  <span className='text-white/60 text-xs'>{status.count}</span>
+                  <span className='text-muted text-xs'>{status.count}</span>
                 </motion.div>
               ))}
             </div>
           </div>
           <motion.button
-            className='w-full bg-gradient-to-r from-violet-600 to-purple-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg'
+            className='w-full bg-primary-gradient text-foreground px-6 py-3 rounded-xl font-semibold shadow-lg'
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <div className='flex items-center justify-center gap-2'>
-              <Zap className='w-4 h-4' />
+              <Zap className='w-4 h-4 text-accent' />
               Create Cycle
             </div>
           </motion.button>
@@ -96,43 +98,43 @@ const steps: Step[] = [
     title: 'Intelligent Progress Insights',
     description:
       'Real-time analytics and predictive insights that help you understand team velocity and identify bottlenecks before they impact delivery.',
-    icon: <BarChart3 className='w-4 h-4' />,
-    color: 'from-cyan-500 to-blue-600',
-    gradient: 'bg-gradient-to-br from-cyan-500/10 to-blue-600/10',
+    icon: <BarChart3 className='w-4 h-4 text-accent' />,
+    color: 'from-primary to-primary-darker',
+    gradient: 'bg-primary-gradient',
     content: (
       <ModernCard>
         <div className='space-y-6'>
           <div className='flex items-center gap-3 mb-6'>
             <motion.div transition={{ duration: 0.5 }}>
-              <BarChart3 className='w-6 h-6 text-cyan-400' />
+              <BarChart3 className='w-6 h-6 text-accent' />
             </motion.div>
-            <h3 className='text-2xl font-light text-white'>
+            <h3 className='text-2xl font-light text-foreground'>
               Progress Insights
             </h3>
           </div>
           <div className='flex justify-between items-start mb-4'>
             <div className='space-y-2'>
               <div className='flex items-center gap-2'>
-                <Activity className='w-5 h-5 text-cyan-400' />
-                <span className='text-white font-semibold text-lg'>
+                <Activity className='w-5 h-5 text-accent' />
+                <span className='text-foreground font-semibold text-lg'>
                   Progress Overview
                 </span>
               </div>
-              <div className='text-white/60 text-sm'>
-                32/45 issues completed
-              </div>
+              <div className='text-muted text-sm'>32/45 issues completed</div>
             </div>
             <div className='text-right'>
-              <div className='text-white font-semibold text-lg'>Velocity</div>
-              <div className='w-20 h-12 bg-white/5 rounded-lg flex items-end justify-center p-2 border border-white/10'>
-                <div className='w-full h-full bg-gradient-to-t from-cyan-600 to-blue-500 rounded opacity-80' />
+              <div className='text-foreground font-semibold text-lg'>
+                Velocity
+              </div>
+              <div className='w-20 h-12 bg-muted/20 rounded-lg flex items-end justify-center p-2 border border-border'>
+                <div className='w-full h-full bg-primary-gradient rounded opacity-80' />
               </div>
             </div>
           </div>
           <div className='relative mb-6'>
-            <div className='w-full bg-white/10 rounded-full h-3 overflow-hidden'>
+            <div className='w-full bg-muted/20 rounded-full h-3 overflow-hidden'>
               <motion.div
-                className='bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 h-full rounded-full'
+                className='bg-primary-gradient h-full rounded-full'
                 initial={{ width: '0%' }}
                 animate={{ width: '71%' }}
                 transition={{ duration: 1 }}
@@ -143,7 +145,7 @@ const steps: Step[] = [
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ repeat: Infinity, duration: 1.5 }}
             >
-              <div className='w-5 h-5 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full border-2 border-neutral-900' />
+              <div className='w-5 h-5 bg-accent rounded-full border-2 border-background' />
             </motion.div>
           </div>
           <div className='grid grid-cols-2 gap-4'>
@@ -151,45 +153,43 @@ const steps: Step[] = [
               {
                 status: 'Completed',
                 count: 32,
-                color: 'bg-emerald-500',
+                color: 'bg-accent',
                 percentage: 71,
               },
               {
                 status: 'In Progress',
                 count: 8,
-                color: 'bg-amber-500',
+                color: 'bg-secondary',
                 percentage: 18,
               },
               {
                 status: 'Blocked',
                 count: 3,
-                color: 'bg-red-500',
+                color: 'bg-primary',
                 percentage: 7,
               },
               {
                 status: 'Backlog',
                 count: 2,
-                color: 'bg-neutral-500',
+                color: 'bg-muted',
                 percentage: 4,
               },
             ].map((item, i) => (
               <motion.div
                 key={i}
-                className='flex items-center gap-3 p-3 rounded-lg bg-white/5 border border-white/10'
+                className='flex items-center gap-3 p-3 rounded-lg bg-muted/20 border border-border'
                 whileHover={{ scale: 1.02 }}
               >
                 <div
                   className={`w-3 h-3 rounded-full ${item.color} shadow-lg`}
                 />
                 <div className='flex-1'>
-                  <div className='text-white/80 text-sm font-medium'>
+                  <div className='text-foreground text-sm font-medium'>
                     {item.status}
                   </div>
-                  <div className='text-white/60 text-xs'>
-                    {item.count} issues
-                  </div>
+                  <div className='text-muted text-xs'>{item.count} issues</div>
                 </div>
-                <div className='text-white text-sm font-semibold'>
+                <div className='text-foreground text-sm font-semibold'>
                   {item.percentage}%
                 </div>
               </motion.div>
@@ -204,27 +204,29 @@ const steps: Step[] = [
     title: 'Seamless Issue Migration',
     description:
       'Smart issue transfer with context preservation and automated dependency mapping across cycles.',
-    icon: <ArrowRight className='w-4 h-4' />,
-    color: 'from-emerald-500 to-teal-600',
-    gradient: 'bg-gradient-to-br from-emerald-500/10 to-teal-600/10',
+    icon: <ArrowRight className='w-4 h-4 text-accent' />,
+    color: 'from-secondary to-secondary-darker',
+    gradient: 'bg-secondary-gradient',
     content: (
       <ModernCard>
         <div className='space-y-6'>
           <div className='flex items-center gap-3 mb-6'>
             <motion.div transition={{ duration: 0.5 }}>
-              <ArrowRight className='w-4 h-4 text-emerald-400' />
+              <ArrowRight className='w-4 h-4 text-accent' />
             </motion.div>
-            <h3 className='text-2xl font-light text-white'>Issue Migration</h3>
+            <h3 className='text-2xl font-light text-foreground'>
+              Issue Migration
+            </h3>
           </div>
           <div className='flex items-center justify-between mb-6'>
             <div className='flex items-center gap-3'>
-              <Target className='w-5 h-5 text-emerald-400' />
-              <span className='text-white/60 text-sm font-medium'>
+              <Target className='w-5 h-5 text-accent' />
+              <span className='text-muted text-sm font-medium'>
                 Cycle completed - 5 issues remaining
               </span>
             </div>
             <motion.button
-              className='bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-4 py-2 rounded-lg text-sm font-semibold'
+              className='bg-secondary text-foreground px-4 py-2 rounded-lg text-sm font-semibold'
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -234,11 +236,11 @@ const steps: Step[] = [
           <div className='grid grid-cols-2 gap-6'>
             <div className='space-y-4'>
               <div className='flex items-center gap-2 mb-3'>
-                <span className='text-white/80 text-sm font-semibold'>
+                <span className='text-foreground text-sm font-semibold'>
                   Pending Issues
                 </span>
-                <div className='w-4 h-4 bg-amber-500/20 rounded-full flex items-center justify-center'>
-                  <span className='text-amber-400 text-xs font-bold'>5</span>
+                <div className='w-4 h-4 bg-primary/20 rounded-full flex items-center justify-center'>
+                  <span className='text-accent text-xs font-bold'>5</span>
                 </div>
               </div>
               {[
@@ -248,44 +250,44 @@ const steps: Step[] = [
               ].map((issue, i) => (
                 <motion.div
                   key={i}
-                  className='bg-white/5 rounded-xl p-4 border border-white/10'
+                  className='bg-muted/20 rounded-xl p-4 border border-border'
                   whileHover={{ scale: 1.02 }}
                 >
-                  <div className='text-white text-sm font-medium mb-2'>
+                  <div className='text-foreground text-sm font-medium mb-2'>
                     {issue.title}
                   </div>
                   <div className='flex items-center gap-2'>
                     <div
                       className={`w-3 h-3 rounded-full ${
                         issue.priority === 'high'
-                          ? 'bg-red-500'
+                          ? 'bg-primary'
                           : issue.priority === 'medium'
-                          ? 'bg-amber-500'
-                          : 'bg-emerald-500'
+                          ? 'bg-secondary'
+                          : 'bg-accent'
                       }`}
                     />
-                    <span className='text-white/60 text-xs'>{issue.team}</span>
+                    <span className='text-muted text-xs'>{issue.team}</span>
                   </div>
                 </motion.div>
               ))}
             </div>
             <div className='space-y-4'>
               <div className='flex items-center gap-2 mb-3'>
-                <span className='text-white/80 text-sm font-semibold'>
+                <span className='text-foreground text-sm font-semibold'>
                   Next Cycle
                 </span>
-                <div className='w-4 h-4 bg-emerald-500/20 rounded-full flex items-center justify-center'>
-                  <span className='text-emerald-400 text-xs font-bold'>12</span>
+                <div className='w-4 h-4 bg-accent/20 rounded-full flex items-center justify-center'>
+                  <span className='text-accent text-xs font-bold'>12</span>
                 </div>
               </div>
               <motion.div
-                className='bg-white/5 rounded-xl p-4 border-2 border-dashed border-emerald-500/30 text-center'
+                className='bg-muted/20 rounded-xl p-4 border-2 border-dashed border-accent/30 text-center'
                 whileHover={{ scale: 1.02 }}
               >
-                <div className='text-emerald-400 text-sm font-medium mb-2'>
+                <div className='text-accent text-sm font-medium mb-2'>
                   Auto-Transfer Zone
                 </div>
-                <div className='text-white/60 text-xs'>
+                <div className='text-muted text-xs'>
                   Issues will be intelligently categorized and prioritized
                 </div>
               </motion.div>
@@ -300,42 +302,44 @@ const steps: Step[] = [
     title: 'Predictive Planning',
     description:
       'AI-powered forecasting and historical pattern analysis to optimize future cycles and resource allocation.',
-    icon: <TrendingUp className='w-4 h-4' />,
-    color: 'from-purple-500 to-violet-600',
-    gradient: 'bg-gradient-to-br from-purple-500/10 to-violet-600/10',
+    icon: <TrendingUp className='w-4 h-4 text-accent' />,
+    color: 'from-secondary-lighter to-secondary',
+    gradient: 'bg-secondary-gradient',
     content: (
       <ModernCard>
         <div className='space-y-6'>
           <div className='flex items-center gap-3 mb-6'>
             <motion.div transition={{ duration: 0.5 }}>
-              <TrendingUp className='w-4 h-4 text-purple-400' />
+              <TrendingUp className='w-4 h-4 text-accent' />
             </motion.div>
-            <h3 className='text-2xl font-light text-white'>
+            <h3 className='text-2xl font-light text-foreground'>
               Predictive Planning
             </h3>
           </div>
           <div className='flex justify-between items-start mb-4'>
             <div className='space-y-2'>
               <div className='flex items-center gap-2'>
-                <TrendingUp className='w-5 h-5 text-purple-400' />
-                <span className='text-white font-semibold text-lg'>
+                <TrendingUp className='w-5 h-5 text-accent' />
+                <span className='text-foreground font-semibold text-lg'>
                   Cycle Analytics
                 </span>
               </div>
-              <div className='text-white/60 text-sm'>
+              <div className='text-muted text-sm'>
                 Historical performance & predictions
               </div>
             </div>
             <div className='text-right'>
-              <div className='text-white font-semibold text-lg'>Forecast</div>
-              <div className='w-20 h-12 bg-white/5 rounded-lg flex items-end justify-center p-2 border border-white/10'>
-                <div className='w-full h-full bg-gradient-to-t from-purple-600 to-violet-500 rounded opacity-80' />
+              <div className='text-foreground font-semibold text-lg'>
+                Forecast
+              </div>
+              <div className='w-20 h-12 bg-muted/20 rounded-lg flex items-end justify-center p-2 border border-border'>
+                <div className='w-full h-full bg-secondary-gradient rounded opacity-80' />
               </div>
             </div>
           </div>
           <div className='grid grid-cols-2 gap-6 mb-6'>
             <div className='space-y-3'>
-              <div className='text-white/80 text-sm font-semibold'>
+              <div className='text-foreground text-sm font-semibold'>
                 Performance Metrics
               </div>
               {[
@@ -345,19 +349,19 @@ const steps: Step[] = [
               ].map((metric, i) => (
                 <motion.div
                   key={i}
-                  className='flex items-center justify-between p-3 rounded-lg bg-white/5 border border-white/10'
+                  className='flex items-center justify-between p-3 rounded-lg bg-muted/20 border border-border'
                   whileHover={{ scale: 1.02 }}
                 >
-                  <span className='text-white/80 text-sm'>{metric.label}</span>
+                  <span className='text-foreground text-sm'>
+                    {metric.label}
+                  </span>
                   <div className='flex items-center gap-2'>
-                    <span className='text-white font-semibold text-sm'>
+                    <span className='text-foreground text-sm font-semibold'>
                       {metric.value}
                     </span>
                     <div
                       className={`w-2 h-2 rounded-full ${
-                        metric.trend === 'up'
-                          ? 'bg-emerald-500'
-                          : 'bg-amber-500'
+                        metric.trend === 'up' ? 'bg-accent' : 'bg-secondary'
                       }`}
                     />
                   </div>
@@ -365,7 +369,7 @@ const steps: Step[] = [
               ))}
             </div>
             <div className='space-y-3'>
-              <div className='text-white/80 text-sm font-semibold'>
+              <div className='text-foreground text-sm font-semibold'>
                 Upcoming Cycles
               </div>
               {[
@@ -374,19 +378,19 @@ const steps: Step[] = [
               ].map((cycle, i) => (
                 <motion.div
                   key={i}
-                  className='p-3 rounded-lg bg-white/5 border border-white/10'
+                  className='p-3 rounded-lg bg-muted/20 border border-border'
                   whileHover={{ scale: 1.02 }}
                 >
-                  <div className='text-white/80 text-sm font-medium'>
+                  <div className='text-foreground text-sm font-medium'>
                     {cycle.period}
                   </div>
                   <div className='flex items-center gap-2 mt-1'>
                     <div
                       className={`w-2 h-2 rounded-full ${
-                        cycle.risk === 'low' ? 'bg-emerald-500' : 'bg-amber-500'
+                        cycle.risk === 'low' ? 'bg-accent' : 'bg-secondary'
                       }`}
                     />
-                    <span className='text-white/60 text-xs'>
+                    <span className='text-muted text-xs'>
                       {cycle.capacity} capacity
                     </span>
                   </div>
@@ -395,13 +399,13 @@ const steps: Step[] = [
             </div>
           </div>
           <motion.div
-            className='bg-gradient-to-r from-purple-500/10 to-violet-500/10 rounded-xl p-4 border border-purple-500/20'
+            className='bg-secondary-gradient rounded-xl p-4 border border-accent/20'
             whileHover={{ scale: 1.02 }}
           >
-            <div className='text-purple-400 text-sm font-semibold mb-2'>
+            <div className='text-accent text-sm font-semibold mb-2'>
               AI Recommendation
             </div>
-            <div className='text-white/80 text-sm'>
+            <div className='text-foreground text-sm'>
               Based on historical data, consider adding 2 buffer days to the
               next cycle for optimal delivery confidence.
             </div>

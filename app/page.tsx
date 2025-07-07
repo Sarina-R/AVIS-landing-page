@@ -15,7 +15,6 @@ import HeroSection from '@/components/page-componnets/HeroSection'
 import SliderComponent from '@/components/page-componnets/SliderComponent'
 import FloatingStuff from '@/components/page-componnets/FloatingStuff'
 import TestimonialSlider from '@/components/page-componnets/TestimonialSlider'
-import StepGuideComponent from '@/components/page-componnets/StepGuideComponent '
 
 export default function AvisLandingPage() {
   useEffect(() => {

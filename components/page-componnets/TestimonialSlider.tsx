@@ -325,8 +325,8 @@ const TestimonialSlider: React.FC = () => {
           What Our Customers Say
         </h1>
         <p className='text-lg sm:text-xl md:text-2xl text-gray-300 font-light max-w-3xl mx-auto'>
-          Discover why developers and teams love our platform's simplicity and
-          power
+          Discover why developers and teams love our platform&lsquo;s simplicity
+          and power
         </p>
       </div>
       <div className='space-y-12'>

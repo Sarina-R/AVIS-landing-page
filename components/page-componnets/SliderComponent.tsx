@@ -56,9 +56,9 @@ export default function SliderComponent() {
 
           {/* Subtitle */}
           <p className='text-sm sm:text-base lg:text-sm text-white/70 mb-8 sm:mb-12 lg:mb-16 max-w-4xl lg:max-w-3xl leading-relaxed'>
-            Plane is project + knowledge management software that's a force
-            multiplier for your existing workflows, methodologies, and best
-            practices.
+            Plane is project + knowledge management software that&lsquo;s a
+            force multiplier for your existing workflows, methodologies, and
+            best practices.
           </p>
 
           {/* Mobile Slider */}

@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { TextParticle } from './TextParticle'
 import { HolographicText } from '../HolographicText'
 import { PlayfulButton } from './PlayfulButton'
-import { ArrowRight, Play, Sparkles } from 'lucide-react'
+import { ArrowRight, Play } from 'lucide-react'
 
 export default function HeroSection() {
   const { scrollYProgress } = useScroll()

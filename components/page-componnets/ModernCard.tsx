@@ -33,11 +33,12 @@ export const ModernCard: React.FC<ModernCardProps> = ({
       onHoverEnd={() => setIsHovered(false)}
       onMouseMove={handleMouseMove}
       className={`
-       relative backdrop-blur-xl bg-gradient-to-br from-white/5 via-purple-500/5 to-blue-500/5
-       border border-white/10 rounded-2xl p-8 overflow-hidden group cursor-pointer
-       shadow-lg hover:shadow-2xl transition-all duration-500
-       ${className}
-     `}
+        relative backdrop-blur-xl bg-primary-gradient
+        border border-border rounded-2xl p-8 overflow-hidden group cursor-pointer
+        shadow-lg hover:shadow-2xl transition-all duration-500
+        dark:bg-primary-gradient dark:border-dark-border
+        ${className}
+      `}
     >
       <GlowingEffect
         glow
@@ -54,16 +55,16 @@ export const ModernCard: React.FC<ModernCardProps> = ({
       <motion.div
         className='absolute inset-0 rounded-2xl opacity-0'
         style={{
-          background: `radial-gradient(300px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(147,51,234,0.1), transparent 40%)`,
+          background: `radial-gradient(300px circle at ${mousePosition.x}px ${mousePosition.y}px, #8B1A25, transparent 40%)`,
         }}
-        animate={{ opacity: isHovered ? 1 : 0 }}
+        animate={{ opacity: isHovered ? 0.3 : 0 }}
         transition={{ duration: 0.3 }}
       />
 
       {/* Subtle border highlight */}
       <motion.div
-        className='absolute inset-0 rounded-2xl border border-white/20 opacity-0'
-        animate={{ opacity: isHovered ? 1 : 0 }}
+        className='absolute inset-0 rounded-2xl border border-primary-lighter opacity-0 dark:border-primary-lighter'
+        animate={{ opacity: isHovered ? 0.5 : 0 }}
         transition={{ duration: 0.3 }}
       />
 
@@ -78,7 +79,7 @@ export const ModernCard: React.FC<ModernCardProps> = ({
           {Array.from({ length: 6 }).map((_, i) => (
             <motion.div
               key={i}
-              className='absolute w-1 h-1 bg-purple-400 rounded-full'
+              className='absolute w-1 h-1 bg-accent rounded-full'
               style={{
                 left: `${mousePosition.x + (Math.random() - 0.5) * 100}px`,
                 top: `${mousePosition.y + (Math.random() - 0.5) * 100}px`,

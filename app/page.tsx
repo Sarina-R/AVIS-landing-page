@@ -48,15 +48,15 @@ export default function AvisLandingPage() {
 
       <Navigation />
       <HeroSection />
-      <StepGuideComponent />
-      <FloatingStuff />
-      <TestimonialSlider />
+      {/* <StepGuideComponent /> */}
       <SliderComponent />
+      <FloatingStuff />
       <AboutSection />
       <AvisTripleCore />
       <MissionVision />
       <ServicesSection />
       <VisionSection />
+      <TestimonialSlider />
       <StatsSection />
       <Footer />
     </div>

@@ -25,7 +25,7 @@ export default function HeroSection() {
         >
           <div className='flex flex-col items-center'>
             <motion.h1
-              className='text-7xl md:text-8xl font-light text-foreground mb-4 cursor-pointer'
+              className='text-4xl md:text-7xl max-w-3xl font-light text-foreground mb-4 cursor-pointer'
               whileHover={{ scale: 1.05, rotateY: 10 }}
               onClick={() => setFunMode(!funMode)}
               animate={
@@ -38,11 +38,11 @@ export default function HeroSection() {
               }
               transition={{ duration: 2, repeat: funMode ? Infinity : 0 }}
             >
-              AVIS
+              Fast and robust simulator for intelligent systems|
             </motion.h1>
             <div className='h-24 md:h-32 w-full max-w-4xl mx-auto'>
               <TextParticle
-                text='GROUP'
+                text='AVIS'
                 fontSize={100}
                 particleColor='#8B1A25'
                 particleSize={2}
@@ -58,8 +58,8 @@ export default function HeroSection() {
           transition={{ duration: 1, delay: 1 }}
           className='text-xl md:text-2xl font-light mb-12 max-w-3xl mx-auto text-primary-lighter'
         >
-          Where Innovation Meets{' '}
-          <HolographicText className='inline'>Infinity</HolographicText>
+          Built by experts for {''}
+          <HolographicText className='inline'>Everyone</HolographicText>
         </motion.p>
 
         <motion.div
@@ -68,16 +68,6 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 1.5 }}
           className='flex flex-col sm:flex-row gap-6 justify-center items-center'
         >
-          <PlayfulButton>
-            Explore Universe
-            <motion.div
-              animate={{ x: [0, 5, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            >
-              <ArrowRight className='w-4 h-4 text-accent' />
-            </motion.div>
-          </PlayfulButton>
-
           <PlayfulButton variant='secondary'>
             <motion.div
               animate={{ rotate: [0, 360] }}
@@ -85,7 +75,7 @@ export default function HeroSection() {
             >
               <Play className='w-4 h-4 text-accent' />
             </motion.div>
-            Watch Demo
+            Discover AVIS Engine
           </PlayfulButton>
         </motion.div>
       </motion.div>

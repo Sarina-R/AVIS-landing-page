@@ -4,19 +4,25 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 
 const services = [
   {
-    title: 'Adaptable and simple',
+    title: 'Get AVIS Engine',
     description:
-      'Unlike opinionated, purpose-built, or legacy project management software, Plane helps you along your unique paths to progress. Instead of asking you to adapt to the software, Plane adapts to how you work best.',
+      'You can easily download and install the AVIS Engine Software. Older versions are available on our GitHub repository.',
+    buttonText: 'Download',
+    buttonLink: '#download',
   },
   {
-    title: 'Secure and reliable',
+    title: 'Get API',
     description:
-      'Built with enterprise-grade security and modern infrastructure, Plane ensures your data is safe and accessible anytime, anywhere.',
+      'You can easily download and install the AVIS Engine Software. All versions are available on our GitHub repository.',
+    buttonText: 'On Github',
+    buttonLink: 'https://github.com/AvisEngine/AVIS-Engine-Python-API',
   },
   {
     title: 'Cloud + self-hosted',
     description:
-      'Similar to popular alternatives, Plane is available on our cloud powered by AWS. Dissimilar from those alternatives, Plane is available to install on your infra within outright controls that work for your company and industry.',
+      'Browse and explore the docs to learn more about the software and API.',
+    buttonText: 'Explore Docs',
+    buttonLink: 'https://docs.avisengine.com/',
   },
 ]
 
@@ -34,7 +40,7 @@ export default function SliderComponent() {
           {/* Header Section */}
           <div className='flex flex-col lg:flex-row lg:justify-between lg:items-start mb-8 sm:mb-12 lg:mb-16'>
             <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 lg:mb-0 tracking-tight'>
-              Why Plane
+              So, how to get started?
             </h2>
             <div className='flex gap-3 sm:gap-4'>
               <button
@@ -54,13 +60,6 @@ export default function SliderComponent() {
             </div>
           </div>
 
-          {/* Subtitle */}
-          <p className='text-sm sm:text-base lg:text-sm text-white/70 mb-8 sm:mb-12 lg:mb-16 max-w-4xl lg:max-w-3xl leading-relaxed'>
-            Plane is project + knowledge management software that&lsquo;s a
-            force multiplier for your existing workflows, methodologies, and
-            best practices.
-          </p>
-
           {/* Mobile Slider */}
           <div className='block lg:hidden'>
             <div className='relative bg-gradient-to-b from-[#2F2F36] to-[#29292D] rounded-2xl sm:rounded-3xl p-6 sm:p-8 min-h-[280px] sm:min-h-[320px] flex items-center justify-center border border-white/10'>
@@ -79,9 +78,15 @@ export default function SliderComponent() {
                   <h3 className='text-xl sm:text-2xl font-semibold mb-4 tracking-tight leading-tight'>
                     {services[index].title}
                   </h3>
-                  <p className='text-sm sm:text-base text-white/70 leading-relaxed'>
+                  <p className='text-sm sm:text-base text-white/70 leading-relaxed mb-6'>
                     {services[index].description}
                   </p>
+                  <a
+                    href={services[index].buttonLink}
+                    className='inline-block bg-white text-black font-semibold py-2 px-4 rounded-full shadow-[0_0_0_2px_black] hover:bg-gray-200 transition-colors duration-300'
+                  >
+                    {services[index].buttonText}
+                  </a>
                 </motion.div>
               </AnimatePresence>
             </div>
@@ -145,9 +150,15 @@ export default function SliderComponent() {
                           <h3 className='text-4xl font-semibold mb-4 tracking-tight leading-snug'>
                             {service.title}
                           </h3>
-                          <p className='text-sm text-white/70 leading-relaxed'>
+                          <p className='text-sm text-white/70 leading-relaxed mb-6'>
                             {service.description}
                           </p>
+                          <a
+                            href={service.buttonLink}
+                            className='inline-block bg-white text-black font-semibold py-2 px-4 rounded-full shadow-[0_0_0_2px_black] hover:bg-gray-200 transition-colors duration-300'
+                          >
+                            {service.buttonText}
+                          </a>
                         </div>
                       </motion.div>
                     </AnimatePresence>

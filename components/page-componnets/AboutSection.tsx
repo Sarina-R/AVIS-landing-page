@@ -34,7 +34,7 @@ export default function AboutSection() {
             <div className='space-y-6'>
               <div className='flex items-center gap-3 mb-6'>
                 <motion.div transition={{ duration: 0.5 }}>
-                  <Zap className='w-6 h-6 text-purple-400' />
+                  <Zap className='w-6 h-6 text-primary' />
                 </motion.div>
                 <h3 className='text-2xl font-light'>Innovation DNA</h3>
               </div>
@@ -46,15 +46,13 @@ export default function AboutSection() {
               </p>
               <div className='grid grid-cols-2 gap-4 pt-6'>
                 <motion.div className='text-center p-4 rounded-xl bg-white/5 border border-white/10 cursor-pointer'>
-                  <div className='text-3xl font-thin mb-2 text-purple-400'>
-                    ∞
-                  </div>
+                  <div className='text-3xl font-thin mb-2 text-primary'>∞</div>
                   <div className='text-sm text-white/60'>
                     Infinite Possibilities
                   </div>
                 </motion.div>
                 <motion.div className='text-center p-4 rounded-xl bg-white/5 border border-white/10 cursor-pointer'>
-                  <div className='text-3xl font-thin mb-2 text-blue-400'>◊</div>
+                  <div className='text-3xl font-thin mb-2 text-accent'>◊</div>
                   <div className='text-sm text-white/60'>Precision Craft</div>
                 </motion.div>
               </div>
@@ -62,7 +60,7 @@ export default function AboutSection() {
           </ModernCard>
 
           <Waves
-            lineColor='color-mix(in oklab, oklch(71.4% 0.203 305.504) 50%, transparent)'
+            lineColor='#650d14'
             backgroundColor='black'
             waveSpeedX={0.02}
             waveSpeedY={0.01}

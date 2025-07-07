@@ -38,7 +38,7 @@ export default function Footer() {
             viewport={{ once: true }}
             whileHover={{
               scale: 1.05,
-              boxShadow: '0 0 20px rgba(139, 26, 37, 0.5)',
+              // boxShadow: '0 0 20px rgba(209, 73, 117, 0.5)',
             }}
             transition={{ duration: 0.5 }}
             className='text-2xl font-thin mb-4 md:mb-0 cursor-pointer'

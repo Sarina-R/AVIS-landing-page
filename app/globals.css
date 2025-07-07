@@ -57,15 +57,15 @@
   --accent-foreground: #1a1a1a;
   --background: #000000;
   --foreground: #f5f5f5;
-  --muted: #4b5563;
-  --muted-foreground: #9ca3af;
-  --border: #374151;
-  --input: #374151;
-  --ring: #6b7280;
+  --muted: #d6bbbb;
+  --muted-foreground: #b4b4b4;
+  --border: #4f4f4f;
+  --input: #484848;
+  --ring: #7b7b7b;
   --destructive: #ef4444;
-  --popover: #1f2937;
+  --popover: #393939;
   --popover-foreground: #f5f5f5;
-  --card: #1f2937;
+  --card: #353535;
   --card-foreground: #f5f5f5;
 }
 

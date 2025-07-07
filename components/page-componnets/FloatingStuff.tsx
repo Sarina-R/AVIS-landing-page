@@ -103,7 +103,7 @@ export default function FloatingStuff() {
   ]
 
   return (
-    <div className='relative min-h-screen bg-black text-white overflow-hidden'>
+    <div className='relative min-h-screen overflow-hidden'>
       {features.map((feature, index) => (
         <div
           key={index}
@@ -115,7 +115,7 @@ export default function FloatingStuff() {
           }}
         >
           <div className='flex items-center gap-2 bg-gray-800/90 backdrop-blur-sm rounded-lg px-3 py-2 shadow-lg border border-gray-700/50 hover:bg-gray-700/90 transition-colors'>
-            <div className='w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center flex-shrink-0'>
+            <div className='w-8 h-8 bg-primary rounded-lg flex items-center justify-center flex-shrink-0'>
               <feature.icon className='w-4 h-4 text-white' />
             </div>
             <span className='text-sm font-medium whitespace-pre-line text-gray-200'>

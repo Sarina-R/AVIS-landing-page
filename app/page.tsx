@@ -15,6 +15,7 @@ import HeroSection from '@/components/page-componnets/HeroSection'
 import SliderComponent from '@/components/page-componnets/SliderComponent'
 import FloatingStuff from '@/components/page-componnets/FloatingStuff'
 import TestimonialSlider from '@/components/page-componnets/TestimonialSlider'
+import ProductsComponent from '@/components/page-componnets/Products'
 
 export default function AvisLandingPage() {
   useEffect(() => {
@@ -48,10 +49,11 @@ export default function AvisLandingPage() {
       <Navigation />
       <HeroSection />
       {/* <StepGuideComponent /> */}
-      <SliderComponent />
       <FloatingStuff />
+      <ProductsComponent />
+      <SliderComponent />
       <AboutSection />
-      <AvisTripleCore />
+      {/* <AvisTripleCore /> */}
       <MissionVision />
       <ServicesSection />
       <VisionSection />

@@ -12,31 +12,44 @@ import {
   Grid3x3,
   Lock,
   Archive,
+  LucideIcon,
 } from 'lucide-react'
 
+interface Feature {
+  text: string
+  position: string
+  style: React.CSSProperties
+  image?: string
+  icon?: LucideIcon
+}
+
 export default function FloatingStuff() {
-  const features = [
+  const features: Feature[] = [
     {
-      icon: Cloud,
-      text: 'AWS hosted',
+      image:
+        'https://avisengine.com/wp-content/uploads/2023/05/amd-logo-1.svg.png',
+      text: 'AMD',
       position: 'top-left',
       style: { top: '8%', left: '18%' },
     },
     {
-      icon: RefreshCw,
-      text: '99.99% available',
+      image:
+        'https://avisengine.com/wp-content/uploads/2024/02/stanford-university-logo-83501A80B4-seeklogo.com_.png',
+      text: 'Stanford University',
       position: 'top-center',
       style: { top: '12%', left: '45%' },
     },
     {
-      icon: Settings,
-      text: 'Microservices architecture',
+      image:
+        'https://avisengine.com/wp-content/uploads/2024/02/ubc_3-300x125.png',
+      text: 'UBC',
       position: 'top-right',
       style: { top: '8%', right: '15%' },
     },
     {
-      icon: Grid3x3,
-      text: 'Scalable to over\n10,000 concurrent users',
+      image:
+        'https://avisengine.com/wp-content/uploads/2024/02/GeorgiaTech_RGB-300x106.png',
+      text: 'Georgia Tech',
       position: 'mid-left',
       style: { top: '25%', left: '10%' },
     },
@@ -44,7 +57,7 @@ export default function FloatingStuff() {
       icon: Users,
       text: 'Region-locked for compliance',
       position: 'mid-right',
-      style: { top: '30%', right: '12%' },
+      style: { top: '20%', right: '12%' },
     },
     {
       icon: Shield,
@@ -56,7 +69,7 @@ export default function FloatingStuff() {
       icon: Infinity,
       text: 'Performant for\nunlimited issues and projects',
       position: 'right',
-      style: { top: '40%', right: '8%' },
+      style: { top: '32%', right: '8%' },
     },
     {
       icon: Container,
@@ -68,7 +81,7 @@ export default function FloatingStuff() {
       icon: Bell,
       text: 'Popular Linux-compatible',
       position: 'bottom-right',
-      style: { bottom: '0%', right: '18%' },
+      style: { bottom: '30%', right: '18%' },
     },
     {
       icon: Database,
@@ -80,7 +93,7 @@ export default function FloatingStuff() {
       icon: Archive,
       text: '99.9% feature parity\nwith our Cloud',
       position: 'bottom-right-2',
-      style: { bottom: '18%', right: '25%' },
+      style: { bottom: '20%', right: '10%' },
     },
     {
       icon: Grid3x3,
@@ -98,43 +111,51 @@ export default function FloatingStuff() {
       icon: Archive,
       text: 'Available on\npopular marketplaces',
       position: 'bottom-right-3',
-      style: { bottom: '8%', right: '15%' },
+      style: { bottom: '8%', right: '2%' },
     },
   ]
 
   return (
     <div className='relative min-h-screen overflow-hidden'>
-      {features.map((feature, index) => (
-        <div
-          key={index}
-          className='absolute z-10 hidden md:block'
-          style={{
-            ...feature.style,
-            animation: `float ${3 + (index % 3)}s ease-in-out infinite`,
-            animationDelay: `${index * 0.2}s`,
-          }}
-        >
-          <div className='flex items-center gap-2 bg-gray-800/90 backdrop-blur-sm rounded-lg px-3 py-2 shadow-lg border border-gray-700/50 hover:bg-gray-700/90 transition-colors'>
-            <div className='w-8 h-8 bg-primary rounded-lg flex items-center justify-center flex-shrink-0'>
-              <feature.icon className='w-4 h-4 text-white' />
+      {features.map((feature, index) => {
+        const Icon = feature.icon
+        return (
+          <div
+            key={index}
+            className='absolute z-10 hidden md:block'
+            style={{
+              ...feature.style,
+              animation: `float ${3 + (index % 3)}s ease-in-out infinite`,
+              animationDelay: `${index * 0.2}s`,
+            }}
+          >
+            <div className='flex items-center gap-2 bg-primary/15 backdrop-blur-sm rounded-lg px-3 py-2 shadow-lg border border-white/20 hover:bg-primary/15 transition-colors'>
+              {feature.image ? (
+                <img
+                  src={feature.image}
+                  alt={feature.text}
+                  className='w-8 h-8 object-contain flex-shrink-0'
+                />
+              ) : Icon ? (
+                <div className='w-8 h-8 bg-primary rounded-lg flex items-center justify-center flex-shrink-0'>
+                  <Icon className='w-4 h-4 text-white' />
+                </div>
+              ) : null}
+              <span className='text-sm font-medium whitespace-pre-line text-gray-200'>
+                {feature.text}
+              </span>
             </div>
-            <span className='text-sm font-medium whitespace-pre-line text-gray-200'>
-              {feature.text}
-            </span>
           </div>
-        </div>
-      ))}
+        )
+      })}
 
       <div className='relative z-20 flex items-center justify-center min-h-screen px-4'>
         <div className='text-center max-w-4xl'>
           <h1 className='text-5xl lg:text-6xl xl:text-8xl font-bold mb-6 leading-tight'>
-            On cloud +<br />
-            self-hosted
+            TRUSTED BY
           </h1>
           <p className='text-lg lg:text-xl xl:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed'>
-            Plane is the only full-featured project management software
-            <br className='hidden md:block' />
-            that can be self-hosted and is available on the Cloud.
+            COMPANIES AND RESEARCH CENTERS AROUND THE WORLD
           </p>
         </div>
       </div>

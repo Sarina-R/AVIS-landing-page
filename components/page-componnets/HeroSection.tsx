@@ -1,9 +1,10 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { TextParticle } from './TextParticle'
 import { HolographicText } from '../HolographicText'
 import { PlayfulButton } from './PlayfulButton'
 import { Play } from 'lucide-react'
+import VariableProximity from '../reactBits/VariableProximity'
 
 export default function HeroSection() {
   const { scrollYProgress } = useScroll()
@@ -11,8 +12,13 @@ export default function HeroSection() {
   const heroScale = useTransform(scrollYProgress, [0, 0.3], [1, 1.1])
   const [funMode, setFunMode] = useState(false)
 
+  const containerRef = useRef(null)
+
   return (
-    <section className='h-screen relative flex items-center justify-center overflow-hidden bg-background'>
+    <section
+      className='h-screen relative flex items-center justify-center overflow-hidden bg-background'
+      ref={containerRef}
+    >
       <motion.div
         style={{ opacity: heroOpacity, scale: heroScale }}
         className='z-20 text-center px-6'
@@ -24,22 +30,15 @@ export default function HeroSection() {
           className='mb-8'
         >
           <div className='flex flex-col items-center'>
-            <motion.h1
-              className='text-4xl md:text-7xl max-w-3xl font-light text-foreground mb-4 cursor-pointer'
-              whileHover={{ scale: 1.05, rotateY: 10 }}
+            <VariableProximity
+              label='Fast and robust simulator for intelligent systems'
+              fromFontVariationSettings={`'wght' 100, 'wdth' 75`}
+              toFontVariationSettings={`'wght' 900, 'wdth' 100`}
+              containerRef={containerRef}
+              className='text-4xl md:text-7xl max-w-3xl font-bold text-foreground mb-4 cursor-pointer transition-all duration-500'
+              style={{ fontFamily: '"Roboto Flex", sans-serif' }}
               onClick={() => setFunMode(!funMode)}
-              animate={
-                funMode
-                  ? {
-                      color: ['#F5F5F5', '#8B1A25', '#FFD700', '#F5F5F5'],
-                      scale: [1, 1.1, 1],
-                    }
-                  : {}
-              }
-              transition={{ duration: 2, repeat: funMode ? Infinity : 0 }}
-            >
-              Fast and robust simulator for intelligent systems|
-            </motion.h1>
+            />
             <div className='h-24 md:h-32 w-full max-w-4xl mx-auto'>
               <TextParticle
                 text='AVIS'
@@ -58,7 +57,7 @@ export default function HeroSection() {
           transition={{ duration: 1, delay: 1 }}
           className='text-xl md:text-2xl font-light mb-12 max-w-3xl mx-auto text-primary-lighter'
         >
-          Built by experts for {''}
+          Built by experts for{' '}
           <HolographicText className='inline'>Everyone</HolographicText>
         </motion.p>
 
@@ -80,6 +79,7 @@ export default function HeroSection() {
         </motion.div>
       </motion.div>
 
+      {/* Background Spinner */}
       <div className='absolute inset-0 z-10'>
         <motion.div
           animate={{
@@ -107,10 +107,6 @@ export default function HeroSection() {
                 }}
               />
             ))}
-            <motion.div
-              whileHover={{ rotate: 180, scale: 1.2 }}
-              className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
-            ></motion.div>
           </div>
         </motion.div>
       </div>

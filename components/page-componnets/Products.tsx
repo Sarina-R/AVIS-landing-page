@@ -1,41 +1,59 @@
 'use client'
 
 import Image from 'next/image'
+import { Code, Users, BookOpen, Trophy, Sparkles, Globe } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { HolographicText } from '../HolographicText'
 
 const ProductsComponent: React.FC = () => {
   const featureGroups = [
     [
-      { text: 'Object Manipulation' },
-      { text: 'Customizable Scene' },
-      { text: 'ROS Integration' },
-      { text: 'Data Plotting' },
-      { text: 'Advanced Sensors' },
+      { text: 'Object Manipulation', icon: Code },
+      { text: 'Customizable Scene', icon: Code },
+      { text: 'ROS Integration', icon: Code },
+      { text: 'Data Plotting', icon: Code },
+      { text: 'Advanced Sensors', icon: Code },
     ],
     [
-      { text: 'AVIS Magazine' },
-      { text: 'AVIS Challenge' },
-      { text: 'AVIS Community' },
-      { text: 'AVIS Tutorials' },
-      { text: 'AVIS Plus +' },
-      { text: 'AVIS Conference' },
+      { text: 'AVIS Magazine', icon: BookOpen },
+      { text: 'AVIS Challenge', icon: Trophy },
+      { text: 'AVIS Community', icon: Users },
+      { text: 'AVIS Tutorials', icon: BookOpen },
+      { text: 'AVIS Plus +', icon: Sparkles },
+      { text: 'AVIS Conference', icon: Globe },
     ],
     [
-      { text: 'API for Python' },
-      { text: 'API for C++' },
-      { text: 'API for Matlab' },
-      { text: 'API for Java' },
-      { text: 'API for C#' },
-      { text: 'Blazing Fast' },
-      { text: 'Open Doc' },
-      { text: 'Easy Syntax' },
+      { text: 'API for Python', icon: Code },
+      { text: 'API for C++', icon: Code },
+      { text: 'API for Matlab', icon: Code },
+      { text: 'API for Java', icon: Code },
+      { text: 'API for C#', icon: Code },
+      { text: 'Blazing Fast', icon: Code },
+      { text: 'Open Doc', icon: Code },
+      { text: 'Easy Syntax', icon: Code },
     ],
   ]
 
   return (
-    <div className=' my-26'>
+    <div className='my-26'>
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className='relative text-center z-50 '
+      >
+        <h2 className='text-5xl md:text-6xl font-thin mb-8'>
+          More than just a{' '}
+          <HolographicText className='font-light'>Software</HolographicText>
+        </h2>
+        <div className='w-24 h-0.5 bg-gradient-to-r from-accent to-primary mx-auto' />
+        <p className='text-xl text-muted max-w-3xl mx-auto py-4'>
+          Develop, Learn, Do Research!
+        </p>
+      </motion.div>
+
       <div className='md:min-h-[75vh] min-h-screen flex items-center justify-center p-4 font-bold md:mb-auto'>
         <div className='relative w-full max-w-6xl flex flex-col md:flex-row items-center justify-center gap-4'>
-          {/* Product Labels - Top for small, sides for md+ */}
           <div className='flex flex-col md:absolute md:top-0 md:left-0 text-center space-y-4 md:space-y-0 md:space-x-0 md:pl-4 md:py-4 z-20'>
             <div className='md:absolute w-40 h-9 bg-primary/15 backdrop-blur-sm rounded-lg pt-1 shadow-lg border border-white/20 hover:bg-primary/15 transition-colors md:top-4 md:left-16'>
               AVIS Magazine
@@ -72,7 +90,6 @@ const ProductsComponent: React.FC = () => {
             </div>
           </div>
 
-          {/* Central Image with shadow */}
           <div className='relative w-72 h-72 md:w-96 md:h-96 z-10'>
             <Image
               src='https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/avis/procuts.svg'
@@ -89,45 +106,28 @@ const ProductsComponent: React.FC = () => {
               priority
             />
           </div>
-
-          {/* Mobile stacked labels */}
-          {/* <div className='md:hidden text-sm font-medium flex flex-wrap justify-center gap-2 pt-4'>
-          <span>AVIS Magazine</span>
-          <span>AVIS Challenge</span>
-          <span>AVIS Community</span>
-        </div> */}
-          {/* <div className='md:hidden absolute -bottom-36 text-sm font-medium flex flex-wrap justify-center gap-2 pt-4'>
-          <span>AVIS Tutorials</span>
-          <span>AVIS Plus +</span>
-          <span>AVIS Conference</span>
-        </div> */}
         </div>
       </div>
 
-      <div className='space-y-6 pb-40 md:pt-0 pt-20  flex items-center flex-col'>
+      <div className='space-y-6 pb-40 md:pt-0 pt-20 flex items-center flex-col'>
         {featureGroups.map((group, index) => (
           <div key={index} className='w-full max-w-3xl overflow-hidden'>
-            <div className='flex animate-infinite-scroll'>
+            <div
+              className={`flex ${
+                index === 1
+                  ? 'animate-infinite-scroll-reverse'
+                  : 'animate-infinite-scroll'
+              }`}
+            >
               {[...group, ...group].map((feature, i) => (
                 <div
                   key={`${index}-${i}`}
-                  className='flex items-center gap-2 bg-primary/15 backdrop-blur-sm rounded-lg px-3 py-2 shadow-lg border border-white/20 hover:bg-primary/20 transition-colors mx-2 flex-shrink-0'
+                  className={`flex items-center gap-2 bg-primary/15 backdrop-blur-sm rounded-lg px-3 py-2 shadow-lg border border-white/20 hover:bg-primary/20 transition-colors mx-2 flex-shrink-0 ${
+                    index === 1 ? 'opacity-80' : ''
+                  }`}
                 >
                   <div className='w-8 h-8 bg-primary rounded-lg flex items-center justify-center flex-shrink-0'>
-                    <svg
-                      className='w-4 h-4 text-white'
-                      fill='none'
-                      stroke='currentColor'
-                      viewBox='0 0 24 24'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
-                      <path
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                        strokeWidth='2'
-                        d='M9 5l7 7-7 7'
-                      />
-                    </svg>
+                    <feature.icon className='w-4 h-4 text-white' />
                   </div>
                   <span className='text-sm font-medium whitespace-pre-line text-gray-200'>
                     {feature.text}
@@ -145,6 +145,11 @@ const ProductsComponent: React.FC = () => {
           animation: scroll 50s linear infinite;
           width: max-content;
         }
+        .animate-infinite-scroll-reverse {
+          display: flex;
+          animation: scroll-reverse 50s linear infinite;
+          width: max-content;
+        }
         @keyframes scroll {
           0% {
             transform: translateX(0);
@@ -153,7 +158,16 @@ const ProductsComponent: React.FC = () => {
             transform: translateX(-50%);
           }
         }
-        .animate-infinite-scroll:hover {
+        @keyframes scroll-reverse {
+          0% {
+            transform: translateX(-50%);
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
+        .animate-infinite-scroll:hover,
+        .animate-infinite-scroll-reverse:hover {
           animation-play-state: paused;
         }
       `}</style>

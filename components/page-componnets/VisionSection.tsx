@@ -12,10 +12,11 @@ export default function VisionSection() {
           viewport={{ once: true }}
           transition={{ duration: 1 }}
         >
-          <h2 className='text-5xl md:text-6xl font-thin mb-12'>
+          <h2 className='text-5xl md:text-6xl font-thin mb-6'>
             Beyond{' '}
             <HolographicText className='font-light'>Tomorrow</HolographicText>
           </h2>
+          <div className='w-24 h-0.5 bg-gradient-to-r from-accent to-primary mx-auto mb-12' />
 
           <ModernCard className='text-left'>
             <div className='space-y-8'>

@@ -36,7 +36,7 @@ const MissionVision = () => {
             </HolographicText>
           </h2>
           <motion.div
-            className='w-24 h-0.5 bg-gradient-to-r from-foreground to-foreground mx-auto mb-8'
+            className='w-24 h-0.5 bg-gradient-to-r from-accent to-primary mx-auto mb-8'
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             transition={{ duration: 1 }}

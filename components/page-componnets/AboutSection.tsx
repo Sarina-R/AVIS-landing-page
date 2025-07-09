@@ -23,7 +23,7 @@ export default function AboutSection() {
             Super easy to get{' '}
             <HolographicText className='font-light'>started</HolographicText>
           </h2>
-          <div className='w-24 h-0.5 bg-gradient-to-r from-white to-white mx-auto mb-8' />
+          <div className='w-24 h-0.5 bg-gradient-to-r from-accent to-primary mx-auto' />
           {/* <p className='text-xl text-white/70 max-w-3xl mx-auto'>
             AVIS Group pioneers the convergence of technology and creativity,
             crafting digital experiences that transcend conventional boundaries.

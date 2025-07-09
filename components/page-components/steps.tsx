@@ -9,7 +9,7 @@ import {
   Activity,
   Target,
 } from 'lucide-react'
-import { ModernCard } from './ModernCard'
+import { ModernCard } from '../ModernCard'
 
 interface Step {
   id: number

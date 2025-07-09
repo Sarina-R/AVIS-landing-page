@@ -40,7 +40,7 @@ const ProductsComponent: React.FC = () => {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className='relative text-center z-50 '
+        className='relative text-center '
       >
         <h2 className='text-5xl md:text-6xl font-thin mb-8'>
           More than just a{' '}

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import { Star, MessageCircle, User, Heart } from 'lucide-react'
-import { ModernCard } from './ModernCard'
+import { ModernCard } from '../ModernCard'
 
 interface Testimonial {
   id: number

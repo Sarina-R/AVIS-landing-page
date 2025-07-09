@@ -1,6 +1,6 @@
 import { Code, Palette, Star, Target } from 'lucide-react'
 import { HolographicText } from '../HolographicText'
-import { ModernCard } from './ModernCard'
+import { ModernCard } from '../ModernCard'
 import { motion } from 'framer-motion'
 
 export default function ServicesSection() {

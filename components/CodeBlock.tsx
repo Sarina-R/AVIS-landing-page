@@ -32,7 +32,7 @@ export const CodeBlock = () => {
   return (
     <div
       className=' backdrop-blur-xl bg-primary-gradient
-        border border-border group cursor-pointer
+        border border-border group
         hover:shadow-2xl transition-all duration-500
         dark:bg-primary-gradient dark:border-dark-border relative bg-gradient-to-br from-[#1c1c2a] to-[#12121a] p-4 rounded-xl shadow-xl overflow-auto height-3xl'
     >
@@ -40,7 +40,7 @@ export const CodeBlock = () => {
         <code>
           {code.split('\n').map((line, index) => (
             <div key={index} className={`relative group`}>
-              <span className='absolute left-0 w-6 text-right text-gray-600 select-none pr-2'>
+              <span className='absolute -left-7 w-6 text-right text-gray-600 select-none pr-12'>
                 {index + 1}
               </span>
               <span

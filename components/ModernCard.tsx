@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { ModernCardProps } from '@/app/type'
-import { GlowingEffect } from '../ui/glowing-effect'
+import { GlowingEffect } from './ui/glowing-effect'
 
 export const ModernCard: React.FC<ModernCardProps> = ({
   children,

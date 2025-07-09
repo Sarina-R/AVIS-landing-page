@@ -1,8 +1,5 @@
 import React from 'react'
 import {
-  Cloud,
-  RefreshCw,
-  Settings,
   Shield,
   Users,
   Infinity,

@@ -1,8 +1,8 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef, useState } from 'react'
-import { TextParticle } from './TextParticle'
+import { TextParticle } from '../TextParticle'
 import { HolographicText } from '../HolographicText'
-import { PlayfulButton } from './PlayfulButton'
+import { PlayfulButton } from '../PlayfulButton'
 import { Play } from 'lucide-react'
 import VariableProximity from '../reactBits/VariableProximity'
 

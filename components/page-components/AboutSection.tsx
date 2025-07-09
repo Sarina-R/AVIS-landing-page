@@ -1,7 +1,7 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll } from 'framer-motion'
 import { HolographicText } from '../HolographicText'
-import { ModernCard } from './ModernCard'
-import { GraduationCap, Lamp, Layers, Paperclip, Zap } from 'lucide-react'
+import { ModernCard } from '../ModernCard'
+import { GraduationCap, Layers, Zap } from 'lucide-react'
 import { CodeBlock } from '../CodeBlock'
 // import Waves from '../reactBits/Wave'
 

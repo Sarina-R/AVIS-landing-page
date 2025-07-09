@@ -129,7 +129,7 @@ export default function FloatingStuff() {
               animationDelay: `${index * 0.2}s`,
             }}
           >
-            <div className='flex items-center gap-2 bg-primary/15 backdrop-blur-sm rounded-lg px-3 py-2 shadow-lg border border-white/20 hover:bg-primary/15 transition-colors'>
+            <div className='flex items-center gap-2 bg-primary/15 backdrop-blur-sm rounded-lg px-3 py-2 shadow-lg border border-white/20 hover:bg-primary/20 transition-colors'>
               {feature.image ? (
                 <img
                   src={feature.image}

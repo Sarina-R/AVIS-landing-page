@@ -22,29 +22,6 @@ import CompanyLogos from '@/components/page-components/Companies'
 import FallingText from '@/components/reactBits/FallingText'
 
 export default function AvisLandingPage() {
-  useEffect(() => {
-    const style = document.createElement('style')
-    style.textContent = `
-      @keyframes spin {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-      }
-      
-      .perspective-1000 {
-        perspective: 1000px;
-      }
-      
-      body {
-        overflow-x: hidden;
-      }
-    `
-    document.head.appendChild(style)
-
-    return () => {
-      document.head.removeChild(style)
-    }
-  }, [])
-
   return (
     <div className='min-h-screen bg-black text-white space-y-16'>
       <GalaxyBackground />

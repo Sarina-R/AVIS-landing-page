@@ -57,7 +57,7 @@ export default function AvisLandingPage() {
       <CompanyLogos />
       <ProductsComponent />
       <SliderComponent />
-      <div className='md:h-[50vh] h-[25vh] max-w-3xl text-center m-auto border rounded-2xl'>
+      <div className='md:h-[50vh] h-[25vh] max-w-3xl text-center items-center md:py-12 m-auto border rounded-2xl'>
         <div className='h-full'>
           <FallingText
             text={`High level physics engine.\nAVIS Engine brings a close to reality simulation for vehicles.`}
@@ -75,8 +75,17 @@ export default function AvisLandingPage() {
       <ResearchSection />
       <QASection />
       {/* <AvisTripleCore /> */}
-      <MissionVision />
-      <ServicesSection />
+      {/* <MissionVision /> */}
+      <ServicesSection
+        title='The Latest News'
+        titleHighlight='News'
+        sectionId='news'
+      />
+      <ServicesSection
+        title='The AVIS'
+        titleHighlight='Magazine'
+        sectionId='services'
+      />
       <VisionSection />
       <TestimonialSlider />
       <StatsSection />

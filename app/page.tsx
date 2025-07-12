@@ -30,7 +30,7 @@ export default function AvisLandingPage() {
       <HeroSection />
       {/* <StepGuideComponent /> */}
       {/* <FloatingStuff /> */}
-      <CompanyLogos />
+      {/* <CompanyLogos /> */}
       <ProductsComponent />
       <SliderComponent />
       <div className='md:h-[50vh] h-[25vh] max-w-3xl text-center items-center md:py-12 m-auto border rounded-2xl'>

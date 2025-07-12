@@ -1,4 +1,4 @@
-import { motion, useScroll } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { HolographicText } from '../HolographicText'
 import { ModernCard } from '../ModernCard'
 import { GraduationCap, Layers, Zap } from 'lucide-react'
@@ -6,7 +6,7 @@ import { CodeBlock } from '../CodeBlock'
 // import Waves from '../reactBits/Wave'
 
 export default function AboutSection() {
-  const { scrollYProgress } = useScroll()
+  // const { scrollYProgress } = useScroll()
   // const waveAmpX = useTransform(scrollYProgress, [0, 1], [40, 60])
   // const waveAmpY = useTransform(scrollYProgress, [0, 1], [20, 30])
 

@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react'
 // import AvisTripleCore from '@/components/AvisTripleCore'
 // import FloatingStuff from '@/components/page-components/FloatingStuff'
-import MissionVision from '@/components/MissionVision'
+// import MissionVision from '@/components/MissionVision'
 import ServicesSection from '@/components/page-components/ServicesSection'
 import VisionSection from '@/components/page-components/VisionSection'
 import StatsSection from '@/components/page-components/StatsSection'

@@ -2,6 +2,7 @@
 
 import React, { useEffect } from 'react'
 // import AvisTripleCore from '@/components/AvisTripleCore'
+// import FloatingStuff from '@/components/page-components/FloatingStuff'
 import MissionVision from '@/components/MissionVision'
 import ServicesSection from '@/components/page-components/ServicesSection'
 import VisionSection from '@/components/page-components/VisionSection'
@@ -13,11 +14,11 @@ import FloatingParticles from '@/components/page-components/FloatingParticles'
 import GalaxyBackground from '@/components/page-components/GalaxyBackground'
 import HeroSection from '@/components/page-components/HeroSection'
 import SliderComponent from '@/components/page-components/SliderComponent'
-import FloatingStuff from '@/components/page-components/FloatingStuff'
 import TestimonialSlider from '@/components/page-components/TestimonialSlider'
 import ProductsComponent from '@/components/page-components/Products'
 import ResearchSection from '@/components/page-components/ResearchSection'
 import QASection from '@/components/page-components/QASection'
+import CompanyLogos from '@/components/page-components/Companies'
 
 export default function AvisLandingPage() {
   useEffect(() => {
@@ -51,7 +52,8 @@ export default function AvisLandingPage() {
       <Navigation />
       <HeroSection />
       {/* <StepGuideComponent /> */}
-      <FloatingStuff />
+      {/* <FloatingStuff /> */}
+      <CompanyLogos />
       <ProductsComponent />
       <SliderComponent />
       <AboutSection />

@@ -59,7 +59,7 @@ export default function StatsSection() {
           {stats.map((stat, i) => (
             <motion.div
               key={i}
-              // @ts-expect-error
+              // @ts-expect-error/ban-ts-comment
               onHoverStart={() => setActiveIndex(i)}
               onHoverEnd={() => setActiveIndex(null)}
               initial={{ opacity: 0, y: 20 }}

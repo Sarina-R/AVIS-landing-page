@@ -17,7 +17,7 @@ import TestimonialSlider from '@/components/page-components/TestimonialSlider'
 import ProductsComponent from '@/components/page-components/Products'
 import ResearchSection from '@/components/page-components/ResearchSection'
 import QASection from '@/components/page-components/QASection'
-import CompanyLogos from '@/components/page-components/Companies'
+// import CompanyLogos from '@/components/page-components/Companies'
 import FallingText from '@/components/reactBits/FallingText'
 
 export default function AvisLandingPage() {

@@ -19,6 +19,7 @@ import ProductsComponent from '@/components/page-components/Products'
 import ResearchSection from '@/components/page-components/ResearchSection'
 import QASection from '@/components/page-components/QASection'
 import CompanyLogos from '@/components/page-components/Companies'
+import FallingText from '@/components/reactBits/FallingText'
 
 export default function AvisLandingPage() {
   useEffect(() => {
@@ -56,6 +57,20 @@ export default function AvisLandingPage() {
       <CompanyLogos />
       <ProductsComponent />
       <SliderComponent />
+      <div className='md:h-[50vh] h-[25vh] max-w-3xl text-center m-auto border rounded-2xl'>
+        <div className='h-full'>
+          <FallingText
+            text={`High level physics engine.\nAVIS Engine brings a close to reality simulation for vehicles.`}
+            highlightWords={['High', 'level', 'AVIS', 'vehicles']}
+            trigger='hover'
+            backgroundColor='transparent'
+            wireframes={false}
+            gravity={0.56}
+            fontSize='2rem'
+            mouseConstraintStiffness={0.9}
+          />
+        </div>
+      </div>
       <AboutSection />
       <ResearchSection />
       <QASection />

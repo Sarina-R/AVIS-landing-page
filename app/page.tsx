@@ -1,6 +1,5 @@
 'use client'
 
-import React, { useEffect } from 'react'
 // import AvisTripleCore from '@/components/AvisTripleCore'
 // import FloatingStuff from '@/components/page-components/FloatingStuff'
 // import MissionVision from '@/components/MissionVision'

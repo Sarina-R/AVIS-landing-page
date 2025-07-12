@@ -15,15 +15,12 @@ const QASection = () => {
     },
     {
       question: 'What is the minimum hardware requirement?',
-      answer: `We aimed to build AVIS Engine as performant and lightweight as possible. Here are the spec required:
-      CPU: Intel Core i3 4950U
-      GPU: Intel Iris 6100 1.5G VRAM
-      RAM: 4GB`,
+      answer:
+        'We aimed to build AVIS Engine as performant and lightweight as possible. Here are the spec required:\nCPU: Intel Core i3 4950U\nGPU: Intel Iris 6100 1.5G VRAM\nRAM: 4GB',
     },
     {
       question: 'What knowledge is required to get started?',
-      answer: `The software itself is easy to use and get started, but a basic understanding of Python programming language is required.
-      Also you can use other APIs in C++, MATLAB, etc. as you wish.`,
+      answer: `The software itself is easy to use and get started, but a basic understanding of Python programming language is required.\nAlso you can use other APIs in C++, MATLAB, etc. as you wish.`,
     },
     {
       question: 'What are the resources to learn AVIS Engine?',
@@ -83,9 +80,13 @@ const QASection = () => {
                 >
                   <div className='px-6 pb-6'>
                     <div className='h-px bg-gradient-to-r from-accent/50 via-primary/50 to-transparent mb-4'></div>
-                    <p className='text-gray-300 leading-relaxed'>
-                      {item.answer}
-                    </p>
+                    <div className='text-gray-300 leading-relaxed'>
+                      {item.answer.split('\n').map((line, lineIndex) => (
+                        <p key={lineIndex} className='mb-2'>
+                          {line}
+                        </p>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>

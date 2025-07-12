@@ -45,7 +45,7 @@ export default function AvisLandingPage() {
   }, [])
 
   return (
-    <div className='min-h-screen bg-black text-white'>
+    <div className='min-h-screen bg-black text-white space-y-16'>
       <GalaxyBackground />
       <FloatingParticles />
 

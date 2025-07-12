@@ -21,7 +21,7 @@ export default {
         border: '#374151',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Geist'],
       },
       backgroundImage: {
         'primary-gradient':

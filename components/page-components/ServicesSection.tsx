@@ -72,6 +72,13 @@ export default function ServicesSection({
       ? latestNews
       : defaultServices
 
+  const getAspectRatio = () => {
+    if (titleHighlight === 'Magazine' || sectionId === 'services') {
+      return 'aspect-[0.71]'
+    }
+    return 'aspect-[4/3]'
+  }
+
   return (
     <section id={sectionId} className='py-32 px-6'>
       <div className='max-w-7xl mx-auto'>
@@ -95,11 +102,13 @@ export default function ServicesSection({
             <ModernCard key={service.title} delay={0.1 * (index + 1)}>
               <div className='space-y-6'>
                 {service.image && (
-                  <div className='relative overflow-hidden rounded-lg'>
+                  <div
+                    className={`relative overflow-hidden rounded-lg ${getAspectRatio()}`}
+                  >
                     <motion.img
                       src={service.image}
                       alt={service.title}
-                      className='w-full h-48 object-cover cursor-pointer'
+                      className='w-full h-full object-cover cursor-pointer'
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.3 }}
                       onClick={() => window.open(service.link, '_blank')}

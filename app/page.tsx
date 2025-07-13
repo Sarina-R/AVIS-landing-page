@@ -19,6 +19,7 @@ import ResearchSection from '@/components/page-components/ResearchSection'
 import QASection from '@/components/page-components/QASection'
 // import CompanyLogos from '@/components/page-components/Companies'
 import FallingText from '@/components/reactBits/FallingText'
+import DownloadSection from '@/components/page-components/DownloadSection'
 
 export default function AvisLandingPage() {
   return (
@@ -64,6 +65,7 @@ export default function AvisLandingPage() {
       />
       <VisionSection />
       <TestimonialSlider />
+      <DownloadSection />
       <StatsSection />
       <Footer />
     </div>

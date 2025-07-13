@@ -120,21 +120,10 @@ const AnimatedHeroSection = () => {
                   : 'translate-y-12 opacity-0'
               }`}
             >
-              {/* <span className='bg-gradient-to-r from-foreground via-accent to-primary-lighter bg-clip-text text-transparent animate-gradient'> */}
               <span className=''>
                 Fast and robust simulator for intelligent systems
               </span>
             </h1>
-
-            <h2
-              className={`text-md md:text-lg max-w-2xl text-pretty text-center text-foreground/70 transform transition-all duration-1000 delay-500 pt-4 ${
-                isVisible
-                  ? 'translate-y-0 opacity-100'
-                  : 'translate-y-8 opacity-0'
-              }`}
-            >
-              Built by experts for everyone
-            </h2>
           </div>
         </div>
 

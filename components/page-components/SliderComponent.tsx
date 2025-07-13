@@ -34,7 +34,10 @@ export default function SliderComponent() {
     setIndex((prev) => (prev - 1 + services.length) % services.length)
 
   return (
-    <section className='relative bg-black text-white w-full overflow-hidden'>
+    <section
+      id='get-started'
+      className='relative bg-black text-white w-full overflow-hidden'
+    >
       <div className='px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20'>
         <div className='max-w-7xl mx-auto'>
           {/* Header Section */}

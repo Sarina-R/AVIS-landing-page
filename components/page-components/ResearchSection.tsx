@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function ResearchSection() {
   return (
-    <div className='relative'>
+    <div id='research' className='relative'>
       <div className='flex flex-col lg:flex-row relative z-10'>
         <div className='relative flex w-full lg:w-2/5'>
           <div className='w-full p-6 md:p-8 lg:p-12 h-full relative flex top-14'>

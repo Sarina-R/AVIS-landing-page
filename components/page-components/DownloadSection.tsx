@@ -23,7 +23,10 @@ const DownloadSection = () => {
   }, [])
 
   return (
-    <div className='relative min-h-screen flex flex-col items-center justify-center bg-black overflow-hidden'>
+    <div
+      id='download'
+      className='relative min-h-screen flex flex-col items-center justify-center bg-black overflow-hidden'
+    >
       <div className='absolute inset-0'>
         <div className='absolute inset-0 bg-gradient-to-br from-black via-black to-[#2B0508] opacity-90' />
 

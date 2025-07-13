@@ -22,7 +22,7 @@ import FallingText from '@/components/reactBits/FallingText'
 
 export default function AvisLandingPage() {
   return (
-    <div className='min-h-screen bg-black text-white space-y-16'>
+    <div className='min-h-screen bg-black text-white space-y-16 font-sans'>
       <GalaxyBackground />
       <FloatingParticles />
 

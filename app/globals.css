@@ -162,3 +162,33 @@
     @apply bg-background text-foreground;
   }
 }
+
+@media (max-width: 768px) and (min-width: 580px) {
+  .product-bottom-label {
+    right: 38%;
+  }
+}
+
+@media (max-width: 580px) and (min-width: 515px) {
+  .product-bottom-label {
+    right: 35%;
+  }
+}
+
+@media (max-width: 515px) and (min-width: 401px) {
+  .product-bottom-label {
+    right: 30%;
+  }
+}
+
+@media (max-width: 400px) and (min-width: 342px) {
+  .product-bottom-label {
+    right: 27%;
+  }
+}
+
+@media (max-width: 342px) and (min-width: 300px) {
+  .product-bottom-label {
+    right: 20%;
+  }
+}

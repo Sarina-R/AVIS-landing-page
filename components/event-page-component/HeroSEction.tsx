@@ -5,7 +5,7 @@ import { TrustedBySection } from './TrustedBy'
 const HeroSection: React.FC = () => {
   return (
     <div
-      className='relative min-h-[90vh] bg-black text-white overflow-hidden'
+      className='relative min-h-[90vh] bg-black text-white '
       style={{
         backgroundImage: `
             linear-gradient(rgba(255, 255, 255, 0.10) 1px, transparent 1px),
@@ -14,38 +14,43 @@ const HeroSection: React.FC = () => {
         backgroundSize: '6rem 6rem',
       }}
     >
-      {/* Corner Crosses - Same as before */}
-      <div className='absolute top-[100px] left-[100px] w-6 h-6 z-20'>
+      {/* Crosses */}
+      <div className='absolute top-[-13px] left-[-12px] w-6 h-6 z-20'>
         <div className='absolute top-1/2 left-0 w-full h-[1px] bg-white/25 -translate-y-1/2' />
         <div className='absolute top-0 left-1/2 w-[1px] h-full bg-white/25 -translate-x-1/2' />
       </div>
-      <div className='absolute top-[100px] right-[100px] w-6 h-6 z-20'>
+      <div className='absolute top-[-13px] right-[-12px] w-6 h-6 z-20'>
         <div className='absolute top-1/2 left-0 w-full h-[1px] bg-white/25 -translate-y-1/2' />
         <div className='absolute top-0 left-1/2 w-[1px] h-full bg-white/25 -translate-x-1/2' />
       </div>
-      <div className='absolute bottom-[100px] left-[100px] w-6 h-6 z-20'>
+      <div className='absolute bottom-[200px] left-[-12px] w-6 h-6 z-20'>
         <div className='absolute top-1/2 left-0 w-full h-[1px] bg-white/25 -translate-y-1/2' />
         <div className='absolute top-0 left-1/2 w-[1px] h-full bg-white/25 -translate-x-1/2' />
       </div>
-      <div className='absolute bottom-[0] right-[100px] w-6 h-6 z-20'>
+      <div className='absolute bottom-[200px] right-[-12px] w-6 h-6 z-20'>
         <div className='absolute top-1/2 left-0 w-full h-[1px] bg-white/25 -translate-y-1/2' />
         <div className='absolute top-0 left-1/2 w-[1px] h-full bg-white/25 -translate-x-1/2' />
       </div>
 
       {/* Logo */}
-      <div className='relative z-30 flex flex-col items-center justify-center px-6 h-[12rem]'>
-        <div className='mb-16'>
-          <div className='relative group'>
-            <div className='absolute inset-0 bg-white/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500 animate-pulse' />
-            <div className='relative w-[100px] h-[100px] rounded-full border-2 border-white/30 bg-black/60 backdrop-blur-xl flex items-center justify-center hover:border-white/50 transition-all duration-300'>
-              <Image
-                src='https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/avis/logo/avis-mono-dark.png'
-                alt='AVIS Logo'
-                width={56}
-                height={56}
-                className='w-14 h-14 object-contain'
-              />
-            </div>
+      <div className='relative z-30 flex flex-col items-center justify-center px-6 h-[12rem] overflow-hidden'>
+        <div className='absolute w-[12rem] h-[12rem] border border-white/20 rounded-full top-0 ' />
+        <div className='absolute w-[12rem] h-[12rem] border border-white/20 rounded-full top-0 right-[-6rem]' />
+        <div className='absolute w-[12rem] h-[12rem] border border-white/20 rounded-full top-0 right-[6rem]' />
+        <div className='absolute w-[12rem] h-[12rem] border border-white/20 rounded-full top-0 right-[18rem]' />
+        <div className='absolute w-[12rem] h-[12rem] border border-white/20 rounded-full top-0 left-[-6rem]' />
+        <div className='absolute w-[12rem] h-[12rem] border border-white/20 rounded-full top-0 left-[6rem]' />
+        <div className='absolute w-[12rem] h-[12rem] border border-white/20 rounded-full top-0 left-[18rem]' />
+        <div className='relative group'>
+          {/* <div className='absolute inset-0 bg-white/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500 animate-pulse' /> */}
+          <div className='relative w-[100px] h-[100px] rounded-full border-2 border-white/30 bg-black/60 backdrop-blur-xl flex items-center justify-center hover:border-white/50 transition-all duration-300'>
+            <Image
+              src='https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/avis/logo/avis-mono-dark.png'
+              alt='AVIS Logo'
+              width={56}
+              height={56}
+              className='w-14 h-14 object-contain'
+            />
           </div>
         </div>
       </div>

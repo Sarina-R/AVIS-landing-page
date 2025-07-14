@@ -7,16 +7,18 @@ import { CTASection } from '@/components/event-page-component/CTASection'
 import { Footer } from '@/components/event-page-component/Footer'
 import { Navigation } from '@/components/event-page-component/Navigation'
 import HeroSection from '@/components/event-page-component/HeroSEction'
+import { BentoDemo } from '@/components/event-page-component/BentoSection'
 
 const AvisEventsLanding = () => {
   return (
-    <div className='min-h-screen bg-black text-white'>
+    <div className='min-h-screen bg-black text-white px-4'>
       <Navigation />
 
       <main className='max-w-6xl mx-auto border-l border-r mt-44 border-white/10'>
         <HeroSection />
         <AboutSection />
         <ServicesSection />
+        <BentoDemo />
         <WhyChooseUs />
         <CTASection />
       </main>

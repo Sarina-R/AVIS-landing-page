@@ -1,5 +1,5 @@
 export const TrustedBySection = () => (
-  <section className='py-16 px-6 border-t border-white/10'>
+  <section className='py-16 px-6 -t border-white/10 overflow-hidden'>
     <div className='max-w-6xl mx-auto text-center'>
       <h2 className='text-sm text-gray-500 uppercase tracking-wider mb-8'>
         Trusted by Industry Leaders

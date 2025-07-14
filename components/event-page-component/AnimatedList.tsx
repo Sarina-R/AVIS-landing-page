@@ -1,0 +1,46 @@
+import { CheckCircle } from 'lucide-react'
+import { useEffect, useState } from 'react'
+
+export const AnimatedList = () => {
+  const [animatedItems, setAnimatedItems] = useState<number[]>([])
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    setIsVisible(true)
+    const timer = setInterval(() => {
+      setAnimatedItems((prev) => {
+        if (prev.length < 6) {
+          return [...prev, prev.length]
+        }
+        return prev
+      })
+    }, 300)
+
+    return () => clearInterval(timer)
+  }, [])
+
+  return (
+    <div className='space-y-4'>
+      {[
+        'Corporate Events',
+        'Wedding Planning',
+        'Product Launches',
+        'Conferences',
+        'Private Parties',
+        'Brand Activations',
+      ].map((item, index) => (
+        <div
+          key={index}
+          className={`flex items-center space-x-3 p-4 rounded-lg border border-white/10 bg-white/5 transition-all duration-500 ${
+            animatedItems.includes(index)
+              ? 'opacity-100 translate-x-0'
+              : 'opacity-0 translate-x-8'
+          }`}
+        >
+          <CheckCircle className='h-5 w-5 text-green-500' />
+          <span className='text-gray-300'>{item}</span>
+        </div>
+      ))}
+    </div>
+  )
+}

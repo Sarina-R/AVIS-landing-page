@@ -19,7 +19,7 @@ const HeroSection: React.FC = () => {
     return () => window.removeEventListener('resize', updateWidth)
   }, [])
 
-  const circleSize = containerWidth / 6 || 100 // fallback for hydration mismatch
+  const circleSize = containerWidth / 6 || 100
   const gridSize = containerWidth / 12 || 50
 
   return (
@@ -43,7 +43,7 @@ const HeroSection: React.FC = () => {
           <div
             key={idx}
             className={`absolute border border-white/15 rounded-full top-0 ${
-              multiplier === 2.5 ? 'bg-black z-10' : ''
+              multiplier === 2.5 ? ' z-10' : ''
             }`}
             style={{
               width: `${circleSize}px`,

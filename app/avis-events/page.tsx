@@ -6,8 +6,8 @@ import { WhyChooseUs } from '@/components/event-page-component/WhyChooseUs'
 import { CTASection } from '@/components/event-page-component/CTASection'
 import { Footer } from '@/components/event-page-component/Footer'
 import { Navigation } from '@/components/event-page-component/Navigation'
-import HeroSection from '@/components/event-page-component/HeroSEction'
 import { BentoDemo } from '@/components/event-page-component/BentoSection'
+import HeroSection from '@/components/event-page-component/HeroSEction'
 import StepsComponent from '@/components/event-page-component/StepsComponent'
 
 const AvisEventsLanding = () => {

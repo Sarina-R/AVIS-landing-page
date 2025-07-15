@@ -3,10 +3,8 @@ import { useEffect, useState } from 'react'
 
 export const AnimatedList = () => {
   const [animatedItems, setAnimatedItems] = useState<number[]>([])
-  const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    setIsVisible(true)
     const timer = setInterval(() => {
       setAnimatedItems((prev) => {
         if (prev.length < 6) {

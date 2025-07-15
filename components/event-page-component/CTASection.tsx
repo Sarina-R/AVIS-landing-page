@@ -5,8 +5,8 @@ export const CTASection = () => (
         Ready to Start with Avis Events?
       </h2>
       <p className='text-xl text-gray-400 mb-8'>
-        Let's create something extraordinary together. Get in touch with our
-        team to discuss your next event.
+        Let&apos;s create something extraordinary together. Get in touch with
+        our team to discuss your next event.
       </p>
       <div className='flex flex-col sm:flex-row gap-4 justify-center'>
         <button className='bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-medium transition-all transform hover:-translate-y-1'>

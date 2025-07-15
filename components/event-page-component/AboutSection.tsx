@@ -387,7 +387,7 @@ export const AboutSection = () => (
       <div className='text-center mb-16'>
         <h2 className='text-3xl font-bold mb-6'>About Avis Events</h2>
         <p className='text-xl text-gray-400 max-w-3xl mx-auto pb-4'>
-          We're a premier event management company dedicated to creating
+          We&apos;re a premier event management company dedicated to creating
           extraordinary experiences that leave lasting impressions.
         </p>
       </div>

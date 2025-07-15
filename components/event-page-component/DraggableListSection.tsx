@@ -54,7 +54,6 @@ function DraggableList({
     }
     const newItems = [...items]
     const draggedIndex = items.findIndex((item) => item.id === draggedItem.id)
-    const dropIndex = items.findIndex((item) => item.id === dragOverItemId)
     newItems.splice(draggedIndex, 1)
     // NewItems.splice(dropIndex, 0, draggedItem)
     setItems(newItems)

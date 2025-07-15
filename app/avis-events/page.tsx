@@ -15,7 +15,7 @@ const AvisEventsLanding = () => {
     <div className='min-h-screen bg-black text-white px-4'>
       <Navigation />
 
-      <main className='max-w-6xl mx-auto border-l border-r mt-44 border-white/10'>
+      <main className='max-w-6xl mx-auto border-l border-r mt-20 md:mt-44 border-white/10'>
         <HeroSection />
         <AboutSection />
         <StepsComponent />

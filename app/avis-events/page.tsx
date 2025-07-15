@@ -8,6 +8,7 @@ import { Footer } from '@/components/event-page-component/Footer'
 import { Navigation } from '@/components/event-page-component/Navigation'
 import HeroSection from '@/components/event-page-component/HeroSEction'
 import { BentoDemo } from '@/components/event-page-component/BentoSection'
+import StepsComponent from '@/components/event-page-component/StepsComponent'
 
 const AvisEventsLanding = () => {
   return (
@@ -17,6 +18,7 @@ const AvisEventsLanding = () => {
       <main className='max-w-6xl mx-auto border-l border-r mt-44 border-white/10'>
         <HeroSection />
         <AboutSection />
+        <StepsComponent />
         <ServicesSection />
         <BentoDemo />
         <WhyChooseUs />

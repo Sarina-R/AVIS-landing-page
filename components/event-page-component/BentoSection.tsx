@@ -105,10 +105,18 @@ const features = [
 
 export function BentoDemo() {
   return (
-    <BentoGrid>
-      {features.map((feature, idx) => (
-        <BentoCard key={idx} {...feature} />
-      ))}
-    </BentoGrid>
+    <section className=''>
+      <div className='text-center mb-16'>
+        <h2 className='text-3xl font-bold mb-6'>Bento Grid</h2>
+        <p className='text-xl text-gray-400'>
+          We deliver exceptional results that exceed expectations.
+        </p>
+      </div>{' '}
+      <BentoGrid>
+        {features.map((feature, idx) => (
+          <BentoCard key={idx} {...feature} />
+        ))}
+      </BentoGrid>
+    </section>
   )
 }

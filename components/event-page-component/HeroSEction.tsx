@@ -95,31 +95,27 @@ const HeroSection: React.FC = () => {
         </div>
       </div>
 
-      <div className='bg-black lg:absolute w-full -bottom-2'>
+      <div className='bg-black  w-full '>
         <TrustedBySection />
       </div>
 
       {/* Crosses */}
-      {[
-        { top: -13, left: -12 },
-        { top: -13, right: -12 },
-        { bottom: 200, left: -12, lgOnly: true },
-        { bottom: 200, right: -12, lgOnly: true },
-      ].map((pos, idx) => (
-        <div
-          key={idx}
-          className={`absolute ${pos.lgOnly ? 'hidden lg:block' : ''} ${
-            pos.top !== undefined ? `top-[${pos.top}px]` : ''
-          } ${pos.bottom !== undefined ? `bottom-[${pos.bottom}px]` : ''} ${
-            pos.left !== undefined ? `left-[${pos.left}px]` : ''
-          } ${
-            pos.right !== undefined ? `right-[${pos.right}px]` : ''
-          } w-6 h-6 z-20`}
-        >
-          <div className='absolute top-1/2 left-0 w-full h-[1px] bg-white/25 -translate-y-1/2' />
-          <div className='absolute top-0 left-1/2 w-[1px] h-full bg-white/25 -translate-x-1/2' />
-        </div>
-      ))}
+      <div className='absolute top-[-12px] left-[-12px] w-6 h-6 z-20'>
+        <div className='absolute top-1/2 left-0 w-full h-[1px] bg-white/50 -translate-y-1/2' />
+        <div className='absolute top-0 left-1/2 w-[1px] h-full bg-white/50 -translate-x-1/2' />
+      </div>
+      <div className='absolute top-[-12px] right-[-12px] w-6 h-6 z-20'>
+        <div className='absolute top-1/2 left-0 w-full h-[1px] bg-white/50 -translate-y-1/2' />
+        <div className='absolute top-0 left-1/2 w-[1px] h-full bg-white/50 -translate-x-1/2' />
+      </div>
+      <div className=' absolute bottom-[200px] left-[-12px] w-6 h-6 z-20'>
+        <div className='absolute top-1/2 left-0 w-full h-[1px] bg-white/50 -translate-y-1/2' />
+        <div className='absolute top-0 left-1/2 w-[1px] h-full bg-white/50 -translate-x-1/2' />
+      </div>
+      <div className=' absolute bottom-[200px] right-[-12px] w-6 h-6 z-20'>
+        <div className='absolute top-1/2 left-0 w-full h-[1px] bg-white/50 -translate-y-1/2' />
+        <div className='absolute top-0 left-1/2 w-[1px] h-full bg-white/50 -translate-x-1/2' />
+      </div>
     </div>
   )
 }

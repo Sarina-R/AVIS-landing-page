@@ -155,7 +155,7 @@ import { BentoGrid } from './BentoGrid'
 //           />
 //         </motion.div>
 //         <motion.p
-//           className='text-center max-w-2xl mx-auto mb-16 text-gray-400'
+//           className='text-center max-w-2xl mx-auto mb-16 text-neutral-400'
 //           // variants={itemVariants}
 //         >
 //           We are a passionate team dedicated to creating innovative digital
@@ -240,7 +240,7 @@ import { BentoGrid } from './BentoGrid'
 //             <h3 className='text-2xl font-medium mb-2'>
 //               Ready to build something amazing?
 //             </h3>
-//             <p className='text-gray-400'>Let's create the future together.</p>
+//             <p className='text-neutral-400'>Let's create the future together.</p>
 //           </div>
 //           <Button
 //             className='bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg flex items-center gap-2 font-medium'
@@ -302,7 +302,7 @@ import { BentoGrid } from './BentoGrid'
 //         </h3>
 //       </motion.div>
 //       <motion.p
-//         className='text-sm text-gray-400 leading-relaxed pl-12'
+//         className='text-sm text-neutral-400 leading-relaxed pl-12'
 //         initial={{ opacity: 0 }}
 //         animate={{ opacity: 1 }}
 //         transition={{ duration: 0.6, delay: delay + 0.4 }}
@@ -375,7 +375,7 @@ import { BentoGrid } from './BentoGrid'
 //         <motion.span>{displayValue}</motion.span>
 //         <span>{suffix}</span>
 //       </motion.div>
-//       <p className='text-gray-400 text-sm mt-1'>{label}</p>
+//       <p className='text-neutral-400 text-sm mt-1'>{label}</p>
 //       <motion.div className='w-10 h-0.5 bg-red-500 mt-3 group-hover:w-16' />
 //     </motion.div>
 //   )
@@ -386,7 +386,7 @@ export const AboutSection = () => (
     <div className='max-w-6xl mx-auto'>
       <div className='text-center mb-16'>
         <h2 className='text-3xl font-bold mb-6'>About Avis Events</h2>
-        <p className='text-xl text-gray-400 max-w-3xl mx-auto pb-4'>
+        <p className='text-xl text-neutral-400 max-w-3xl mx-auto pb-4'>
           We&apos;re a premier event management company dedicated to creating
           extraordinary experiences that leave lasting impressions.
         </p>

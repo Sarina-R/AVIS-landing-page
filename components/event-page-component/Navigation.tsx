@@ -10,31 +10,31 @@ export const Navigation = () => (
         <div className='hidden md:flex space-x-6'>
           <a
             href='#services'
-            className='text-gray-300 hover:text-white transition-colors text-sm'
+            className='text-neutral-300 hover:text-white transition-colors text-sm'
           >
             Services
           </a>
           <a
             href='#about'
-            className='text-gray-300 hover:text-white transition-colors text-sm'
+            className='text-neutral-300 hover:text-white transition-colors text-sm'
           >
             About
           </a>
           <a
             href='#portfolio'
-            className='text-gray-300 hover:text-white transition-colors text-sm'
+            className='text-neutral-300 hover:text-white transition-colors text-sm'
           >
             Portfolio
           </a>
           <a
             href='#contact'
-            className='text-gray-300 hover:text-white transition-colors text-sm'
+            className='text-neutral-300 hover:text-white transition-colors text-sm'
           >
             Contact
           </a>
         </div>
       </div>
-      <button className='bg-white text-black px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-200 transition-colors'>
+      <button className='bg-white text-black px-4 py-2 rounded-md text-sm font-medium hover:bg-neutral-200 transition-colors'>
         Get Started
       </button>
     </div>

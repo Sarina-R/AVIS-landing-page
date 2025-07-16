@@ -11,7 +11,7 @@ export default function AnimatedBeamSection() {
           transition={{ duration: 0.6 }}
         >
           <h2 className='text-4xl md:text-5xl font-light mb-4'>Data Flow</h2>
-          <p className='text-gray-400 max-w-2xl mx-auto'>
+          <p className='text-neutral-400 max-w-2xl mx-auto'>
             Watch how data flows through our systems with lightning speed.
           </p>
         </motion.div>

@@ -8,7 +8,7 @@ export const Footer = () => (
             alt='Avis Events'
             className='h-8 mb-4'
           />
-          <p className='text-gray-400 text-sm'>
+          <p className='text-neutral-400 text-sm'>
             Premier event management company creating extraordinary experiences
             worldwide.
           </p>
@@ -16,7 +16,7 @@ export const Footer = () => (
 
         <div>
           <h4 className='font-semibold mb-4'>Services</h4>
-          <ul className='space-y-2 text-sm text-gray-400'>
+          <ul className='space-y-2 text-sm text-neutral-400'>
             <li>
               <a href='#' className='hover:text-white transition-colors'>
                 Corporate Events
@@ -42,7 +42,7 @@ export const Footer = () => (
 
         <div>
           <h4 className='font-semibold mb-4'>Company</h4>
-          <ul className='space-y-2 text-sm text-gray-400'>
+          <ul className='space-y-2 text-sm text-neutral-400'>
             <li>
               <a href='#' className='hover:text-white transition-colors'>
                 About Us
@@ -68,7 +68,7 @@ export const Footer = () => (
 
         <div>
           <h4 className='font-semibold mb-4'>Support</h4>
-          <ul className='space-y-2 text-sm text-gray-400'>
+          <ul className='space-y-2 text-sm text-neutral-400'>
             <li>
               <a href='#' className='hover:text-white transition-colors'>
                 Help Center
@@ -93,7 +93,7 @@ export const Footer = () => (
         </div>
       </div>
 
-      <div className='border-t border-white/10 mt-8 pt-8 text-center text-sm text-gray-400'>
+      <div className='border-t border-white/10 mt-8 pt-8 text-center text-sm text-neutral-400'>
         <p>&copy; 2024 Avis Events. All rights reserved.</p>
       </div>
     </div>

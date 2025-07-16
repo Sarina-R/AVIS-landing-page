@@ -82,7 +82,7 @@ function DraggableList({
               dragOverItemId === item.id &&
                 'border-2 border-red-500 bg-black/40',
               draggedItem?.id === item.id &&
-                'border-2 border-gray-400 opacity-50'
+                'border-2 border-neutral-400 opacity-50'
             )}
           >
             <DraggableItem>{item.content}</DraggableItem>
@@ -107,7 +107,7 @@ export default function DraggableListSection({
           transition={{ duration: 0.6 }}
         >
           <h2 className='text-4xl md:text-5xl font-light mb-4'>Our Services</h2>
-          <p className='text-gray-400 max-w-2xl mx-auto'>
+          <p className='text-neutral-400 max-w-2xl mx-auto'>
             Drag and reorder our services to see what interests you most.
           </p>
         </motion.div>

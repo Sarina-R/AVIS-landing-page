@@ -43,7 +43,7 @@ const QASection = () => {
                 Find answer here.
               </span>
             </h1>
-            <p className='text-gray-400 text-lg'>
+            <p className='text-neutral-400 text-lg'>
               Some frequently asked questions about AVIS Engine.
             </p>
           </div>
@@ -66,7 +66,7 @@ const QASection = () => {
                     {openIndex === index ? (
                       <ChevronUp className='w-6 h-6 text-primary' />
                     ) : (
-                      <ChevronDown className='w-6 h-6 text-gray-400' />
+                      <ChevronDown className='w-6 h-6 text-neutral-400' />
                     )}
                   </div>
                 </button>
@@ -80,7 +80,7 @@ const QASection = () => {
                 >
                   <div className='px-6 pb-6'>
                     <div className='h-px bg-gradient-to-r from-accent/50 via-primary/50 to-transparent mb-4'></div>
-                    <div className='text-gray-300 leading-relaxed'>
+                    <div className='text-neutral-300 leading-relaxed'>
                       {item.answer.split('\n').map((line, lineIndex) => (
                         <p key={lineIndex} className='mb-2'>
                           {line}

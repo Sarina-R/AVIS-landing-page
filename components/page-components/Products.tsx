@@ -129,7 +129,7 @@ const ProductsComponent: React.FC = () => {
                   <div className='w-8 h-8 bg-primary rounded-lg flex items-center justify-center flex-shrink-0'>
                     <feature.icon className='w-4 h-4 text-white' />
                   </div>
-                  <span className='text-sm font-medium whitespace-pre-line text-gray-200'>
+                  <span className='text-sm font-medium whitespace-pre-line text-neutral-200'>
                     {feature.text}
                   </span>
                 </div>

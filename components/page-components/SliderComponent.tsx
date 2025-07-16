@@ -86,7 +86,7 @@ export default function SliderComponent() {
                   </p>
                   <a
                     href={services[index].buttonLink}
-                    className='inline-block bg-white text-black font-semibold py-2 px-4 rounded-full shadow-[0_0_0_2px_black] hover:bg-gray-200 transition-colors duration-300'
+                    className='inline-block bg-white text-black font-semibold py-2 px-4 rounded-full shadow-[0_0_0_2px_black] hover:bg-neutral-200 transition-colors duration-300'
                   >
                     {services[index].buttonText}
                   </a>
@@ -158,7 +158,7 @@ export default function SliderComponent() {
                           </p>
                           <a
                             href={service.buttonLink}
-                            className='inline-block bg-white text-black font-semibold py-2 px-4 rounded-full shadow-[0_0_0_2px_black] hover:bg-gray-200 transition-colors duration-300'
+                            className='inline-block bg-white text-black font-semibold py-2 px-4 rounded-full shadow-[0_0_0_2px_black] hover:bg-neutral-200 transition-colors duration-300'
                           >
                             {service.buttonText}
                           </a>

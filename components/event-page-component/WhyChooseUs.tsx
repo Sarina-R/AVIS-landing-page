@@ -5,7 +5,7 @@ export const WhyChooseUs = () => (
     <div className='max-w-6xl mx-auto'>
       <div className='text-center mb-16'>
         <h2 className='text-3xl font-bold mb-6'>Why Choose Avis Events</h2>
-        <p className='text-xl text-gray-400'>
+        <p className='text-xl text-neutral-400'>
           We deliver exceptional results that exceed expectations.
         </p>
       </div>
@@ -18,7 +18,7 @@ export const WhyChooseUs = () => (
             </div>
             <div>
               <h3 className='text-xl font-semibold mb-2'>Trusted Expertise</h3>
-              <p className='text-gray-400'>
+              <p className='text-neutral-400'>
                 Over 10 years of experience managing events for Fortune 500
                 companies and high-profile clients.
               </p>
@@ -33,7 +33,7 @@ export const WhyChooseUs = () => (
               <h3 className='text-xl font-semibold mb-2'>
                 Innovative Solutions
               </h3>
-              <p className='text-gray-400'>
+              <p className='text-neutral-400'>
                 Cutting-edge technology and creative approaches to make your
                 events memorable and impactful.
               </p>
@@ -46,7 +46,7 @@ export const WhyChooseUs = () => (
             </div>
             <div>
               <h3 className='text-xl font-semibold mb-2'>Global Network</h3>
-              <p className='text-gray-400'>
+              <p className='text-neutral-400'>
                 Extensive network of venues, vendors, and partners worldwide to
                 ensure seamless execution.
               </p>
@@ -59,15 +59,15 @@ export const WhyChooseUs = () => (
           <div className='space-y-6'>
             <div>
               <div className='text-3xl font-bold text-white'>500+</div>
-              <div className='text-gray-400'>Events Delivered</div>
+              <div className='text-neutral-400'>Events Delivered</div>
             </div>
             <div>
               <div className='text-3xl font-bold text-white'>50+</div>
-              <div className='text-gray-400'>Countries Served</div>
+              <div className='text-neutral-400'>Countries Served</div>
             </div>
             <div>
               <div className='text-3xl font-bold text-white'>98%</div>
-              <div className='text-gray-400'>Client Satisfaction</div>
+              <div className='text-neutral-400'>Client Satisfaction</div>
             </div>
           </div>
         </div>

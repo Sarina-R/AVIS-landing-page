@@ -96,7 +96,7 @@ const getPlatformIcon = (platform: string) => {
     case 'reddit':
       return <MessageCircle className='w-4 h-4 text-orange-400' />
     case 'github':
-      return <Star className='w-4 h-4 text-gray-400' />
+      return <Star className='w-4 h-4 text-neutral-400' />
     case 'twitter':
       return <MessageCircle className='w-4 h-4 text-blue-400' />
     case 'linkedin':
@@ -125,7 +125,7 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({
               </h3>
               <div className='flex items-center space-x-1.5 mt-1'>
                 {getPlatformIcon(testimonial.platform)}
-                <span className='text-gray-300 text-xs capitalize font-medium'>
+                <span className='text-neutral-300 text-xs capitalize font-medium'>
                   {testimonial.platform}
                 </span>
               </div>
@@ -137,7 +137,7 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({
             ))}
           </div>
         </div>
-        <p className='text-gray-200 text-sm leading-relaxed font-light flex-1 overflow-hidden'>
+        <p className='text-neutral-200 text-sm leading-relaxed font-light flex-1 overflow-hidden'>
           {testimonial.text}
         </p>
       </div>
@@ -324,7 +324,7 @@ const TestimonialSlider: React.FC = () => {
         <h1 className='text-4xl sm:text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white via-purple-300 to-white bg-clip-text text-transparent tracking-tight'>
           What Our Customers Say
         </h1>
-        <p className='text-lg sm:text-xl md:text-2xl text-gray-300 font-light max-w-3xl mx-auto'>
+        <p className='text-lg sm:text-xl md:text-2xl text-neutral-300 font-light max-w-3xl mx-auto'>
           Discover why developers and teams love our platform&lsquo;s simplicity
           and power
         </p>

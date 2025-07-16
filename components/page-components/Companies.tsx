@@ -36,9 +36,9 @@ const CompanyLogos = () => {
   const repeatedLogos = Array(4).fill(logos).flat()
 
   return (
-    <section className='py-12 bg-gray-50 overflow-hidden'>
+    <section className='py-12 bg-neutral-50 overflow-hidden'>
       <div className='container mx-auto px-4'>
-        <h2 className='text-2xl font-semibold text-center text-gray-800 mb-8'>
+        <h2 className='text-2xl font-semibold text-center text-neutral-800 mb-8'>
           Our Partners
         </h2>
         <motion.div
@@ -58,7 +58,7 @@ const CompanyLogos = () => {
                 <img
                   src={logo}
                   alt={`Company logo ${(index % logos.length) + 1}`}
-                  className='h-10 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300'
+                  className='h-10 object-contain filter neutralscale group-hover:neutralscale-0 transition-all duration-300'
                 />
               </motion.div>
             ))}

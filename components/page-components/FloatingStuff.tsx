@@ -138,7 +138,7 @@ export default function FloatingStuff() {
                   <Icon className='w-4 h-4 text-white' />
                 </div>
               ) : null}
-              <span className='text-sm font-medium whitespace-pre-line text-gray-200'>
+              <span className='text-sm font-medium whitespace-pre-line text-neutral-200'>
                 {feature.text}
               </span>
             </div>
@@ -151,7 +151,7 @@ export default function FloatingStuff() {
           <h1 className='text-5xl lg:text-6xl xl:text-8xl font-bold mb-6 leading-tight'>
             TRUSTED BY
           </h1>
-          <p className='text-lg lg:text-xl xl:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed'>
+          <p className='text-lg lg:text-xl xl:text-2xl text-neutral-300 max-w-2xl mx-auto leading-relaxed'>
             COMPANIES AND RESEARCH CENTERS AROUND THE WORLD
           </p>
         </div>

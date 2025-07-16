@@ -36,7 +36,7 @@ export const AnimatedList = () => {
           }`}
         >
           <CheckCircle className='h-5 w-5 text-green-500' />
-          <span className='text-gray-300'>{item}</span>
+          <span className='text-neutral-300'>{item}</span>
         </div>
       ))}
     </div>

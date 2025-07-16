@@ -40,7 +40,7 @@ export const CodeBlock = () => {
         <code>
           {code.split('\n').map((line, index) => (
             <div key={index} className={`relative group`}>
-              <span className='absolute -left-7 w-6 text-right text-gray-600 select-none pr-12'>
+              <span className='absolute -left-7 w-6 text-right text-neutral-600 select-none pr-12'>
                 {index + 1}
               </span>
               <span
@@ -83,7 +83,7 @@ const SyntaxHighlighter = ({ line }: { line: string }) => {
       {tokens.map((token, idx) => {
         if (token.startsWith('#')) {
           return (
-            <span key={idx} className='text-gray-500 italic'>
+            <span key={idx} className='text-neutral-500 italic'>
               {token}
             </span>
           )

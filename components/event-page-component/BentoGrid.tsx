@@ -1,7 +1,5 @@
-import { Globe } from 'lucide-react'
 import { AnimatedList } from './AnimatedList'
 import { FileTree } from './FileTree'
-import { OrbitingCirclesDemo } from './OrbitingCircle'
 import { IconCloudDemo } from '../IconCloudDemo'
 import { Marquee3D } from '../Marquee3D'
 

@@ -19,6 +19,8 @@ export default {
         foreground: '#F5F5F5',
         muted: '#4B5563',
         border: '#374151',
+        myBlue: '#1F11CE',
+        myRed: '#E52B2B',
       },
       fontFamily: {
         sans: ['var(--font-geist-sans)', 'sans-serif'],

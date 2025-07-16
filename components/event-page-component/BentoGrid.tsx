@@ -2,6 +2,7 @@ import { Globe } from 'lucide-react'
 import { AnimatedList } from './AnimatedList'
 import { FileTree } from './FileTree'
 import { OrbitingCirclesDemo } from './OrbitingCircle'
+import { IconCloudDemo } from '../IconCloudDemo'
 
 export const BentoGrid = () => (
   <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
@@ -21,7 +22,7 @@ export const BentoGrid = () => (
 
     <div className='p-8 border border-white/10'>
       <h3 className='text-xl font-semibold mb-4'>Event Lifecycle</h3>
-      <OrbitingCirclesDemo />
+      <IconCloudDemo />
     </div>
 
     <div className='col-span-1 lg:col-span-2 from-gray-900/20 to-gray-800/20 p-8 border border-white/10'>

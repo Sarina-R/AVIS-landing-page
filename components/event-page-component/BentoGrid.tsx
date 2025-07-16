@@ -3,6 +3,7 @@ import { AnimatedList } from './AnimatedList'
 import { FileTree } from './FileTree'
 import { OrbitingCirclesDemo } from './OrbitingCircle'
 import { IconCloudDemo } from '../IconCloudDemo'
+import { Marquee3D } from '../Marquee3D'
 
 export const BentoGrid = () => (
   <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
@@ -12,7 +13,7 @@ export const BentoGrid = () => (
         Serving clients across 50+ countries with local expertise and global
         standards.
       </p>
-      <Globe />
+      <Marquee3D />
     </div>
 
     <div className='p-8 border border-white/10'>

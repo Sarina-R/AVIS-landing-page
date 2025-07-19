@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef, useCallback } from 'react'
-import steps from './steps'
+import steps from '../steps'
 
 const StepGuide: React.FC = () => {
   const [activeStep, setActiveStep] = useState(0)

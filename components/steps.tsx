@@ -1,14 +1,5 @@
 import { motion } from 'framer-motion'
-import {
-  Plus,
-  BarChart3,
-  ArrowRight,
-  TrendingUp,
-  Zap,
-  Sparkles,
-  Activity,
-  Target,
-} from 'lucide-react'
+import { Plus, BarChart3, ArrowRight, TrendingUp, Zap } from 'lucide-react'
 
 interface Step {
   id: number

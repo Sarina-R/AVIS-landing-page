@@ -10,7 +10,7 @@ import { VercelDataCache } from '@/components/plus-page-component/VercelDataCach
 import { VercelEdgeNetwork } from '@/components/plus-page-component/VercelEdgeNetwork'
 import { VercelFirewall } from '@/components/plus-page-component/VercelFirewall'
 import { VercelFunctions } from '@/components/plus-page-component/VercelFunctions'
-import ModernStepGuide from '@/components/StepGuideComponent '
+import ModernStepGuide from '@/components/plus-page-component/StepGuideComponent '
 
 {
   /* <div className='absolute right-0 h-[400px] w-[400px] lg:h-[450px] md:w-[450px] rounded-full bg-gradient-to-r to-rose-700 from-rose-400 opacity-30 blur-[100px]' />

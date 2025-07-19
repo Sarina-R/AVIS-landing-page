@@ -21,11 +21,11 @@ const AvisPlusLanding = () => {
     <div className='min-h-screen bg-black text-white'>
       <Navigation />
 
-      <main className='max-w-6xl mx-auto border-l border-r mt-20 md:mt-44 border-white/10'>
+      <main className='max-w-6xl mx-auto border-l border-r border-white/10'>
         <HeroSection />
         <ToolsComponent />
         <IconSvgComponent />
-        <div className='grid grid-cols-2 bg-black text-white min-h-screen'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 bg-black text-white min-h-screen'>
           <VercelDataCache />
           <VercelEdgeNetwork />
           <VercelFunctions />

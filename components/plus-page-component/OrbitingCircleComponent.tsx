@@ -86,7 +86,7 @@ export const OrbitingCircleComponent = () => {
 
   return (
     <section ref={ref} className='relative w-full overflow-hidden'>
-      <div className='container mx-auto flex min-h-screen flex-col items-center justify-center px-4 py-20 lg:flex-row lg:justify-between lg:gap-12'>
+      <div className='container mx-auto flex min-h-screen flex-col items-center justify-center px-4 border border-white/10 lg:flex-row lg:justify-between lg:gap-12'>
         <div className='relative flex h-[500px] w-[500px] flex-shrink-0 items-center justify-center'>
           <div className='absolute h-[450px] w-[450px] rounded-full bg-gradient-to-r to-rose-700 from-indigo-400 opacity-50 blur-[100px]'></div>
 
@@ -163,11 +163,11 @@ export const OrbitingCircleComponent = () => {
           })}
         </div>
 
-        <div className='z-10 mt-12 max-w-lg text-center lg:mt-0 lg:text-left'>
+        <div className='flex-1 max-w-lg lg:max-w-80 text-center lg:text-left lg:px-4 py-8 lg:pr-8 lg:border-b-0 lg:border-l border-b border-white/10 min-w-full lg:min-w-auto lg:min-h-screen m-auto lg:pt-56'>
           <h2 className='text-4xl font-bold tracking-tight text-white'>
             Align your workflow
           </h2>
-          <p className='mt-6 text-lg leading-8 text-neutral-400'>
+          <p className='mt-6 text-lg leading-8 text-neutral-400 max-w-lg m-auto'>
             The Turborepo team collaborates with the creators behind your
             favorite tools at Vercel—ensuring alignment, stability, and the
             ultimate developer experience.

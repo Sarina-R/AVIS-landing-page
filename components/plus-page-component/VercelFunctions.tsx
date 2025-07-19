@@ -1,28 +1,114 @@
-import React from 'react'
+export const VercelFunctions = () => {
+  const codeLines = [
+    {
+      number: '1',
+      content: [
+        { text: 'export const', className: 'text-blue-400' },
+        { text: 'GET', className: 'ml-2' },
+        { text: '(', className: 'text-yellow-400' },
+        { text: 'request', className: 'text-orange-400' },
+        { text: ') {', className: 'text-yellow-400' },
+      ],
+    },
+    {
+      number: '2',
+      content: [
+        { text: 'if', className: 'text-blue-400 ml-4' },
+        { text: '(', className: 'text-yellow-400' },
+        { text: 'isBetaUser', className: 'text-blue-400' },
+        { text: '(', className: 'text-yellow-400' },
+        { text: 'request', className: 'text-orange-400' },
+        { text: ')) {', className: 'text-yellow-400' },
+      ],
+    },
+    {
+      number: '3',
+      content: [
+        { text: 'return new', className: 'text-blue-400 ml-8' },
+        { text: 'Response', className: 'ml-2' },
+        { text: '(', className: 'text-yellow-400' },
+        { text: '"🧪 Beta User"', className: 'text-green-400' },
+        { text: ');', className: 'text-yellow-400' },
+      ],
+    },
+    {
+      number: '4',
+      content: [{ text: '}', className: 'ml-4' }],
+    },
+    {
+      number: '5',
+      content: [
+        { text: 'return new', className: 'text-blue-400 ml-4' },
+        { text: 'Response', className: 'ml-2' },
+        { text: '(', className: 'text-yellow-400' },
+        { text: '"🔥 User"', className: 'text-green-400' },
+        { text: ');', className: 'text-yellow-400' },
+      ],
+    },
+    {
+      number: '6',
+      content: [{ text: '}', className: 'text-yellow-400' }],
+    },
+  ]
 
-export const VercelFunctions: React.FC = () => {
   return (
-    <div className='bg-black p-10 border border-white/10'>
-      <div className='flex items-center mb-2'>
-        <span className='text-gray-400 mr-2'>📡</span>
-        <h2 className='text-lg font-semibold text-white'>Vercel Functions</h2>
-      </div>
-      <p className='text-sm mb-4 text-gray-300'>
-        Servers made simple. We deploy and optimize the necessary compute for
-        any scale, replicated across 18 regions.
-      </p>
-      <div className='flex items-center space-x-2'>
-        <span className='text-green-400'>js app/api/beta.js</span>
-        <div className='bg-gray-800 p-2 rounded'>
-          <pre className='text-xs text-green-400'>
-            {`export const GET = (request) => {
-  if (isBetaUser(request)) {
-    return new Response("Beta User");
-  }
-  return new Response("User");
-}`}
-          </pre>
+    <div className='bg-black p-6 md:p-8 lg:p-10 border border-white/10 flex flex-col h-full'>
+      {/* Header */}
+      <div className='flex items-center mb-4' role='heading' aria-level={2}>
+        <div className='w-5 h-5 mr-3 flex items-center justify-center'>
+          <svg
+            viewBox='0 0 24 24'
+            fill='none'
+            className='w-4 h-4 text-gray-400'
+            aria-hidden='true'
+          >
+            <rect
+              x='2'
+              y='4'
+              width='20'
+              height='16'
+              rx='2'
+              stroke='currentColor'
+              strokeWidth='1.5'
+            />
+            <path
+              d='M6 8H10M6 12H14M6 16H10'
+              stroke='currentColor'
+              strokeWidth='1.5'
+            />
+          </svg>
         </div>
+        <h2 className='text-lg font-medium'>Vercel Functions</h2>
+      </div>
+
+      {/* Description */}
+      <div className='mb-8 flex-1'>
+        <p className='text-base font-medium mb-2'>
+          <span className='font-bold'>Servers made simple.</span>{' '}
+          <span className='text-gray-400'>
+            We deploy and optimize the necessary compute for any scale,
+            replicated across 18 regions.
+          </span>
+        </p>
+      </div>
+
+      {/* Code Section */}
+      <div className='space-y-4'>
+        {/* Code block */}
+        <pre className='bg-black border border-white/20 rounded-md p-4 font-mono text-sm overflow-x-auto'>
+          <code>
+            {codeLines.map((line) => (
+              <div className='flex' key={line.number}>
+                <span className='text-gray-500 mr-4'>{line.number}</span>
+                {line.content.map((part, index) => (
+                  <span key={index} className={part.className}>
+                    {part.text}
+                  </span>
+                ))}
+              </div>
+            ))}
+          </code>
+        </pre>
       </div>
     </div>
   )

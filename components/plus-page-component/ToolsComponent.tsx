@@ -23,7 +23,7 @@ export default function ToolsComponent() {
   return (
     <div
       ref={containerRef}
-      className={`min-h-screen flex-col-reverse lg:flex-row flex items-center justify-between p-8 overflow-x-hidden ${
+      className={`min-h-screen flex-col-reverse lg:flex-row flex items-center justify-between lg:px-8 overflow-x-hidden border-b border-white/10 ${
         isVisible ? 'visible' : ''
       }`}
     >
@@ -434,11 +434,11 @@ export default function ToolsComponent() {
       </div>
 
       {/* Right side content */}
-      <div className='flex-1 max-w-lg lg:max-w-80 text-center lg:text-left px-4 lg:pr-8'>
+      <div className='flex-1 max-w-lg lg:max-w-80 text-center lg:text-left lg:px-4 py-8 lg:pr-8 lg:border-b-0 lg:border-l border-b border-white/10 min-w-full lg:min-w-auto lg:min-h-screen m-auto lg:pt-56'>
         <h2 className='text-4xl font-bold tracking-tight text-white'>
           Align your workflow
         </h2>
-        <p className='mt-6 text-lg leading-8 text-neutral-400'>
+        <p className='mt-6 text-lg leading-8 text-neutral-400 max-w-lg m-auto'>
           The Turborepo team collaborates with the creators behind your favorite
           tools at Vercel—ensuring alignment, stability, and the ultimate
           developer experience.

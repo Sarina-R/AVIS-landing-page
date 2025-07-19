@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 
 export default function HeroSection() {
   return (
-    <section className='relative min-h-screen flex items-center justify-center bg-background overflow-hidden'>
+    <section className='relative border-b border-white/10 min-h-screen flex items-center justify-center bg-background overflow-hidden'>
       <div
         className='absolute inset-0 z-0'
         style={{

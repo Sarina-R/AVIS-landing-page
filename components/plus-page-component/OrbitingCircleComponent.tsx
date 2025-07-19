@@ -22,7 +22,7 @@ const Icon: React.FC<IconProps> = ({ className, children, style }) => (
     style={style}
   >
     <div
-      className='absolute h-16 w-16 rounded-full bg-gradient-to-tr from-[#E52B2B] to-[#1F11CE] opacity-60 blur-[6px] -z-50'
+      className='absolute h-16 w-16 rounded-full bg-gradient-to-tr from-red-700 to-[#1F11CE] opacity-60 blur-[6px] -z-50'
       style={{
         transform: 'translate(-50%, -50%)',
         top: '50%',
@@ -78,7 +78,7 @@ export const OrbitingCircleComponent = () => {
       <div className='container mx-auto flex min-h-screen flex-col items-center justify-center px-4 py-20 lg:flex-row lg:justify-between lg:gap-12'>
         {/* Left */}
         <div className='relative flex h-[500px] w-[500px] flex-shrink-0 items-center justify-center'>
-          <div className='absolute h-[450px] w-[450px] rounded-full bg-gradient-to-r from-[#E52B2B] to-[#1F11CE] opacity-60 blur-[100px]'></div>
+          <div className='absolute h-[450px] w-[450px] rounded-full bg-gradient-to-r to-rose-700 from-indigo-400 opacity-50 blur-[100px]'></div>
 
           <div className='absolute h-[400px] w-[400px] rounded-full border border-dashed border-white/20'></div>
           <div className='absolute h-[300px] w-[300px] rounded-full border border-dashed border-white/20'></div>

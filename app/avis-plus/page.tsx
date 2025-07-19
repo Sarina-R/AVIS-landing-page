@@ -21,7 +21,7 @@ const AvisPlusLanding = () => {
     <div className='min-h-screen bg-black text-white'>
       <Navigation />
 
-      <main className='max-w-6xl mx-auto border-l border-r border-white/10'>
+      <main className='max-w-6xl mx-auto border-l border-r border-white/10 mt-17'>
         <HeroSection />
         <ToolsComponent />
         <IconSvgComponent />

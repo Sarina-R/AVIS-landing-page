@@ -12,8 +12,10 @@ import { VercelFirewall } from '@/components/plus-page-component/VercelFirewall'
 import { VercelFunctions } from '@/components/plus-page-component/VercelFunctions'
 import ModernStepGuide from '@/components/StepGuideComponent '
 
-// from-purple-500/30 via-pink-500/30 to-blue-500/30
-
+{
+  /* <div className='absolute right-0 h-[400px] w-[400px] lg:h-[450px] md:w-[450px] rounded-full bg-gradient-to-r to-rose-700 from-rose-400 opacity-30 blur-[100px]' />
+        <div className='absolute left-0 h-[400px] w-[400px] md:h-[450px] md:w-[450px] rounded-full bg-gradient-to-r to-indigo-700 from-indigo-400 opacity-30 blur-[100px]' /> */
+}
 const AvisPlusLanding = () => {
   return (
     <div className='min-h-screen bg-black text-white'>

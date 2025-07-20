@@ -39,7 +39,6 @@ export const ConnectionVisualization: FC = () => {
               d='M100 100 Q250 50 400 100 T700 100'
               stroke='url(#connection-line)'
               strokeWidth='2'
-              floats='none'
             />
             {[
               { x: 100, y: 100, color: '#3B82F6', size: 20 },

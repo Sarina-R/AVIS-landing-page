@@ -2,6 +2,7 @@ import { FC, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { WarpBackground } from '../magicui/warp-background'
+import { TrophySVG } from './TrophySVG'
 
 interface HeroSectionProps {
   onCelebrate: () => void
@@ -14,15 +15,22 @@ export const HeroSection: FC<HeroSectionProps> = ({ onCelebrate }) => {
   return (
     <section
       ref={ref}
-      className='relative min-h-screen flex items-center justify-center overflow-hidden'
+      className='relative min-h-[90vh] flex items-center justify-center overflow-hidden'
     >
       <WarpBackground
         className='w-full h-full absolute inset-0 border-none p-0'
         beamsPerSide={4}
-        beamSize={4}
+        beamSize={5}
         gridColor='rgba(255, 255, 255, 0.1)'
       >
-        <div className='relative z-10 py-8 text-center max-w-[34.5rem] max-h-min mx-auto bg-black top-48 border border-white/10'>
+        <div className='relative z-10 py-2 text-center max-w-[34.5rem] max-h-min mx-auto bg-black top-40'>
+          <motion.div
+            animate={isInView ? { rotate: [0, 5, -5, 0] } : {}}
+            transition={{ duration: 4 }}
+            className='drop-shadow-[0_0_15px_rgba(255,215,0,0.5)]' // Golden glow
+          >
+            <TrophySVG className='w-24 h-24 mx-auto mb-6' />
+          </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -37,15 +45,6 @@ export const HeroSection: FC<HeroSectionProps> = ({ onCelebrate }) => {
             <p className='text-xl text-neutral-400'>
               The managed, global rendering layer for modern web applications.
             </p>
-            <div className='flex items-center justify-center gap-4'>
-              <button className='bg-white text-black px-6 py-3 rounded-full font-medium flex items-center gap-2'>
-                <span>Start Deploying</span>
-                <ArrowRight className='w-4 h-4' />
-              </button>
-              <button className='border border-white/20 text-white px-6 py-3 rounded-full font-medium hover:bg-white/10 transition-colors'>
-                Get a Demo
-              </button>
-            </div>
           </motion.div>
         </div>
       </WarpBackground>

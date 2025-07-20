@@ -10,14 +10,14 @@ const TrophySVG: FC<{ className?: string }> = ({ className = 'w-6 h-6' }) => (
 interface Competition {
   title: string
   participants: string
-  icon: any
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
   status: 'live' | 'upcoming' | 'finished'
 }
 
 interface Stat {
   value: string
   label: string
-  icon?: any
+  icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>
 }
 
 export const CompetitionSection: FC = () => {
@@ -106,7 +106,7 @@ export const CompetitionSection: FC = () => {
 interface CompetitionCardProps {
   title: string
   participants: string
-  icon: any
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
   delay: number
   status: 'live' | 'upcoming' | 'finished'
 }
@@ -184,7 +184,7 @@ interface StatCardProps {
   value: string
   label: string
   delay: number
-  icon?: any
+  icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>
 }
 
 const StatCard: FC<StatCardProps> = ({ value, label, delay, icon: Icon }) => {

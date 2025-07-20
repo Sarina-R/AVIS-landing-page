@@ -66,18 +66,17 @@ const StepGuide: React.FC = () => {
   const isStepActive = (index: number) => activeStep === index
 
   return (
-    <div className='relative bg-black text-white min-h-screen font-sans'>
+    <div className='relative min-h-screen font-sans'>
       <div ref={containerRef} className='relative px-4 py-8 min-h-screen'>
-        {/* Timeline */}
-        <div className='absolute left-6 top-0 h-full w-[2px] bg-gray-700 z-10'>
-          <div
-            className='bg-teal-400 w-full transition-all duration-1000 ease-out'
-            style={{ height: `${scrollProgress * 100}%` }}
-          />
-        </div>
-
         {/* Steps */}
         <div className='relative z-20 w-full max-w-3xl mx-auto'>
+          {/* Timeline */}
+          <div className='absolute left-1.5  top-0 h-full w-[2px] bg-gray-700 z-10'>
+            <div
+              className='bg-sky-400 w-full transition-all duration-1000 ease-out'
+              style={{ height: `${scrollProgress * 100}%` }}
+            />
+          </div>
           {steps.map((step, index) => (
             <div
               key={step.id}
@@ -91,7 +90,7 @@ const StepGuide: React.FC = () => {
                 <div
                   className={`w-6 h-6 rounded-full flex items-center justify-center border-2 transition-all duration-300 ${
                     isStepCompleted(index) || isStepActive(index)
-                      ? 'bg-teal-400 border-teal-400 text-black scale-110'
+                      ? 'bg-sky-400 border-sky-400 text-black scale-110'
                       : 'bg-gray-700 border-gray-700 text-gray-400 scale-90'
                   }`}
                 >
@@ -107,7 +106,7 @@ const StepGuide: React.FC = () => {
                   <span
                     className={`inline-block px-2 py-1 rounded-full text-xs font-semibold ${
                       isStepActive(index)
-                        ? 'bg-teal-400 text-black'
+                        ? 'bg-sky-400 text-black'
                         : 'bg-gray-700 text-gray-400'
                     }`}
                   >

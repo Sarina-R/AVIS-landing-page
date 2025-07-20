@@ -7,7 +7,7 @@ export const ConnectionVisualization: FC = () => {
   const isInView = useInView(ref, { once: true })
 
   return (
-    <section className='py-20 px-6' ref={ref}>
+    <section className='px-6 min-h-[80vh]' ref={ref}>
       <div className='max-w-4xl mx-auto text-center'>
         <motion.div
           initial={{ opacity: 0 }}

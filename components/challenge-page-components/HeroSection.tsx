@@ -1,14 +1,9 @@
-import { FC, useRef } from 'react'
+import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
 import { WarpBackground } from '../magicui/warp-background'
 import { TrophySVG } from './TrophySVG'
 
-interface HeroSectionProps {
-  onCelebrate: () => void
-}
-
-export const HeroSection: FC<HeroSectionProps> = ({ onCelebrate }) => {
+export const HeroSection = () => {
   const ref = useRef<HTMLElement>(null)
   const isInView = useInView(ref, { once: true })
 
@@ -37,10 +32,10 @@ export const HeroSection: FC<HeroSectionProps> = ({ onCelebrate }) => {
             transition={{ duration: 0.8 }}
             className='space-y-8'
           >
-            <h1 className='text-3xl md:text-5xl font-bold text-white'>
+            <h1 className='text-3xl md:text-5xl font-bold'>
               AVIS
               <br />
-              Challenge
+              <span className='text-yellow-500'>Challenge</span>
             </h1>
             <p className='text-xl text-neutral-400'>
               The managed, global rendering layer for modern web applications.

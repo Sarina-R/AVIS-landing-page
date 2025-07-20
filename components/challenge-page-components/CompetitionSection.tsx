@@ -1,8 +1,11 @@
 import { FC, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { Zap, Target, Trophy, Award, Users } from 'lucide-react'
-import { TrophySVG } from './TrophySVG'
 import { useInView } from 'framer-motion'
+
+const TrophySVG: FC<{ className?: string }> = ({ className = 'w-6 h-6' }) => (
+  <Trophy className={className} />
+)
 
 interface Competition {
   title: string
@@ -56,15 +59,15 @@ export const CompetitionSection: FC = () => {
     { value: '10K+', label: 'Active Competitors', icon: Users },
     { value: '150+', label: 'Challenges', icon: Target },
     { value: '50+', label: 'Awards Given', icon: Award },
-    // { value: '25', label: 'Categories', icon: Trophy },
+    { value: '25', label: 'Categories', icon: Trophy },
   ]
 
   return (
-    <>
+    <div className='bg-black text-white min-h-screen '>
       {/* Stats Section */}
-      <section className=''>
+      <section>
         <div className='max-w-6xl mx-auto'>
-          <div className='grid grid-cols-2 md:grid-cols-3 mb-20'>
+          <div className='grid grid-cols-2 md:grid-cols-4 mb-20'>
             {stats.map((stat, i) => (
               <StatCard key={i} {...stat} delay={i * 0.1} />
             ))}
@@ -73,30 +76,30 @@ export const CompetitionSection: FC = () => {
       </section>
 
       {/* Live Competitions */}
-      <section className='py-20 /10'>
+      <section>
         <div className='max-w-6xl mx-auto'>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, repeat: 0 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className='text-center mb-16'
           >
-            <h2 className='text-4xl md:text-5xl font-bold mb-6 text-transparent bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text'>
-              Live Competitions
+            <h2 className='text-4xl md:text-5xl font-bold mb-6 text-white'>
+              Live <span className='text-yellow-500'>Competitions</span>
             </h2>
             <p className='text-xl text-gray-400 max-w-2xl mx-auto'>
               Join ongoing challenges and compete with the best
             </p>
           </motion.div>
-          <div className='grid md:grid-cols-2 lg:grid-cols-3'>
+          <div className='grid grid-cols-2 lg:grid-cols-3'>
             {competitions.map((comp, i) => (
               <CompetitionCard key={i} {...comp} delay={i * 0.1} />
             ))}
           </div>
         </div>
       </section>
-    </>
+    </div>
   )
 }
 
@@ -117,10 +120,18 @@ const CompetitionCard: FC<CompetitionCardProps> = ({
 }) => {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true })
-  const statusColors = {
-    live: 'text-green-400 border-green-400',
-    upcoming: 'text-yellow-400 border-yellow-400',
-    finished: 'text-gray-400 border-gray-400',
+
+  const getStatusStyle = (status: string) => {
+    switch (status) {
+      case 'live':
+        return 'text-green-500 border-green-500'
+      case 'upcoming':
+        return 'text-white border-white'
+      case 'finished':
+        return 'text-gray-400 border-gray-400'
+      default:
+        return 'text-white border-white'
+    }
   }
 
   return (
@@ -129,22 +140,24 @@ const CompetitionCard: FC<CompetitionCardProps> = ({
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay }}
-      className='bg-white/[0.03] backdrop-blur-sm border border-white/10 p-6 hover:border-yellow-500/50 transition-all duration-300 group cursor-pointer'
+      className='border border-white/10 bg-white/[0.02] p-6 hover:border-white/20 transition-all duration-300 group cursor-pointer'
     >
       <div className='flex items-center justify-between mb-4'>
-        <div className='flex items-center gap-4'>
-          <div className='p-3 bg-white/10 group-hover:bg-blue-500/30 transition-colors'>
-            <Icon className='w-6 h-6 text-blue-400' />
+        <div className='flex items-center'>
+          <div className='p-3 rounded-full mr-2 border border-white/10 group-hover:border-white/20 transition-all duration-300'>
+            <Icon className='w-6 h-6 text-white' />
           </div>
           <div>
-            <h3 className='text-xl font-semibold text-white group-hover:text-blue-300 transition-colors'>
+            <h3 className='text-xl font-semibold text-white  transition-colors'>
               {title}
             </h3>
             <p className='text-gray-400'>{participants} participants</p>
           </div>
         </div>
         <span
-          className={`px-2 py-1 text-xs border rounded-full ${statusColors[status]}`}
+          className={`px-2 py-1 text-xs border rounded-full ${getStatusStyle(
+            status
+          )}`}
         >
           {status}
         </span>
@@ -154,14 +167,14 @@ const CompetitionCard: FC<CompetitionCardProps> = ({
           {[...Array(3)].map((_, i) => (
             <div
               key={i}
-              className='w-8 h-8 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full border-2 border-gray-900'
+              className='w-8 h-8 bg-white rounded-full border-2 border-black'
             />
           ))}
-          <div className='w-8 h-8 bg-gray-700 rounded-full border-2 border-gray-900 flex items-center justify-center text-xs text-gray-300'>
+          <div className='w-8 h-8 bg-yellow-500 rounded-full border-2 border-black flex items-center justify-center text-xs text-black'>
             +{Math.floor(Math.random() * 50)}
           </div>
         </div>
-        <TrophySVG className='w-8 h-8' />
+        <TrophySVG className='w-8 h-8 text-yellow-500' />
       </div>
     </motion.div>
   )
@@ -184,22 +197,24 @@ const StatCard: FC<StatCardProps> = ({ value, label, delay, icon: Icon }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay }}
-      className='text-center p-6 border border-white/10 hover:border-blue-500/50 transition-all duration-300'
+      className='text-center p-6 border border-white/10 hover:border-yellow-500/30 transition-all duration-300 bg-white/[0.02]'
     >
       {Icon && (
         <div className='inline-block mb-3'>
-          <Icon className='w-8 h-8 text-blue-400 mx-auto' />
+          <Icon className='w-8 h-8 text-yellow-500 mx-auto' />
         </div>
       )}
       <motion.div
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
         transition={{ duration: 0.5, delay: delay + 0.2 }}
-        className='text-4xl font-bold text-transparent bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text mb-2'
+        className='text-4xl font-bold mb-2'
       >
         {value}
       </motion.div>
-      <div className='text-gray-400'>{label}</div>
+      <div className='text-white'>{label}</div>
     </motion.div>
   )
 }
+
+export default CompetitionSection

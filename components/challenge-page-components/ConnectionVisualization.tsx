@@ -7,7 +7,7 @@ export const ConnectionVisualization: FC = () => {
   const isInView = useInView(ref, { once: true })
 
   return (
-    <section className='px-6 min-h-[80vh]' ref={ref}>
+    <section className='px-6 pt-16 min-h-[80vh]' ref={ref}>
       <div className='max-w-4xl mx-auto text-center'>
         <motion.div
           initial={{ opacity: 0 }}
@@ -72,7 +72,7 @@ export const ConnectionVisualization: FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.5, repeat: 0 }}
-            className='text-3xl font-bold text-transparent bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text mt-8 mb-4'
+            className='text-3xl font-bold bg-clip-text mt-8 mb-4'
           >
             Connected Through Competition
           </motion.h3>

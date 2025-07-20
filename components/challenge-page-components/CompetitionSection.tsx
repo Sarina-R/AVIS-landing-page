@@ -167,7 +167,7 @@ const CompetitionCard: FC<CompetitionCardProps> = ({
           {[...Array(3)].map((_, i) => (
             <div
               key={i}
-              className='w-8 h-8 bg-white rounded-full border-2 border-black'
+              className='w-8 h-8 bg-neutral-900 rounded-full border-2 border-black'
             />
           ))}
           <div className='w-8 h-8 bg-yellow-500 rounded-full border-2 border-black flex items-center justify-center text-xs text-black'>

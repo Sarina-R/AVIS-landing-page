@@ -1,7 +1,29 @@
-import React from 'react'
+'use client'
 
-const page = () => {
-  return <div>page</div>
+import { useState } from 'react'
+import { Navigation } from '@/components/event-page-component/Navigation'
+import { CelebrationPopup } from '@/components/challenge-page-components/CelebrationPopup'
+import { HeroSection } from '@/components/challenge-page-components/HeroSection'
+import { CompetitionSection } from '@/components/challenge-page-components/CompetitionSection'
+import { ConnectionVisualization } from '@/components/challenge-page-components/ConnectionVisualization'
+import { Footer } from '@/components/event-page-component/Footer'
+
+export default function AVISChallenge() {
+  const [showCelebration, setShowCelebration] = useState(false)
+
+  return (
+    <div className='min-h-screen bg-black text-white'>
+      <Navigation />
+      <main className='max-w-6xl mx-auto border-l border-r border-white/10 mt-17'>
+        <HeroSection onCelebrate={() => setShowCelebration(true)} />
+        <CelebrationPopup
+          isVisible={showCelebration}
+          onClose={() => setShowCelebration(false)}
+        />
+        <CompetitionSection />
+        <ConnectionVisualization />
+      </main>
+      <Footer />
+    </div>
+  )
 }
-
-export default page

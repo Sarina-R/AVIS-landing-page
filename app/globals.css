@@ -192,3 +192,15 @@
     right: 20%;
   }
 }
+@keyframes grid {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-grid {
+  animation: grid 10s linear infinite;
+}

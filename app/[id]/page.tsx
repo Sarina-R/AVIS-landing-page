@@ -65,7 +65,6 @@ export default function NewsArticle({ params }: { params: { id: string } }) {
   useEffect(() => {
     async function fetchArticleData() {
       try {
-        // Fetch current article
         const response = await axios.get<WpPost>(
           `https://avisengine.com/wp-json/wp/v2/posts/${params.id}`
         )
@@ -83,7 +82,6 @@ export default function NewsArticle({ params }: { params: { id: string } }) {
           }
         }
 
-        // Extract images from content, excluding featured image
         const contentImages = extractImages(post.content.rendered).filter(
           (img) => img !== featuredImage
         )
@@ -115,7 +113,6 @@ export default function NewsArticle({ params }: { params: { id: string } }) {
           format: post.format,
         })
 
-        // Fetch related articles and navigation
         const relatedResponse = await axios.get<WpPost[]>(
           `https://avisengine.com/wp-json/wp/v2/posts?categories=14&per_page=10`
         )
@@ -123,7 +120,6 @@ export default function NewsArticle({ params }: { params: { id: string } }) {
           (p) => p.id !== post.id
         )
 
-        // Find previous and next articles
         const currentIndex = relatedResponse.data.findIndex(
           (p) => p.id === post.id
         )
@@ -298,7 +294,7 @@ export default function NewsArticle({ params }: { params: { id: string } }) {
           {(prevArticle || nextArticle) && (
             <div className='mt-12 border-t border-neutral-800 pt-8'>
               <h2 className='text-2xl font-light mb-4'>More Articles</h2>
-              <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+              <div className='grid grid-cols-1 md:grid-cols-2 gap-16'>
                 {prevArticle && (
                   <Link href={prevArticle.link} className='group'>
                     <div className='flex items-center gap-4'>

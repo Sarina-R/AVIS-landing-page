@@ -6,6 +6,7 @@ import { CompetitionSection } from '@/components/challenge-page-components/Compe
 import { ConnectionVisualization } from '@/components/challenge-page-components/ConnectionVisualization'
 import { Footer } from '@/components/event-page-component/Footer'
 import KubernetesCompanion from '@/components/challenge-page-components/KubernetesCompanion '
+import UpcomingEvents from '@/components/challenge-page-components/UpcomingEvents'
 
 export default function AVISChallenge() {
   return (
@@ -16,6 +17,7 @@ export default function AVISChallenge() {
         <CompetitionSection />
         <ConnectionVisualization />
         <KubernetesCompanion />
+        <UpcomingEvents />
       </main>
       <Footer />
     </div>

@@ -204,3 +204,9 @@
 .animate-grid {
   animation: grid 10s linear infinite;
 }
+
+.news-video video {
+  max-height: 90vh;
+  object-fit: cover;
+  margin: auto;
+}

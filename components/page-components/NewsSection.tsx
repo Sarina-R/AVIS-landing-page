@@ -1,41 +1,104 @@
+import { useEffect, useState } from 'react'
 import { Code } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { HolographicText } from '../HolographicText'
 import { ModernCard } from '../ModernCard'
+import axios from 'axios'
+import Link from 'next/link'
+import Image from 'next/image'
+
+interface NewsItem {
+  title: string
+  description: string
+  tags: string[]
+  image: string | null
+  link: string
+}
+
+interface WpPost {
+  id: number
+  date: string
+  title: { rendered: string }
+  featured_media: number
+  tags: number[]
+  link: string
+}
+
+interface Media {
+  source_url: string
+}
 
 export default function NewsSection({
   title = 'The Latest News',
   titleHighlight = 'News',
-  news = [],
   sectionId = 'news',
+}: {
+  title?: string
+  titleHighlight?: string
+  sectionId?: string
 }) {
-  const defaultNews = [
-    {
-      title:
-        'AVIS Group Announced as Official Sponsor of FIRA Indonesia Open 2025',
-      description: '2 weeks ago • News',
-      tags: ['Sponsorship', 'FIRA', 'Indonesia'],
-      image: null,
-      link: 'https://avisengine.com/avis-group-announced-as-official-sponsor-of-fira-indonesia-open-2025/',
-    },
-    {
-      title: 'A Powerful Tool for Autonomous Systems Research',
-      description: '5 months ago • News',
-      tags: ['Autonomous', 'Research', 'Tools'],
-      image:
-        'https://avisengine.com/wp-content/uploads/2025/02/5839083660857427902.jpg',
-      link: 'https://avisengine.com/%f0%9f%9a%80-a-powerful-tool-for-autonomous-systems-research-2/',
-    },
-    {
-      title: 'AVIS Global Autonomous Vehicles Simulator',
-      description: '5 months ago • News',
-      tags: ['Simulator', 'Autonomous', 'Vehicles'],
-      image: 'https://avisengine.com/wp-content/uploads/2025/02/og.webp',
-      link: 'https://avisengine.com/avis-global-events-pioneering-the-future-of-innovation/',
-    },
-  ]
+  const [news, setNews] = useState<NewsItem[]>([])
+  const [loading, setLoading] = useState(true)
+  const [mediaCache, setMediaCache] = useState<{
+    [key: number]: string | null
+  }>({})
 
-  const dataToUse = news.length > 0 ? news : defaultNews
+  useEffect(() => {
+    async function fetchNews() {
+      try {
+        const response = await axios.get<WpPost[]>(
+          'https://avisengine.com/wp-json/wp/v2/posts?categories=14&per_page=3'
+        )
+        const posts = response.data
+
+        const newsItems: NewsItem[] = []
+        for (const post of posts) {
+          let imageUrl: string | null = null
+          if (post.featured_media) {
+            if (mediaCache[post.featured_media]) {
+              imageUrl = mediaCache[post.featured_media]
+            } else {
+              try {
+                const media = await axios.get<Media>(
+                  `https://avisengine.com/wp-json/wp/v2/media/${post.featured_media}`
+                )
+                imageUrl = media.data.source_url
+                setMediaCache((prev) => ({
+                  ...prev,
+                  [post.featured_media]: imageUrl,
+                }))
+              } catch (err) {
+                console.error(`Error fetching media for post ${post.id}:`, err)
+              }
+            }
+          }
+
+          newsItems.push({
+            title: post.title.rendered,
+            description: `${new Date(post.date).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })} • News`,
+            tags:
+              post.tags.length > 0 ? post.tags.map(String) : ['News', 'Update'],
+            image: imageUrl,
+            link: `/${post.id}`,
+          })
+        }
+        setNews(newsItems)
+        setLoading(false)
+      } catch (error) {
+        console.error('Error fetching news:', error)
+        setLoading(false)
+      }
+    }
+    fetchNews()
+  }, [mediaCache])
+
+  if (loading) {
+    return <div className='text-center py-32 text-white'>Loading...</div>
+  }
 
   return (
     <section id={sectionId} className='py-32 px-6'>
@@ -56,54 +119,55 @@ export default function NewsSection({
         </motion.div>
 
         <div className='grid md:grid-cols-3 gap-8'>
-          {dataToUse.map((item, index) => (
+          {news.slice(0, 3).map((item, index) => (
             <ModernCard key={item.title} delay={0.1 * (index + 1)}>
-              <div className='space-y-6'>
-                {item.image && (
-                  <div className='relative overflow-hidden rounded-lg aspect-[4/3]'>
-                    <motion.img
-                      src={item.image}
-                      alt={item.title}
-                      className='w-full h-full object-cover cursor-pointer'
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.3 }}
-                      onClick={() => window.open(item.link, '_blank')}
-                    />
+              <Link href={item.link}>
+                <div className='space-y-6'>
+                  {item.image && (
+                    <div className='relative overflow-hidden rounded-lg aspect-[4/3]'>
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        width={400}
+                        height={300}
+                        className='w-full h-full object-cover cursor-pointer'
+                        priority={index === 0}
+                      />
+                    </div>
+                  )}
+
+                  <div className='flex items-center justify-between'>
+                    <div className='flex-1' />
+                    <div>
+                      <Code className='w-4 h-4 text-accent' />
+                    </div>
                   </div>
-                )}
 
-                <div className='flex items-center justify-between'>
-                  <div className='flex-1' />
-                  <div>
-                    <Code className='w-4 h-4 text-accent' />
+                  <div className='space-y-4'>
+                    <h3 className='text-xl font-light leading-relaxed cursor-pointer hover:text-accent transition-colors'>
+                      {item.title}
+                    </h3>
+                    <p className='text-neutral-500 text-sm'>
+                      {item.description}
+                    </p>
+                  </div>
+
+                  <div className='flex flex-wrap gap-2 pt-4'>
+                    {item.tags.map((tag, tagIndex) => (
+                      <motion.span
+                        key={tag}
+                        initial={{ opacity: 0, scale: 0 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: tagIndex * 0.1 }}
+                        whileHover={{ scale: 1.1, y: -2 }}
+                        className='px-3 py-1 text-xs bg-secondary rounded-full border cursor-pointer hover:border-accent/50 transition-colors'
+                      >
+                        {tag}
+                      </motion.span>
+                    ))}
                   </div>
                 </div>
-
-                <div className='space-y-4'>
-                  <h3
-                    className='text-xl font-light leading-relaxed cursor-pointer hover:text-accent transition-colors'
-                    onClick={() => window.open(item.link, '_blank')}
-                  >
-                    {item.title}
-                  </h3>
-                  <p className='text-neutral-500 text-sm'>{item.description}</p>
-                </div>
-
-                <div className='flex flex-wrap gap-2 pt-4'>
-                  {item.tags.map((tag, tagIndex) => (
-                    <motion.span
-                      key={tag}
-                      initial={{ opacity: 0, scale: 0 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: tagIndex * 0.1 }}
-                      whileHover={{ scale: 1.1, y: -2 }}
-                      className='px-3 py-1 text-xs bg-secondary rounded-full border cursor-pointer hover:border-accent/50 transition-colors'
-                    >
-                      {tag}
-                    </motion.span>
-                  ))}
-                </div>
-              </div>
+              </Link>
             </ModernCard>
           ))}
         </div>

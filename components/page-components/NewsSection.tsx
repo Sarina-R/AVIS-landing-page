@@ -3,43 +3,13 @@ import { motion } from 'framer-motion'
 import { HolographicText } from '../HolographicText'
 import { ModernCard } from '../ModernCard'
 
-export default function ServicesSection({
-  title = 'Quantum Services',
-  titleHighlight = 'Services',
-  services = [],
-  sectionId = 'services',
+export default function NewsSection({
+  title = 'The Latest News',
+  titleHighlight = 'News',
+  news = [],
+  sectionId = 'news',
 }) {
-  const defaultServices = [
-    {
-      title:
-        'AVIS MAGAZINE No.3 - Celebrating a Year of Innovation, Excellence, and Technological Breakthroughs',
-      description: '10 months ago • AVIS Magazine',
-      tags: ['Innovation', 'Excellence', 'Breakthroughs'],
-      image:
-        'https://avisengine.com/wp-content/uploads/2024/09/Free_Book_Mockup_8-1024x768.png',
-      link: 'https://avisengine.com/avis-magazine-no-3-celebrating-a-year-of-innovation-excellence-and-technological-breakthroughs/',
-    },
-    {
-      title:
-        'THE BEST IN THE ENGINEERING WORLD February 2024 No.5 - The Best in the Engineering World magazine No.5',
-      description: '1 year ago • AVIS Magazine',
-      tags: ['Autonomous', 'Companies', 'Startups'],
-      image:
-        'https://avisengine.com/wp-content/uploads/2024/01/Screen-Shot-2024-02-13-at-12.04.40-PM.png',
-      link: 'https://avisengine.com/the-best-in-the-engineering-world-magazine-no-5/',
-    },
-    {
-      title:
-        'THE BEST IN THE ENGINEERING WORLD December 2023 No.4 - The Best in the Engineering World magazine No.4',
-      description: '2 years ago • AVIS Magazine',
-      tags: ['Teams', 'Competitions', 'Engineering'],
-      image:
-        'https://avisengine.com/wp-content/uploads/2023/12/Screen-Shot-2024-02-13-at-12.08.07-PM.png',
-      link: 'https://avisengine.com/the-best-in-the-engineering-world-magazine-no-4/',
-    },
-  ]
-
-  const latestNews = [
+  const defaultNews = [
     {
       title:
         'AVIS Group Announced as Official Sponsor of FIRA Indonesia Open 2025',
@@ -65,19 +35,7 @@ export default function ServicesSection({
     },
   ]
 
-  const dataToUse =
-    services.length > 0
-      ? services
-      : title.includes('News')
-      ? latestNews
-      : defaultServices
-
-  const getAspectRatio = () => {
-    if (titleHighlight === 'Magazine' || sectionId === 'services') {
-      return 'aspect-[0.71]'
-    }
-    return 'aspect-[4/3]'
-  }
+  const dataToUse = news.length > 0 ? news : defaultNews
 
   return (
     <section id={sectionId} className='py-32 px-6'>
@@ -98,20 +56,18 @@ export default function ServicesSection({
         </motion.div>
 
         <div className='grid md:grid-cols-3 gap-8'>
-          {dataToUse.map((service, index) => (
-            <ModernCard key={service.title} delay={0.1 * (index + 1)}>
+          {dataToUse.map((item, index) => (
+            <ModernCard key={item.title} delay={0.1 * (index + 1)}>
               <div className='space-y-6'>
-                {service.image && (
-                  <div
-                    className={`relative overflow-hidden rounded-lg ${getAspectRatio()}`}
-                  >
+                {item.image && (
+                  <div className='relative overflow-hidden rounded-lg aspect-[4/3]'>
                     <motion.img
-                      src={service.image}
-                      alt={service.title}
+                      src={item.image}
+                      alt={item.title}
                       className='w-full h-full object-cover cursor-pointer'
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.3 }}
-                      onClick={() => window.open(service.link, '_blank')}
+                      onClick={() => window.open(item.link, '_blank')}
                     />
                   </div>
                 )}
@@ -126,17 +82,15 @@ export default function ServicesSection({
                 <div className='space-y-4'>
                   <h3
                     className='text-xl font-light leading-relaxed cursor-pointer hover:text-accent transition-colors'
-                    onClick={() => window.open(service.link, '_blank')}
+                    onClick={() => window.open(item.link, '_blank')}
                   >
-                    {service.title}
+                    {item.title}
                   </h3>
-                  <p className='text-neutral-500 text-sm'>
-                    {service.description}
-                  </p>
+                  <p className='text-neutral-500 text-sm'>{item.description}</p>
                 </div>
 
                 <div className='flex flex-wrap gap-2 pt-4'>
-                  {service.tags.map((tag, tagIndex) => (
+                  {item.tags.map((tag, tagIndex) => (
                     <motion.span
                       key={tag}
                       initial={{ opacity: 0, scale: 0 }}

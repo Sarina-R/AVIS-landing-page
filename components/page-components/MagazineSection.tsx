@@ -138,8 +138,6 @@ export default function MagazineSection({
                       src={item.image}
                       alt={item.title}
                       className='w-full h-full object-cover cursor-pointer'
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.3 }}
                       onClick={() => window.open(item.link, '_blank')}
                     />
                   </div>
@@ -165,10 +163,10 @@ export default function MagazineSection({
                   {item.tags.map((tag, tagIndex) => (
                     <motion.span
                       key={tag}
-                      initial={{ opacity: 0, scale: 0 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: tagIndex * 0.1 }}
-                      whileHover={{ scale: 1.1, y: -2 }}
+                      // initial={{ opacity: 0, scale: 0 }}
+                      // whileInView={{ opacity: 1, scale: 1 }}
+                      // transition={{ delay: tagIndex * 0.1 }}
+                      // whileHover={{ scale: 1.1, y: -2 }}
                       className='px-3 py-1 text-xs bg-secondary rounded-full border cursor-pointer hover:border-accent/50 transition-colors'
                     >
                       {tag}

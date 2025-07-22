@@ -217,8 +217,24 @@ export default function NewsArticle({ params }: PageProps) {
     fetchArticleData()
   }, [params])
 
-  const cleanContent = useMemo(() => {
-    return article?.content.replace(/<img[^>]*>/gi, '')
+  const { cleanedHtml, galleryImages } = useMemo(() => {
+    const parser = new DOMParser()
+    const doc = parser.parseFromString(article?.content || '', 'text/html')
+    const galleryFigures = doc.querySelectorAll('figure.wp-block-gallery')
+
+    const images: string[] = []
+    galleryFigures.forEach((gallery) => {
+      const imgs = gallery.querySelectorAll('img')
+      imgs.forEach((img) => {
+        if (img.src) images.push(img.src)
+      })
+      gallery.remove()
+    })
+
+    return {
+      cleanedHtml: doc.body.innerHTML,
+      galleryImages: images,
+    }
   }, [article?.content])
 
   const extractImages = (content: string): string[] => {
@@ -277,27 +293,26 @@ export default function NewsArticle({ params }: PageProps) {
             </div>
           )}
           <div className='prose prose-invert max-w-none mb-8'>
-            <div
-              dangerouslySetInnerHTML={{ __html: cleanContent || article }}
-            />
-          </div>
-          {article.contentImages.length > 0 && (
-            <div className='mt-12'>
-              <h2 className='text-2xl font-light mb-4'>Gallery</h2>
-              <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'>
-                {article.contentImages.map((img, index) => (
-                  <Image
-                    key={index}
-                    src={img}
-                    alt={`Article image ${index + 1}`}
-                    width={400}
-                    height={400}
-                    className='w-full h-auto rounded-lg object-cover'
-                  />
-                ))}
+            <div dangerouslySetInnerHTML={{ __html: cleanedHtml }} />
+
+            {galleryImages.length > 0 && (
+              <div className='mt-12'>
+                <h2 className='text-2xl font-light mb-4'>Gallery</h2>
+                <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'>
+                  {galleryImages.map((img, index) => (
+                    <Image
+                      key={index}
+                      src={img}
+                      alt={`Article image ${index + 1}`}
+                      width={400}
+                      height={400}
+                      className='w-full h-auto rounded-lg object-cover'
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
           {(prevArticle || nextArticle) && (
             <div className='mt-12 border-t border-neutral-800 pt-8'>
               <h2 className='text-2xl font-light mb-4'>More Articles</h2>

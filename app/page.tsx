@@ -16,8 +16,8 @@ import TestimonialSlider from '@/components/page-components/TestimonialSlider'
 import DownloadSection from '@/components/page-components/DownloadSection'
 import StatsSection from '@/components/page-components/StatsSection'
 import Footer from '@/components/page-components/Footer'
-import GalaxyBackground from '@/components/page-components/GalaxyBackground'
-import FloatingParticles from '@/components/page-components/FloatingParticles'
+// import GalaxyBackground from '@/components/page-components/GalaxyBackground'
+// import FloatingParticles from '@/components/page-components/FloatingParticles'
 
 export default function AvisLandingPage() {
   return (

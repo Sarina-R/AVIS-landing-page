@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { useState, useEffect } from 'react'
 
 interface MousePosition {
@@ -129,7 +130,7 @@ const AnimatedHeroSection = () => {
 
         <div className='flex items-start justify-center divide-y divide-accent/10 px-8 sm:px-24'>
           <div className='flex w-full max-w-[80vw] flex-col items-center justify-start md:!max-w-[392px]'>
-            <a href='/docs' className='cursor-pointer w-full'>
+            <Link href='/docs' className='cursor-pointer w-full'>
               <div
                 className={`!h-14 items-center justify-center rounded-none !text-base max-w-sm:!border-x-0 flex w-full !border-x !border-y-0 border-accent/20 !bg-transparent backdrop-blur-xl transition-all duration-300 hover:!bg-accent/10 transform ${
                   isVisible
@@ -142,8 +143,8 @@ const AnimatedHeroSection = () => {
                   View Documentation →
                 </span>
               </div>
-            </a>
-            <a href='/docs' className='cursor-pointer w-full'>
+            </Link>
+            <Link href='/docs' className='cursor-pointer w-full'>
               <div
                 className={`!h-14 items-center justify-center rounded-none border-none !text-base flex w-full border-[1.2px] border-accent/20 bg-gradient-to-tr from-primary via-secondary to-accent transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-accent/25 transform ${
                   isVisible
@@ -156,7 +157,7 @@ const AnimatedHeroSection = () => {
                   Discover AVIS Engine
                 </span>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
 

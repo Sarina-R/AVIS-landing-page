@@ -7,21 +7,21 @@ interface MousePosition {
 }
 
 const AnimatedHeroSection = () => {
-  const [mousePosition, setMousePosition] = useState<MousePosition>({
-    x: 0,
-    y: 0,
-  })
+  // const [mousePosition, setMousePosition] = useState<MousePosition>({
+  //   x: 0,
+  //   y: 0,
+  // })
   const [isVisible, setIsVisible] = useState<boolean>(false)
 
   useEffect(() => {
     setIsVisible(true)
 
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
+    // const handleMouseMove = (e: MouseEvent) => {
+    //   setMousePosition({ x: e.clientX, y: e.clientY })
+    // }
 
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
+    // window.addEventListener('mousemove', handleMouseMove)
+    // return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [])
 
   return (

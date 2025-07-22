@@ -18,9 +18,9 @@ const AvisCommunityLanding = () => {
       <Navigation />
       <HeroSection />
       <AboutSection />
+      <BentoDemo />
       <StepsComponent />
       <ServicesSection />
-      <BentoDemo />
       <WhyChooseUs />
       <CTASection />
       <Footer />

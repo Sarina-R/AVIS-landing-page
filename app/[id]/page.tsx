@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import axios from 'axios'
 import { notFound } from 'next/navigation'
 import { motion } from 'framer-motion'
@@ -217,6 +217,10 @@ export default function NewsArticle({ params }: PageProps) {
     fetchArticleData()
   }, [params])
 
+  const cleanContent = useMemo(() => {
+    return article?.content.replace(/<img[^>]*>/gi, '')
+  }, [article?.content])
+
   const extractImages = (content: string): string[] => {
     const imgRegex = /<img[^>]+src=["'](.*?)["']/g
     const images: string[] = []
@@ -273,13 +277,15 @@ export default function NewsArticle({ params }: PageProps) {
             </div>
           )}
           <div className='prose prose-invert max-w-none mb-8'>
-            <div dangerouslySetInnerHTML={{ __html: article.content }} />
+            <div
+              dangerouslySetInnerHTML={{ __html: cleanContent || article }}
+            />
           </div>
           {article.contentImages.length > 0 && (
             <div className='mt-12'>
               <h2 className='text-2xl font-light mb-4'>Gallery</h2>
               <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'>
-                {article.contentImages.slice(0, 6).map((img, index) => (
+                {article.contentImages.map((img, index) => (
                   <Image
                     key={index}
                     src={img}

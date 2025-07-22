@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+// import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { ModernCardProps } from '@/app/type'
 import { GlowingEffect } from './ui/glowing-effect'
@@ -6,7 +6,7 @@ import { GlowingEffect } from './ui/glowing-effect'
 export const ModernCard: React.FC<ModernCardProps> = ({
   children,
   className = '',
-  delay = 0,
+  // delay = 0,
 }) => {
   // const [isHovered, setIsHovered] = useState(false)
   // const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })

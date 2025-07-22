@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 
-interface MousePosition {
-  x: number
-  y: number
-}
+// interface MousePosition {
+//   x: number
+//   y: number
+// }
 
 const AnimatedHeroSection = () => {
   // const [mousePosition, setMousePosition] = useState<MousePosition>({

@@ -55,7 +55,12 @@ interface RelatedArticle {
   link: string
 }
 
-export default function NewsArticle({ params }: { params: { id: string } }) {
+interface PageProps {
+  params: { id: string }
+  searchParams?: { [key: string]: string | string[] | undefined }
+}
+
+export default function NewsArticle({ params }: PageProps) {
   const [article, setArticle] = useState<Article | null>(null)
   const [relatedArticles, setRelatedArticles] = useState<RelatedArticle[]>([])
   const [prevArticle, setPrevArticle] = useState<RelatedArticle | null>(null)

@@ -160,7 +160,7 @@ export default function MagazineSection({
                 </div>
 
                 <div className='flex flex-wrap gap-2 pt-4'>
-                  {item.tags.map((tag, tagIndex) => (
+                  {item.tags.map((tag) => (
                     <motion.span
                       key={tag}
                       // initial={{ opacity: 0, scale: 0 }}

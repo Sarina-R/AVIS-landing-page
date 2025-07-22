@@ -8,30 +8,22 @@ export const ModernCard: React.FC<ModernCardProps> = ({
   className = '',
   delay = 0,
 }) => {
-  const [isHovered, setIsHovered] = useState(false)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const cardRef = useRef<HTMLDivElement>(null)
+  // const [isHovered, setIsHovered] = useState(false)
+  // const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  // const cardRef = useRef<HTMLDivElement>(null)
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return
+  // const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  //   if (!cardRef.current) return
 
-    const rect = cardRef.current.getBoundingClientRect()
-    const x = e.clientX - rect.left
-    const y = e.clientY - rect.top
+  //   const rect = cardRef.current.getBoundingClientRect()
+  //   const x = e.clientX - rect.left
+  //   const y = e.clientY - rect.top
 
-    setMousePosition({ x, y })
-  }
+  //   setMousePosition({ x, y })
+  // }
 
   return (
     <motion.div
-      ref={cardRef}
-      initial={{ opacity: 0, y: 60, scale: 0.9 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8, delay }}
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
-      onMouseMove={handleMouseMove}
       className={`
         relative backdrop-blur-xl bg-primary-gradient
         border border-border rounded-2xl p-8 overflow-hidden group cursor-pointer
@@ -52,24 +44,24 @@ export const ModernCard: React.FC<ModernCardProps> = ({
       <div className='relative z-10'>{children}</div>
 
       {/* Minimal glow effect */}
-      <motion.div
+      {/* <motion.div
         className='absolute inset-0 rounded-2xl opacity-0'
         style={{
           background: `radial-gradient(300px circle at ${mousePosition.x}px ${mousePosition.y}px, #8B1A25, transparent 40%)`,
         }}
         animate={{ opacity: isHovered ? 0.3 : 0 }}
         transition={{ duration: 0.3 }}
-      />
+      /> */}
 
       {/* Subtle border highlight */}
-      <motion.div
+      {/* <motion.div
         className='absolute inset-0 rounded-2xl border border-primary-lighter opacity-0 dark:border-primary-lighter'
         animate={{ opacity: isHovered ? 0.5 : 0 }}
         transition={{ duration: 0.3 }}
-      />
+      /> */}
 
       {/* Interactive sparkles */}
-      {isHovered && (
+      {/* {isHovered && (
         <motion.div
           className='absolute inset-0 pointer-events-none'
           initial={{ opacity: 0 }}
@@ -95,7 +87,7 @@ export const ModernCard: React.FC<ModernCardProps> = ({
             />
           ))}
         </motion.div>
-      )}
+      )} */}
     </motion.div>
   )
 }

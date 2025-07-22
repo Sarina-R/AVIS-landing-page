@@ -2,7 +2,7 @@ export const CTASection = () => (
   <section className='py-24 px-6 border-t border-white/10'>
     <div className='max-w-4xl mx-auto text-center'>
       <h2 className='text-3xl font-bold mb-6'>
-        Ready to Start with Avis Events?
+        Ready to Start with AVIS Events?
       </h2>
       <p className='text-xl text-neutral-400 mb-8'>
         Let&apos;s create something extraordinary together. Get in touch with

@@ -94,7 +94,7 @@ export const Footer = () => (
       </div>
 
       <div className='border-t border-white/10 mt-8 pt-8 text-center text-sm text-neutral-400'>
-        <p>&copy; 2024 Avis Events. All rights reserved.</p>
+        <p>&copy; 2024 AVIS Events. All rights reserved.</p>
       </div>
     </div>
   </footer>

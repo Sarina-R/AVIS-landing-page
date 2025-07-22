@@ -22,8 +22,8 @@ import FloatingParticles from '@/components/page-components/FloatingParticles'
 export default function AvisLandingPage() {
   return (
     <div className='min-h-screen bg-black text-white space-y-16 font-sans'>
-      <GalaxyBackground />
-      <FloatingParticles />
+      {/* <GalaxyBackground /> */}
+      {/* <FloatingParticles /> */}
       <Navigation />
       <HeroSection />
       <ProductsComponent />

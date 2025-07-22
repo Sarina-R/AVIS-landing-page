@@ -48,7 +48,7 @@ const AnimatedHeroSection = () => {
       <div className='absolute inset-0'>
         <div className='absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/30 to-black/50' />
 
-        <div className='absolute inset-0'>
+        {/* <div className='absolute inset-0'>
           {[...Array(50)].map((_, i) => (
             <div
               key={i}
@@ -63,9 +63,9 @@ const AnimatedHeroSection = () => {
               <div className='w-1 h-1 bg-accent rounded-full blur-sm' />
             </div>
           ))}
-        </div>
+        </div> */}
 
-        <div
+        {/* <div
           className='absolute w-96 h-96 rounded-full blur-3xl opacity-30 animate-pulse'
           style={{
             background: `radial-gradient(circle, #D14975 0%, #650d14 50%, transparent 100%)`,
@@ -84,10 +84,10 @@ const AnimatedHeroSection = () => {
             transform: 'translate(50%, 50%)',
             animationDelay: '1s',
           }}
-        />
+        /> */}
       </div>
-
-      <figure className='pointer-events-none absolute -bottom-[70%] left-1/2 z-0 block aspect-square w-[520px] -translate-x-1/2 rounded-full blur-[200px] bg-accent/40 animate-pulse' />
+      {/* 
+      <figure className='pointer-events-none absolute -bottom-[70%] left-1/2 z-0 block aspect-square w-[520px] -translate-x-1/2 rounded-full blur-[200px] bg-accent/40 animate-pulse' /> */}
       <figure className='pointer-events-none absolute left-[4vw] top-[64px] z-20 hidden aspect-square w-[32vw] rounded-full opacity-50 blur-[100px] md:block bg-primary/30 animate-float' />
       <figure
         className='pointer-events-none absolute bottom-[-50px] right-[7vw] z-20 hidden aspect-square w-[30vw] rounded-full opacity-50 blur-[100px] md:block bg-secondary/30 animate-float'

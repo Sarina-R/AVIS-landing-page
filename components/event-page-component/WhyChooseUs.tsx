@@ -4,7 +4,7 @@ export const WhyChooseUs = () => (
   <section className='py-24 border-t border-white/10'>
     <div className='max-w-6xl mx-auto'>
       <div className='text-center mb-16'>
-        <h2 className='text-3xl font-bold mb-6'>Why Choose Avis Events</h2>
+        <h2 className='text-3xl font-bold mb-6'>Why Choose AVIS Events</h2>
         <p className='text-xl text-neutral-400'>
           We deliver exceptional results that exceed expectations.
         </p>

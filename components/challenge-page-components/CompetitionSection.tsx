@@ -140,18 +140,20 @@ const CompetitionCard: FC<CompetitionCardProps> = ({
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay }}
-      className='border border-white/10 bg-white/[0.02] p-6 hover:border-white/20 transition-all duration-300 group cursor-pointer'
+      className='border border-white/10 bg-white/[0.02] p-6 hover:border-white/20 transition-all duration-300 group cursor-pointer overflow-x-hidden'
     >
       <div className='flex items-center justify-between mb-4'>
         <div className='flex items-center'>
-          <div className='p-3 rounded-full mr-2 border border-white/10 group-hover:border-white/20 transition-all duration-300'>
+          <div className='p-3 rounded-full hidden sm:block mr-2 border border-white/10 group-hover:border-white/20 transition-all duration-300'>
             <Icon className='w-6 h-6 text-white' />
           </div>
           <div>
-            <h3 className='text-xl font-semibold text-white  transition-colors'>
+            <h3 className='text-sm sm:text-xl font-semibold text-white  transition-colors'>
               {title}
             </h3>
-            <p className='text-gray-400'>{participants} participants</p>
+            <p className='text-sm sm:text-base text-gray-400'>
+              {participants} participants
+            </p>
           </div>
         </div>
         <span

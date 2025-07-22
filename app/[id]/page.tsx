@@ -18,7 +18,7 @@ interface WpPost {
   featured_media: number
   categories: number[]
   tags: number[]
-  meta: Record<string, any>
+  meta: Record<string, string>
   comment_status: string
   ping_status: string
   sticky: boolean
@@ -39,7 +39,7 @@ interface Article {
   author: number
   categories: number[]
   tags: number[]
-  meta: Record<string, any>
+  meta: Record<string, string>
   featuredImage: string | null
   contentImages: string[]
   commentStatus: string

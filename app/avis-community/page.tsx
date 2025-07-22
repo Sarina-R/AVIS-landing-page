@@ -10,6 +10,7 @@ import {
   ChevronDown,
 } from 'lucide-react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import Link from 'next/link'
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false)
@@ -36,24 +37,24 @@ const Navigation = () => {
           </div>
 
           <div className='hidden md:flex items-center space-x-12 text-sm font-light'>
-            <a
+            <Link
               href='#platform'
               className='text-zinc-400 hover:text-emerald-400 transition-colors duration-300'
             >
               Platform
-            </a>
-            <a
+            </Link>
+            <Link
               href='#community'
               className='text-zinc-400 hover:text-emerald-400 transition-colors duration-300'
             >
               Community
-            </a>
-            <a
+            </Link>
+            <Link
               href='#insights'
               className='text-zinc-400 hover:text-emerald-400 transition-colors duration-300'
             >
               Insights
-            </a>
+            </Link>
           </div>
 
           <button className='group relative overflow-hidden bg-emerald-400 text-black px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 hover:bg-emerald-300'>
@@ -524,13 +525,13 @@ const Footer = () => {
             </h3>
             <div className='space-y-4'>
               {['Features', 'Membership', 'Success Stories'].map((item) => (
-                <a
+                <Link
                   key={item}
                   href='#'
                   className='block text-zinc-400 hover:text-emerald-400 transition-colors duration-300 text-sm font-light'
                 >
                   {item}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -541,13 +542,13 @@ const Footer = () => {
             </h3>
             <div className='space-y-4'>
               {['Concierge', 'Resources', 'Contact'].map((item) => (
-                <a
+                <Link
                   key={item}
                   href='#'
                   className='block text-zinc-400 hover:text-emerald-400 transition-colors duration-300 text-sm font-light'
                 >
                   {item}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -559,13 +560,13 @@ const Footer = () => {
           </p>
           <div className='flex space-x-8 mt-4 md:mt-0'>
             {['Privacy', 'Terms', 'Ethics'].map((item) => (
-              <a
+              <Link
                 key={item}
                 href='#'
                 className='text-xs font-light text-zinc-500 hover:text-emerald-400 transition-colors duration-300 tracking-wide'
               >
                 {item}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

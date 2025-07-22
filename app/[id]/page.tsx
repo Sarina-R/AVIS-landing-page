@@ -56,7 +56,7 @@ interface RelatedArticle {
 }
 
 interface PageProps {
-  params: { id: string }
+  params: Promise<{ id: string }>
   searchParams?: { [key: string]: string | string[] | undefined }
 }
 
@@ -70,8 +70,9 @@ export default function NewsArticle({ params }: PageProps) {
   useEffect(() => {
     async function fetchArticleData() {
       try {
+        const resolvedParams = await params
         const response = await axios.get<WpPost>(
-          `https://avisengine.com/wp-json/wp/v2/posts/${params.id}`
+          `https://avisengine.com/wp-json/wp/v2/posts/${resolvedParams.id}`
         )
         const post = response.data
 
@@ -135,7 +136,6 @@ export default function NewsArticle({ params }: PageProps) {
             ? relatedResponse.data[currentIndex + 1]
             : null
 
-        // Process previous article
         if (prevPost) {
           let prevImage: string | null = null
           if (prevPost.featured_media) {
@@ -159,7 +159,6 @@ export default function NewsArticle({ params }: PageProps) {
           })
         }
 
-        // Process next article
         if (nextPost) {
           let nextImage: string | null = null
           if (nextPost.featured_media) {
@@ -183,7 +182,6 @@ export default function NewsArticle({ params }: PageProps) {
           })
         }
 
-        // Process related articles (random 3, excluding current)
         const shuffledPosts = relatedPosts
           .sort(() => 0.5 - Math.random())
           .slice(0, 3)
@@ -218,7 +216,7 @@ export default function NewsArticle({ params }: PageProps) {
       }
     }
     fetchArticleData()
-  }, [params.id])
+  }, [params])
 
   const extractImages = (content: string): string[] => {
     const imgRegex = /<img[^>]+src=["'](.*?)["']/g
@@ -295,7 +293,6 @@ export default function NewsArticle({ params }: PageProps) {
               </div>
             </div>
           )}
-          {/* Previous and Next Articles */}
           {(prevArticle || nextArticle) && (
             <div className='mt-12 border-t border-neutral-800 pt-8'>
               <h2 className='text-2xl font-light mb-4'>More Articles</h2>
@@ -349,7 +346,6 @@ export default function NewsArticle({ params }: PageProps) {
               </div>
             </div>
           )}
-          {/* You May Like Section */}
           {relatedArticles.length > 0 && (
             <div className='mt-12 border-t border-neutral-800 pt-8'>
               <h2 className='text-2xl font-light mb-4'>You May Like</h2>

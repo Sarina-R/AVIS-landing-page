@@ -1,45 +1,114 @@
-import { Code } from 'lucide-react'
+'use client'
+
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 import { motion } from 'framer-motion'
+import { Code } from 'lucide-react'
 import { HolographicText } from '../HolographicText'
 import { ModernCard } from '../ModernCard'
+
+interface WpPost {
+  id: number
+  date: string
+  title: { rendered: string }
+  excerpt: { rendered: string }
+  featured_media: number
+  tags: number[]
+}
+
+interface Media {
+  source_url: string
+}
+
+interface Tag {
+  id: number
+  name: string
+}
+
+interface MagazinePost {
+  id: number
+  title: string
+  description: string
+  image: string | null
+  link: string
+  tags: string[]
+}
 
 export default function MagazineSection({
   title = 'The AVIS',
   titleHighlight = 'Magazine',
-  magazines = [],
   sectionId = 'magazine',
+}: {
+  title?: string
+  titleHighlight?: string
+  sectionId?: string
 }) {
-  const defaultMagazines = [
-    {
-      title:
-        'AVIS MAGAZINE No.3 - Celebrating a Year of Innovation, Excellence, and Technological Breakthroughs',
-      description: '10 months ago • AVIS Magazine',
-      tags: ['Innovation', 'Excellence', 'Breakthroughs'],
-      image:
-        'https://avisengine.com/wp-content/uploads/2024/09/Free_Book_Mockup_8-1024x768.png',
-      link: 'https://avisengine.com/avis-magazine-no-3-celebrating-a-year-of-innovation-excellence-and-technological-breakthroughs/',
-    },
-    {
-      title:
-        'THE BEST IN THE ENGINEERING WORLD February 2024 No.5 - The Best in the Engineering World magazine No.5',
-      description: '1 year ago • AVIS Magazine',
-      tags: ['Autonomous', 'Companies', 'Startups'],
-      image:
-        'https://avisengine.com/wp-content/uploads/2024/01/Screen-Shot-2024-02-13-at-12.04.40-PM.png',
-      link: 'https://avisengine.com/the-best-in-the-engineering-world-magazine-no-5/',
-    },
-    {
-      title:
-        'THE BEST IN THE ENGINEERING WORLD December 2023 No.4 - The Best in the Engineering World magazine No.4',
-      description: '2 years ago • AVIS Magazine',
-      tags: ['Teams', 'Competitions', 'Engineering'],
-      image:
-        'https://avisengine.com/wp-content/uploads/2023/12/Screen-Shot-2024-02-13-at-12.08.07-PM.png',
-      link: 'https://avisengine.com/the-best-in-the-engineering-world-magazine-no-4/',
-    },
-  ]
+  const [magazines, setMagazines] = useState<MagazinePost[]>([])
+  const [loading, setLoading] = useState(true)
 
-  const dataToUse = magazines.length > 0 ? magazines : defaultMagazines
+  useEffect(() => {
+    async function fetchMagazineData() {
+      try {
+        const response = await axios.get<WpPost[]>(
+          'https://avisengine.com/wp-json/wp/v2/posts?categories=13&per_page=6'
+        )
+        const posts = response.data
+
+        const tagResponse = await axios.get<Tag[]>(
+          'https://avisengine.com/wp-json/wp/v2/tags?per_page=100'
+        )
+        const tagsMap = new Map(
+          tagResponse.data.map((tag) => [tag.id, tag.name])
+        )
+
+        const magazinePosts: MagazinePost[] = []
+
+        for (const post of posts) {
+          let featuredImage: string | null = null
+          if (post.featured_media) {
+            try {
+              const media = await axios.get<Media>(
+                `https://avisengine.com/wp-json/wp/v2/media/${post.featured_media}`
+              )
+              featuredImage = media.data.source_url
+            } catch (err) {
+              console.error(`Error fetching media for post ${post.id}:`, err)
+            }
+          }
+
+          magazinePosts.push({
+            id: post.id,
+            title: post.title.rendered,
+            description: post.excerpt.rendered.replace(/<p>|<\/p>/g, '').trim(),
+            image: featuredImage,
+            link: `/${post.id}`,
+            tags: post.tags
+              .map((tagId) => tagsMap.get(tagId) || '')
+              .filter(Boolean),
+          })
+        }
+
+        setMagazines(magazinePosts)
+        setLoading(false)
+      } catch (err) {
+        console.error('Error fetching magazine posts:', err)
+        setLoading(false)
+      }
+    }
+    fetchMagazineData()
+  }, [])
+
+  const dataToUse = magazines
+
+  if (loading) {
+    return (
+      <div className='min-h-[400px] bg-black flex items-center justify-center'>
+        <div className='text-white text-lg animate-pulse'>
+          Loading magazines...
+        </div>
+      </div>
+    )
+  }
 
   return (
     <section id={sectionId} className='py-32 px-6'>
@@ -60,8 +129,8 @@ export default function MagazineSection({
         </motion.div>
 
         <div className='grid md:grid-cols-3 gap-8'>
-          {dataToUse.map((item, index) => (
-            <ModernCard key={item.title} delay={0.1 * (index + 1)}>
+          {dataToUse.slice(0, 3).map((item, index) => (
+            <ModernCard key={item.id} delay={0.1 * (index + 1)}>
               <div className='space-y-6'>
                 {item.image && (
                   <div className='relative overflow-hidden rounded-lg aspect-[0.71]'>
@@ -90,7 +159,6 @@ export default function MagazineSection({
                   >
                     {item.title}
                   </h3>
-                  <p className='text-neutral-500 text-sm'>{item.description}</p>
                 </div>
 
                 <div className='flex flex-wrap gap-2 pt-4'>

@@ -1,3 +1,5 @@
+'use client'
+
 import { ArrowRight } from 'lucide-react'
 import { HolographicText } from '../HolographicText'
 import { motion } from 'framer-motion'

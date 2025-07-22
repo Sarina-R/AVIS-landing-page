@@ -1,3 +1,6 @@
+import DownloadSection from '@/components/page-components/DownloadSection'
+import Footer from '@/components/page-components/Footer'
+import Navigation from '@/components/page-components/Navigation'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -10,5 +13,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  return <div>{children}</div>
+  return (
+    <div className=''>
+      <Navigation />
+      {children}
+      <DownloadSection />
+      <Footer />
+    </div>
+  )
 }

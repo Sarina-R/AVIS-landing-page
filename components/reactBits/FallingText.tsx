@@ -167,12 +167,12 @@ const FallingText: React.FC<FallingTextProps> = ({
     // Remove wheel capture to let page scroll
     mouseConstraint.mouse.element.removeEventListener(
       'wheel',
-      // @ts-ignore
+      // @ts-expect-error Error:Property 'mousewheel' does not exist on type 'Mouse'
       mouseConstraint.mouse.mousewheel
     )
     mouseConstraint.mouse.element.removeEventListener(
       'DOMMouseScroll',
-      // @ts-ignore
+      // @ts-expect-error Error:Property 'mousewheel' does not exist on type 'Mouse'
       mouseConstraint.mouse.mousewheel
     )
 

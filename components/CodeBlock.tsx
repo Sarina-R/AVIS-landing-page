@@ -14,38 +14,40 @@ export default function CodeBlock() {
             </button>
           </div>
 
-          <pre className='m-0 overflow-x-auto rounded-lg bg-transparent p-0 text-sm leading-relaxed whitespace-pre text-blue-100 relative z-10'>
+          <pre className='m-0 overflow-x-auto rounded-lg bg-transparent p-0 text-sm leading-relaxed whitespace-pre text-green-100 relative z-10'>
             <code>
-              <span className='text-[#1fcdfc]'>import</span>{' '}
-              <span className='text-[#e0e0e0]'>{'{'}</span>useState
-              <span className='text-[#e0e0e0]'>{'}'}</span>{' '}
-              <span className='text-[#1fcdfc]'>from</span>{' '}
-              <span className='text-[#f7b731]'>&apos;react&apos;</span>;<br />
+              <span className='text-[#1fcdfc]'>import</span> avisengine
               <br />
-              <span className='text-[#1fcdfc]'>function</span>{' '}
-              <span className='text-[#ffd60a]'>Counter</span>() {'{'}
-              <br />
-              &nbsp;&nbsp;<span className='text-[#1fcdfc]'>const</span> [count,
-              setCount] = useState(<span className='text-[#f7b731]'>0</span>);
+              <span className='text-[#1fcdfc]'>import</span> cv2
               <br />
               <br />
-              &nbsp;&nbsp;<span className='text-[#1fcdfc]'>return</span> (<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              <span className='text-[#ffd60a]'>&lt;button</span>{' '}
-              <span className='text-[#36ffb1]'>onClick</span>=
-              <span className='text-[#f7b731]'>{'{'}</span>() =&gt;
-              setCount(count + <span className='text-[#f7b731]'>1</span>)
-              <span className='text-[#f7b731]'>{'}'}</span>
-              <span className='text-[#ffd60a]'>&gt;</span>
+              <span className='text-[#777]'># Connect to simulator</span>
               <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clicked {'{'}count{'}'} times
+              car.connect(
+              <span className='text-[#f7b731]'>
+                &quot;127.0.0.1&quot;
+              </span>, <span className='text-[#f7b731]'>25001</span>)<br />
               <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              <span className='text-[#ffd60a]'>&lt;/button&gt;</span>
+              <span className='text-[#777]'># Take Control</span>
               <br />
-              &nbsp;&nbsp;);
+              <span className='text-[#1fcdfc]'>while</span>(
+              <span className='text-[#f7b731]'>True</span>):
               <br />
-              {'}'}
+              &nbsp;&nbsp;<span className='text-[#777]'># Set Speed</span>
+              <br />
+              &nbsp;&nbsp;car.setSpeed(
+              <span className='text-[#f7b731]'>20</span>)<br />
+              <br />
+              &nbsp;&nbsp;<span className='text-[#777]'># Set Steering</span>
+              <br />
+              &nbsp;&nbsp;car.setSteering(
+              <span className='text-[#f7b731]'>-10</span>)<br />
+              <br />
+              &nbsp;&nbsp;
+              <span className='text-[#777]'># Get sensors and camera data</span>
+              <br />
+              &nbsp;&nbsp;car.getData()
+              <br />
             </code>
           </pre>
         </div>

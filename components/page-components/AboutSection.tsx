@@ -30,18 +30,18 @@ export default function AboutSection() {
           </p> */}
         </motion.div>
 
-        <div className='grid md:grid-cols-2 gap-16 items-center'>
-          <ModernCard>
-            <div className='space-y-8'>
-              <div className='flex items-center gap-3 mb-6'>
+        <div className='relative grid md:grid-cols-2 gap-16 items-center'>
+          <ModernCard className='h-full'>
+            <div className='space-y-8 lg:space-y-22'>
+              <div className='flex items-center gap-3 mb-6 md:mb-16'>
                 <motion.div transition={{ duration: 0.5 }}>
-                  <Zap className='w-6 h-6 text-primary' />
+                  <Zap className='w-6 h-6 md:h-10 md:w-10 text-primary' />
                 </motion.div>
-                <h3 className='text-2xl font-light'>
+                <h3 className=' text-2xl md:text-3xl font-light'>
                   Simple API for best technologies
                 </h3>
               </div>
-              <p className='text-white/80 leading-relaxed'>
+              <p className='text-white/80 leading-relaxed md:text-xl'>
                 Easy to understand software and API, easy to maintain. Just
                 focus on your logic and AI.
               </p>
@@ -66,7 +66,7 @@ export default function AboutSection() {
             </div>
           </ModernCard>
 
-          <div className='height-full'>
+          <div className='h-full'>
             <CodeBlock />
           </div>
 

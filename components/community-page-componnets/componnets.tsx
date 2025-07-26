@@ -389,7 +389,7 @@ export const StepsComponent = () => {
   ]
 
   return (
-    <section className='py-32 px-8 relative bg-zinc-950/30'>
+    <section id='steps' className='py-32 px-8 relative bg-zinc-950/30'>
       <AnimatedPattern />
 
       <div className='max-w-7xl mx-auto relative z-10'>

@@ -1,7 +1,7 @@
 import { Award, Calendar, Users } from 'lucide-react'
 
 export const ServicesSection = () => (
-  <section className='py-24 border-t border-white/10'>
+  <section id='discover' className='py-24 border-t border-white/10'>
     <div className='max-w-6xl mx-auto'>
       <div className='text-center mb-16'>
         <h2 className='text-3xl font-bold mb-6'>Discover Our Platform</h2>

@@ -20,13 +20,14 @@ const AvisCommunityLanding = () => {
       children: [
         { name: 'AVIS Events', link: '/avis-events' },
         { name: 'AVIS Challenge', link: '/avis-challenge' },
-        { name: 'AVIS Community', link: '/avis-community' },
         { name: 'AVIS Plus +', link: '/avis-plus' },
+        { name: 'AVIS Community', link: '/avis-community' },
       ],
     },
-    { name: 'About', link: '#about' },
-    { name: 'Discover', link: '#discover' },
-    { name: 'Why AVIS', link: '#why-avis' },
+    { name: 'Platform', link: '#platform' },
+    { name: 'Insights', link: '#insights' },
+    { name: 'Steps', link: '#steps' },
+    { name: 'Community', link: '#community' },
   ]
 
   const logo =

@@ -124,7 +124,7 @@ const UpcomingEvents = () => {
   }
 
   return (
-    <div className='min-h-screen overflow-hidden'>
+    <div id='upcoming-events' className='min-h-screen overflow-hidden'>
       <div className='relative z-10 py-16 px-6 sm:px-8 lg:px-12'>
         <div className='max-w-7xl mx-auto'>
           {/* Enhanced Header */}

@@ -63,7 +63,7 @@ export const CompetitionSection: FC = () => {
   ]
 
   return (
-    <div className='bg-black text-white min-h-screen '>
+    <div id='competitions' className='bg-black text-white min-h-screen '>
       {/* Stats Section */}
       <section>
         <div className='max-w-6xl mx-auto'>

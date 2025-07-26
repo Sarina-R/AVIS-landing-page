@@ -209,7 +209,7 @@ const KubernetesCompanion = () => {
   )
 
   return (
-    <div className='min-h-screen border-y border-white/10'>
+    <div id='discover' className='min-h-screen border-y border-white/10'>
       <div className='max-w-7xl mx-auto'>
         <div className='lg:grid lg:grid-cols-4 lg:gap-0'>
           {/* Sticky Header - 1 Column */}

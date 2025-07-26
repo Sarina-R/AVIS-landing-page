@@ -30,6 +30,7 @@ const IconSvgComponent: React.FC = () => {
   return (
     <div
       ref={ref}
+      id='about'
       className='relative flex flex-col items-center justify-center min-h-screen p-6 sm:p-12 lg:p-24'
     >
       <h1 className='text-3xl sm:text-5xl font-bold mb-6 text-center max-w-4xl'>

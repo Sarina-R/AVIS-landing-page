@@ -20,8 +20,8 @@ export default function RootLayout({
       children: [
         { name: 'AVIS Events', link: '/avis-events' },
         { name: 'AVIS Challenge', link: '/avis-challenge' },
-        { name: 'AVIS Community', link: '/avis-community' },
         { name: 'AVIS Plus +', link: '/avis-plus' },
+        { name: 'AVIS Community', link: '/avis-community' },
       ],
     },
   ]

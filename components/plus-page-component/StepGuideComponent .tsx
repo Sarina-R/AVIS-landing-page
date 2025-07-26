@@ -66,7 +66,7 @@ const StepGuide: React.FC = () => {
   const isStepActive = (index: number) => activeStep === index
 
   return (
-    <div className='relative min-h-screen font-sans'>
+    <div id='steps' className='relative min-h-screen font-sans'>
       <div ref={containerRef} className='relative px-4 py-8 min-h-screen'>
         {/* Steps */}
         <div className='relative z-20 w-full max-w-3xl mx-auto'>

@@ -85,7 +85,11 @@ export const OrbitingCircleComponent = () => {
   ]
 
   return (
-    <section ref={ref} className='relative w-full overflow-hidden'>
+    <section
+      id='work-flow'
+      ref={ref}
+      className='relative w-full overflow-hidden'
+    >
       <div className='flex min-h-screen flex-col items-center justify-center px-4 border-b border-white/10 lg:flex-row lg:justify-between lg:gap-12'>
         <div className='relative flex h-[500px] w-[500px] flex-shrink-0 items-center justify-center'>
           <div className='absolute h-[450px] w-[450px] rounded-full bg-gradient-to-r to-rose-700 from-indigo-700 opacity-50 blur-[100px]' />

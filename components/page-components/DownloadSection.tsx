@@ -139,7 +139,6 @@ const DownloadSection = () => {
 
         <div className='pt-4'>
           <Button
-            variant='ghost'
             className='relative backdrop-blur-sm border hover:border-opacity-60 text-base px-8 py-3 rounded-lg font-medium tracking-wide transition-all duration-300 group'
             style={{
               background: `linear-gradient(135deg, rgba(101, 13, 20, 0.25) 0%, rgba(67, 8, 13, 0.25) 50%, rgba(209, 73, 117, 0.15) 100%)`,
@@ -149,7 +148,7 @@ const DownloadSection = () => {
             <Link
               target='_blank'
               href='https://avisengine.com/downloads/avis-engine-free-version/'
-              className='flex items-center space-x-2'
+              className='flex items-center space-x-2 hover:text-white/80'
             >
               <span>Download Free</span>
             </Link>

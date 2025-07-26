@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import { NavigationProps } from '@/app/type'
+import Link from 'next/link'
 
 export default function Navigation({ logo, navItems }: NavigationProps) {
   const [dropdownOpen, setDropdownOpen] = useState(false)
@@ -52,7 +53,9 @@ export default function Navigation({ logo, navItems }: NavigationProps) {
     <nav className='fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-white/10'>
       <div className='max-w-7xl mx-auto px-6 py-4 flex justify-between items-center'>
         <div className='flex items-center space-x-8'>
-          <img src={logo} alt='Logo' className='h-8' />
+          <Link href='/'>
+            <img src={logo} alt='Logo' className='h-8' />
+          </Link>
 
           <div className='hidden md:flex space-x-6'>
             {navItems.map((item, i) => (
@@ -86,13 +89,13 @@ export default function Navigation({ logo, navItems }: NavigationProps) {
                     onMouseLeave={handleMouseLeave}
                   >
                     {item.children.map((child) => (
-                      <a
+                      <Link
                         key={child.name}
                         href={child.link}
                         className='block px-4 py-2 text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors rounded-sm mx-1'
                       >
                         {child.name}
-                      </a>
+                      </Link>
                     ))}
                   </motion.div>
                 )}

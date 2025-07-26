@@ -1,9 +1,9 @@
 'use client'
 
-import Image from 'next/image'
 import { Code, Users, BookOpen, Trophy, Sparkles, Globe } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { HolographicText } from '../HolographicText'
+import Workflow from './WorkflowAnimation'
 
 const ProductsComponent: React.FC = () => {
   const featureGroups = [
@@ -35,7 +35,7 @@ const ProductsComponent: React.FC = () => {
   ]
 
   return (
-    <div className='my-26'>
+    <div className='mb-36 mt-72'>
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -52,62 +52,7 @@ const ProductsComponent: React.FC = () => {
         </p>
       </motion.div>
 
-      <div className='md:min-h-[75vh] min-h-screen flex items-center justify-center p-4 font-bold md:mb-auto'>
-        <div className='relative w-full max-w-6xl flex flex-col md:flex-row items-center justify-center gap-4'>
-          <div className='flex flex-col md:absolute md:top-0 md:left-0 text-center space-y-4 md:space-y-0 md:space-x-0 md:pl-4 md:py-4 z-20'>
-            <div className='md:absolute w-40 h-9 bg-primary/15 backdrop-blur-sm rounded-lg pt-1 shadow-lg border border-white/20 hover:bg-primary/15 transition-colors md:top-4 md:left-16'>
-              AVIS Magazine
-            </div>
-          </div>
-
-          <div className='flex flex-col md:absolute md:top-1/2 md:-translate-y-1/2 md:left-0 text-center space-y-4 z-20'>
-            <div className='md:absolute w-40 h-9 bg-primary/15 backdrop-blur-sm rounded-lg pt-1 shadow-lg border border-white/20 hover:bg-primary/15 transition-colors md:left-16'>
-              AVIS Community
-            </div>
-          </div>
-
-          <div className='flex flex-col md:absolute md:top-1/2 md:-translate-y-1/2 md:right-0 text-center space-y-4 z-20'>
-            <div className='md:absolute w-40 h-9 bg-primary/15 backdrop-blur-sm rounded-lg pt-1 shadow-lg border border-white/20 hover:bg-primary/15 transition-colors md:right-16'>
-              AVIS Tutorials
-            </div>
-          </div>
-
-          <div className='flex flex-col md:absolute md:bottom-0 md:left-0 text-center space-y-4 md:pl-4 md:pb-4 z-20'>
-            <div className='absolute w-40 h-9 bg-primary/15 backdrop-blur-sm rounded-lg pt-1 shadow-lg border border-white/20 hover:bg-primary/15 transition-colors md:bottom-4 md:left-16 right-[30%] product-bottom-label -bottom-44'>
-              AVIS Plus +
-            </div>
-          </div>
-
-          <div className='flex flex-col md:absolute md:bottom-0 md:right-0 text-center space-y-4 md:pr-4 md:pb-4 z-20'>
-            <div className='absolute w-40 h-9 bg-primary/15 backdrop-blur-sm rounded-lg pt-1 shadow-lg border border-white/20 hover:bg-primary/15 transition-colors md:bottom-4 md:right-16 right-[30%] product-bottom-label -bottom-32'>
-              AVIS Conference
-            </div>
-          </div>
-
-          <div className='flex flex-col md:absolute md:top-12 md:right-0 text-center space-y-4 md:pr-4 md:pb-4 z-20'>
-            <div className='absolute w-40 h-9 bg-primary/15 backdrop-blur-sm rounded-lg pt-1 shadow-lg border border-white/20 hover:bg-primary/15 transition-colors md:bottom-4 -bottom-20 right-[30%] product-bottom-label md:right-16'>
-              AVIS Challenge
-            </div>
-          </div>
-
-          <div className='relative w-72 h-72 md:w-96 md:h-96 z-10'>
-            <Image
-              src='https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/avis/procuts.svg'
-              alt='AVIS Engine Logo'
-              fill
-              className='hidden md:block object-contain'
-              priority
-            />
-            <Image
-              src='https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/avis/picsvg_download.svg'
-              alt='AVIS Engine Logo'
-              fill
-              className='block md:hidden object-contain'
-              priority
-            />
-          </div>
-        </div>
-      </div>
+      <Workflow />
 
       <div className='space-y-6 pb-40 md:pt-0 pt-20 flex items-center flex-col'>
         {featureGroups.map((group, index) => (

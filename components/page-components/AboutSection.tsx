@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { HolographicText } from '../HolographicText'
 import { ModernCard } from '../ModernCard'
 import { GraduationCap, Layers, Zap } from 'lucide-react'
-import { CodeBlock } from '../CodeBlock'
+import CodeBlock from '../CodeBlock'
 // import Waves from '../reactBits/Wave'
 
 export default function AboutSection() {

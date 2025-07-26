@@ -1,123 +1,126 @@
-'use client'
-import { useState } from 'react'
-import { Copy } from 'lucide-react'
-
-const code = `import avisengine
-import cv2
-
-# Connect to simulator
-car.connect("127.0.0.1", 25001)
-
-# Take Control
-while(True):
-    # Set Speed
-    car.setSpeed(20)
-
-    # Set Steering
-    car.setSteering(-10)
-
-    # Get sensors and camera data
-    car.getData()
-...`
-
-export const CodeBlock = () => {
-  const [copied, setCopied] = useState(false)
-
-  const handleCopy = async () => {
-    await navigator.clipboard.writeText(code)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 1500)
-  }
-
-  return (
-    <div
-      className=' backdrop-blur-xl bg-primary-gradient
-        border border-border group
-        hover:shadow-2xl transition-all duration-500
-        dark:bg-primary-gradient dark:border-dark-border relative bg-gradient-to-br from-[#1c1c2a] to-[#12121a] p-4 rounded-xl shadow-xl overflow-auto height-3xl'
-    >
-      <pre className='text-sm text-white font-mono relative pl-10 leading-relaxed'>
-        <code>
-          {code.split('\n').map((line, index) => (
-            <div key={index} className={`relative group`}>
-              <span className='absolute -left-7 w-6 text-right text-neutral-600 select-none pr-12'>
-                {index + 1}
-              </span>
-              <span
-                className={
-                  index === 4
-                    ? 'bg-white/10 rounded px-1 py-0.5 block w-fit'
-                    : ''
-                }
-              >
-                <SyntaxHighlighter line={line} />
-              </span>
-            </div>
-          ))}
-        </code>
-      </pre>
-
-      <button
-        onClick={handleCopy}
-        className='absolute top-3 right-3 text-white/60 hover:text-white transition-colors cursor-pointer'
-      >
-        <Copy className='w-4 h-4' />
-      </button>
-
-      {copied && (
-        <span className='absolute top-3 right-12 text-xs text-green-400'>
-          Copied!
-        </span>
-      )}
-    </div>
-  )
-}
-
-const SyntaxHighlighter = ({ line }: { line: string }) => {
-  const tokens = line
-    .split(/(\s+|".*?"|\d+|True|False|\(|\)|#.*)/g)
-    .filter(Boolean)
-
+export default function CodeBlock() {
   return (
     <>
-      {tokens.map((token, idx) => {
-        if (token.startsWith('#')) {
-          return (
-            <span key={idx} className='text-neutral-500 italic'>
-              {token}
-            </span>
-          )
+      <div className='relative w-full max-w-2xl rounded-xl p-0.5'>
+        <div className='code-border-anim' />
+        <div className='relative overflow-hidden rounded-xl bg-[radial-gradient(at_88%_40%,#000000_0,transparent_85%),radial-gradient(at_49%_30%,#000000_0,transparent_85%),radial-gradient(at_14%_26%,#000000_0,transparent_85%),radial-gradient(at_0%_64%,#6e0101_0,transparent_85%),radial-gradient(at_41%_94%,#e90000_0,transparent_85%),radial-gradient(at_100%_99%,#000000_0,transparent_85%)] p-6 shadow-[0px_-16px_24px_0px_rgba(255,0,0,0.4)_inset] bg-black animate-redPulse'>
+          {/* Shimmer Overlay */}
+          <div className='absolute inset-0 shimmer-mask pointer-events-none' />
+
+          <div className='flex items-center justify-between pb-4 relative z-10'>
+            <span className='text-base font-semibold text-white'>app.tsx</span>
+            <button className='rounded-full bg-primary px-3 py-1.5 text-xs font-medium text-white transition hover:bg-secondary'>
+              Copy
+            </button>
+          </div>
+
+          <pre className='m-0 overflow-x-auto rounded-lg bg-transparent p-0 text-sm leading-relaxed whitespace-pre text-blue-100 relative z-10'>
+            <code>
+              <span className='text-[#1fcdfc]'>import</span>{' '}
+              <span className='text-[#e0e0e0]'>{'{'}</span>useState
+              <span className='text-[#e0e0e0]'>{'}'}</span>{' '}
+              <span className='text-[#1fcdfc]'>from</span>{' '}
+              <span className='text-[#f7b731]'>&apos;react&apos;</span>;<br />
+              <br />
+              <span className='text-[#1fcdfc]'>function</span>{' '}
+              <span className='text-[#ffd60a]'>Counter</span>() {'{'}
+              <br />
+              &nbsp;&nbsp;<span className='text-[#1fcdfc]'>const</span> [count,
+              setCount] = useState(<span className='text-[#f7b731]'>0</span>);
+              <br />
+              <br />
+              &nbsp;&nbsp;<span className='text-[#1fcdfc]'>return</span> (<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <span className='text-[#ffd60a]'>&lt;button</span>{' '}
+              <span className='text-[#36ffb1]'>onClick</span>=
+              <span className='text-[#f7b731]'>{'{'}</span>() =&gt;
+              setCount(count + <span className='text-[#f7b731]'>1</span>)
+              <span className='text-[#f7b731]'>{'}'}</span>
+              <span className='text-[#ffd60a]'>&gt;</span>
+              <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clicked {'{'}count{'}'} times
+              <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <span className='text-[#ffd60a]'>&lt;/button&gt;</span>
+              <br />
+              &nbsp;&nbsp;);
+              <br />
+              {'}'}
+            </code>
+          </pre>
+        </div>
+      </div>
+
+      <style>{`
+        /* Pulsing red glow */
+        @keyframes redPulse {
+          0%, 100% {
+            box-shadow: 0px -16px 24px 0px rgba(255,0,0,0.2) inset;
+          }
+          50% {
+            box-shadow: 0px -16px 40px 0px rgba(255,0,0,0.5) inset;
+          }
         }
-        if (token === 'import') {
-          return (
-            <span key={idx} className='text-purple-400'>
-              {token}
-            </span>
-          )
+        .animate-redPulse {
+          animation: redPulse 4s ease-in-out infinite;
         }
-        if (token === 'while' || token === 'True' || token === 'False') {
-          return (
-            <span key={idx} className='text-orange-400'>
-              {token}
-            </span>
-          )
+
+        /* Shimmer sweep */
+        .shimmer-mask {
+          background: linear-gradient(
+            120deg,
+            rgba(255,0,0,0) 0%,
+            rgba(255,50,50,0.2) 40%,
+            rgba(255,0,0,0) 70%
+          );
+          transform: translateX(-100%);
+          animation: shimmerMove 6s ease-in-out infinite;
         }
-        if (/^\d+$/.test(token)) {
-          return (
-            <span key={idx} className='text-orange-300'>
-              {token}
-            </span>
-          )
+        @keyframes shimmerMove {
+          0% { transform: translateX(-100%) rotate(0deg); }
+          50% { transform: translateX(100%) rotate(0deg); }
+          100% { transform: translateX(100%) rotate(0deg); }
         }
-        if (/^".*?"$/.test(token)) {
-          return (
-            <span key={idx} className='text-emerald-300'>
-              {token}
-            </span>
-          )
+
+        /* Keep the border anim you had */
+        .code-border-anim {
+          position: absolute;
+          z-index: -10;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: calc(100% + 2px);
+          height: calc(100% + 2px);
+          border-radius: 1rem;
+          overflow: hidden;
+          pointer-events: none;
         }
-        return <span key={idx}>{token}</span>
-      })}
+        .code-border-anim::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 200%;
+          height: 10rem;
+          background: linear-gradient(
+            0deg,
+            hsla(0,0%,100%,0) 0%,
+            rgba(255,0,0,0.8) 40%,
+            rgba(255,0,0,0.8) 60%,
+            hsla(0,0%,40%,0) 100%
+          );
+          transform: translate(-50%, -50%) rotate(0deg);
+          transform-origin: left;
+          animation: border-rotate 8s linear infinite;
+          z-index: 2;
+          pointer-events: none;
+        }
+        @keyframes border-rotate {
+          to {
+            transform: translate(-50%, -50%) rotate(360deg);
+          }
+        }
+      `}</style>
     </>
   )
 }

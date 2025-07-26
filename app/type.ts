@@ -1,3 +1,14 @@
+export interface NavItem {
+  name: string
+  link: string
+  children?: { name: string; link: string }[]
+}
+
+export interface NavigationProps {
+  logo: string
+  navItems: NavItem[]
+}
+
 export interface Particle {
   x: number
   y: number

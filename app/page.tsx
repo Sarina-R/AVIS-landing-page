@@ -1,4 +1,3 @@
-// AvisLandingPage.jsx
 'use client'
 
 import Navigation from '@/components/page-components/Navigation'
@@ -20,11 +19,30 @@ import Footer from '@/components/page-components/Footer'
 // import FloatingParticles from '@/components/page-components/FloatingParticles'
 
 export default function AvisLandingPage() {
+  const navItems = [
+    {
+      name: 'Products',
+      link: '#products',
+      children: [
+        { name: 'AVIS Events', link: '/avis-events' },
+        { name: 'AVIS Challenge', link: '/avis-challenge' },
+        { name: 'AVIS Community', link: '/avis-community' },
+        { name: 'AVIS Plus +', link: '/avis-plus' },
+      ],
+    },
+    { name: 'Get Started', link: '#get-started' },
+    { name: 'Research', link: '#research' },
+    { name: 'Download', link: '#download' },
+  ]
+
+  const logo =
+    'https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/avis/logo/avis-mono-dark.png'
+
   return (
     <div className='min-h-screen bg-black text-white space-y-16 font-sans'>
       {/* <GalaxyBackground /> */}
       {/* <FloatingParticles /> */}
-      <Navigation />
+      <Navigation logo={logo} navItems={navItems} />
       <HeroSection />
       <ProductsComponent />
       <SliderComponent />

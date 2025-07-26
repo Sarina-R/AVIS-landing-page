@@ -13,9 +13,25 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const navItems = [
+    {
+      name: 'Products',
+      link: '#products',
+      children: [
+        { name: 'AVIS Events', link: '/avis-events' },
+        { name: 'AVIS Challenge', link: '/avis-challenge' },
+        { name: 'AVIS Community', link: '/avis-community' },
+        { name: 'AVIS Plus +', link: '/avis-plus' },
+      ],
+    },
+  ]
+
+  const logo =
+    'https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/avis/logo/avis-mono-dark.png'
+
   return (
     <div className=''>
-      <Navigation />
+      <Navigation logo={logo} navItems={navItems} />
       {children}
       <DownloadSection />
       <Footer />

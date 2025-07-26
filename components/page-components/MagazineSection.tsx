@@ -113,20 +113,20 @@ export default function MagazineSection({
   return (
     <section id={sectionId} className='py-32 px-6'>
       <div className='max-w-7xl mx-auto'>
-        {/* <motion.div
+        <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className='text-center mb-20 relative'
-        > */}
-        <h2 className='text-5xl md:text-6xl font-thin mb-8'>
-          {title.replace(titleHighlight, '')}{' '}
-          <HolographicText className='font-light'>
-            {titleHighlight}
-          </HolographicText>
-        </h2>
-        <div className='w-24 h-0.5 bg-gradient-to-r from-accent to-primary mx-auto' />
-        {/* </motion.div> */}
+        >
+          <h2 className='text-5xl md:text-6xl font-thin mb-8'>
+            {title.replace(titleHighlight, '')}{' '}
+            <HolographicText className='font-light'>
+              {titleHighlight}
+            </HolographicText>
+          </h2>
+          <div className='w-24 h-0.5 bg-gradient-to-r from-accent to-primary mx-auto' />
+        </motion.div>
 
         <div className='grid md:grid-cols-3 gap-8'>
           {dataToUse.slice(0, 3).map((item, index) => (

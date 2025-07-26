@@ -6,6 +6,7 @@ import { ModernCard } from '../ModernCard'
 import axios from 'axios'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 
 interface NewsItem {
   title: string
@@ -42,14 +43,25 @@ export default function NewsSection({
   const [mediaCache, setMediaCache] = useState<{
     [key: number]: string | null
   }>({})
+  const router = useRouter()
 
   useEffect(() => {
+    async function safeGet<T>(url: string): Promise<T> {
+      try {
+        const res = await axios.get<T>(url)
+        return res.data
+      } catch {
+        const res = await fetch(url)
+        if (!res.ok) throw new Error('Network response was not ok')
+        return (await res.json()) as T
+      }
+    }
+
     async function fetchNews() {
       try {
-        const response = await axios.get<WpPost[]>(
+        const posts = await safeGet<WpPost[]>(
           'https://avisengine.com/wp-json/wp/v2/posts?categories=14&per_page=3'
         )
-        const posts = response.data
 
         const newsItems: NewsItem[] = []
         for (const post of posts) {
@@ -59,10 +71,10 @@ export default function NewsSection({
               imageUrl = mediaCache[post.featured_media]
             } else {
               try {
-                const media = await axios.get<Media>(
+                const media = await safeGet<Media>(
                   `https://avisengine.com/wp-json/wp/v2/media/${post.featured_media}`
                 )
-                imageUrl = media.data.source_url
+                imageUrl = media.source_url
                 setMediaCache((prev) => ({
                   ...prev,
                   [post.featured_media]: imageUrl,
@@ -121,53 +133,55 @@ export default function NewsSection({
         <div className='grid md:grid-cols-3 gap-8'>
           {news.slice(0, 3).map((item, index) => (
             <ModernCard key={item.title} delay={0.1 * (index + 1)}>
-              <Link href={item.link}>
-                <div className='space-y-6'>
-                  {item.image && (
-                    <div className='relative overflow-hidden rounded-lg aspect-[4/3]'>
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        width={400}
-                        height={300}
-                        className='w-full h-full object-cover cursor-pointer'
-                        priority={index === 0}
-                      />
+              <div onMouseEnter={() => router.prefetch(item.link)}>
+                <Link href={item.link} prefetch={false}>
+                  <div className='space-y-6'>
+                    {item.image && (
+                      <div className='relative overflow-hidden rounded-lg aspect-[4/3]'>
+                        <Image
+                          src={item.image}
+                          alt={item.title}
+                          width={400}
+                          height={300}
+                          className='w-full h-full object-cover cursor-pointer'
+                          priority={index === 0}
+                        />
+                      </div>
+                    )}
+
+                    <div className='flex items-center justify-between'>
+                      <div className='flex-1' />
+                      <div>
+                        <Code className='w-4 h-4 text-accent' />
+                      </div>
                     </div>
-                  )}
 
-                  <div className='flex items-center justify-between'>
-                    <div className='flex-1' />
-                    <div>
-                      <Code className='w-4 h-4 text-accent' />
+                    <div className='space-y-4'>
+                      <h3 className='text-xl font-light leading-relaxed cursor-pointer hover:text-accent transition-colors'>
+                        {item.title}
+                      </h3>
+                      <p className='text-neutral-500 text-sm'>
+                        {item.description}
+                      </p>
+                    </div>
+
+                    <div className='flex flex-wrap gap-2 pt-4'>
+                      {item.tags.map((tag, tagIndex) => (
+                        <motion.span
+                          key={tag}
+                          initial={{ opacity: 0, scale: 0 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: tagIndex * 0.1 }}
+                          whileHover={{ scale: 1.1, y: -2 }}
+                          className='px-3 py-1 text-xs bg-secondary rounded-full border cursor-pointer hover:border-accent/50 transition-colors'
+                        >
+                          {tag}
+                        </motion.span>
+                      ))}
                     </div>
                   </div>
-
-                  <div className='space-y-4'>
-                    <h3 className='text-xl font-light leading-relaxed cursor-pointer hover:text-accent transition-colors'>
-                      {item.title}
-                    </h3>
-                    <p className='text-neutral-500 text-sm'>
-                      {item.description}
-                    </p>
-                  </div>
-
-                  <div className='flex flex-wrap gap-2 pt-4'>
-                    {item.tags.map((tag, tagIndex) => (
-                      <motion.span
-                        key={tag}
-                        initial={{ opacity: 0, scale: 0 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: tagIndex * 0.1 }}
-                        whileHover={{ scale: 1.1, y: -2 }}
-                        className='px-3 py-1 text-xs bg-secondary rounded-full border cursor-pointer hover:border-accent/50 transition-colors'
-                      >
-                        {tag}
-                      </motion.span>
-                    ))}
-                  </div>
-                </div>
-              </Link>
+                </Link>
+              </div>
             </ModernCard>
           ))}
         </div>

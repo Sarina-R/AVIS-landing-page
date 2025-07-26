@@ -1,7 +1,6 @@
 import { useRef, useState, useEffect } from 'react'
-import Matter from 'matter-js'
+import Matter, { Events } from 'matter-js'
 
-// Define props interface for type safety
 interface FallingTextProps {
   text?: string
   highlightWords?: string[]
@@ -28,28 +27,20 @@ const FallingText: React.FC<FallingTextProps> = ({
   const canvasContainerRef = useRef<HTMLDivElement>(null)
   const [effectStarted, setEffectStarted] = useState<boolean>(false)
 
-  // Update text with highlighted words
   useEffect(() => {
     if (!textRef.current) return
-
     const words = text.split(' ')
     const newHTML = words
       .map((word) => {
         const isHighlighted = highlightWords.some((hw) => word.startsWith(hw))
-        return `<span
-          class="inline-block mx-[2px] select-none ${
-            isHighlighted ? 'text-primary font-bold' : ''
-          }"
-        >
-          ${word}
-        </span>`
+        return `<span class="inline-block mx-[2px] select-none ${
+          isHighlighted ? 'text-primary font-bold' : ''
+        }">${word}</span>`
       })
       .join(' ')
-
     textRef.current.innerHTML = newHTML
   }, [text, highlightWords])
 
-  // Handle trigger logic
   useEffect(() => {
     if (trigger === 'auto') {
       setEffectStarted(true)
@@ -70,17 +61,14 @@ const FallingText: React.FC<FallingTextProps> = ({
     }
   }, [trigger])
 
-  // Physics engine setup and animation
   useEffect(() => {
     if (!effectStarted || !containerRef.current || !textRef.current) return
 
     const { Engine, Render, World, Bodies, Runner, Mouse, MouseConstraint } =
       Matter
-
     const containerRect = containerRef.current.getBoundingClientRect()
     const width = containerRect.width
     const height = containerRect.height
-
     if (width <= 0 || height <= 0) return
 
     const engine = Engine.create()
@@ -129,19 +117,14 @@ const FallingText: React.FC<FallingTextProps> = ({
       const rect = elem.getBoundingClientRect()
       const x = rect.left - containerRect.left + rect.width / 2
       const y = rect.top - containerRect.top + rect.height / 2
-
       const body = Bodies.rectangle(x, y, rect.width, rect.height, {
         render: { fillStyle: 'transparent' },
         restitution: 0.8,
         frictionAir: 0.01,
         friction: 0.2,
       })
-      Matter.Body.setVelocity(body, {
-        x: (Math.random() - 0.5) * 5,
-        y: 0,
-      })
+      Matter.Body.setVelocity(body, { x: (Math.random() - 0.5) * 5, y: 0 })
       Matter.Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.05)
-
       return { elem, body }
     })
 
@@ -165,6 +148,33 @@ const FallingText: React.FC<FallingTextProps> = ({
       },
     })
     render.mouse = mouse
+
+    // Allow scroll unless actively dragging
+    if (canvasContainerRef.current) {
+      canvasContainerRef.current.style.pointerEvents = 'none'
+    }
+    Events.on(mouseConstraint, 'startdrag', () => {
+      if (canvasContainerRef.current) {
+        canvasContainerRef.current.style.pointerEvents = 'auto'
+      }
+    })
+    Events.on(mouseConstraint, 'enddrag', () => {
+      if (canvasContainerRef.current) {
+        canvasContainerRef.current.style.pointerEvents = 'none'
+      }
+    })
+
+    // Remove wheel capture to let page scroll
+    mouseConstraint.mouse.element.removeEventListener(
+      'wheel',
+      // @ts-ignore
+      mouseConstraint.mouse.mousewheel
+    )
+    mouseConstraint.mouse.element.removeEventListener(
+      'DOMMouseScroll',
+      // @ts-ignore
+      mouseConstraint.mouse.mousewheel
+    )
 
     World.add(engine.world, [
       floor,
@@ -208,7 +218,6 @@ const FallingText: React.FC<FallingTextProps> = ({
     mouseConstraintStiffness,
   ])
 
-  // Handle click or hover triggers
   const handleTrigger = () => {
     if (!effectStarted && (trigger === 'click' || trigger === 'hover')) {
       setEffectStarted(true)
@@ -225,10 +234,7 @@ const FallingText: React.FC<FallingTextProps> = ({
       <div
         ref={textRef}
         className='inline-block'
-        style={{
-          fontSize,
-          lineHeight: 1.4,
-        }}
+        style={{ fontSize, lineHeight: 1.4 }}
       />
       <div className='absolute top-0 left-0 z-0' ref={canvasContainerRef} />
     </div>

@@ -63,7 +63,6 @@ const createPath = (
   endX: number,
   endY: number
 ) => {
-  const midX = (startX + endX) / 2
   const controlOffset = Math.abs(endX - startX) * 0.3
   const control1X = startX + (startX < endX ? controlOffset : -controlOffset)
   const control2X = endX + (startX < endX ? -controlOffset : controlOffset)

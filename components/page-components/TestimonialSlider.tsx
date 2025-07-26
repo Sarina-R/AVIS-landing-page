@@ -337,14 +337,6 @@ const TestimonialSlider: React.FC = () => {
           speed={45}
         />
       </div>
-      <div className='fixed inset-0 pointer-events-none'>
-        <div className='absolute top-1/4 left-1/4 w-2 h-2 bg-purple-400/50 rounded-full animate-ping'></div>
-        <div className='absolute top-3/4 right-1/4 w-1.5 h-1.5 bg-blue-400/50 rounded-full animate-pulse'></div>
-        <div
-          className='absolute top-1/2 left-3/4 w-1.5 h-1.5 bg-pink-400/50 rounded-full animate-ping'
-          style={{ animationDelay: '1.2s' }}
-        ></div>
-      </div>
     </div>
   )
 }

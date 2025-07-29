@@ -21,14 +21,14 @@ const createResponsiveNodes = (width: number, height: number): Node[] => {
     { id: 'center', title: 'CompanyLogo', x: centerX, y: centerY },
     {
       id: 'left1',
-      title: 'Company Branch 1',
+      title: 'AVIS Magazine',
       x: leftX,
       y: centerY - height * 0.2,
     },
-    { id: 'left2', title: 'Company Branch 2', x: leftX, y: centerY },
+    { id: 'left2', title: 'AVIS Community', x: leftX, y: centerY },
     {
       id: 'left3',
-      title: 'Company Branch 3',
+      title: 'AVIS Plus +',
       x: leftX,
       y: centerY + height * 0.2,
     },
@@ -171,7 +171,7 @@ export function CompanyWorkflow({
             </div>
           ) : (
             <motion.div
-              className='bg-[#111] text-white/80 px-4 py-2 md:px-5 md:py-3 rounded-lg border border-primary/30 text-sm md:text-base font-medium whitespace-nowrap'
+              className='bg-[#111] text-white/80 px-3 py-1 md:px-4 md:py-2 rounded-lg border border-primary/30 text-xs md:text-sm font-medium text-center max-w-[100px] md:max-w-[120px]'
               whileHover={{
                 scale: 1.05,
                 borderColor: 'rgba(239, 68, 68, 0.5)',

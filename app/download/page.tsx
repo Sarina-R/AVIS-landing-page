@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { ChevronDown, Download, Apple, Monitor, Zap } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
+import { ShimmerButton } from '@/components/magicui/shimmer-button'
 
 interface OSInfo {
   name: string
@@ -199,7 +200,7 @@ const CursorDownloadPage: React.FC = () => {
               src='https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/avis/logo/avis-mono-dark.png'
               alt='logo'
               fill
-              className='max-w-40 '
+              className='max-w-40 object-contain'
             />
           </div>
         </motion.div>
@@ -208,14 +209,15 @@ const CursorDownloadPage: React.FC = () => {
           Download Cursor
         </h1>
 
-        <motion.button
+        <ShimmerButton
           onClick={handleDownload}
-          className='inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded hover:bg-neutral-200 transition-colors text-sm font-medium'
-          whileTap={{ scale: 0.95 }}
+          className='inline-flex items-center '
         >
-          {detectedOS?.icon}
-          Download for {detectedOS?.name}
-        </motion.button>
+          <div className='inline-flex gap-2 items-center bg-white text-black px-6 py-3 rounded hover:bg-neutral-200 transition-colors text-sm font-medium'>
+            {detectedOS?.icon}
+            Download for {detectedOS?.name}
+          </div>
+        </ShimmerButton>
 
         <p className='mt-3 text-neutral-400 text-xs'>
           Version {latestVersion.version} for {detectedOS?.name} (

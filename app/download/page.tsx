@@ -206,7 +206,7 @@ const CursorDownloadPage: React.FC = () => {
         </motion.div>
 
         <h1 className='text-4xl font-light mb-8 tracking-wide'>
-          Download Cursor
+          Download AVIS Engine
         </h1>
 
         <ShimmerButton

@@ -146,8 +146,7 @@ const DownloadSection = () => {
             }}
           >
             <Link
-              target='_blank'
-              href='https://avisengine.com/downloads/avis-engine-free-version/'
+              href='/download'
               className='flex items-center space-x-2 hover:text-white/80'
             >
               <span>Download Free</span>

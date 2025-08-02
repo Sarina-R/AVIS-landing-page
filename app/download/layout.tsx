@@ -13,16 +13,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   const navItems = [
-    {
-      name: 'Products',
-      link: '#products',
-      children: [
-        { name: 'AVIS Events', link: '/avis-events' },
-        { name: 'AVIS Challenge', link: '/avis-challenge' },
-        { name: 'AVIS Plus +', link: '/avis-plus' },
-        { name: 'AVIS Community', link: '/avis-community' },
-      ],
-    },
+    { name: 'AVIS Events', link: '/avis-events' },
+    { name: 'AVIS Challenge', link: '/avis-challenge' },
+    { name: 'AVIS Plus +', link: '/avis-plus' },
+    { name: 'AVIS Community', link: '/avis-community' },
   ]
 
   const logo =

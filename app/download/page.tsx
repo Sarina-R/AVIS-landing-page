@@ -226,7 +226,7 @@ const CursorDownloadPage: React.FC = () => {
       </motion.div>
 
       <motion.div
-        className='max-w-4xl mx-auto px-6 py-12 border-t border-neutral-800'
+        className='max-w-5xl mx-auto px-6 py-12 border-t border-neutral-800'
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.5 }}

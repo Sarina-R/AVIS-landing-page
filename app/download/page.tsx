@@ -1,10 +1,11 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { ChevronDown, Download, Apple, Monitor, Zap } from 'lucide-react'
+import { ChevronDown, Download } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { ShimmerButton } from '@/components/magicui/shimmer-button'
+import { FaApple, FaLinux, FaWindows } from 'react-icons/fa'
 
 interface OSInfo {
   name: string
@@ -36,7 +37,7 @@ const versions: Version[] = [
     platforms: [
       {
         name: 'macOS',
-        icon: <Apple className='w-4 h-4' />,
+        icon: <FaApple className='w-4 h-4' />,
         downloads: [
           { name: 'Mac Universal', size: '156 MB', url: '#' },
           { name: 'Mac (ARM64)', size: '142 MB', url: '#' },
@@ -45,7 +46,7 @@ const versions: Version[] = [
       },
       {
         name: 'Windows',
-        icon: <Monitor className='w-4 h-4' />,
+        icon: <FaWindows className='w-4 h-4' />,
         downloads: [
           { name: 'Windows (x64) (User)', size: '134 MB', url: '#' },
           { name: 'Windows (ARM64) (User)', size: '128 MB', url: '#' },
@@ -55,7 +56,7 @@ const versions: Version[] = [
       },
       {
         name: 'Linux',
-        icon: <Zap className='w-4 h-4' />,
+        icon: <FaLinux className='w-4 h-4' />,
         downloads: [
           { name: 'Linux (x64)', size: '145 MB', url: '#' },
           { name: 'Linux (ARM64)', size: '139 MB', url: '#' },
@@ -70,7 +71,7 @@ const versions: Version[] = [
     platforms: [
       {
         name: 'macOS',
-        icon: <Apple className='w-4 h-4' />,
+        icon: <FaApple className='w-4 h-4' />,
         downloads: [
           { name: 'Mac Universal', size: '152 MB', url: '#' },
           { name: 'Mac (ARM64)', size: '138 MB', url: '#' },
@@ -79,7 +80,7 @@ const versions: Version[] = [
       },
       {
         name: 'Windows',
-        icon: <Monitor className='w-4 h-4' />,
+        icon: <FaWindows className='w-4 h-4' />,
         downloads: [
           { name: 'Windows (x64) (User)', size: '130 MB', url: '#' },
           { name: 'Windows (x64) (System)', size: '130 MB', url: '#' },
@@ -87,7 +88,7 @@ const versions: Version[] = [
       },
       {
         name: 'Linux',
-        icon: <Zap className='w-4 h-4' />,
+        icon: <FaLinux className='w-4 h-4' />,
         downloads: [{ name: 'Linux (x64)', size: '141 MB', url: '#' }],
       },
     ],
@@ -99,7 +100,7 @@ const versions: Version[] = [
     platforms: [
       {
         name: 'macOS',
-        icon: <Apple className='w-4 h-4' />,
+        icon: <FaApple className='w-4 h-4' />,
         downloads: [
           { name: 'Mac Universal', size: '148 MB', url: '#' },
           { name: 'Mac (x64)', size: '160 MB', url: '#' },
@@ -107,7 +108,7 @@ const versions: Version[] = [
       },
       {
         name: 'Windows',
-        icon: <Monitor className='w-4 h-4' />,
+        icon: <FaWindows className='w-4 h-4' />,
         downloads: [{ name: 'Windows (x64)', size: '126 MB', url: '#' }],
       },
     ],
@@ -121,7 +122,7 @@ const detectOS = (): OSInfo => {
   if (platform.includes('mac') || userAgent.includes('mac')) {
     return {
       name: 'macOS',
-      icon: <Apple className='w-4 h-4' />,
+      icon: <FaApple className='w-4 h-4' />,
       downloadUrl: '#mac-universal',
       architecture: 'Universal',
     }
@@ -130,7 +131,7 @@ const detectOS = (): OSInfo => {
   if (platform.includes('linux') || userAgent.includes('linux')) {
     return {
       name: 'Linux',
-      icon: <Zap className='w-4 h-4' />,
+      icon: <FaLinux className='w-4 h-4' />,
       downloadUrl: '#linux-x64',
       architecture: 'x64',
     }
@@ -138,7 +139,7 @@ const detectOS = (): OSInfo => {
 
   return {
     name: 'Windows',
-    icon: <Monitor className='w-4 h-4' />,
+    icon: <FaWindows className='w-4 h-4' />,
     downloadUrl: '#windows-x64',
     architecture: 'x64',
   }
@@ -226,13 +227,13 @@ const CursorDownloadPage: React.FC = () => {
       </motion.div>
 
       <motion.div
-        className='max-w-5xl mx-auto px-6 py-12 border-t border-neutral-800'
+        className='max-w-5xl mx-auto px-6 py-12'
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.5 }}
       >
-        <h2 className='text-lg font-medium mb-8'>All Versions</h2>
-
+        <h2 className='text-lg font-medium px-4'>All Versions</h2>
+        <div className='w-full h-[0.5px] bg-neutral-800 my-4 mb-8'></div>
         <div className='space-y-1'>
           {versions.map((version) => (
             <motion.div

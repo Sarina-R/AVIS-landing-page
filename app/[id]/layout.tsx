@@ -1,5 +1,5 @@
 import DownloadSection from '@/components/page-components/DownloadSection'
-import Footer from '@/components/page-components/Footer'
+import { Footer } from '@/components/event-page-component/Footer'
 import Navigation from '@/components/page-components/Navigation'
 import type { Metadata } from 'next'
 

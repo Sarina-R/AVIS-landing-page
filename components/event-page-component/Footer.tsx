@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export const Footer = () => (
   <footer className='bg-black border-t border-white/10 py-12 px-6'>
     <div className='max-w-6xl mx-auto'>
@@ -18,36 +20,36 @@ export const Footer = () => (
           <h4 className='font-semibold mb-4'>Services</h4>
           <ul className='space-y-2 text-xs md:text-sm text-neutral-400'>
             <li>
-              <a
+              <Link
                 href='/avis-events'
                 className='hover:text-white transition-colors'
               >
                 AVIS Events
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href='/avis-challenge'
                 className='hover:text-white transition-colors'
               >
                 AVIS Challenge
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href='/avis-plus'
                 className='hover:text-white transition-colors'
               >
                 AVIS Plus +
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href='/avis-community'
                 className='hover:text-white transition-colors'
               >
                 AVIS Community
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -56,24 +58,24 @@ export const Footer = () => (
           <h4 className='font-semibold mb-4'>Company</h4>
           <ul className='space-y-2 text-xs md:text-sm text-neutral-400'>
             <li>
-              <a href='#' className='hover:text-white transition-colors'>
+              <Link href='#' className='hover:text-white transition-colors'>
                 About Us
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='#' className='hover:text-white transition-colors'>
+              <Link href='#' className='hover:text-white transition-colors'>
                 Portfolio
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='#' className='hover:text-white transition-colors'>
+              <Link href='#' className='hover:text-white transition-colors'>
                 Careers
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='#' className='hover:text-white transition-colors'>
+              <Link href='#' className='hover:text-white transition-colors'>
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -82,24 +84,24 @@ export const Footer = () => (
           <h4 className='font-semibold mb-4'>Support</h4>
           <ul className='space-y-2 text-xs md:text-sm text-neutral-400'>
             <li>
-              <a href='#' className='hover:text-white transition-colors'>
+              <Link href='#' className='hover:text-white transition-colors'>
                 Help Center
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='#' className='hover:text-white transition-colors'>
+              <Link href='#' className='hover:text-white transition-colors'>
                 Documentation
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='#' className='hover:text-white transition-colors'>
+              <Link href='#' className='hover:text-white transition-colors'>
                 Privacy Policy
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='#' className='hover:text-white transition-colors'>
+              <Link href='#' className='hover:text-white transition-colors'>
                 Terms of Service
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

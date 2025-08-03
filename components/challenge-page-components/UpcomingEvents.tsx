@@ -224,7 +224,7 @@ const EventCard = ({
             alt={event.title}
             loading='lazy'
             decoding='async'
-            className='w-full h-full object-cover will-change-transform transition-transform duration-700 group-hover:scale-105'
+            className='w-full h-full object-cover will-change-transform transition-transform duration-700'
           />
 
           <div className='absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none'></div>
@@ -250,12 +250,43 @@ const EventCard = ({
             </div>
           )}
 
-          <div className='absolute bottom-0 left-0 right-0 p-6'>
+          <motion.div
+            className='absolute bottom-0 left-0 right-0 p-6 group'
+            whileHover='hover'
+            initial='initial'
+          >
             <div className='relative'>
-              <h3 className='absolute bottom-0 text-white text-xl leading-tight transition-transform duration-500 ease-out group-hover:-translate-y-16'>
+              <motion.h3
+                className='absolute bottom-0 text-white text-xl leading-tight'
+                variants={{
+                  initial: {
+                    y: 0,
+                    transition: { duration: 0.5, ease: 'easeOut' },
+                  },
+                  hover: {
+                    y: -64,
+                    transition: { duration: 0.5, ease: 'easeOut' },
+                  },
+                }}
+              >
                 {event.title}
-              </h3>
-              <div className='space-y-3 mt-4 will-change-transform opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out'>
+              </motion.h3>
+
+              <motion.div
+                className='space-y-3 mt-4'
+                variants={{
+                  initial: {
+                    opacity: 0,
+                    y: 16,
+                    transition: { duration: 0.3, ease: 'easeOut' },
+                  },
+                  hover: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.3, ease: 'easeOut' },
+                  },
+                }}
+              >
                 <div className='flex items-center gap-3'>
                   <Clock size={16} />
                   <span className='text-white text-sm'>{event.time}</span>
@@ -264,7 +295,7 @@ const EventCard = ({
                   <MapPin size={16} />
                   <span className='text-white text-sm'>{event.location}</span>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
             <button className='group/btn w-full bg-black/30 backdrop-blur-xl border border-white/10 rounded-2xl py-3 text-black font-light will-change-transform transition-all duration-300 hover:bg-black/20 hover:border-white/30 hover:shadow-xl mt-6'>
@@ -275,7 +306,7 @@ const EventCard = ({
                 <div className='w-2 h-2 border-r border-b border-white/70 transform rotate-[-45deg] will-change-transform group-hover/btn:translate-x-1 transition-transform duration-200'></div>
               </div>
             </button>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

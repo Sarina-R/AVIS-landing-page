@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Clock, MapPin } from 'lucide-react'
 import { useMemo } from 'react'
+import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
 
 interface Event {
   id: number
@@ -134,15 +135,10 @@ const UpcomingEvents = () => {
   )
 
   return (
-    <div id='upcoming-events' className='min-h-screen overflow-hidden'>
+    <div id='upcoming-events' className='min-h-screen'>
       <div className='relative z-10 py-16 px-6 sm:px-8 lg:px-12'>
         <div className='max-w-7xl mx-auto'>
-          <motion.div
-            initial={{ opacity: 0, y: -30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            className='mb-16'
-          >
+          <div className='mb-16'>
             <div className='flex items-center gap-4 mb-6'>
               <div className='w-16 h-px bg-gradient-to-r from-transparent via-yellow-600/60 to-transparent'></div>
               <span className='text-yellow-500 text-sm font-medium tracking-[0.2em] uppercase'>
@@ -166,42 +162,31 @@ const UpcomingEvents = () => {
                 </p>
               </div>
 
-              <motion.button
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className='group bg-white/5 backdrop-blur-xl border border-white/30 px-8 py-4 rounded-full text-white font-medium hover:bg-white/25 hover:border-white/40 transition-all duration-300 shadow-lg hover:shadow-xl'
-              >
+              <button className='group bg-white/5 backdrop-blur-xl border border-white/30 px-8 py-4 rounded-full text-white font-medium hover:bg-white/25 hover:border-white/40 transition-all duration-300 shadow-lg hover:shadow-xl'>
                 <span className='group-hover:tracking-wider transition-all duration-300 text-yellow-500'>
                   View All Events
                 </span>
-              </motion.button>
+              </button>
             </div>
-          </motion.div>
+          </div>
 
           <div className='relative'>
-            <div className='flex gap-8 overflow-x-auto pb-8 scrollbar-hide scroll-smooth snap-x snap-mandatory'>
-              {events.map((event) => (
-                <EventCard
-                  key={event.id}
-                  event={event}
-                  formatMonth={formatMonth}
-                  formatDay={formatDay}
-                />
-              ))}
-            </div>
+            <ScrollArea className='w-full'>
+              <div className='flex gap-8 snap-x snap-mandatory w-max pb-4'>
+                {events.map((event) => (
+                  <EventCard
+                    key={event.id}
+                    event={event}
+                    formatMonth={formatMonth}
+                    formatDay={formatDay}
+                  />
+                ))}
+              </div>
+              <ScrollBar orientation='horizontal' />
+            </ScrollArea>
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
     </div>
   )
 }
@@ -217,14 +202,14 @@ const EventCard = ({
 }) => {
   return (
     <div className='group flex-shrink-0 w-80 snap-center'>
-      <div className='relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden will-change-transform transition-all duration-500 hover:bg-white/10 hover:border-white/20 hover:shadow-2xl hover:shadow-black/50'>
+      <div className='relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden hover:bg-white/10 hover:border-white/20 hover:shadow-2xl hover:shadow-black/50'>
         <div className='relative aspect-[3/4] overflow-hidden'>
           <img
             src={event.poster}
             alt={event.title}
             loading='lazy'
             decoding='async'
-            className='w-full h-full object-cover will-change-transform transition-transform duration-700'
+            className='w-full h-full object-cover'
           />
 
           <div className='absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none'></div>
@@ -298,12 +283,10 @@ const EventCard = ({
               </motion.div>
             </div>
 
-            <button className='group/btn w-full bg-black/30 backdrop-blur-xl border border-white/10 rounded-2xl py-3 text-black font-light will-change-transform transition-all duration-300 hover:bg-black/20 hover:border-white/30 hover:shadow-xl mt-6'>
+            <button className='group/btn w-full bg-black/30 backdrop-blur-xl border border-white/10 rounded-2xl py-3 text-black font-light mt-6 hover:bg-black/20 hover:border-white/30 hover:shadow-xl'>
               <div className='flex items-center justify-center gap-3'>
-                <span className='will-change-transform group-hover/btn:tracking-wider transition-all duration-200 text-white'>
-                  Explore Event
-                </span>
-                <div className='w-2 h-2 border-r border-b border-white/70 transform rotate-[-45deg] will-change-transform group-hover/btn:translate-x-1 transition-transform duration-200'></div>
+                <span className='text-white'>Explore Event</span>
+                <div className='w-2 h-2 border-r border-b border-white/70 transform rotate-[-45deg]'></div>
               </div>
             </button>
           </motion.div>

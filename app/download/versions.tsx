@@ -1,6 +1,6 @@
 import { FaApple, FaLinux, FaWindows } from 'react-icons/fa'
 
-interface Version {
+export interface Version {
   version: string
   isLatest: boolean
   releaseDate: string

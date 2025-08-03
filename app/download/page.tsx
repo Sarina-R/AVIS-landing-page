@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { ShimmerButton } from '@/components/magicui/shimmer-button'
 import { FaApple, FaLinux, FaWindows } from 'react-icons/fa'
-import { versions } from './versions'
+import { Version, versions } from './versions'
 
 interface OSInfo {
   name: string
@@ -73,9 +73,10 @@ const getLatestMatchingVersion = (detectedOS: OSInfo | null) => {
 const CursorDownloadPage: React.FC = () => {
   const [expandedVersion, setExpandedVersion] = useState<string | null>(null)
   const [detectedOS, setDetectedOS] = useState<OSInfo | null>(null)
-  const [matched, setMatched] = useState<{ version: any; url: string } | null>(
-    null
-  )
+  const [matched, setMatched] = useState<{
+    version: Version
+    url: string
+  } | null>(null)
 
   useEffect(() => {
     const os = detectOS()

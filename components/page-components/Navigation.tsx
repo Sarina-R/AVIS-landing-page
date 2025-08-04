@@ -116,7 +116,7 @@ export default function Navigation({ logo, navItems }: NavigationProps) {
                   transition={{ delay: i * 0.1, duration: 0.3 }}
                   onMouseEnter={() => item.children && handleMouseEnter()}
                   onMouseLeave={() => item.children && handleMouseLeave()}
-                  className='text-neutral-300 hover:text-white transition-colors text-sm lg:text-base flex items-center gap-1 cursor-pointer py-2'
+                  className='text-neutral-300 hover:text-white transition-colors text-sm flex items-center gap-1 cursor-pointer py-2'
                 >
                   {item.name}
                   {item.children && (
@@ -151,7 +151,7 @@ export default function Navigation({ logo, navItems }: NavigationProps) {
           </div>
         </div>
 
-        <button className='hidden md:block bg-white text-black px-4 lg:px-6 py-2 lg:py-2.5 rounded-lg text-sm lg:text-base font-medium hover:bg-neutral-200 transition-all duration-200 shadow-sm'>
+        <button className='hidden md:block bg-white text-black px-4 lg:px-6 py-2 lg:py-2.5 rounded-lg text-sm font-medium hover:bg-neutral-200 transition-all duration-200 shadow-sm'>
           Get Started
         </button>
 
@@ -194,7 +194,7 @@ export default function Navigation({ logo, navItems }: NavigationProps) {
                   >
                     <Link
                       href={item.link}
-                      className='text-base block py-3 flex-1 hover:text-neutral-200 transition-colors'
+                      className='text-sm block py-3 flex-1 hover:text-neutral-200 transition-colors'
                       onClick={(e) => {
                         if (item.children) {
                           e.preventDefault()

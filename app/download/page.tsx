@@ -7,6 +7,7 @@ import Image from 'next/image'
 import { ShimmerButton } from '@/components/magicui/shimmer-button'
 import { FaApple, FaLinux, FaWindows } from 'react-icons/fa'
 import { Version, versions } from './versions'
+import Link from 'next/link'
 
 interface OSInfo {
   name: string
@@ -174,13 +175,17 @@ const CursorDownloadPage: React.FC = () => {
                       {version.version}
                     </span>
                     {version.isLatest && (
-                      <span className='px-2 py-1 bg-white text-black text-xs rounded'>
-                        LATEST
+                      <Link href='/changelog'>
+                        <button className='text-neutral-400 hover:text-white text-xs underline'>
+                          Release notes
+                        </button>
+                      </Link>
+                    )}
+                    {version.isLatest && (
+                      <span className='px-2 py-0.5 bg-white text-black text-[10px] rounded-full font-medium'>
+                        LATEST VERSION
                       </span>
                     )}
-                    <button className='text-neutral-400 hover:text-white text-xs underline'>
-                      Release notes
-                    </button>
                   </div>
                   <ChevronDown
                     className={`w-4 h-4 transition-transform duration-300 ${

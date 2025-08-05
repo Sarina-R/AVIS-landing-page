@@ -285,7 +285,7 @@ const PageBuilderSteps = () => {
   }
 
   return (
-    <section className='px-4 py-8 bg-black min-h-screen'>
+    <section className='px-4 py-20 bg-black min-'>
       <div className='max-w-6xl mx-auto'>
         <div className='text-center mb-8'>
           <h2 className='text-xl font-light mb-2'>

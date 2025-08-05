@@ -34,12 +34,12 @@ const AvisEventsLanding = () => {
     <div className='min-h-screen bg-black text-white px-4'>
       <Navigation logo={logo} navItems={navItems} />
 
-      <main className='max-w-6xl mx-auto border-l border-r mt-20 md:mt-44 border-white/10'>
+      <main className='max-w-6xl mx-auto border-l border-r mt-20 md:mt-44 border-white/10 space-y-20'>
         <HeroSection />
-        <AboutSection />
-        <StepsComponent />
         <ServicesSection />
         <BentoDemo />
+        <StepsComponent />
+        <AboutSection />
         <WhyChooseUs />
         <CTASection />
       </main>

@@ -21,15 +21,15 @@ export const AnimatedList = () => {
     <div className='space-y-4'>
       {[
         'Corporate Events',
-        'Wedding Planning',
+        'Events Planning',
         'Product Launches',
         'Conferences',
-        'Private Parties',
-        'Brand Activations',
+        'Private Events',
+        'White Branding',
       ].map((item, index) => (
         <div
           key={index}
-          className={`flex items-center space-x-3 p-4 rounded-lg border border-white/10 bg-white/5 transition-all duration-500 ${
+          className={`flex items-center space-x-3 p-4 rounded-lg border border-white/10 bg-white/3 transition-all duration-500 ${
             animatedItems.includes(index)
               ? 'opacity-100 translate-x-0'
               : 'opacity-0 translate-x-8'

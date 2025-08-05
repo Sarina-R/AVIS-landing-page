@@ -84,7 +84,7 @@ const HeroSection: React.FC = () => {
               organizers all in one place.
             </p>
           </div>
-          <div className='flex flex-row gap-4 sm:gap-6 text-sm'>
+          <div className='flex flex-row gap-4 sm:gap-6 text-xs sm:text-sm'>
             <button className='group flex items-center gap-2 sm:gap-3 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-white text-black font-semibold hover:bg-neutral-100 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-white/20'>
               <div className='w-0 h-0 border-l-[4px] sm:border-l-[5px] border-r-[4px] sm:border-r-[5px] border-b-[6px] sm:border-b-[7px] border-l-transparent border-r-transparent border-b-current rotate-90 group-hover:rotate-[135deg] transition-transform duration-300' />
               <Link href='https://events.avisengine.com/auth/register'>
@@ -113,11 +113,11 @@ const HeroSection: React.FC = () => {
         <div className='absolute top-1/2 left-0 w-full h-[1px] bg-white/50 -translate-y-1/2' />
         <div className='absolute top-0 left-1/2 w-[1px] h-full bg-white/50 -translate-x-1/2' />
       </div>
-      <div className=' absolute bottom-[200px] left-[-12px] w-6 h-6 z-20'>
+      <div className=' absolute bottom-[180px] sm:bottom-[200px] left-[-12px] w-6 h-6 z-20'>
         <div className='absolute top-1/2 left-0 w-full h-[1px] bg-white/50 -translate-y-1/2' />
         <div className='absolute top-0 left-1/2 w-[1px] h-full bg-white/50 -translate-x-1/2' />
       </div>
-      <div className=' absolute bottom-[200px] right-[-12px] w-6 h-6 z-20'>
+      <div className=' absolute bottom-[180px] sm:bottom-[200px] right-[-12px] w-6 h-6 z-20'>
         <div className='absolute top-1/2 left-0 w-full h-[1px] bg-white/50 -translate-y-1/2' />
         <div className='absolute top-0 left-1/2 w-[1px] h-full bg-white/50 -translate-x-1/2' />
       </div>

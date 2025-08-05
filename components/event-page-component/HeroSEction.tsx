@@ -3,6 +3,7 @@
 import React, { useRef, useEffect, useState } from 'react'
 import Image from 'next/image'
 import { TrustedBySection } from './TrustedBy'
+import Link from 'next/link'
 
 const HeroSection: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -68,28 +69,32 @@ const HeroSection: React.FC = () => {
 
       {/* Black Box */}
       <div className='relative z-30 lg:px-6'>
-        <div className='bg-black flex flex-col items-center justify-center h-[15rem] sm:h-[18rem] w-full lg:max-w-[36rem] mx-auto py-8 sm:py-12 border border-white/15'>
-          <h1 className='text-2xl lg:text-4xl font-bold text-center leading-tight mb-6 sm:mb-8 tracking-tight max-w-[90%] sm:max-w-4xl bg-gradient-to-b from-white to-white/80 bg-clip-text text-transparent'>
-            The native Next.js platform.
+        <div className='bg-black flex flex-col items-center justify-center h-[15rem] sm:h-[18rem] w-full lg:max-w-[36rem] mx-auto py-10 sm:py-14 border border-white/15'>
+          <h1 className='text-2xl lg:text-4xl font-bold text-center leading-tight mb-4 sm:mb-6 tracking-tight max-w-[90%] sm:max-w-4xl bg-gradient-to-b from-white to-white/80 bg-clip-text text-transparent'>
+            Accelerating Connections, Delivering Impact
           </h1>
-          <div className='text-center max-w-[90%] sm:max-w-2xl mb-8 sm:mb-16'>
+          <div className='text-center max-w-[90%] sm:max-w-2xl mb-6 sm:mb-8'>
             <p className='text-sm sm:text-base md:text-lg lg:text-xl text-white/70 leading-relaxed'>
               <span className='text-white font-semibold'>
-                Made by the creators of Next.js
-              </span>
-              , AVIS is designed
+                Fully featured events platform
+              </span>{' '}
+              for participants and
             </p>
             <p className='text-sm sm:text-base md:text-lg lg:text-xl text-white/70 leading-relaxed'>
-              to build, scale, and secure your Next.js apps.
+              organizers all in one place.
             </p>
           </div>
-          <div className='flex flex-row gap-3 sm:gap-4 text-sm'>
-            <button className='group flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white text-black font-semibold hover:bg-neutral-100 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-white/20'>
+          <div className='flex flex-row gap-4 sm:gap-6 text-sm'>
+            <button className='group flex items-center gap-2 sm:gap-3 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-white text-black font-semibold hover:bg-neutral-100 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-white/20'>
               <div className='w-0 h-0 border-l-[4px] sm:border-l-[5px] border-r-[4px] sm:border-r-[5px] border-b-[6px] sm:border-b-[7px] border-l-transparent border-r-transparent border-b-current rotate-90 group-hover:rotate-[135deg] transition-transform duration-300' />
-              Start Deploying
+              <Link href='https://events.avisengine.com/auth/register'>
+                Start Deploying
+              </Link>
             </button>
-            <button className='px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/5 text-white font-semibold border border-white/15 hover:bg-white/10 hover:border-white/40 transition-all duration-300 hover:scale-105 backdrop-blur-sm'>
-              Get a Demo
+            <button className='px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-white/5 text-white font-semibold border border-white/15 hover:bg-white/10 hover:border-white/40 transition-all duration-300 hover:scale-105 backdrop-blur-sm'>
+              <Link href='https://events.avisengine.com/'>
+                Go to AVIS Event
+              </Link>
             </button>
           </div>
         </div>

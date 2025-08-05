@@ -20,7 +20,9 @@ export const BentoGrid = () => (
     </div>
 
     <div className='p-8 border border-white/10'>
-      <h3 className='text-xl font-semibold mb-4'>Event Lifecycle</h3>
+      <h3 className='text-xl font-semibold mb-4'>
+        Empowering Modern Development Tools
+      </h3>
       <IconCloudDemo />
     </div>
 

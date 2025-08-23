@@ -71,9 +71,9 @@ const StepGuide: React.FC = () => {
         {/* Steps */}
         <div className='relative z-20 w-full max-w-3xl mx-auto'>
           {/* Timeline */}
-          <div className='absolute left-1.5  top-0 h-full w-[2px] bg-gray-700 z-10'>
+          <div className='absolute left-1.5  top-0 h-full w-[2px] bg-neutral-700 z-10'>
             <div
-              className='bg-sky-400 w-full transition-all duration-1000 ease-out'
+              className='bg-sky-400/80 w-full transition-all duration-1000 ease-out'
               style={{ height: `${scrollProgress * 100}%` }}
             />
           </div>
@@ -91,7 +91,7 @@ const StepGuide: React.FC = () => {
                   className={`w-6 h-6 rounded-full flex items-center justify-center border-2 transition-all duration-300 ${
                     isStepCompleted(index) || isStepActive(index)
                       ? 'bg-sky-400 border-sky-400 text-black scale-110'
-                      : 'bg-gray-700 border-gray-700 text-gray-400 scale-90'
+                      : 'bg-neutral-700 border-neutral-700 text-neutral-400 scale-90'
                   }`}
                 >
                   <div className={isStepActive(index) ? 'animate-pulse' : ''}>
@@ -101,13 +101,13 @@ const StepGuide: React.FC = () => {
               </div>
 
               {/* Step Content */}
-              <div className='ml-10 pl-2 border-l-2 border-gray-700'>
+              <div className='ml-10 pl-2 border-l-2 border-neutral-700'>
                 <div className='mb-1'>
                   <span
                     className={`inline-block px-2 py-1 rounded-full text-xs font-semibold ${
                       isStepActive(index)
-                        ? 'bg-sky-400 text-black'
-                        : 'bg-gray-700 text-gray-400'
+                        ? 'bg-sky-400/80 text-black'
+                        : 'bg-neutral-700 text-neutral-400'
                     }`}
                   >
                     {String(index + 1)}
@@ -116,7 +116,9 @@ const StepGuide: React.FC = () => {
                 <h2 className='text-sm font-semibold mb-1 text-white'>
                   {step.title}
                 </h2>
-                <p className='text-xs text-gray-400 mb-2'>{step.description}</p>
+                <p className='text-xs text-neutral-400 mb-2'>
+                  {step.description}
+                </p>
                 <div className='text-xs'>{step.content}</div>
               </div>
             </div>

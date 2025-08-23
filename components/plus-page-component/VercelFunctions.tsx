@@ -59,7 +59,7 @@ export const VercelFunctions = () => {
           <svg
             viewBox='0 0 24 24'
             fill='none'
-            className='w-4 h-4 text-gray-400'
+            className='w-4 h-4 text-neutral-400'
             aria-hidden='true'
           >
             <rect
@@ -85,7 +85,7 @@ export const VercelFunctions = () => {
       <div className='mb-8 flex-1'>
         <p className='text-base font-medium mb-2'>
           <span className='font-bold'>Servers made simple.</span>{' '}
-          <span className='text-gray-400'>
+          <span className='text-neutral-400'>
             We deploy and optimize the necessary compute for any scale,
             replicated across 18 regions.
           </span>
@@ -99,7 +99,7 @@ export const VercelFunctions = () => {
           <code>
             {codeLines.map((line) => (
               <div className='flex' key={line.number}>
-                <span className='text-gray-500 mr-4'>{line.number}</span>
+                <span className='text-neutral-500 mr-4'>{line.number}</span>
                 {line.content.map((part, index) => (
                   <span key={index} className={part.className}>
                     {part.text}

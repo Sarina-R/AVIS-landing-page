@@ -18,11 +18,11 @@ const steps: Step[] = [
     content: (
       <div className='space-y-2'>
         <div className='flex items-center gap-2'>
-          <Plus className='w-5 h-5 text-pink-500' />
+          <Plus className='w-5 h-5 text-pink-500/70' />
           <h3 className='text-sm font-medium text-white'>Cycle Creation</h3>
         </div>
         <div className='text-xs text-gray-400'>No active cycles</div>
-        <button className='flex items-center gap-1 px-3 py-1 bg-pink-600 text-xs rounded-full'>
+        <button className='flex items-center gap-1 px-3 py-1 bg-pink-600/70 text-xs rounded-full'>
           <Zap className='w-3 h-3' /> Create Cycle
         </button>
       </div>
@@ -36,13 +36,13 @@ const steps: Step[] = [
     content: (
       <div className='space-y-2'>
         <div className='flex items-center gap-2'>
-          <BarChart3 className='w-5 h-5 text-pink-500' />
+          <BarChart3 className='w-5 h-5 text-pink-500/70' />
           <h3 className='text-sm font-medium text-white'>Progress Insights</h3>
         </div>
         <div className='text-xs text-gray-400'>32/45 issues completed</div>
         <div className='w-full bg-gray-700 h-2 rounded-full overflow-hidden'>
           <motion.div
-            className='bg-pink-500 h-full rounded-full'
+            className='bg-pink-500/70 h-full rounded-full'
             initial={{ width: '0%' }}
             animate={{ width: '71%' }}
             transition={{ duration: 1 }}
@@ -59,11 +59,11 @@ const steps: Step[] = [
     content: (
       <div className='space-y-2'>
         <div className='flex items-center gap-2'>
-          <ArrowRight className='w-5 h-5 text-pink-500' />
+          <ArrowRight className='w-5 h-5 text-pink-500/70' />
           <h3 className='text-sm font-medium text-white'>Issue Migration</h3>
         </div>
         <div className='text-xs text-gray-400'>5 issues remaining</div>
-        <button className='px-3 py-1 bg-pink-600 text-xs rounded-full'>
+        <button className='px-3 py-1 bg-pink-600/70 text-xs rounded-full'>
           Smart Transfer
         </button>
       </div>
@@ -77,13 +77,13 @@ const steps: Step[] = [
     content: (
       <div className='space-y-2'>
         <div className='flex items-center gap-2'>
-          <TrendingUp className='w-5 h-5 text-pink-500' />
+          <TrendingUp className='w-5 h-5 text-pink-500/70' />
           <h3 className='text-sm font-medium text-white'>
             Predictive Planning
           </h3>
         </div>
         <div className='text-xs text-gray-400'>Historical performance</div>
-        <div className='text-pink-500 text-xs'>
+        <div className='text-pink-500/70 text-xs'>
           Add 2 buffer days to next cycle
         </div>
       </div>

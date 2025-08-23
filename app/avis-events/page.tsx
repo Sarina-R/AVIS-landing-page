@@ -9,6 +9,8 @@ import { BentoDemo } from '@/components/event-page-component/BentoSection'
 import HeroSection from '@/components/event-page-component/HeroSEction'
 import StepsComponent from '@/components/event-page-component/StepsComponent'
 import Navigation from '@/components/page-components/Navigation'
+import OrganizerSection from '@/components/event-page-component/OrganizerSection'
+import FinancialSection from '@/components/event-page-component/FinancialSection'
 
 const AvisEventsLanding = () => {
   const navItems = [
@@ -40,6 +42,8 @@ const AvisEventsLanding = () => {
         <BentoDemo />
         <StepsComponent />
         <AboutSection />
+        <OrganizerSection />
+        <FinancialSection />
         <WhyChooseUs />
         <CTASection />
       </main>

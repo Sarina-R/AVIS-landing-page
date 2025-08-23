@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import {
   Shield,
   Award,
@@ -5,7 +6,7 @@ import {
   FileCheck,
   Users,
   Globe,
-  Calendar,
+  Circle,
   Lock,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -142,32 +143,196 @@ const SecurityFeatures = () => (
   </div>
 )
 
-const VerificationFlow = () => (
-  <div className='h-full flex items-center justify-center p-6'>
-    <div className='flex items-center space-x-4 w-full'>
-      <div className='flex flex-col items-center space-y-2'>
-        <div className='w-8 h-8 rounded-full bg-white/20 flex items-center justify-center'>
-          <span className='text-white text-sm font-medium'>1</span>
+const VerificationFlow = () => {
+  interface Step {
+    id: number
+    label: string
+    description: string
+  }
+
+  const [currentStep, setCurrentStep] = useState<number>(0)
+  const [hoveredStep, setHoveredStep] = useState<number | null>(null)
+  const [clickedStep, setClickedStep] = useState<number | null>(null)
+  const [isAnimating, setIsAnimating] = useState<boolean>(false)
+
+  const steps: Step[] = [
+    { id: 0, label: 'Submit', description: 'Document submission' },
+    { id: 1, label: 'Verify', description: 'Identity verification' },
+    { id: 2, label: 'Issue', description: 'Certificate generation' },
+  ]
+
+  useEffect(() => {
+    if (currentStep < steps.length - 1) {
+      const timer = setTimeout(() => {
+        setIsAnimating(true)
+        setTimeout(() => {
+          setCurrentStep((prev) => prev + 1)
+          setIsAnimating(false)
+        }, 300)
+      }, 1000)
+
+      return () => clearTimeout(timer)
+    }
+  }, [currentStep, steps.length])
+
+  const handleStepClick = (stepId: number) => {
+    if (stepId <= currentStep && !isAnimating) {
+      setClickedStep(stepId)
+      setIsAnimating(true)
+
+      setTimeout(() => {
+        setClickedStep(null)
+        setIsAnimating(false)
+      }, 200)
+
+      if (stepId < currentStep) {
+        setCurrentStep(stepId)
+      }
+    }
+  }
+
+  const getStepStatus = (stepId: number) => {
+    if (stepId < currentStep) return 'completed'
+    if (stepId === currentStep) return 'active'
+    return 'pending'
+  }
+
+  const isClickable = (stepId: number) => stepId <= currentStep
+
+  return (
+    <div className='h-full flex flex-col items-center justify-center p-8 bg-black'>
+      {/* Main Stepper */}
+      <div className='relative w-full max-w-4xl'>
+        <div className='flex items-center justify-between relative'>
+          {steps.map((step, index) => {
+            const status = getStepStatus(step.id)
+            const isHovered = hoveredStep === step.id
+            const isClicked = clickedStep === step.id
+            const clickable = isClickable(step.id)
+
+            return (
+              <div key={step.id} className='flex items-center pt-8 group'>
+                {/* Step Container */}
+                <div
+                  className={`relative flex flex-col items-center transition-all duration-300 ease-out
+                    ${clickable ? 'cursor-pointer' : 'cursor-default'}
+                    ${isHovered && clickable ? 'transform -translate-y-1' : ''}
+                    ${isClicked ? 'transform scale-95' : ''}
+                  `}
+                  onMouseEnter={() => clickable && setHoveredStep(step.id)}
+                  onMouseLeave={() => setHoveredStep(null)}
+                  onClick={() => handleStepClick(step.id)}
+                >
+                  {/* Step Circle */}
+                  <div
+                    className={`relative w-12 h-12 rounded-full border-2 transition-all duration-300 ease-out flex items-center justify-center
+                    ${
+                      status === 'completed'
+                        ? 'bg-white border-white'
+                        : status === 'active'
+                        ? 'bg-black border-white'
+                        : 'bg-black border-neutral-600'
+                    }
+                    ${
+                      isHovered && clickable
+                        ? status === 'pending'
+                          ? 'border-neutral-400 shadow-lg shadow-neutral-500/20'
+                          : 'shadow-lg shadow-white/20'
+                        : ''
+                    }
+                    ${isClicked ? 'shadow-inner' : ''}
+                  `}
+                  >
+                    {/* Step Content */}
+                    {status === 'completed' ? (
+                      <CheckCircle
+                        className={`w-5 h-5 text-black transition-transform duration-200
+                        ${isClicked ? 'scale-90' : ''}
+                      `}
+                      />
+                    ) : status === 'active' ? (
+                      <div
+                        className={`w-3 h-3 bg-white rounded-full transition-all duration-300
+                        ${isAnimating ? 'animate-pulse scale-125' : ''}
+                      `}
+                      />
+                    ) : (
+                      <Circle
+                        className={`w-5 h-5 transition-colors duration-300
+                        ${
+                          isHovered && clickable
+                            ? 'text-neutral-400'
+                            : 'text-neutral-600'
+                        }
+                      `}
+                      />
+                    )}
+
+                    {/* Active Step Pulse Ring */}
+                    {status === 'active' && (
+                      <div className='absolute inset-0 rounded-full border-2 border-white/30 animate-ping' />
+                    )}
+                  </div>
+
+                  {/* Step Label */}
+                  <div
+                    className={`mt-3 text-center transition-all duration-300
+                    ${status === 'active' ? 'text-white' : 'text-neutral-400'}
+                    ${
+                      isHovered && clickable
+                        ? 'text-white transform scale-105'
+                        : ''
+                    }
+                  `}
+                  >
+                    <div className='font-medium text-sm'>{step.label}</div>
+                    <div
+                      className={`text-xs mt-1 transition-opacity duration-300
+                      ${isHovered && clickable ? 'opacity-100' : 'opacity-60'}
+                    `}
+                    >
+                      {step.description}
+                    </div>
+                  </div>
+
+                  {/* Hover Indicator Line */}
+                  {isHovered && clickable && (
+                    <div className='absolute -bottom-2 w-8 h-0.5 bg-white/60 transition-all duration-300' />
+                  )}
+                </div>
+
+                {/* Connection Line */}
+                {index < steps.length - 1 && (
+                  <div className='flex-1 mx-8 relative h-px overflow-hidden'>
+                    {/* Base Line */}
+                    <div className='absolute inset-0 bg-neutral-700' />
+
+                    {/* Progress Line */}
+                    <div
+                      className={`absolute inset-0 bg-white transition-all duration-700 ease-out origin-left
+                      ${
+                        getStepStatus(index) === 'completed'
+                          ? 'scale-x-100'
+                          : 'scale-x-0'
+                      }
+                    `}
+                    />
+
+                    {/* Active Progress Animation */}
+                    {getStepStatus(index) === 'completed' &&
+                      getStepStatus(index + 1) === 'active' && (
+                        <div className='absolute right-0 top-0 w-2 h-full bg-gradient-to-l from-transparent to-white animate-pulse' />
+                      )}
+                  </div>
+                )}
+              </div>
+            )
+          })}
         </div>
-        <span className='text-white/60 text-xs'>Submit</span>
-      </div>
-      <div className='flex-1 h-px bg-white/20'></div>
-      <div className='flex flex-col items-center space-y-2'>
-        <div className='w-8 h-8 rounded-full bg-white/20 flex items-center justify-center'>
-          <span className='text-white text-sm font-medium'>2</span>
-        </div>
-        <span className='text-white/60 text-xs'>Verify</span>
-      </div>
-      <div className='flex-1 h-px bg-white/20'></div>
-      <div className='flex flex-col items-center space-y-2'>
-        <div className='w-8 h-8 rounded-full bg-white/30 flex items-center justify-center'>
-          <CheckCircle className='w-4 h-4 text-white' />
-        </div>
-        <span className='text-white/60 text-xs'>Issue</span>
       </div>
     </div>
-  </div>
-)
+  )
+}
 
 const features = [
   {

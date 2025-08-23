@@ -1,7 +1,7 @@
 import { Globe, Shield, Zap } from 'lucide-react'
 
 export const WhyChooseUs = () => (
-  <section id='why-avis' className='py-24 border-t border-white/10'>
+  <section id='why-avis' className='pb-24 '>
     <div className='max-w-6xl mx-auto'>
       <div className='text-center mb-16'>
         <h2 className='text-3xl font-bold mb-6'>Why Choose AVIS Events</h2>

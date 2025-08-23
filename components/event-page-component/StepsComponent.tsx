@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Award, Users, CheckCircle, Home } from 'lucide-react'
+import Link from 'next/link'
 
 const PageBuilderSteps = () => {
   const [activeStep, setActiveStep] = useState(1)
@@ -21,8 +22,7 @@ const PageBuilderSteps = () => {
       color: 'text-orange-500',
       bgColor: 'bg-orange-500',
       title: 'Manage your teams section.',
-      description:
-        'Display registered teams with pagination and filtering options.',
+      description: 'Display registered teams with filtering options.',
       highlight: 'teams',
     },
     {
@@ -54,9 +54,24 @@ const PageBuilderSteps = () => {
             <div className='text-white text-sm font-bold'>Your Event Logo</div>
             <div className='flex space-x-4 text-white/80 text-xs'>
               <span className='text-teal-400'>Home</span>
-              <span>Teams</span>
-              <span>Results</span>
-              <span>Dashboard</span>
+              <span
+                className='hover:cursor-pointer'
+                onClick={() => setActiveStep(2)}
+              >
+                Teams
+              </span>
+              <span
+                className='hover:cursor-pointer'
+                onClick={() => setActiveStep(3)}
+              >
+                Qualified Teams
+              </span>
+              <span
+                className='hover:cursor-pointer'
+                onClick={() => setActiveStep(4)}
+              >
+                Awards
+              </span>
             </div>
           </div>
 
@@ -104,10 +119,25 @@ const PageBuilderSteps = () => {
           <div className='flex items-center justify-between p-4 bg-black border-b border-white/10'>
             <div className='text-white text-sm font-bold'>Your Event Logo</div>
             <div className='flex space-x-4 text-white/80 text-xs'>
-              <span>Home</span>
+              <span
+                className='hover:cursor-pointer'
+                onClick={() => setActiveStep(1)}
+              >
+                Home
+              </span>
               <span className='text-orange-400'>Teams</span>
-              <span>Results</span>
-              <span>Dashboard</span>
+              <span
+                className='hover:cursor-pointer'
+                onClick={() => setActiveStep(3)}
+              >
+                Qualified Teams
+              </span>
+              <span
+                className='hover:cursor-pointer'
+                onClick={() => setActiveStep(4)}
+              >
+                Awards
+              </span>
             </div>
           </div>
 
@@ -120,38 +150,24 @@ const PageBuilderSteps = () => {
             </div>
 
             <div className='grid grid-cols-2 gap-3 mb-4'>
-              {['Team Alpha', 'Team Beta', 'Team Gamma', 'Team Delta'].map(
-                (team) => (
-                  <div
-                    key={team}
-                    className='bg-orange-600/30 border border-orange-600 border-dashed rounded p-3'
-                  >
-                    <div className='text-orange-400 text-xs mb-1'>
-                      Team Card Input
-                    </div>
-                    <div className='text-white text-sm font-medium'>{team}</div>
-                    <div className='text-white/60 text-xs'>University Name</div>
+              {[
+                'Team Alpha',
+                'Team Beta',
+                'Team Gamma',
+                'Team Delta',
+                'Team Theta',
+              ].map((team) => (
+                <div
+                  key={team}
+                  className='bg-orange-600/30 border border-orange-600 border-dashed rounded p-3'
+                >
+                  <div className='text-orange-400 text-xs mb-1'>
+                    Team Card Input
                   </div>
-                )
-              )}
-            </div>
-
-            {/* Pagination */}
-            <div className='bg-orange-600/30 border border-orange-600 border-dashed rounded p-2'>
-              <div className='text-orange-400 text-xs mb-2'>
-                Pagination Settings
-              </div>
-              <div className='flex justify-center space-x-2'>
-                <button className='w-6 h-6 bg-black border border-white/10 rounded text-white text-xs'>
-                  1
-                </button>
-                <button className='w-6 h-6 bg-orange-600 rounded text-white text-xs'>
-                  2
-                </button>
-                <button className='w-6 h-6 bg-black border border-white/10 rounded text-white text-xs'>
-                  3
-                </button>
-              </div>
+                  <div className='text-white text-sm font-medium'>{team}</div>
+                  <div className='text-white/60 text-xs'>University Name</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -165,10 +181,25 @@ const PageBuilderSteps = () => {
           <div className='flex items-center justify-between p-4 bg-black border-b border-white/10'>
             <div className='text-white text-sm font-bold'>Your Event Logo</div>
             <div className='flex space-x-4 text-white/80 text-xs'>
-              <span>Home</span>
-              <span>Teams</span>
+              <span
+                className='hover:cursor-pointer'
+                onClick={() => setActiveStep(1)}
+              >
+                Home
+              </span>
+              <span
+                className='hover:cursor-pointer'
+                onClick={() => setActiveStep(2)}
+              >
+                Teams
+              </span>
               <span className='text-blue-400'>Qualified Teams</span>
-              <span>Dashboard</span>
+              <span
+                className='hover:cursor-pointer'
+                onClick={() => setActiveStep(4)}
+              >
+                Awards
+              </span>
             </div>
           </div>
 
@@ -215,9 +246,24 @@ const PageBuilderSteps = () => {
           <div className='flex items-center justify-between p-4 bg-black border-b border-white/10'>
             <div className='text-white text-sm font-bold'>Your Event Logo</div>
             <div className='flex space-x-4 text-white/80 text-xs'>
-              <span>Home</span>
-              <span>Teams</span>
-              <span>Results</span>
+              <span
+                className='hover:cursor-pointer'
+                onClick={() => setActiveStep(1)}
+              >
+                Home
+              </span>
+              <span
+                className='hover:cursor-pointer'
+                onClick={() => setActiveStep(2)}
+              >
+                Teams
+              </span>
+              <span
+                className='hover:cursor-pointer'
+                onClick={() => setActiveStep(3)}
+              >
+                Qualified Teams
+              </span>
               <span className='text-purple-400'>Awards</span>
             </div>
           </div>
@@ -380,9 +426,15 @@ const PageBuilderSteps = () => {
 
             <div className='pt-6'>
               <div className='grid grid-cols-2 items-center space-y-3'>
-                <button className=' bg-black border border-white/10 text-white px-6 py-3 rounded-lg hover:border-white/20 hover:bg-white/5 transition-all duration-300 text-sm font-medium'>
-                  Build Your Website
-                </button>
+                <Link
+                  href='https://events.avisengine.com/auth/register'
+                  target='_'
+                >
+                  <button className=' bg-black border border-white/10 text-white px-6 py-3 rounded-lg hover:border-white/20 hover:bg-white/5 transition-all duration-300 text-sm font-medium hover:cursor-pointer'>
+                    Build Your Website
+                  </button>
+                </Link>
+
                 <div className='text-center'>
                   <span className='bg-teal-600/30 text-teal-400 text-xs px-3 py-1 rounded-full'>
                     No coding required

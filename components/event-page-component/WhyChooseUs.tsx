@@ -19,8 +19,8 @@ export const WhyChooseUs = () => (
             <div>
               <h3 className='text-xl font-semibold mb-2'>Trusted Expertise</h3>
               <p className='text-neutral-400'>
-                Over 10 years of experience managing events for Fortune 500
-                companies and high-profile clients.
+                Over 10 years of experience managing events and high-profile
+                clients.
               </p>
             </div>
           </div>

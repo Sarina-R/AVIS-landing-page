@@ -16,7 +16,7 @@ const CertificateSchematic = () => {
   return (
     <div className='relative h-full w-full overflow-hidden'>
       {/* Blue Header */}
-      <div className='w-full h-8 bg-white/20'></div>
+      <div className='w-full h-5 bg-white/20'></div>
 
       {/* Content Container */}
       <div className='p-8 space-y-10 text-center'>
@@ -90,7 +90,7 @@ const VerificationStats = () => (
 )
 
 const RecentVerifications = () => (
-  <div className='h-full p-6'>
+  <div className='h-full px-4'>
     <div className='space-y-3'>
       {[
         { name: 'StoneTime', status: 'verified', time: '2m ago' },
@@ -157,9 +157,9 @@ const VerificationFlow = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false)
 
   const steps: Step[] = [
-    { id: 0, label: 'Submit', description: 'Document submission' },
-    { id: 1, label: 'Verify', description: 'Identity verification' },
-    { id: 2, label: 'Issue', description: 'Certificate generation' },
+    { id: 0, label: 'First', description: 'General Submission' },
+    { id: 1, label: 'Technical', description: 'Document Submission' },
+    { id: 2, label: 'Final ', description: 'Final Financial Submission' },
   ]
 
   const containerRef = useRef<HTMLDivElement>(null)
@@ -375,7 +375,7 @@ const features = [
     name: 'Verification Stats',
     description: 'Real-time verification statistics and success rates.',
     href: '#',
-    cta: 'View Stats',
+    // cta: 'View Stats',
     className: 'col-span-3 lg:col-span-1',
     background: <VerificationStats />,
   },
@@ -384,7 +384,7 @@ const features = [
     name: 'Recent Activity',
     description: 'Latest certificate verifications and activity.',
     href: '#',
-    cta: 'View All',
+    // cta: 'View All',
     className: 'col-span-3 lg:col-span-1',
     background: <RecentVerifications />,
   },
@@ -393,7 +393,7 @@ const features = [
     name: 'Security',
     description: 'End-to-end encryption and secure verification.',
     href: '#',
-    cta: 'Learn More',
+    // cta: 'Learn More',
     className: 'col-span-3 lg:col-span-1',
     background: <SecurityFeatures />,
   },
@@ -403,7 +403,7 @@ const features = [
     description: 'Simple 3-step verification process.',
     className: 'col-span-3 lg:col-span-2',
     href: '#',
-    cta: 'Get Started',
+    // cta: 'Get Started',
     background: <VerificationFlow />,
   },
 ]

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import {
   Shield,
   Award,
@@ -154,6 +154,7 @@ const VerificationFlow = () => {
   const [hoveredStep, setHoveredStep] = useState<number | null>(null)
   const [clickedStep, setClickedStep] = useState<number | null>(null)
   const [isAnimating, setIsAnimating] = useState<boolean>(false)
+  const [isVisible, setIsVisible] = useState<boolean>(false)
 
   const steps: Step[] = [
     { id: 0, label: 'Submit', description: 'Document submission' },
@@ -161,7 +162,30 @@ const VerificationFlow = () => {
     { id: 2, label: 'Issue', description: 'Certificate generation' },
   ]
 
+  const containerRef = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting)
+      },
+      { threshold: 0.1 }
+    )
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current)
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current)
+      }
+    }
+  }, [])
+
+  useEffect(() => {
+    if (!isVisible) return
+
     if (currentStep < steps.length - 1) {
       const timer = setTimeout(() => {
         setIsAnimating(true)
@@ -169,11 +193,11 @@ const VerificationFlow = () => {
           setCurrentStep((prev) => prev + 1)
           setIsAnimating(false)
         }, 300)
-      }, 1000)
+      }, 1500)
 
       return () => clearTimeout(timer)
     }
-  }, [currentStep, steps.length])
+  }, [currentStep, steps.length, isVisible])
 
   const handleStepClick = (stepId: number) => {
     if (stepId <= currentStep && !isAnimating) {
@@ -200,7 +224,10 @@ const VerificationFlow = () => {
   const isClickable = (stepId: number) => stepId <= currentStep
 
   return (
-    <div className='h-full flex flex-col items-center justify-center p-8 bg-black'>
+    <div
+      ref={containerRef}
+      className='h-full flex flex-col items-center justify-center p-8 bg-black'
+    >
       {/* Main Stepper */}
       <div className='relative w-full max-w-4xl'>
         <div className='flex items-center justify-between relative'>
@@ -384,7 +411,7 @@ const features = [
 export function BentoDemo() {
   return (
     <section className='min-h-screen py-16'>
-      <div className='max-w-7xl mx-auto px-4'>
+      <div className='max-w-7xl mx-auto'>
         <div className='text-center mb-16'>
           <h2 className='text-3xl font-bold mb-6'>
             Certificate and Verification

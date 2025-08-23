@@ -121,7 +121,7 @@ const PageBuilderSteps = () => {
 
             <div className='grid grid-cols-2 gap-3 mb-4'>
               {['Team Alpha', 'Team Beta', 'Team Gamma', 'Team Delta'].map(
-                (team, index) => (
+                (team) => (
                   <div
                     key={team}
                     className='bg-orange-600/30 border border-orange-600 border-dashed rounded p-3'

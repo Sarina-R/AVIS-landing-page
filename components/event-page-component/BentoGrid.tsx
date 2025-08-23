@@ -1,6 +1,6 @@
 import { AnimatedList } from './AnimatedList'
-import { FileTree } from './FileTree'
-import { IconCloudDemo } from '../IconCloudDemo'
+// import { FileTree } from './FileTree'
+// import { IconCloudDemo } from '../IconCloudDemo'
 import { Marquee3D } from '../Marquee3D'
 
 export const BentoGrid = () => (
@@ -19,7 +19,7 @@ export const BentoGrid = () => (
       <AnimatedList />
     </div>
 
-    <div className='p-8 border border-white/10'>
+    {/* <div className='p-8 border border-white/10'>
       <h3 className='text-xl font-semibold mb-4'>
         Empowering Modern Development Tools
       </h3>
@@ -32,6 +32,6 @@ export const BentoGrid = () => (
         Modern tools and technologies powering exceptional events.
       </p>
       <FileTree />
-    </div>
+    </div> */}
   </div>
 )

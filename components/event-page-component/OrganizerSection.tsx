@@ -6,6 +6,7 @@ import {
   MapPin,
   ArrowRight,
 } from 'lucide-react'
+import MobileTiltMockup from './MobileMockupSvg'
 
 const OrganizerSection = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
@@ -95,7 +96,11 @@ const OrganizerSection = () => {
                 </div>
 
                 {/* Content */}
-                <div className={`relative z-10 ${index === 0 ? 'flex' : ''} `}>
+                <div
+                  className={`relative z-10 ${
+                    index === 0 || index === 1 ? 'flex' : ''
+                  } `}
+                >
                   <div className=''>
                     <div className='flex items-start gap-4 mb-4'>
                       <Icon className='w-6 h-6 text-white/80' />
@@ -439,6 +444,11 @@ const OrganizerSection = () => {
                           </g>
                         </g>
                       </svg>
+                    </div>
+                  )}
+                  {index === 1 && (
+                    <div className='mt-16 px-5 flex justify-center opacity-60'>
+                      <MobileTiltMockup />
                     </div>
                   )}
                 </div>

@@ -412,14 +412,15 @@ export function BentoDemo() {
   return (
     <section className='min-h-screen py-16'>
       <div className='max-w-7xl mx-auto'>
-        <div className='text-center mb-16'>
-          <h2 className='text-3xl font-bold mb-6'>
+        <div className='text-center mb-16 max-w-4xl mx-auto'>
+          <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent'>
             Certificate and Verification
           </h2>
-          <p className='text-xl text-white/60'>
+          <p className='text-lg text-white/60 max-w-2xl mx-auto'>
             Secure, verified, and globally recognized certification system.
           </p>
         </div>
+
         <BentoGrid className='grid-cols-3'>
           {features.map((feature, idx) => (
             <BentoCard

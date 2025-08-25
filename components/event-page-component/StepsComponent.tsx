@@ -333,14 +333,14 @@ const PageBuilderSteps = () => {
   return (
     <section className='px-4 py-20 bg-black min-'>
       <div className='max-w-6xl mx-auto'>
-        <div className='text-center mb-8'>
-          <h2 className='text-xl font-light mb-2'>
-            <span className='text-white font-semibold'>
-              Build your event website
-            </span>
-            <span className='text-neutral-400'> with dynamic pages.</span>
+        <div className='text-center mb-16 max-w-4xl mx-auto'>
+          <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent'>
+            Build your event website
+            <p className='font-semibold text-2xl md:text-3xl lg:text-4xl'>
+              {''} with dynamic pages
+            </p>
           </h2>
-          <p className='text-neutral-400 text-sm'>
+          <p className='text-lg text-white/60 max-w-2xl mx-auto'>
             Just fill in the inputs and watch your professional event website
             come to life.
           </p>

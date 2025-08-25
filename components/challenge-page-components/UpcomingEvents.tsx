@@ -23,6 +23,7 @@ interface Event {
 
 const UpcomingEvents = () => {
   const [events, setEvents] = useState<Event[]>([])
+  const [isUpcoming, setIsUpcoming] = useState(true)
 
   useEffect(() => {
     axios
@@ -61,6 +62,7 @@ const UpcomingEvents = () => {
           upcomingEvents.length > 0 ? upcomingEvents : allEvents.slice(0, 7)
 
         setEvents(eventsToShow)
+        setIsUpcoming(upcomingEvents.length > 0)
       })
       .catch((error) => {
         console.error('Error fetching events:', error)
@@ -98,7 +100,9 @@ const UpcomingEvents = () => {
             <div className='flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8'>
               <div>
                 <h1 className='text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tight leading-none mb-6'>
-                  <span className='text-white'>Upcoming</span>
+                  <span className='text-white'>
+                    {isUpcoming ? 'Upcoming' : 'Latest'}
+                  </span>
                   <br />
                   <span className='bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent'>
                     Events

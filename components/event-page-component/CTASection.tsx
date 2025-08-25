@@ -8,8 +8,8 @@ export const CTASection = () => (
           Ready to Start with AVIS Events?
         </h2>
         <p className='text-lg text-white/60 max-w-2xl mx-auto'>
-          Let's create something extraordinary together. Get in touch with our
-          team to discuss your next event.
+          Let&apos;s create something extraordinary together. Get in touch with
+          our team to discuss your next event.
         </p>
       </div>
       <div className='flex flex-col sm:flex-row gap-4 justify-center'>

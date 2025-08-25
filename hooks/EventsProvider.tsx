@@ -18,11 +18,13 @@ interface Event {
     accent: string
   }
   website: string
+  country: string
 }
 
 interface EventsContextType {
   events: Event[]
   isUpcoming: boolean
+  isLoading: boolean
 }
 
 export const EventsContext = createContext<EventsContextType | undefined>(
@@ -32,8 +34,10 @@ export const EventsContext = createContext<EventsContextType | undefined>(
 export const EventsProvider = ({ children }: { children: ReactNode }) => {
   const [events, setEvents] = useState<Event[]>([])
   const [isUpcoming, setIsUpcoming] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
+    setIsLoading(true)
     axios
       .get('https://api.avisengine.com/items/events')
       .then((res) => {
@@ -56,6 +60,7 @@ export const EventsProvider = ({ children }: { children: ReactNode }) => {
               accent: item.secondary_color,
             },
             website: item.website || '',
+            country: item.country,
           }))
           .sort(
             (a: Event, b: Event) =>
@@ -66,19 +71,18 @@ export const EventsProvider = ({ children }: { children: ReactNode }) => {
           (e: Event) => new Date(e.date) >= currentDate
         )
 
-        const eventsToShow =
-          upcomingEvents.length > 0 ? upcomingEvents : allEvents.slice(0, 7)
-
-        setEvents(eventsToShow)
+        setEvents(allEvents) // Provide all events
         setIsUpcoming(upcomingEvents.length > 0)
+        setIsLoading(false)
       })
       .catch((error) => {
         console.error('Error fetching events:', error)
+        setIsLoading(false)
       })
   }, [])
 
   return (
-    <EventsContext.Provider value={{ events, isUpcoming }}>
+    <EventsContext.Provider value={{ events, isUpcoming, isLoading }}>
       {children}
     </EventsContext.Provider>
   )

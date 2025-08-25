@@ -1,11 +1,5 @@
 import { useState } from 'react'
-import {
-  CheckCircle,
-  Smartphone,
-  Shield,
-  MapPin,
-  ArrowRight,
-} from 'lucide-react'
+import { CheckCircle, Smartphone, Shield, MapPin } from 'lucide-react'
 import MobileTiltMockup from './MobileMockupSvg'
 
 const OrganizerSection = () => {
@@ -80,7 +74,7 @@ const OrganizerSection = () => {
             return (
               <div
                 key={index}
-                className='group relative bg-black/50 backdrop-blur-md p-6 border border-white/10 hover:border-white/30 transition-all duration-500 cursor-pointer overflow-hidden'
+                className='group relative bg-black/50 backdrop-blur-md p-6 border border-white/10 hover:border-white/30 transition-all duration-500 overflow-hidden'
                 onMouseEnter={() => setHoveredCard(index)}
                 onMouseLeave={() => setHoveredCard(null)}
               >
@@ -117,19 +111,6 @@ const OrganizerSection = () => {
                     <p className='text-base text-white/70 leading-relaxed group-hover:text-white transition-colors duration-300'>
                       {feature.details}
                     </p>
-                    {/* Hover arrow */}
-                    <div
-                      className={`flex items-center mt-4 text-white/70 transition-all duration-300 ${
-                        hoveredCard === index
-                          ? 'translate-x-1 opacity-100'
-                          : 'translate-x-0 opacity-0'
-                      }`}
-                    >
-                      <span className='text-xs font-medium mr-1'>
-                        Learn more
-                      </span>
-                      <ArrowRight className='w-3 h-3' />
-                    </div>
                   </div>
 
                   {index === 0 && (

@@ -5,8 +5,8 @@ import {
   Shield,
   MapPin,
   ArrowRight,
-  ExternalLink,
 } from 'lucide-react'
+import Link from 'next/link'
 
 const FinancialSection = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
@@ -71,13 +71,12 @@ const FinancialSection = () => {
               processing and revenue management
             </p>
             <div className='flex flex-col sm:flex-row gap-4'>
-              <button className='bg-white text-black px-6 py-3 rounded-full font-medium hover:bg-neutral-100 transition-colors duration-200 flex items-center justify-center gap-2'>
-                <ArrowRight className='w-4 h-4' />
-                Get Started
-              </button>
-              <button className='border border-neutral-700 px-6 py-3 rounded-full font-medium hover:border-neutral-500 transition-colors duration-200'>
-                Learn More
-              </button>
+              <Link href='https://events.avisengine.com/auth/register'>
+                <button className='cursor-pointer bg-white text-black px-6 py-3 rounded-full font-medium hover:bg-neutral-100 transition-colors duration-200 flex items-center justify-center gap-2'>
+                  <ArrowRight className='w-4 h-4' />
+                  Register Now
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -87,17 +86,12 @@ const FinancialSection = () => {
           {organizerFeatures.map((feature, index) => (
             <div
               key={index}
-              className={`group relative border border-white/10 p-6 hover:border-neutral-600 transition-all duration-300 cursor-pointer ${
+              className={`group relative border border-white/10 p-6 hover:border-neutral-600 transition-all duration-300 ${
                 index === organizerFeatures.length - 1 ? 'sm:col-span-2' : ''
               }`}
               onMouseEnter={() => setHoveredCard(index)}
               onMouseLeave={() => setHoveredCard(null)}
             >
-              {/* Corner accent */}
-              <div className='absolute top-4 right-4'>
-                <ExternalLink className='w-4 h-4 text-neutral-600 group-hover:text-white transition-colors duration-300' />
-              </div>
-
               {/* Content */}
               <div className='mb-4'>
                 <div className='flex items-center gap-3 mb-3'>
@@ -114,14 +108,6 @@ const FinancialSection = () => {
                 <p className='text-neutral-400 text-sm leading-relaxed'>
                   {feature.details}
                 </p>
-              </div>
-
-              {/* Path */}
-              <div className='flex items-center gap-2 text-xs text-neutral-500'>
-                <div className='w-4 h-4 rounded-sm bg-neutral-800 flex items-center justify-center'>
-                  <div className='w-2 h-2 bg-neutral-600 rounded-sm'></div>
-                </div>
-                <span className='font-mono'>{feature.path}</span>
               </div>
 
               {/* Hover overlay */}

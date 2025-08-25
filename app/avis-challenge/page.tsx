@@ -9,36 +9,13 @@ import UpcomingEvents from '@/components/challenge-page-components/UpcomingEvent
 import Navigation from '@/components/page-components/Navigation'
 
 export default function AVISChallenge() {
-  const navItems = [
-    {
-      name: 'Products',
-      link: '#products',
-      children: [
-        { name: 'AVIS Events', link: '/avis-events' },
-        { name: 'AVIS Challenge', link: '/avis-challenge' },
-        { name: 'AVIS Plus +', link: '/avis-plus' },
-        { name: 'AVIS Community', link: '/avis-community' },
-      ],
-    },
-    { name: 'Competitions', link: '#competitions' },
-    { name: 'Discover', link: '#discover' },
-    { name: 'Upcoming Events', link: '#upcoming-events' },
-  ]
-
-  const logo =
-    'https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/avis/logo/avis-mono-dark.png'
-
   return (
-    <div className='min-h-screen bg-black text-white'>
-      <Navigation logo={logo} navItems={navItems} />
-      <main className='max-w-6xl mx-auto border-l border-r border-white/10 mt-17'>
-        <HeroSection />
-        <CompetitionSection />
-        <ConnectionVisualization />
-        <KubernetesCompanion />
-        <UpcomingEvents />
-      </main>
-      <Footer />
-    </div>
+    <>
+      <HeroSection />
+      <CompetitionSection />
+      <ConnectionVisualization />
+      <KubernetesCompanion />
+      <UpcomingEvents />
+    </>
   )
 }

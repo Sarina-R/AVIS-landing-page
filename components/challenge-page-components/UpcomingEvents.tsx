@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion'
 import { Clock, MapPin } from 'lucide-react'
-import { useMemo, useState, useEffect } from 'react'
+import { useMemo, useContext } from 'react'
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
-import axios from 'axios'
+import { EventsContext } from '@/hooks/EventsProvider'
+import Link from 'next/link'
 
 interface Event {
   id: string
@@ -22,52 +23,13 @@ interface Event {
 }
 
 const UpcomingEvents = () => {
-  const [events, setEvents] = useState<Event[]>([])
-  const [isUpcoming, setIsUpcoming] = useState(true)
+  const eventsContext = useContext(EventsContext)
 
-  useEffect(() => {
-    axios
-      .get('https://api.avisengine.com/items/events')
-      .then((res) => {
-        const currentDate = new Date()
-        const allEvents = res.data.data
-          .map((item: any) => ({
-            id: item.id,
-            title: item.title,
-            date: item.start_date,
-            time: item.dates,
-            location: `${item.city}, ${item.country}`,
-            category: item.event_type?.[0] || '',
-            featured: item.sort === 1,
-            poster: item.thumbnail
-              ? `https://api.avisengine.com/assets/${item.thumbnail}`
-              : '/placeholder.jpg',
-            color: {
-              primary: item.primary_color,
-              secondary: item.secondary_color,
-              accent: item.secondary_color,
-            },
-            website: item.website || '',
-          }))
-          .sort(
-            (a: Event, b: Event) =>
-              new Date(b.date).getTime() - new Date(a.date).getTime()
-          )
+  if (!eventsContext) {
+    return null
+  }
 
-        const upcomingEvents = allEvents.filter(
-          (e: Event) => new Date(e.date) >= currentDate
-        )
-
-        const eventsToShow =
-          upcomingEvents.length > 0 ? upcomingEvents : allEvents.slice(0, 7)
-
-        setEvents(eventsToShow)
-        setIsUpcoming(upcomingEvents.length > 0)
-      })
-      .catch((error) => {
-        console.error('Error fetching events:', error)
-      })
-  }, [])
+  const { events, isUpcoming } = eventsContext
 
   const formatMonth = useMemo(
     () => (dateString: string) => {
@@ -115,11 +77,13 @@ const UpcomingEvents = () => {
                 </p>
               </div>
 
-              <button className='group bg-white/5 backdrop-blur-xl border border-white/30 px-8 py-4 rounded-full text-white font-medium hover:bg-white/25 hover:border-white/40 transition-all duration-300 shadow-lg hover:shadow-xl'>
-                <span className='group-hover:tracking-wider transition-all duration-300 text-yellow-500'>
-                  View All Events
-                </span>
-              </button>
+              <Link href='/avis-challenge/all-events'>
+                <button className='group bg-white/5 backdrop-blur-xl border border-white/30 px-8 py-4 rounded-full text-white font-medium hover:bg-white/25 hover:border-white/40 transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer'>
+                  <span className='group-hover:tracking-wider transition-all duration-300 text-yellow-500'>
+                    View All Events
+                  </span>
+                </button>
+              </Link>
             </div>
           </div>
 

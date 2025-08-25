@@ -23,15 +23,6 @@ const skeletonVariants = {
 export default function UpcomingEvents() {
   const eventsContext = useContext(EventsContext)
   const [filteredEvents, setFilteredEvents] = useState<Event[]>([])
-  const [countries, setCountries] = useState<string[]>([])
-  const [selectedCountry, setSelectedCountry] = useState<string>('All')
-  const [dateRange, setDateRange] = useState<{
-    start: string | null
-    end: string | null
-  }>({
-    start: null,
-    end: null,
-  })
 
   useEffect(() => {
     if (eventsContext?.events) {
@@ -43,26 +34,8 @@ export default function UpcomingEvents() {
           ? upcomingEvents
           : eventsContext.events.slice(0, 7)
       setFilteredEvents(eventsToShow)
-      const uniqueCountries = [
-        'All',
-        ...new Set(eventsContext.events.map((event) => event.country)),
-      ]
-      setCountries(uniqueCountries)
     }
   }, [eventsContext?.events])
-
-  useEffect(() => {
-    if (!eventsContext?.events) return
-
-    let filtered = eventsContext.events
-      .filter((e) => new Date(e.date) >= new Date())
-      .slice(0, 7)
-    if (filtered.length === 0) {
-      filtered = eventsContext.events.slice(0, 7)
-    }
-
-    setFilteredEvents(filtered)
-  }, [selectedCountry, dateRange, eventsContext?.events])
 
   const formatMonth = useMemo(
     () => (dateString: string) => {

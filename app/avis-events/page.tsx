@@ -39,11 +39,11 @@ const AvisEventsLanding = () => {
       <main className='max-w-6xl mx-auto border-l border-r mt-20 md:mt-44 border-white/10 space-y-20'>
         <HeroSection />
         <ServicesSection />
-        <BentoDemo />
-        <StepsComponent />
         <AboutSection />
+        <BentoDemo />
         <OrganizerSection />
         <FinancialSection />
+        <StepsComponent />
         <WhyChooseUs />
         <CTASection />
       </main>

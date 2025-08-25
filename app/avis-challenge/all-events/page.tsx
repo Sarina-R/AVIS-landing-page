@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Clock, MapPin, Calendar } from 'lucide-react'
+import { MapPin, Calendar, ChevronDown, X } from 'lucide-react'
 import { useMemo, useState, useEffect, useContext } from 'react'
 import {
   Select,
@@ -15,33 +15,14 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
-import { Calendar as CalendarComponent } from '@/components/ui/calendar'
 import { Button } from '@/components/ui/button'
 import { EventsContext } from '@/hooks/EventsProvider'
-import { format } from 'date-fns'
 import EventCard from '@/components/challenge-page-components/EventCard'
+import { Event } from '../type'
 
-interface Event {
-  id: string
-  title: string
-  date: string
-  time: string
-  location: string
-  category: string
-  featured?: boolean
-  poster: string
-  color: {
-    primary: string
-    secondary: string
-    accent: string
-  }
-  website: string
-  country: string
-}
-
-interface DateRange {
-  start: string | null
-  end: string | null
+interface YearRange {
+  start: number | null
+  end: number | null
 }
 
 const skeletonVariants = {
@@ -56,53 +37,151 @@ const skeletonVariants = {
   },
 }
 
-const DateRangePicker = ({
+const YearRangePicker = ({
   value,
   onChange,
 }: {
-  value: DateRange
-  onChange: (range: DateRange) => void
+  value: YearRange
+  onChange: (range: YearRange) => void
 }) => {
-  const [startDate, setStartDate] = useState<Date | undefined>(
-    value.start ? new Date(value.start) : undefined
-  )
-  const [endDate, setEndDate] = useState<Date | undefined>(
-    value.end ? new Date(value.end) : undefined
-  )
+  const currentYear = new Date().getFullYear()
+  const years = Array.from({ length: 20 }, (_, i) => currentYear - 10 + i)
+
+  const [isOpen, setIsOpen] = useState(false)
+  const [startYear, setStartYear] = useState<number | null>(value.start)
+  const [endYear, setEndYear] = useState<number | null>(value.end)
+
+  const handleYearSelect = (year: number, type: 'start' | 'end') => {
+    if (type === 'start') {
+      const newStart = startYear === year ? null : year
+      setStartYear(newStart)
+      if (newStart && endYear && newStart > endYear) {
+        setEndYear(newStart)
+      }
+    } else {
+      const newEnd = endYear === year ? null : year
+      setEndYear(newEnd)
+      if (newEnd && startYear && newEnd < startYear) {
+        setStartYear(newEnd)
+      }
+    }
+  }
 
   useEffect(() => {
-    onChange({
-      start: startDate ? format(startDate, 'yyyy-MM-dd') : null,
-      end: endDate ? format(endDate, 'yyyy-MM-dd') : null,
-    })
-  }, [startDate, endDate, onChange])
+    onChange({ start: startYear, end: endYear })
+  }, [startYear, endYear, onChange])
+
+  const clearFilters = () => {
+    setStartYear(null)
+    setEndYear(null)
+  }
+
+  const displayText = () => {
+    if (startYear && endYear) {
+      return startYear === endYear
+        ? `${startYear}`
+        : `${startYear} - ${endYear}`
+    }
+    if (startYear) return `From ${startYear}`
+    if (endYear) return `Until ${endYear}`
+    return 'Select year range'
+  }
 
   return (
-    <Popover>
+    <Popover open={isOpen} onOpenChange={setIsOpen}>
       <PopoverTrigger asChild>
-        <Button
-          variant='outline'
-          className='w-full bg-white/5 backdrop-blur-xl border border-white/30 rounded-full px-4 py-3 text-white text-sm font-light hover:bg-white/10 hover:border-white/40 focus:outline-none focus:ring-2 focus:ring-yellow-500/50'
-        >
-          <Calendar className='mr-2 h-4 w-4' />
-          {startDate && endDate
-            ? `${format(startDate, 'MMM d, yyyy')} - ${format(
-                endDate,
-                'MMM d, yyyy'
-              )}`
-            : 'Select date range'}
-        </Button>
+        <div className='relative'>
+          <Button
+            variant='outline'
+            className='w-full h-9 bg-neutral-900/50 backdrop-blur-sm border-neutral-700/50 rounded-xl px-4 text-white text-sm font-medium hover:bg-neutral-800/60 hover:border-neutral-600/50 focus:outline-none focus:ring-2 focus:ring-yellow-500/50 focus:border-yellow-500/50 transition-all duration-200 justify-between'
+          >
+            <div className='flex items-center'>
+              <Calendar className='mr-3 h-4 w-4 text-neutral-400' />
+              <span
+                className={
+                  startYear || endYear ? 'text-white' : 'text-neutral-400'
+                }
+              >
+                {displayText()}
+              </span>
+            </div>
+            <ChevronDown className='h-4 w-4 text-neutral-400' />
+          </Button>
+          {(startYear || endYear) && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                clearFilters()
+              }}
+              className='absolute right-10 top-1/2 transform -translate-y-1/2 p-1 rounded-full hover:bg-neutral-700/50 transition-colors'
+            >
+              <X className='h-3 w-3 text-neutral-400 hover:text-white' />
+            </button>
+          )}
+        </div>
       </PopoverTrigger>
-      <PopoverContent className='w-auto p-0 bg-white/10 backdrop-blur-xl border border-white/30 text-white'>
-        <CalendarComponent
-          mode='range'
-          selected={{ from: startDate, to: endDate }}
-          onSelect={(range) => {
-            setStartDate(range?.from)
-            setEndDate(range?.to)
-          }}
-          className='bg-transparent'
-        />
+      <PopoverContent
+        className='w-80 p-0 bg-neutral-900/95 backdrop-blur-xl border-neutral-700/50 shadow-2xl'
+        align='start'
+      >
+        <div className='p-4'>
+          <div className='space-y-4'>
+            <div>
+              <label className='text-xs font-medium text-neutral-300 uppercase tracking-wider mb-2 block'>
+                Start Year
+              </label>
+              <div className='grid grid-cols-4 gap-2'>
+                {years.map((year) => (
+                  <button
+                    key={`start-${year}`}
+                    onClick={() => handleYearSelect(year, 'start')}
+                    className={`p-2 text-sm rounded-lg transition-all duration-200 ${
+                      startYear === year
+                        ? 'bg-yellow-500 text-black font-medium'
+                        : 'text-neutral-300 hover:bg-neutral-800/50 hover:text-white'
+                    }`}
+                  >
+                    {year}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className='h-px bg-neutral-700/50'></div>
+
+            <div>
+              <label className='text-xs font-medium text-neutral-300 uppercase tracking-wider mb-2 block'>
+                End Year
+              </label>
+              <div className='grid grid-cols-4 gap-2'>
+                {years.map((year) => (
+                  <button
+                    key={`end-${year}`}
+                    onClick={() => handleYearSelect(year, 'end')}
+                    className={`p-2 text-sm rounded-lg transition-all duration-200 ${
+                      endYear === year
+                        ? 'bg-yellow-500 text-black font-medium'
+                        : 'text-neutral-300 hover:bg-neutral-800/50 hover:text-white'
+                    }`}
+                  >
+                    {year}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {(startYear || endYear) && (
+            <div className='mt-4 pt-4 border-t border-neutral-700/50'>
+              <button
+                onClick={clearFilters}
+                className='w-full py-2 text-sm text-neutral-400 hover:text-white transition-colors'
+              >
+                Clear selection
+              </button>
+            </div>
+          )}
+        </div>
       </PopoverContent>
     </Popover>
   )
@@ -113,18 +192,32 @@ export default function AllEvents() {
   const [filteredEvents, setFilteredEvents] = useState<Event[]>([])
   const [countries, setCountries] = useState<string[]>([])
   const [selectedCountry, setSelectedCountry] = useState<string>('All')
-  const [dateRange, setDateRange] = useState<DateRange>({
+  const [yearRange, setYearRange] = useState<YearRange>({
     start: null,
     end: null,
   })
 
+  const normalizeCountryName = (country: string): string => {
+    return country.trim().toLowerCase()
+  }
+
+  const getDisplayCountryName = (country: string): string => {
+    return country.trim()
+  }
+
   useEffect(() => {
     if (eventsContext?.events) {
       setFilteredEvents(eventsContext.events)
-      const uniqueCountries = [
-        'All',
-        ...new Set(eventsContext.events.map((event) => event.country)),
-      ]
+
+      const countryMap = new Map<string, string>()
+      eventsContext.events.forEach((event) => {
+        const normalized = normalizeCountryName(event.country)
+        if (!countryMap.has(normalized)) {
+          countryMap.set(normalized, getDisplayCountryName(event.country))
+        }
+      })
+
+      const uniqueCountries = ['All', ...Array.from(countryMap.values()).sort()]
       setCountries(uniqueCountries)
     }
   }, [eventsContext?.events])
@@ -134,23 +227,24 @@ export default function AllEvents() {
 
     let filtered = eventsContext.events
 
-    // Filter by country
     if (selectedCountry !== 'All') {
-      filtered = filtered.filter((event) => event.country === selectedCountry)
+      const selectedNormalized = normalizeCountryName(selectedCountry)
+      filtered = filtered.filter(
+        (event) => normalizeCountryName(event.country) === selectedNormalized
+      )
     }
 
-    // Filter by date range
-    if (dateRange.start && dateRange.end) {
-      const startDate = new Date(dateRange.start)
-      const endDate = new Date(dateRange.end)
+    if (yearRange.start || yearRange.end) {
       filtered = filtered.filter((event) => {
-        const eventDate = new Date(event.date)
-        return eventDate >= startDate && eventDate <= endDate
+        const eventYear = new Date(event.date).getFullYear()
+        const afterStart = !yearRange.start || eventYear >= yearRange.start
+        const beforeEnd = !yearRange.end || eventYear <= yearRange.end
+        return afterStart && beforeEnd
       })
     }
 
     setFilteredEvents(filtered)
-  }, [selectedCountry, dateRange, eventsContext?.events])
+  }, [selectedCountry, yearRange, eventsContext?.events])
 
   const formatMonth = useMemo(
     () => (dateString: string) => {
@@ -167,6 +261,14 @@ export default function AllEvents() {
     },
     []
   )
+
+  const clearAllFilters = () => {
+    setSelectedCountry('All')
+    setYearRange({ start: null, end: null })
+  }
+
+  const hasActiveFilters =
+    selectedCountry !== 'All' || yearRange.start || yearRange.end
 
   if (eventsContext?.isLoading) {
     return (
@@ -185,7 +287,7 @@ export default function AllEvents() {
                   <h1 className='text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tight leading-none mb-6'>
                     <span className='text-white'>All</span>
                     <br />
-                    <span className='bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent'>
+                    <span className='bg-gradient-to-r from-white via-neutral-100 to-neutral-300 bg-clip-text text-transparent'>
                       Events
                     </span>
                   </h1>
@@ -206,12 +308,12 @@ export default function AllEvents() {
                   animate='animate'
                 >
                   <div className='relative bg-white/10 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden'>
-                    <div className='relative aspect-[3/4] bg-gray-800/50'></div>
+                    <div className='relative aspect-[3/4] bg-neutral-800/50'></div>
                     <div className='p-6 space-y-4'>
-                      <div className='h-6 bg-gray-700/50 rounded w-3/4'></div>
-                      <div className='h-4 bg-gray-700/50 rounded w-1/2'></div>
-                      <div className='h-4 bg-gray-700/50 rounded w-2/3'></div>
-                      <div className='h-10 bg-gray-700/50 rounded-2xl mt-6'></div>
+                      <div className='h-6 bg-neutral-700/50 rounded w-3/4'></div>
+                      <div className='h-4 bg-neutral-700/50 rounded w-1/2'></div>
+                      <div className='h-4 bg-neutral-700/50 rounded w-2/3'></div>
+                      <div className='h-10 bg-neutral-700/50 rounded-2xl mt-6'></div>
                     </div>
                   </div>
                 </motion.div>
@@ -240,7 +342,7 @@ export default function AllEvents() {
                 <h1 className='text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tight leading-none mb-6'>
                   <span className='text-white'>All</span>
                   <br />
-                  <span className='bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent'>
+                  <span className='bg-gradient-to-r from-white via-neutral-100 to-neutral-300 bg-clip-text text-transparent'>
                     Events
                   </span>
                 </h1>
@@ -252,34 +354,90 @@ export default function AllEvents() {
               </div>
             </div>
 
-            {/* Filter Section */}
-            <div className='flex flex-col sm:flex-row gap-4 mb-8'>
-              <div className='flex-1'>
-                <label className='text-white/70 text-sm font-medium mb-2 block'>
-                  Country
-                </label>
-                <Select
-                  value={selectedCountry}
-                  onValueChange={setSelectedCountry}
-                >
-                  <SelectTrigger className='w-full bg-white/5 backdrop-blur-xl border border-white/30 rounded-full px-4 py-3 text-white text-sm font-light focus:ring-2 focus:ring-yellow-500/50'>
-                    <SelectValue placeholder='Select a country' />
-                  </SelectTrigger>
-                  <SelectContent className='bg-white/10 backdrop-blur-xl border border-white/30 text-white'>
-                    {countries.map((country) => (
-                      <SelectItem key={country} value={country}>
-                        {country}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+            {/* Enhanced Filter Section */}
+            <div className='mt-12 mb-8'>
+              <div className='flex flex-col sm:flex-row gap-6'>
+                {/* Country Filter */}
+                <div className='flex-1 space-y-2'>
+                  <label className='text-xs font-medium text-neutral-300 uppercase tracking-wider'>
+                    Country
+                  </label>
+                  <div className='relative'>
+                    <Select
+                      value={selectedCountry}
+                      onValueChange={setSelectedCountry}
+                    >
+                      <SelectTrigger className='w-full h-12 bg-neutral-900/50 backdrop-blur-sm border-neutral-700/50 rounded-xl px-4 text-white text-sm font-medium focus:ring-2 focus:ring-yellow-500/50 focus:border-yellow-500/50 transition-all duration-200'>
+                        <div className='flex items-center'>
+                          <MapPin className='mr-3 h-4 w-4 text-neutral-400' />
+                          <SelectValue
+                            placeholder='Select a country'
+                            className='capitalize'
+                          />
+                        </div>
+                      </SelectTrigger>
+                      <SelectContent className='bg-neutral-900/95 backdrop-blur-xl border-neutral-700/50 text-white shadow-2xl capitalize'>
+                        {countries.map((country) => (
+                          <SelectItem
+                            key={country}
+                            value={country}
+                            className='focus:bg-neutral-800/50 focus:text-yellow-500 hover:bg-neutral-800/50'
+                          >
+                            {country}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    {selectedCountry !== 'All' && (
+                      <button
+                        onClick={() => setSelectedCountry('All')}
+                        className='absolute right-10 top-1/2 transform -translate-y-1/2 p-1 rounded-full hover:bg-neutral-700/50 transition-colors'
+                      >
+                        <X className='h-3 w-3 text-neutral-400 hover:text-white' />
+                      </button>
+                    )}
+                  </div>
+                </div>
+
+                {/* Year Range Filter */}
+                <div className='flex-1 space-y-2'>
+                  <label className='text-xs font-medium text-neutral-300 uppercase tracking-wider'>
+                    Year Range
+                  </label>
+                  <YearRangePicker value={yearRange} onChange={setYearRange} />
+                </div>
               </div>
-              <div className='flex-1'>
-                <label className='text-white/70 text-sm font-medium mb-2 block'>
-                  Date Range
-                </label>
-                <DateRangePicker value={dateRange} onChange={setDateRange} />
-              </div>
+
+              {/* Active Filters & Clear All */}
+              {hasActiveFilters && (
+                <div className='flex items-center justify-between mt-6 pt-6 border-t border-neutral-800/50'>
+                  <div className='flex items-center gap-2'>
+                    <span className='text-sm text-neutral-400'>
+                      Active filters:
+                    </span>
+                    {selectedCountry !== 'All' && (
+                      <span className='inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-500/10 text-yellow-500 border border-yellow-500/20'>
+                        {selectedCountry}
+                      </span>
+                    )}
+                    {(yearRange.start || yearRange.end) && (
+                      <span className='inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-500/10 text-yellow-500 border border-yellow-500/20'>
+                        {yearRange.start && yearRange.end
+                          ? `${yearRange.start} - ${yearRange.end}`
+                          : yearRange.start
+                          ? `From ${yearRange.start}`
+                          : `Until ${yearRange.end}`}
+                      </span>
+                    )}
+                  </div>
+                  <button
+                    onClick={clearAllFilters}
+                    className='text-sm text-neutral-400 hover:text-yellow-500 transition-colors font-medium'
+                  >
+                    Clear all filters
+                  </button>
+                </div>
+              )}
             </div>
           </div>
 
@@ -294,9 +452,27 @@ export default function AllEvents() {
                 />
               ))
             ) : (
-              <p className='text-white/70 text-lg col-span-full text-center'>
-                No events match your filters.
-              </p>
+              <div className='col-span-full text-center py-16'>
+                <div className='max-w-md mx-auto'>
+                  <div className='w-16 h-16 mx-auto mb-6 rounded-full bg-neutral-800/50 flex items-center justify-center'>
+                    <Calendar className='h-8 w-8 text-neutral-500' />
+                  </div>
+                  <h3 className='text-xl font-medium text-white mb-2'>
+                    No events found
+                  </h3>
+                  <p className='text-neutral-400 mb-6'>
+                    Try adjusting your filters to see more events.
+                  </p>
+                  {hasActiveFilters && (
+                    <button
+                      onClick={clearAllFilters}
+                      className='inline-flex items-center px-4 py-2 rounded-lg bg-yellow-500/10 text-yellow-500 border border-yellow-500/20 hover:bg-yellow-500/20 transition-colors'
+                    >
+                      Clear all filters
+                    </button>
+                  )}
+                </div>
+              </div>
             )}
           </div>
         </div>

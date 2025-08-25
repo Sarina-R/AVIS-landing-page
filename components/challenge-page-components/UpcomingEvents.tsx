@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion'
 import { Clock, MapPin } from 'lucide-react'
-import { useMemo } from 'react'
+import { useMemo, useState, useEffect } from 'react'
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
+import axios from 'axios'
 
 interface Event {
-  id: number
+  id: string
   title: string
   date: string
   time: string
@@ -17,106 +18,54 @@ interface Event {
     secondary: string
     accent: string
   }
+  website: string
 }
 
 const UpcomingEvents = () => {
-  const events: Event[] = useMemo(
-    () => [
-      {
-        id: 1,
-        title: 'Digital Innovation Summit',
-        date: '2025-08-15',
-        time: '09:00 AM',
-        location: 'Tech Center, Amsterdam',
-        category: 'Technology',
-        featured: true,
-        poster:
-          'https://events.avisengine.com/_next/image?url=https%3A%2F%2Fapi.avisengine.com%2Fassets%2Fecb3c959-4bab-4086-bf75-ababe193607d&w=1200&q=75',
-        color: {
-          primary: 'from-blue-500 to-cyan-400',
-          secondary: 'bg-blue-500/10 border-blue-400/30',
-          accent: 'text-blue-400',
-        },
-      },
-      {
-        id: 2,
-        title: 'Creative Design Workshop',
-        date: '2025-08-22',
-        time: '02:00 PM',
-        location: 'Design Studio, Utrecht',
-        category: 'Design',
-        poster:
-          'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=250&fit=crop',
-        color: {
-          primary: 'from-purple-500 to-pink-400',
-          secondary: 'bg-purple-500/10 border-purple-400/30',
-          accent: 'text-purple-400',
-        },
-      },
-      {
-        id: 3,
-        title: 'Business Networking Mixer',
-        date: '2025-08-28',
-        time: '06:30 PM',
-        location: 'Grand Hotel, Rotterdam',
-        category: 'Business',
-        poster:
-          'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&h=250&fit=crop',
-        color: {
-          primary: 'from-emerald-500 to-teal-400',
-          secondary: 'bg-emerald-500/10 border-emerald-400/30',
-          accent: 'text-emerald-400',
-        },
-      },
-      {
-        id: 4,
-        title: 'AI & Machine Learning Conference',
-        date: '2025-09-05',
-        time: '10:00 AM',
-        location: 'Convention Center, The Hague',
-        category: 'Technology',
-        featured: true,
-        poster:
-          'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop',
-        color: {
-          primary: 'from-orange-500 to-red-400',
-          secondary: 'bg-orange-500/10 border-orange-400/30',
-          accent: 'text-orange-400',
-        },
-      },
-      {
-        id: 5,
-        title: 'Startup Pitch Night',
-        date: '2025-09-12',
-        time: '07:00 PM',
-        location: 'Innovation Hub, Eindhoven',
-        category: 'Startup',
-        poster:
-          'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&h=250&fit=crop',
-        color: {
-          primary: 'from-indigo-500 to-purple-400',
-          secondary: 'bg-indigo-500/10 border-indigo-400/30',
-          accent: 'text-indigo-400',
-        },
-      },
-      {
-        id: 6,
-        title: 'Digital Marketing Masterclass',
-        date: '2025-09-18',
-        time: '01:00 PM',
-        location: 'Media Center, Amsterdam',
-        category: 'Marketing',
-        poster:
-          'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop',
-        color: {
-          primary: 'from-rose-500 to-pink-400',
-          secondary: 'bg-rose-500/10 border-rose-400/30',
-          accent: 'text-rose-400',
-        },
-      },
-    ],
-    []
-  )
+  const [events, setEvents] = useState<Event[]>([])
+
+  useEffect(() => {
+    axios
+      .get('https://api.avisengine.com/items/events')
+      .then((res) => {
+        const currentDate = new Date()
+        const allEvents = res.data.data
+          .map((item: any) => ({
+            id: item.id,
+            title: item.title,
+            date: item.start_date,
+            time: item.dates,
+            location: `${item.city}, ${item.country}`,
+            category: item.event_type?.[0] || '',
+            featured: item.sort === 1,
+            poster: item.thumbnail
+              ? `https://api.avisengine.com/assets/${item.thumbnail}`
+              : '/placeholder.jpg',
+            color: {
+              primary: item.primary_color,
+              secondary: item.secondary_color,
+              accent: item.secondary_color,
+            },
+            website: item.website || '',
+          }))
+          .sort(
+            (a: Event, b: Event) =>
+              new Date(b.date).getTime() - new Date(a.date).getTime()
+          )
+
+        const upcomingEvents = allEvents.filter(
+          (e: Event) => new Date(e.date) >= currentDate
+        )
+
+        const eventsToShow =
+          upcomingEvents.length > 0 ? upcomingEvents : allEvents.slice(0, 7)
+
+        setEvents(eventsToShow)
+      })
+      .catch((error) => {
+        console.error('Error fetching events:', error)
+      })
+  }, [])
 
   const formatMonth = useMemo(
     () => (dateString: string) => {
@@ -212,10 +161,21 @@ const EventCard = ({
             className='w-full h-full object-cover'
           />
 
+          <div
+            className='absolute inset-0 pointer-events-none'
+            style={{
+              background: 'rgba(0,0,0,0.35)',
+              mixBlendMode: 'multiply',
+            }}
+          ></div>
+
           <div className='absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none'></div>
 
           <div
-            className={`absolute inset-0 bg-gradient-to-br ${event.color.primary} opacity-0 will-change-opacity transition-opacity duration-500 group-hover:opacity-20 pointer-events-none`}
+            className='absolute inset-0 opacity-0 will-change-opacity transition-opacity duration-500 group-hover:opacity-20 pointer-events-none'
+            style={{
+              backgroundImage: `linear-gradient(to bottom right, ${event.color.primary}, ${event.color.secondary})`,
+            }}
           ></div>
 
           <div className='absolute top-6 right-6 pointer-events-none'>
@@ -283,7 +243,23 @@ const EventCard = ({
               </motion.div>
             </div>
 
-            <button className='group/btn w-full bg-black/30 backdrop-blur-xl border border-white/10 rounded-2xl py-3 text-black font-light mt-6 hover:bg-black/20 hover:border-white/30 hover:shadow-xl'>
+            <button
+              onClick={() => {
+                let url = ''
+                if (event.website === '') {
+                  url = 'https://events.avisengine.com/'
+                } else if (
+                  event.website.startsWith('https://') ||
+                  event.website.startsWith('http://')
+                ) {
+                  url = event.website
+                } else {
+                  url = `https://events.avisengine.com/events/${event.website}`
+                }
+                window.location.href = url
+              }}
+              className='group/btn w-full bg-black/30 backdrop-blur-xl border border-white/10 rounded-2xl py-3 text-black font-light mt-6 hover:bg-black/20 hover:border-white/30 hover:shadow-xl'
+            >
               <div className='flex items-center justify-center gap-3'>
                 <span className='text-white'>Explore Event</span>
                 <div className='w-2 h-2 border-r border-b border-white/70 transform rotate-[-45deg]'></div>

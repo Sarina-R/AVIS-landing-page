@@ -72,7 +72,7 @@ export default function UpcomingEvents() {
                       {eventsContext?.isUpcoming ? 'Upcoming' : 'Latest'}
                     </span>
                     <br />
-                    <span className='bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent'>
+                    <span className='bg-gradient-to-r from-white via-neutral-100 to-neutral-300 bg-clip-text text-transparent'>
                       Events
                     </span>
                   </h1>
@@ -95,12 +95,12 @@ export default function UpcomingEvents() {
                       animate='animate'
                     >
                       <div className='relative bg-white/10 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden'>
-                        <div className='relative aspect-[3/4] bg-gray-800/50'></div>
+                        <div className='relative max-h-56 aspect-[3/4] bg-neutral-800/50'></div>
                         <div className='p-6 space-y-4'>
-                          <div className='h-6 bg-gray-700/50 rounded w-3/4'></div>
-                          <div className='h-4 bg-gray-700/50 rounded w-1/2'></div>
-                          <div className='h-4 bg-gray-700/50 rounded w-2/3'></div>
-                          <div className='h-10 bg-gray-700/50 rounded-2xl mt-6'></div>
+                          <div className='h-6 bg-neutral-700/50 rounded w-3/4'></div>
+                          <div className='h-4 bg-neutral-700/50 rounded w-1/2'></div>
+                          <div className='h-4 bg-neutral-700/50 rounded w-2/3'></div>
+                          <div className='h-10 bg-neutral-700/50 rounded-2xl mt-6'></div>
                         </div>
                       </div>
                     </motion.div>
@@ -134,7 +134,7 @@ export default function UpcomingEvents() {
                     {eventsContext?.isUpcoming ? 'Upcoming' : 'Latest'}
                   </span>
                   <br />
-                  <span className='bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent'>
+                  <span className='bg-gradient-to-r from-white via-neutral-100 to-neutral-300 bg-clip-text text-transparent'>
                     Events
                   </span>
                 </h1>

@@ -1,6 +1,7 @@
 import { Event } from '@/app/avis-challenge/type'
 import { motion } from 'framer-motion'
 import { Clock, MapPin } from 'lucide-react'
+import Image from 'next/image'
 
 export default function EventCard({
   event,
@@ -13,12 +14,30 @@ export default function EventCard({
 }) {
   return (
     <div className='group flex-shrink-0 w-80 snap-center'>
-      <div className='relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden hover:bg-white/10 hover:border-white/20 hover:shadow-2xl hover:shadow-black/50'>
+      <div
+        onClick={() => {
+          let url = ''
+          if (event.website === '') {
+            url = 'https://events.avisengine.com/'
+          } else if (
+            event.website.startsWith('https://') ||
+            event.website.startsWith('http://')
+          ) {
+            url = event.website
+          } else {
+            url = `https://events.avisengine.com/events/${event.website}`
+          }
+          window.location.href = url
+        }}
+        className='relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden hover:bg-white/10 hover:border-white/20 hover:shadow-2xl hover:shadow-black/50 hover:cursor-pointer'
+      >
         <div className='relative aspect-[3/4] overflow-hidden'>
-          <img
+          <Image
             src={event.poster}
             alt={event.title}
             loading='lazy'
+            width={400}
+            height={400}
             className='w-full h-full object-cover'
           />
 
@@ -119,7 +138,7 @@ export default function EventCard({
                 }
                 window.location.href = url
               }}
-              className='group/btn w-full bg-black/30 backdrop-blur-xl border border-white/10 rounded-2xl py-3 text-black font-light mt-6 hover:bg-black/20 hover:border-white/30 hover:shadow-xl'
+              className='group/btn w-full bg-black/30 backdrop-blur-xl border border-white/10 rounded-2xl py-3 text-black font-light mt-6 hover:bg-black/20 hover:border-white/30 hover:shadow-xl hover:cursor-pointer'
             >
               <div className='flex items-center justify-center gap-3'>
                 <span className='text-white'>Explore Event</span>

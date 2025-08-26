@@ -11,7 +11,7 @@ export const Footer = () => (
             className='h-8 mb-4'
           />
           <p className='text-neutral-400 text-xs md:text-sm'>
-            Premier event management creating extraordinary experiences
+            Premier software solution creating extraordinary experiences
             worldwide.
           </p>
         </div>

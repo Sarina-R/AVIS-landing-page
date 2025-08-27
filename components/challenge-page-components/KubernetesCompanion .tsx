@@ -10,6 +10,7 @@ import {
   Medal,
   SquareDashedBottomCode,
 } from 'lucide-react'
+import GlobalCompeteSection from './GlobalCompeteSection'
 
 interface FeatureCardProps {
   icon: FC<SVGProps<SVGSVGElement>>
@@ -498,6 +499,9 @@ const KubernetesCompanion = () => {
                 </div>
               </div>
             </section>
+
+            {/* Section 4 - Single Columns */}
+            <GlobalCompeteSection />
           </div>
         </div>
       </div>

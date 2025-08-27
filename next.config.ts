@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
       'events.avisengine.com',
       'images.unsplash.com',
       'api.avisengine.com',
+      'flagcdn.com',
     ],
   },
 }

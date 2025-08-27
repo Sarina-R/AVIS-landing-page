@@ -45,9 +45,10 @@ export default function GlobalCompeteSection() {
               fill='none'
               opacity='0.3'
             />
+            {/* Anticlockwise orbitPath3 */}
             <path
               id='orbitPath3'
-              d='M500 20 A480 480 0 0 1 500 980 A480 480 0 0 1 500 20 Z'
+              d='M500 20 A480 480 0 0 0 500 980 A480 480 0 0 0 500 20 Z'
               stroke='#FACC15'
               strokeWidth='1'
               fill='none'
@@ -157,7 +158,7 @@ export default function GlobalCompeteSection() {
           </defs>
 
           <g clipPath='url(#flagClip)'>
-            {/* Orbiting Flags */}
+            {/* Orbiting Flags on orbitPath1 (clockwise) */}
             <FlagOnOrbit
               href='#orbitPath1'
               dur='20s'
@@ -168,41 +169,42 @@ export default function GlobalCompeteSection() {
                   alt='Japan flag'
                   width={32}
                   height={32}
-                  className='md:w-full '
+                  className='md:w-full'
                   unoptimized
                 />
               }
             />
             <FlagOnOrbit
               href='#orbitPath1'
-              dur='25s'
-              begin='5s'
+              dur='20s'
+              begin='2s'
               flag={
                 <Image
                   src={flagUrls.US}
                   alt='USA flag'
                   width={32}
                   height={32}
-                  className='md:w-full '
+                  className='md:w-full'
                   unoptimized
                 />
               }
             />
             <FlagOnOrbit
               href='#orbitPath1'
-              dur='28s'
-              begin='10s'
+              dur='20s'
+              begin='3s'
               flag={
                 <Image
                   src={flagUrls.BR}
                   alt='Brazil flag'
                   width={32}
                   height={32}
-                  className='md:w-full '
+                  className='md:w-full'
                   unoptimized
                 />
               }
             />
+            {/* Orbiting Flags on orbitPath2 (clockwise) */}
             <FlagOnOrbit
               href='#orbitPath2'
               dur='22s'
@@ -213,37 +215,68 @@ export default function GlobalCompeteSection() {
                   alt='Germany flag'
                   width={32}
                   height={32}
-                  className='md:w-full '
+                  className='md:w-full'
                   unoptimized
                 />
               }
             />
             <FlagOnOrbit
               href='#orbitPath2'
-              dur='24s'
-              begin='7s'
+              dur='22s'
+              begin='4s'
               flag={
                 <Image
                   src={flagUrls.CN}
                   alt='China flag'
                   width={32}
                   height={32}
-                  className='md:w-full '
+                  className='md:w-full'
                   unoptimized
                 />
               }
             />
             <FlagOnOrbit
               href='#orbitPath2'
-              dur='26s'
-              begin='12s'
+              dur='22s'
+              begin='5s'
               flag={
                 <Image
                   src={flagUrls.IN}
                   alt='India flag'
                   width={32}
                   height={32}
-                  className='md:w-full '
+                  className='md:w-full'
+                  unoptimized
+                />
+              }
+            />
+            {/* Orbiting Flags on orbitPath3 (anticlockwise) */}
+            <FlagOnOrbit
+              href='#orbitPath3'
+              dur='23s'
+              begin='0s'
+              flag={
+                <Image
+                  src={flagUrls.FR}
+                  alt='France flag'
+                  width={32}
+                  height={32}
+                  className='md:w-full'
+                  unoptimized
+                />
+              }
+            />
+            <FlagOnOrbit
+              href='#orbitPath3'
+              dur='23s'
+              begin='2s'
+              flag={
+                <Image
+                  src={flagUrls.GB}
+                  alt='UK flag'
+                  width={32}
+                  height={32}
+                  className='md:w-full'
                   unoptimized
                 />
               }
@@ -254,56 +287,26 @@ export default function GlobalCompeteSection() {
               begin='3s'
               flag={
                 <Image
-                  src={flagUrls.FR}
-                  alt='France flag'
-                  width={32}
-                  height={32}
-                  className='md:w-full '
-                  unoptimized
-                />
-              }
-            />
-            <FlagOnOrbit
-              href='#orbitPath3'
-              dur='27s'
-              begin='8s'
-              flag={
-                <Image
-                  src={flagUrls.GB}
-                  alt='UK flag'
-                  width={32}
-                  height={32}
-                  className='md:w-full '
-                  unoptimized
-                />
-              }
-            />
-            <FlagOnOrbit
-              href='#orbitPath3'
-              dur='29s'
-              begin='13s'
-              flag={
-                <Image
                   src={flagUrls.KR}
                   alt='South Korea flag'
                   width={32}
                   height={32}
-                  className='md:w-full '
+                  className='md:w-full'
                   unoptimized
                 />
               }
             />
             <FlagOnOrbit
               href='#orbitPath3'
-              dur='30s'
-              begin='15s'
+              dur='23s'
+              begin='4s'
               flag={
                 <Image
                   src={flagUrls.AU}
                   alt='Australia flag'
                   width={32}
                   height={32}
-                  className='md:w-full '
+                  className='md:w-full'
                   unoptimized
                 />
               }
@@ -367,7 +370,6 @@ function FlagOnOrbit({
         <div
           style={{
             width: '32px',
-            // height: '32px',
             overflow: 'hidden',
           }}
           className='absolute md:w-full rounded-t-2xl bg-red-50'

@@ -6,6 +6,9 @@ import {
   Users2,
   Zap,
   ChevronDown,
+  Network,
+  PersonStanding,
+  Clock,
 } from 'lucide-react'
 
 const AnimatedPattern = () => {
@@ -197,6 +200,7 @@ const Abstract3DSVG = ({ className = '' }) => {
   )
 }
 
+// COMPONENTS
 export const HeroSection = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
@@ -245,44 +249,44 @@ export const HeroSection = () => {
         <div className='mb-8 inline-flex items-center px-4 py-2 bg-zinc-900/60 border border-zinc-700/50 rounded-full backdrop-blur-md hover:bg-zinc-800/60 transition-all duration-500 hover:border-emerald-400/30'>
           <Sparkles className='w-4 h-4 text-emerald-400 mr-2 animate-pulse' />
           <span className='text-xs font-light text-zinc-300 tracking-wider'>
-            PROFESSIONAL ELEVATION PLATFORM
+            AVIS GROUP ECOSYSTEM INTEGRATION
           </span>
         </div>
 
         {/* Enhanced typography with 3D effect */}
         <h1 className='text-6xl md:text-8xl lg:text-9xl font-extralight leading-[0.85] mb-12 tracking-tight'>
           <span className='block transform hover:scale-105 transition-transform duration-700'>
-            REDEFINE
+            CONNECT
           </span>
           <span
             className='block bg-gradient-to-r from-white via-emerald-200 to-emerald-400 bg-clip-text text-transparent transform hover:scale-105 transition-transform duration-700'
             style={{ textShadow: '0 0 30px rgba(16, 185, 129, 0.3)' }}
           >
-            PROFESSIONAL
+            COLLABORATE
           </span>
           <span className='block transform hover:scale-105 transition-transform duration-700'>
-            NETWORKING
+            GROW
           </span>
         </h1>
 
         <p className='text-lg md:text-xl font-light text-zinc-300 mb-16 max-w-2xl mx-auto leading-relaxed'>
-          An exclusive community where visionary professionals connect through
+          The professional networking platform that seamlessly integrates with
           <span className='text-emerald-400 font-medium'>
             {' '}
-            intelligent curation
+            AVIS Events and AVIS Challenge
           </span>{' '}
-          and meaningful discourse.
+          for a unified career development experience.
         </p>
 
         <div className='flex flex-col md:flex-row gap-6 justify-center items-center'>
           <button className='group relative bg-gradient-to-r from-emerald-400 to-emerald-500 text-black px-8 py-4 rounded-full font-medium flex items-center transition-all duration-500 hover:from-emerald-300 hover:to-emerald-400 hover:scale-105 hover:shadow-xl hover:shadow-emerald-400/25 transform-gpu'>
-            <span className='relative z-10'>Request Access</span>
+            <span className='relative z-10'>Join AVIS Community</span>
             <ArrowUpRight className='ml-2 w-5 h-5 group-hover:rotate-45 transition-transform duration-300 relative z-10' />
             <div className='absolute inset-0 bg-gradient-to-r from-emerald-300 to-teal-300 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
           </button>
 
           <button className='group font-light text-zinc-200 px-8 py-4 border border-zinc-700/50 rounded-full hover:border-emerald-400/50 hover:bg-zinc-800/30 transition-all duration-300 backdrop-blur-sm'>
-            Discover More
+            Explore Features
             <ChevronDown className='inline ml-2 w-4 h-4 group-hover:translate-y-1 transition-transform duration-300' />
           </button>
         </div>
@@ -307,23 +311,23 @@ export const AboutSection = () => {
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-20 items-center'>
           <div className='relative z-10'>
             <h2 className='text-4xl md:text-6xl font-extralight leading-tight mb-8'>
-              CURATED
+              BUILDING
               <br />
               <span className='text-emerald-400 relative'>
-                EXCELLENCE
+                CONNECTIONS
                 <div className='absolute -bottom-2 left-0 w-full h-px bg-gradient-to-r from-emerald-400 to-transparent opacity-50'></div>
               </span>
             </h2>
             <p className='text-xl font-light text-zinc-300 leading-relaxed mb-8'>
-              Beyond traditional networking lies a realm of intentional
-              connections. Where every interaction is purposeful, every
-              relationship meaningful.
+              AVIS Community fosters dynamic connections, integrating your
+              profile across AVIS Events and AVIS Challenge with AVIS Plus for a
+              seamless networking experience.
             </p>
             <div className='space-y-4'>
               {[
-                'AI-Driven Compatibility Matching',
-                'Invitation-Only Community',
-                'Premium Experience Design',
+                'Seamless Data Integration',
+                'Vibrant Member Network',
+                'Enhanced Collaboration Tools',
               ].map((item, index) => (
                 <div
                   key={index}
@@ -339,17 +343,16 @@ export const AboutSection = () => {
           </div>
 
           <div className='relative'>
-            {/* 3D Abstract SVG Background */}
             <Abstract3DSVG className='absolute inset-0 opacity-30' />
 
             <div className='absolute inset-0 bg-gradient-to-br from-emerald-400/10 to-teal-400/5 '></div>
             <div className='bg-zinc-900/60 backdrop-blur-md border border-zinc-700/50  p-12 relative hover:bg-zinc-900/70 transition-all duration-500 hover:border-emerald-400/30'>
               <div className='grid grid-cols-2 gap-8'>
                 {[
-                  { value: '10K+', label: 'ELITE MEMBERS' },
-                  { value: '95%', label: 'SUCCESS RATE' },
-                  { value: '50+', label: 'COUNTRIES' },
-                  { value: '24/7', label: 'CONCIERGE' },
+                  { value: '15K+', label: 'ACTIVE MEMBERS' },
+                  { value: '92%', label: 'ENGAGEMENT RATE' },
+                  { value: '60+', label: 'GLOBAL REACH' },
+                  { value: '24/7', label: 'SUPPORT' },
                 ].map((stat, index) => (
                   <div
                     key={index}
@@ -377,40 +380,40 @@ export const PremiumFeatures = () => {
     <section id='community' className='border-t border-white/10 pt-32 relative'>
       <div className='max-w-7xl mx-auto relative z-10'>
         <h2 className='text-4xl md:text-5xl font-extralight text-center mb-20'>
-          PREMIUM <span className='text-emerald-400'>FEATURES</span>
+          AVIS <span className='text-emerald-400'>FEATURES</span>
         </h2>
 
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
           {[
             {
-              icon: Users2,
-              title: 'INTELLIGENT MATCHING',
-              desc: 'Advanced algorithms connect compatible professionals',
+              icon: Network,
+              title: 'SMART NETWORKING',
+              desc: 'Connect with professionals across AVIS Group platforms effortlessly',
             },
             {
               icon: Globe,
-              title: 'GLOBAL ACCESS',
-              desc: 'Exclusive events and opportunities worldwide',
+              title: 'GLOBAL EVENTS',
+              desc: 'Access exclusive AVIS Events worldwide with unified data',
             },
             {
               icon: Zap,
-              title: 'INSTANT INSIGHTS',
-              desc: 'Real-time industry intelligence and trends',
+              title: 'REAL-TIME UPDATES',
+              desc: 'Stay informed with instant AVIS Challenge insights',
             },
             {
-              icon: Sparkles,
-              title: 'PERSONAL CURATION',
-              desc: 'Dedicated relationship managers',
+              icon: PersonStanding,
+              title: 'PERSONALIZED SUPPORT',
+              desc: 'Dedicated AVIS Plus assistance for your journey',
             },
             {
               icon: Users2,
-              title: 'ELITE CIRCLES',
-              desc: 'Private groups for industry leaders',
+              title: 'EXCLUSIVE GROUPS',
+              desc: 'Join private circles for top-tier collaboration',
             },
             {
-              icon: Globe,
-              title: 'PREMIUM SUPPORT',
-              desc: '24/7 concierge assistance',
+              icon: Clock,
+              title: 'ROUND-THE-CLOCK HELP',
+              desc: '24/7 support for all AVIS Community members',
             },
           ].map((service, index) => (
             <div
@@ -427,7 +430,6 @@ export const PremiumFeatures = () => {
                 {service.desc}
               </p>
 
-              {/* Subtle glow effect */}
               <div className='absolute inset-0 bg-gradient-to-br from-emerald-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
             </div>
           ))}
@@ -446,7 +448,7 @@ export const TheAdvantage = () => {
 
           <div className='flex items-center justify-center'>
             <h2 className='text-4xl md:text-5xl font-extralight'>
-              THE <span className='text-emerald-400'>ADVANTAGE</span>
+              THE <span className='text-emerald-400'>AVIS EDGE</span>
             </h2>
           </div>
 
@@ -456,20 +458,20 @@ export const TheAdvantage = () => {
         <div className='grid grid-cols-1 md:grid-cols-3'>
           {[
             {
-              title: 'EXCLUSIVITY',
-              desc: 'A carefully curated community of verified professionals committed to meaningful connections.',
+              title: 'UNIFIED ACCESS',
+              desc: 'Seamlessly connect across AVIS Events, Challenge, and Plus with one profile.',
             },
             {
-              title: 'INTELLIGENCE',
-              desc: 'Advanced AI systems ensure every connection has the potential for mutual professional growth.',
+              title: 'SMART CONNECTIONS',
+              desc: 'Intelligent systems match you with professionals for impactful collaborations.',
             },
             {
-              title: 'EXCELLENCE',
-              desc: 'Premium experience design with dedicated support for your networking success.',
+              title: 'PREMIUM EXPERIENCE',
+              desc: 'Enjoy a tailored platform with dedicated support for your success.',
             },
           ].map((item, index) => (
             <div key={index} className='group border border-white/10 py-4 px-6'>
-              <div className='w-16 h-16 mx-auto mb-8 bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center group-hover:bg-emerald-400/20 transition-all duration-300 rounded-2xl'>
+              <div className='w-16 h-16 mx-auto mb-8 bg-emerald-400/10 border border-emerald-400/20 flex	items-center justify-center group-hover:bg-emerald-400/20 transition-all duration-300 rounded-2xl'>
                 <div className='w-2 h-2 bg-emerald-400 rounded-full group-hover:scale-150 transition-transform duration-300'></div>
               </div>
               <h3 className='text-xl font-light mb-6 tracking-wide'>
@@ -490,18 +492,18 @@ export const StepsComponent = () => {
   const steps = [
     {
       number: '01',
-      title: 'APPLICATION',
-      desc: 'Submit your professional profile for careful review by our curation committee',
+      title: 'SIGN UP',
+      desc: 'Create your profile, instantly syncing with AVIS Events, Challenge, and Plus',
     },
     {
       number: '02',
-      title: 'VERIFICATION',
-      desc: 'Undergo our proprietary assessment process designed to ensure community excellence',
+      title: 'CONNECT',
+      desc: 'Engage with a global network of professionals through intelligent matching',
     },
     {
       number: '03',
-      title: 'ELEVATION',
-      desc: 'Access exclusive networking opportunities and accelerate your professional trajectory',
+      title: 'GROW',
+      desc: 'Leverage exclusive opportunities to elevate your career and collaborations',
     },
   ]
 
@@ -512,7 +514,7 @@ export const StepsComponent = () => {
       <div className='max-w-7xl mx-auto relative z-10'>
         <div className='text-center mb-20'>
           <h2 className='text-4xl md:text-5xl font-extralight mb-6'>
-            THE <span className='text-emerald-400'>JOURNEY</span>
+            YOUR <span className='text-emerald-400'>AVIS JOURNEY</span>
           </h2>
         </div>
 
@@ -537,7 +539,6 @@ export const StepsComponent = () => {
                     <div className='absolute inset-0 bg-gradient-to-r from-transparent via-emerald-300 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse'></div>
                   </div>
 
-                  {/* Floating accent dot */}
                   <div className='absolute right-0 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-emerald-400 rounded-full group-hover:scale-150 transition-transform duration-300 animate-pulse'></div>
                 </div>
               </div>
@@ -573,21 +574,20 @@ export const LiveMetrics = () => {
 
       <div className='max-w-7xl mx-auto relative z-10'>
         <h2 className='text-4xl md:text-5xl font-extralight text-center mb-20'>
-          LIVE <span className='text-emerald-400'>METRICS</span>
+          AVIS <span className='text-emerald-400'>INSIGHTS</span>
         </h2>
 
         <div className='grid grid-cols-1 md:grid-cols-12 auto-rows-[160px]'>
-          {/* Large feature card with enhanced 3D effect */}
           <div className='md:col-span-8 md:row-span-2 bg-gradient-to-br from-emerald-400/10 to-emerald-400/5 border border-emerald-400/20  p-8 flex flex-col justify-between relative overflow-hidden hover:from-emerald-400/15 hover:to-emerald-400/8 transition-all duration-500 group'>
             <div className='absolute top-0 right-0 w-32 h-32 bg-emerald-400/10 rounded-full -translate-y-16 translate-x-16 group-hover:scale-125 transition-transform duration-500'></div>
             <Abstract3DSVG className='absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-500' />
 
             <div className='relative z-10'>
               <h3 className='text-3xl font-extralight mb-4 group-hover:text-emerald-300 transition-colors duration-300'>
-                NETWORK VELOCITY
+                COMMUNITY DYNAMICS
               </h3>
               <p className='text-zinc-400 font-light group-hover:text-zinc-300 transition-colors duration-300'>
-                Real-time connection quality metrics
+                Monitor real-time engagement across AVIS platforms
               </p>
             </div>
             <div className='flex items-end space-x-2 relative z-10'>
@@ -604,13 +604,12 @@ export const LiveMetrics = () => {
             </div>
           </div>
 
-          {/* Animated small cards */}
           <div className='md:col-span-4 bg-zinc-900/40 border border-zinc-700/50 p-6 hover:bg-zinc-900/60 hover:border-emerald-400/30 transition-all duration-300 backdrop-blur-sm group'>
             <div className='text-2xl font-light text-emerald-400 mb-2 group-hover:text-emerald-300 transition-all duration-300'>
               {activeConnections}
             </div>
             <div className='text-sm font-light text-zinc-400 group-hover:text-zinc-300 transition-colors duration-300'>
-              ACTIVE CONNECTIONS
+              ACTIVE MEMBERS
             </div>
             <div className='absolute top-2 right-2 w-2 h-2 bg-emerald-400 rounded-full animate-pulse opacity-60'></div>
           </div>
@@ -620,18 +619,17 @@ export const LiveMetrics = () => {
               {engagementRate}%
             </div>
             <div className='text-sm font-light text-zinc-400 group-hover:text-zinc-300 transition-colors duration-300'>
-              ENGAGEMENT RATE
+              COLLABORATION RATE
             </div>
           </div>
 
-          {/* Medium cards with enhanced interactions */}
           <div className='md:col-span-6 bg-zinc-900/40 border border-zinc-700/50 p-6 flex items-center justify-between hover:bg-zinc-900/60 hover:border-emerald-400/30 transition-all duration-300 backdrop-blur-sm group'>
             <div>
               <div className='text-lg font-light mb-1 group-hover:text-emerald-300 transition-colors duration-300'>
-                GLOBAL PULSE
+                AVIS PULSE
               </div>
               <div className='text-xs font-light text-zinc-400 group-hover:text-zinc-300 transition-colors duration-300'>
-                Real-time activity
+                Live community activity
               </div>
             </div>
             <div className='w-12 h-12 bg-emerald-400/20 rounded-full flex items-center justify-center group-hover:bg-emerald-400/30 transition-colors duration-300'>
@@ -641,13 +639,13 @@ export const LiveMetrics = () => {
 
           <div className='md:col-span-6 bg-zinc-900/40 border border-zinc-700/50 p-6 hover:bg-zinc-900/60 hover:border-emerald-400/30 transition-all duration-300 backdrop-blur-sm group'>
             <div className='text-lg font-light mb-4 group-hover:text-emerald-300 transition-colors duration-300'>
-              TRENDING TOPICS
+              HOT TOPICS
             </div>
             <div className='space-y-2'>
               <div className='flex items-center space-x-2 group-hover:translate-x-1 transition-transform duration-300'>
                 <div className='w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse'></div>
                 <span className='text-xs font-light text-zinc-400 group-hover:text-zinc-300 transition-colors duration-300'>
-                  AI & Future of Work
+                  Innovation & Collaboration
                 </span>
               </div>
               <div
@@ -659,7 +657,7 @@ export const LiveMetrics = () => {
                   style={{ animationDelay: '0.5s' }}
                 ></div>
                 <span className='text-xs font-light text-zinc-400 group-hover:text-zinc-300 transition-colors duration-300'>
-                  Sustainable Innovation
+                  Global Networking Trends
                 </span>
               </div>
             </div>
@@ -680,26 +678,27 @@ export const CTASection = () => {
 
           <div className='relative z-10'>
             <h2 className='text-4xl md:text-6xl font-extralight mb-8 leading-tight'>
-              ELEVATE YOUR
+              JOIN THE
               <br />
-              <span className='text-emerald-400'>PROFESSIONAL JOURNEY</span>
+              <span className='text-emerald-400'>AVIS COMMUNITY TODAY</span>
             </h2>
 
             <p className='text-xl font-light text-zinc-400 mb-12 max-w-2xl mx-auto leading-relaxed'>
-              Join the exclusive network of visionary professionals shaping the
-              future of their industries.
+              Become part of a global network where professionals connect,
+              collaborate, and grow with seamless access to AVIS Events,
+              Challenge, and Plus.
             </p>
 
             <button className='group relative bg-emerald-400 text-black px-12 py-4 rounded-full font-medium text-lg transition-all duration-500 hover:bg-emerald-300 hover:scale-105'>
               <span className='relative z-10 flex items-center'>
-                Apply for Membership
+                Start Your AVIS Journey
                 <ArrowUpRight className='ml-2 w-5 h-5 group-hover:rotate-45 transition-transform duration-300' />
               </span>
               <div className='absolute inset-0 bg-gradient-to-r from-emerald-300 to-teal-300 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
             </button>
 
             <p className='text-xs font-light text-zinc-500 mt-8 tracking-wide'>
-              INVITATION-ONLY • PREMIUM EXPERIENCE • GLOBAL NETWORK
+              GLOBAL NETWORK • SEAMLESS INTEGRATION • ENDLESS OPPORTUNITIES
             </p>
           </div>
         </div>

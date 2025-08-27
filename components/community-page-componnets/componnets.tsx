@@ -526,20 +526,20 @@ export const StepsComponent = () => {
   return (
     <section
       id='steps'
-      className='relative py-32 px-6 md:px-12'
+      className='relative py-32 px-6 md:px-12 overflow-hidden sm:overflow-visible'
       ref={containerRef}
     >
       {/* Floating Shapes */}
       <motion.div
-        className='absolute top-0 -right-10 w-52 h-52 rounded-full bg-emerald-400/10 blur-3xl'
+        className='absolute top-0 right-0 w-52 h-52 rounded-full bg-emerald-400/10 blur-3xl '
         style={{ y }}
       />
       <motion.div
-        className='absolute top-20 -left-10 w-[30rem] h-[30rem] rounded-full bg-emerald-400/10 blur-3xl opacity-80'
+        className='absolute top-20 -left-10 w-[30rem] h-[30rem] rounded-full bg-emerald-400/10 blur-3xl opacity-80 hidden sm:block'
         style={{ y }}
       />
       <motion.div
-        className='absolute top-[50rem] right-0 w-[50rem] h-[50rem] rounded-full bg-emerald-400/10 blur-3xl opacity-45'
+        className='absolute top-[50rem] right-0 w-[50rem] h-[50rem] rounded-full bg-emerald-400/10 blur-3xl opacity-45 hidden sm:block'
         style={{ y }}
       />
       <motion.div
@@ -561,7 +561,7 @@ export const StepsComponent = () => {
 
         <div className='space-y-20'>
           {steps.map((step, index) => (
-            <div key={index} className='relative group min-h-screen'>
+            <div key={index} className='relative group sm:min-h-screen'>
               <div className='flex flex-col lg:flex-row items-center gap-16 sticky top-72 max-w-xl mx-auto'>
                 <div className='lg:w-1/3 group-hover:translate-x-4 transition-transform duration-500'>
                   <div className='text-8xl font-extralight text-emerald-400/20 mb-4 group-hover:text-emerald-400/30 transition-colors duration-500'>

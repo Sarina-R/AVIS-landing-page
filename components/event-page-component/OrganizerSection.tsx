@@ -92,7 +92,7 @@ const OrganizerSection = () => {
                 {/* Content */}
                 <div
                   className={`relative z-10 ${
-                    index === 0 || index === 1 ? 'flex' : ''
+                    index === 0 || index === 1 ? 'sm:flex' : ''
                   } `}
                 >
                   <div className=''>

@@ -106,9 +106,9 @@ const AVISPlusHub: React.FC = () => {
   return (
     <div className='relative min-h-screen bg-black/50 backdrop-blur-md font-sans px-10'>
       {/* Background gradient */}
-      <div className='absolute inset-0 bg-gradient-to-b from-transparent via-pink-700/15 to-[#1F11CE]/15 xl:h-full h-[150vh]' />
+      <div className='absolute inset-0 bg-gradient-to-b from-transparent via-pink-700/15 to-[#1F11CE]/15 xl:h-full md:h-[150vh] h-[260vh]' />
 
-      <div className='grid grid-cols-2 relative z-10'>
+      <div className='flex flex-col-reverse md:grid grid-cols-2 relative z-10'>
         {/* LEFT SIDE */}
         <div className='cols1'>
           <div className='relative px-4 py-12 min-h-screen'>

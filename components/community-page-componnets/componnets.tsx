@@ -11,6 +11,8 @@ import {
   Clock,
 } from 'lucide-react'
 import Link from 'next/link'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
 
 const AnimatedPattern = () => {
   return (
@@ -513,21 +515,54 @@ export const StepsComponent = () => {
     },
   ]
 
-  return (
-    <section id='steps' className='py-32 px-8 relative bg-zinc-950/30'>
-      <AnimatedPattern />
+  const containerRef = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start start', 'end end'],
+  })
 
-      <div className='max-w-7xl mx-auto relative z-10'>
-        <div className='text-center mb-20'>
-          <h2 className='text-4xl md:text-5xl font-extralight mb-6'>
+  const y = useTransform(scrollYProgress, [0, 1], [0, -200])
+
+  return (
+    <section
+      id='steps'
+      className='relative py-32 px-6 md:px-12'
+      ref={containerRef}
+    >
+      {/* Floating Shapes */}
+      <motion.div
+        className='absolute top-0 -right-10 w-52 h-52 rounded-full bg-emerald-400/10 blur-3xl'
+        style={{ y }}
+      />
+      <motion.div
+        className='absolute top-20 -left-10 w-[30rem] h-[30rem] rounded-full bg-emerald-400/10 blur-3xl opacity-80'
+        style={{ y }}
+      />
+      <motion.div
+        className='absolute top-[50rem] right-0 w-[50rem] h-[50rem] rounded-full bg-emerald-400/10 blur-3xl opacity-45'
+        style={{ y }}
+      />
+      <motion.div
+        className='absolute bottom-[60rem] left-20 w-[35rem] h-[35rem] rounded-full bg-emerald-400/10 blur-3xl opacity-40'
+        style={{ y }}
+      />
+      <motion.div
+        className='absolute bottom-0 right-0 w-[27rem] h-[27rem] rounded-full bg-emerald-500/10 blur-3xl opacity-80'
+        style={{ y }}
+      />
+
+      {/* Content */}
+      <div className='max-w-6xl mx-auto relative z-10'>
+        <div className='text-center mb-32'>
+          <h2 className='text-4xl md:text-6xl font-extralight tracking-wide'>
             YOUR <span className='text-emerald-400'>AVIS JOURNEY</span>
           </h2>
         </div>
 
         <div className='space-y-20'>
           {steps.map((step, index) => (
-            <div key={index} className='relative group'>
-              <div className='flex flex-col lg:flex-row items-center gap-16'>
+            <div key={index} className='relative group min-h-screen'>
+              <div className='flex flex-col lg:flex-row items-center gap-16 sticky top-72 max-w-xl mx-auto'>
                 <div className='lg:w-1/3 group-hover:translate-x-4 transition-transform duration-500'>
                   <div className='text-8xl font-extralight text-emerald-400/20 mb-4 group-hover:text-emerald-400/30 transition-colors duration-500'>
                     {step.number}

@@ -452,7 +452,7 @@ export default function ToolsComponent() {
         </h2>
         <p className='mt-6 text-lg leading-8 text-neutral-400 max-w-lg m-auto'>
           AVIS PLUS connects your workflow across Events, Challenge, and
-          Community—ensuring a seamless, unified experience with a single
+          Community ensuring a seamless, unified experience with a single
           identity.
         </p>
       </div>

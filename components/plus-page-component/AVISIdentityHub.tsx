@@ -87,7 +87,7 @@ export const AVISIdentityHub = () => {
         {/* User 2 Flow */}
         <div className='flex items-center space-x-6 justify-between'>
           <div className='bg-white/95 shadow-sm rounded-md px-4 py-2 min-w-[80px] text-center'>
-            <span className='text-black font-medium text-sm'>User 2</span>
+            <span className='text-black font-medium text-sm'>User 1</span>
           </div>
           <div className='w-1.5 h-1.5 bg-white/20 rounded-full sm:block hidden'></div>
           <div className='w-1.5 h-1.5 bg-white/20 rounded-full sm:block hidden'></div>

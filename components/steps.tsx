@@ -181,7 +181,7 @@ const StepGuide: React.FC = () => {
                 <div
                   className={`w-6 h-6 rounded-full flex items-center justify-center border-2 transition-all duration-300 ${
                     isStepCompleted(index) || isStepActive(index)
-                      ? 'bg-gradient-to-tr from-red-700/50 to-[#1F11CE]/50 border-gradient-to-tr from-red-700/50 to-[#1F11CE]/50 text-white scale-110'
+                      ? 'bg-gradient-to-tr from-red-700/50 to-[#1F11CE]/50 border-gradient-to-tr text-white scale-110'
                       : 'bg-neutral-700/50 border-neutral-700/50 text-neutral-400 scale-90'
                   }`}
                 >

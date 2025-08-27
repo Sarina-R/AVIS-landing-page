@@ -213,7 +213,7 @@ export const HeroSection = () => {
   }, [])
 
   return (
-    <section className='relative min-h-screen flex items-center justify-center overflow-hidden '>
+    <section className='relative min-h-screen flex items-center justify-center overflow-hidden lg:mt-8'>
       <FloatingOrbs />
 
       <AnimatedPattern />
@@ -297,7 +297,10 @@ export const HeroSection = () => {
 
 export const AboutSection = () => {
   return (
-    <section id='platform' className='py-32 px-8 relative bg-zinc-950/50'>
+    <section
+      id='platform'
+      className=' px-8 relative bg-zinc-950/50 border-y border-white/10'
+    >
       <AnimatedPattern />
 
       <div className='max-w-7xl mx-auto'>
@@ -339,8 +342,8 @@ export const AboutSection = () => {
             {/* 3D Abstract SVG Background */}
             <Abstract3DSVG className='absolute inset-0 opacity-30' />
 
-            <div className='absolute inset-0 bg-gradient-to-br from-emerald-400/10 to-teal-400/5 rounded-3xl'></div>
-            <div className='bg-zinc-900/60 backdrop-blur-md border border-zinc-700/50 rounded-3xl p-12 relative hover:bg-zinc-900/70 transition-all duration-500 hover:border-emerald-400/30'>
+            <div className='absolute inset-0 bg-gradient-to-br from-emerald-400/10 to-teal-400/5 '></div>
+            <div className='bg-zinc-900/60 backdrop-blur-md border border-zinc-700/50  p-12 relative hover:bg-zinc-900/70 transition-all duration-500 hover:border-emerald-400/30'>
               <div className='grid grid-cols-2 gap-8'>
                 {[
                   { value: '10K+', label: 'ELITE MEMBERS' },
@@ -363,6 +366,120 @@ export const AboutSection = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export const PremiumFeatures = () => {
+  return (
+    <section id='community' className='border-t border-white/10 pt-32 relative'>
+      <div className='max-w-7xl mx-auto relative z-10'>
+        <h2 className='text-4xl md:text-5xl font-extralight text-center mb-20'>
+          PREMIUM <span className='text-emerald-400'>FEATURES</span>
+        </h2>
+
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+          {[
+            {
+              icon: Users2,
+              title: 'INTELLIGENT MATCHING',
+              desc: 'Advanced algorithms connect compatible professionals',
+            },
+            {
+              icon: Globe,
+              title: 'GLOBAL ACCESS',
+              desc: 'Exclusive events and opportunities worldwide',
+            },
+            {
+              icon: Zap,
+              title: 'INSTANT INSIGHTS',
+              desc: 'Real-time industry intelligence and trends',
+            },
+            {
+              icon: Sparkles,
+              title: 'PERSONAL CURATION',
+              desc: 'Dedicated relationship managers',
+            },
+            {
+              icon: Users2,
+              title: 'ELITE CIRCLES',
+              desc: 'Private groups for industry leaders',
+            },
+            {
+              icon: Globe,
+              title: 'PREMIUM SUPPORT',
+              desc: '24/7 concierge assistance',
+            },
+          ].map((service, index) => (
+            <div
+              key={index}
+              className='group relative bg-zinc-900/40 border border-zinc-700/50 p-8 hover:bg-zinc-900/60 hover:border-emerald-400/30 transition-all duration-500 backdrop-blur-sm hover:transform '
+            >
+              <div className='absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-emerald-400/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
+
+              <service.icon className='w-8 h-8 text-emerald-400 mb-6  group-hover:text-emerald-300 transition-all duration-300' />
+              <h3 className='text-lg font-light mb-4 tracking-wide group-hover:text-emerald-300 transition-colors duration-300'>
+                {service.title}
+              </h3>
+              <p className='text-zinc-400 font-light text-sm leading-relaxed group-hover:text-zinc-300 transition-colors duration-300'>
+                {service.desc}
+              </p>
+
+              {/* Subtle glow effect */}
+              <div className='absolute inset-0 bg-gradient-to-br from-emerald-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export const TheAdvantage = () => {
+  return (
+    <section className='border-t border-white/10'>
+      <div className='max-w-7xl mx-auto text-center'>
+        <div className='grid grid-cols-1 md:grid-cols-3 h-52'>
+          <div className='border-r border-white/20'></div>
+
+          <div className='flex items-center justify-center'>
+            <h2 className='text-4xl md:text-5xl font-extralight'>
+              THE <span className='text-emerald-400'>ADVANTAGE</span>
+            </h2>
+          </div>
+
+          <div className='border-l border-white/20'></div>
+        </div>
+
+        <div className='grid grid-cols-1 md:grid-cols-3'>
+          {[
+            {
+              title: 'EXCLUSIVITY',
+              desc: 'A carefully curated community of verified professionals committed to meaningful connections.',
+            },
+            {
+              title: 'INTELLIGENCE',
+              desc: 'Advanced AI systems ensure every connection has the potential for mutual professional growth.',
+            },
+            {
+              title: 'EXCELLENCE',
+              desc: 'Premium experience design with dedicated support for your networking success.',
+            },
+          ].map((item, index) => (
+            <div key={index} className='group border border-white/10 py-4 px-6'>
+              <div className='w-16 h-16 mx-auto mb-8 bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center group-hover:bg-emerald-400/20 transition-all duration-300 rounded-2xl'>
+                <div className='w-2 h-2 bg-emerald-400 rounded-full group-hover:scale-150 transition-transform duration-300'></div>
+              </div>
+              <h3 className='text-xl font-light mb-6 tracking-wide'>
+                {item.title}
+              </h3>
+              <p className='text-zinc-400 font-light leading-relaxed'>
+                {item.desc}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -432,72 +549,7 @@ export const StepsComponent = () => {
   )
 }
 
-export const ServicesSection = () => {
-  return (
-    <section id='community' className='py-32 px-8 relative'>
-      <div className='max-w-7xl mx-auto relative z-10'>
-        <h2 className='text-4xl md:text-5xl font-extralight text-center mb-20'>
-          PREMIUM <span className='text-emerald-400'>FEATURES</span>
-        </h2>
-
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-          {[
-            {
-              icon: Users2,
-              title: 'INTELLIGENT MATCHING',
-              desc: 'Advanced algorithms connect compatible professionals',
-            },
-            {
-              icon: Globe,
-              title: 'GLOBAL ACCESS',
-              desc: 'Exclusive events and opportunities worldwide',
-            },
-            {
-              icon: Zap,
-              title: 'INSTANT INSIGHTS',
-              desc: 'Real-time industry intelligence and trends',
-            },
-            {
-              icon: Sparkles,
-              title: 'PERSONAL CURATION',
-              desc: 'Dedicated relationship managers',
-            },
-            {
-              icon: Users2,
-              title: 'ELITE CIRCLES',
-              desc: 'Private groups for industry leaders',
-            },
-            {
-              icon: Globe,
-              title: 'PREMIUM SUPPORT',
-              desc: '24/7 concierge assistance',
-            },
-          ].map((service, index) => (
-            <div
-              key={index}
-              className='group relative bg-zinc-900/40 border border-zinc-700/50 rounded-2xl p-8 hover:bg-zinc-900/60 hover:border-emerald-400/30 transition-all duration-500 backdrop-blur-sm hover:transform hover:scale-105'
-            >
-              <div className='absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-emerald-400/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
-
-              <service.icon className='w-8 h-8 text-emerald-400 mb-6 group-hover:scale-110 group-hover:text-emerald-300 transition-all duration-300' />
-              <h3 className='text-lg font-light mb-4 tracking-wide group-hover:text-emerald-300 transition-colors duration-300'>
-                {service.title}
-              </h3>
-              <p className='text-zinc-400 font-light text-sm leading-relaxed group-hover:text-zinc-300 transition-colors duration-300'>
-                {service.desc}
-              </p>
-
-              {/* Subtle glow effect */}
-              <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-emerald-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-export const BentoDemo = () => {
+export const LiveMetrics = () => {
   const [activeConnections, setActiveConnections] = useState(127)
   const [engagementRate, setEngagementRate] = useState(89)
 
@@ -513,7 +565,10 @@ export const BentoDemo = () => {
   }, [])
 
   return (
-    <section id='insights' className='py-32 px-8 relative bg-zinc-950/20'>
+    <section
+      id='insights'
+      className='pt-32 border-t border-white/10 relative bg-zinc-950/20'
+    >
       <AnimatedPattern />
 
       <div className='max-w-7xl mx-auto relative z-10'>
@@ -521,9 +576,9 @@ export const BentoDemo = () => {
           LIVE <span className='text-emerald-400'>METRICS</span>
         </h2>
 
-        <div className='grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[160px]'>
+        <div className='grid grid-cols-1 md:grid-cols-12 auto-rows-[160px]'>
           {/* Large feature card with enhanced 3D effect */}
-          <div className='md:col-span-8 md:row-span-2 bg-gradient-to-br from-emerald-400/10 to-emerald-400/5 border border-emerald-400/20 rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden hover:from-emerald-400/15 hover:to-emerald-400/8 transition-all duration-500 group'>
+          <div className='md:col-span-8 md:row-span-2 bg-gradient-to-br from-emerald-400/10 to-emerald-400/5 border border-emerald-400/20  p-8 flex flex-col justify-between relative overflow-hidden hover:from-emerald-400/15 hover:to-emerald-400/8 transition-all duration-500 group'>
             <div className='absolute top-0 right-0 w-32 h-32 bg-emerald-400/10 rounded-full -translate-y-16 translate-x-16 group-hover:scale-125 transition-transform duration-500'></div>
             <Abstract3DSVG className='absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-500' />
 
@@ -550,7 +605,7 @@ export const BentoDemo = () => {
           </div>
 
           {/* Animated small cards */}
-          <div className='md:col-span-4 bg-zinc-900/40 border border-zinc-700/50 rounded-2xl p-6 hover:bg-zinc-900/60 hover:border-emerald-400/30 transition-all duration-300 backdrop-blur-sm group'>
+          <div className='md:col-span-4 bg-zinc-900/40 border border-zinc-700/50 p-6 hover:bg-zinc-900/60 hover:border-emerald-400/30 transition-all duration-300 backdrop-blur-sm group'>
             <div className='text-2xl font-light text-emerald-400 mb-2 group-hover:text-emerald-300 transition-all duration-300'>
               {activeConnections}
             </div>
@@ -560,7 +615,7 @@ export const BentoDemo = () => {
             <div className='absolute top-2 right-2 w-2 h-2 bg-emerald-400 rounded-full animate-pulse opacity-60'></div>
           </div>
 
-          <div className='md:col-span-4 bg-zinc-900/40 border border-zinc-700/50 rounded-2xl p-6 hover:bg-zinc-900/60 hover:border-emerald-400/30 transition-all duration-300 backdrop-blur-sm group'>
+          <div className='md:col-span-4 bg-zinc-900/40 border border-zinc-700/50 p-6 hover:bg-zinc-900/60 hover:border-emerald-400/30 transition-all duration-300 backdrop-blur-sm group'>
             <div className='text-2xl font-light text-emerald-400 mb-2 group-hover:text-emerald-300 transition-all duration-300'>
               {engagementRate}%
             </div>
@@ -570,7 +625,7 @@ export const BentoDemo = () => {
           </div>
 
           {/* Medium cards with enhanced interactions */}
-          <div className='md:col-span-6 bg-zinc-900/40 border border-zinc-700/50 rounded-2xl p-6 flex items-center justify-between hover:bg-zinc-900/60 hover:border-emerald-400/30 transition-all duration-300 backdrop-blur-sm group'>
+          <div className='md:col-span-6 bg-zinc-900/40 border border-zinc-700/50 p-6 flex items-center justify-between hover:bg-zinc-900/60 hover:border-emerald-400/30 transition-all duration-300 backdrop-blur-sm group'>
             <div>
               <div className='text-lg font-light mb-1 group-hover:text-emerald-300 transition-colors duration-300'>
                 GLOBAL PULSE
@@ -584,7 +639,7 @@ export const BentoDemo = () => {
             </div>
           </div>
 
-          <div className='md:col-span-6 bg-zinc-900/40 border border-zinc-700/50 rounded-2xl p-6 hover:bg-zinc-900/60 hover:border-emerald-400/30 transition-all duration-300 backdrop-blur-sm group'>
+          <div className='md:col-span-6 bg-zinc-900/40 border border-zinc-700/50 p-6 hover:bg-zinc-900/60 hover:border-emerald-400/30 transition-all duration-300 backdrop-blur-sm group'>
             <div className='text-lg font-light mb-4 group-hover:text-emerald-300 transition-colors duration-300'>
               TRENDING TOPICS
             </div>
@@ -615,52 +670,11 @@ export const BentoDemo = () => {
   )
 }
 
-export const WhyChooseUs = () => {
-  return (
-    <section className='py-32 px-8'>
-      <div className='max-w-7xl mx-auto text-center'>
-        <h2 className='text-4xl md:text-5xl font-extralight mb-20'>
-          THE <span className='text-emerald-400'>ADVANTAGE</span>
-        </h2>
-
-        <div className='grid grid-cols-1 md:grid-cols-3 gap-16'>
-          {[
-            {
-              title: 'EXCLUSIVITY',
-              desc: 'A carefully curated community of verified professionals committed to meaningful connections.',
-            },
-            {
-              title: 'INTELLIGENCE',
-              desc: 'Advanced AI systems ensure every connection has the potential for mutual professional growth.',
-            },
-            {
-              title: 'EXCELLENCE',
-              desc: 'Premium experience design with dedicated support for your networking success.',
-            },
-          ].map((item, index) => (
-            <div key={index} className='group'>
-              <div className='w-16 h-16 mx-auto mb-8 bg-emerald-400/10 border border-emerald-400/20 rounded-2xl flex items-center justify-center group-hover:bg-emerald-400/20 transition-all duration-300'>
-                <div className='w-2 h-2 bg-emerald-400 rounded-full group-hover:scale-150 transition-transform duration-300'></div>
-              </div>
-              <h3 className='text-xl font-light mb-6 tracking-wide'>
-                {item.title}
-              </h3>
-              <p className='text-zinc-400 font-light leading-relaxed'>
-                {item.desc}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
 export const CTASection = () => {
   return (
-    <section className='py-32 px-8'>
-      <div className='max-w-4xl mx-auto text-center'>
-        <div className='relative bg-zinc-900/20 backdrop-blur-sm border border-zinc-800/50 rounded-3xl p-16 overflow-hidden'>
+    <section className=''>
+      <div className='mx-auto text-center'>
+        <div className='relative py-52 px-8 bg-zinc-900/20 backdrop-blur-sm border border-zinc-800/50  p-16 overflow-hidden '>
           <div className='absolute inset-0 bg-gradient-to-br from-emerald-400/5 via-transparent to-emerald-400/5'></div>
           <div className='absolute top-0 left-1/2 w-px h-16 bg-gradient-to-b from-emerald-400/50 to-transparent -translate-x-1/2'></div>
 

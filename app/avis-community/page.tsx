@@ -2,12 +2,12 @@
 
 import {
   AboutSection,
-  BentoDemo,
+  LiveMetrics,
   CTASection,
   HeroSection,
-  ServicesSection,
+  PremiumFeatures,
   StepsComponent,
-  WhyChooseUs,
+  TheAdvantage,
 } from '@/components/community-page-componnets/componnets'
 import { Footer } from '@/components/event-page-component/Footer'
 import Navigation from '@/components/page-components/Navigation'
@@ -34,14 +34,17 @@ const AvisCommunityLanding = () => {
     'https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/avis/logo/avis-mono-dark.png'
 
   return (
-    <div className='min-h-screen bg-black text-white font-light max-w-6xl mx-auto'>
+    <div className='min-h-screen bg-black text-white font-light max-w-6xl mx-auto border border-white/10'>
       <Navigation logo={logo} navItems={navItems} />
       <HeroSection />
       <AboutSection />
-      <BentoDemo />
+
+      {/* together */}
+      <PremiumFeatures />
+      <TheAdvantage />
+
       <StepsComponent />
-      <ServicesSection />
-      <WhyChooseUs />
+      <LiveMetrics />
       <CTASection />
       <Footer />
     </div>

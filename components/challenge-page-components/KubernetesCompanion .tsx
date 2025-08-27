@@ -1,4 +1,4 @@
-import React, { FC, SVGProps, useState } from 'react'
+import React, { FC, SVGProps } from 'react'
 import {
   ChevronDown,
   Shield,
@@ -18,15 +18,7 @@ interface FeatureCardProps {
   description: string
 }
 
-interface ToggleSwitchProps {
-  enabled: boolean
-  onChange: (value: boolean) => void
-  label: string
-}
-
 const KubernetesCompanion = () => {
-  const [isEnabled, setIsEnabled] = useState(true)
-
   const AWSIcon = () => (
     <svg
       width='28'

@@ -2,12 +2,12 @@
 
 import {
   AboutSection,
-  LiveMetrics,
+  AVISInsights,
   CTASection,
   HeroSection,
   PremiumFeatures,
   StepsComponent,
-  TheAdvantage,
+  TheAVISEdge,
 } from '@/components/community-page-componnets/componnets'
 import { Footer } from '@/components/event-page-component/Footer'
 import Navigation from '@/components/page-components/Navigation'
@@ -24,10 +24,10 @@ const AvisCommunityLanding = () => {
         { name: 'AVIS Community', link: '/avis-community' },
       ],
     },
-    { name: 'Platform', link: '#platform' },
-    { name: 'Insights', link: '#insights' },
-    { name: 'Steps', link: '#steps' },
+    { name: 'About Platform', link: '#about-platform' },
     { name: 'Community', link: '#community' },
+    { name: 'Steps', link: '#steps' },
+    { name: 'Insights', link: '#insights' },
   ]
 
   const logo =
@@ -41,10 +41,10 @@ const AvisCommunityLanding = () => {
 
       {/* together */}
       <PremiumFeatures />
-      <TheAdvantage />
+      <TheAVISEdge />
 
       <StepsComponent />
-      <LiveMetrics />
+      <AVISInsights />
       <CTASection />
       <Footer />
     </div>

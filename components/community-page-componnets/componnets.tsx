@@ -10,6 +10,7 @@ import {
   PersonStanding,
   Clock,
 } from 'lucide-react'
+import Link from 'next/link'
 
 const AnimatedPattern = () => {
   return (
@@ -279,16 +280,21 @@ export const HeroSection = () => {
         </p>
 
         <div className='flex flex-col md:flex-row gap-6 justify-center items-center'>
-          <button className='group relative bg-gradient-to-r from-emerald-400 to-emerald-500 text-black px-8 py-4 rounded-full font-medium flex items-center transition-all duration-500 hover:from-emerald-300 hover:to-emerald-400 hover:scale-105 hover:shadow-xl hover:shadow-emerald-400/25 transform-gpu'>
-            <span className='relative z-10'>Join AVIS Community</span>
-            <ArrowUpRight className='ml-2 w-5 h-5 group-hover:rotate-45 transition-transform duration-300 relative z-10' />
-            <div className='absolute inset-0 bg-gradient-to-r from-emerald-300 to-teal-300 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
-          </button>
+          <Link href='https://events.avisengine.com/auth/register'>
+            <button className='group relative bg-gradient-to-r from-emerald-400 to-emerald-500 text-black px-8 py-4 rounded-full font-medium flex items-center transition-all duration-500 hover:from-emerald-300 hover:to-emerald-400 hover:scale-105 hover:shadow-xl hover:shadow-emerald-400/25 transform-gpu hover:cursor-pointer'>
+              <span className='relative z-10'>Join AVIS Community</span>
+              <ArrowUpRight className='ml-2 w-5 h-5 group-hover:rotate-45 transition-transform duration-300 relative z-10' />
+              <div className='absolute inset-0 bg-gradient-to-r from-emerald-300 to-teal-300 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
+            </button>
+          </Link>
 
-          <button className='group font-light text-zinc-200 px-8 py-4 border border-zinc-700/50 rounded-full hover:border-emerald-400/50 hover:bg-zinc-800/30 transition-all duration-300 backdrop-blur-sm'>
+          <Link
+            href='#community'
+            className='group font-light text-zinc-200 px-8 py-4 border border-zinc-700/50 rounded-full hover:border-emerald-400/50 hover:bg-zinc-800/30 transition-all duration-300 backdrop-blur-sm inline-flex items-center'
+          >
             Explore Features
             <ChevronDown className='inline ml-2 w-4 h-4 group-hover:translate-y-1 transition-transform duration-300' />
-          </button>
+          </Link>
         </div>
       </div>
 
@@ -302,7 +308,7 @@ export const HeroSection = () => {
 export const AboutSection = () => {
   return (
     <section
-      id='platform'
+      id='about-platform'
       className=' px-8 relative bg-zinc-950/50 border-y border-white/10'
     >
       <AnimatedPattern />
@@ -439,7 +445,7 @@ export const PremiumFeatures = () => {
   )
 }
 
-export const TheAdvantage = () => {
+export const TheAVISEdge = () => {
   return (
     <section className='border-t border-white/10'>
       <div className='max-w-7xl mx-auto text-center'>
@@ -550,7 +556,7 @@ export const StepsComponent = () => {
   )
 }
 
-export const LiveMetrics = () => {
+export const AVISInsights = () => {
   const [activeConnections, setActiveConnections] = useState(127)
   const [engagementRate, setEngagementRate] = useState(89)
 
@@ -689,13 +695,15 @@ export const CTASection = () => {
               Challenge, and Plus.
             </p>
 
-            <button className='group relative bg-emerald-400 text-black px-12 py-4 rounded-full font-medium text-lg transition-all duration-500 hover:bg-emerald-300 hover:scale-105'>
-              <span className='relative z-10 flex items-center'>
-                Start Your AVIS Journey
-                <ArrowUpRight className='ml-2 w-5 h-5 group-hover:rotate-45 transition-transform duration-300' />
-              </span>
-              <div className='absolute inset-0 bg-gradient-to-r from-emerald-300 to-teal-300 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
-            </button>
+            <Link href='https://events.avisengine.com/auth/register'>
+              <button className='group relative bg-emerald-400 text-black px-12 py-4 rounded-full font-medium text-lg transition-all duration-500 hover:bg-emerald-300 hover:scale-105 hover:cursor-pointer'>
+                <span className='relative z-10 flex items-center'>
+                  Start Your AVIS Journey
+                  <ArrowUpRight className='ml-2 w-5 h-5 group-hover:rotate-45 transition-transform duration-300' />
+                </span>
+                <div className='absolute inset-0 bg-gradient-to-r from-emerald-300 to-teal-300 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
+              </button>
+            </Link>
 
             <p className='text-xs font-light text-zinc-500 mt-8 tracking-wide'>
               GLOBAL NETWORK • SEAMLESS INTEGRATION • ENDLESS OPPORTUNITIES

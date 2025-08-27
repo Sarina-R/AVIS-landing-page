@@ -9,7 +9,7 @@ interface Step {
   content: React.ReactNode
 }
 
-const steps = [
+const steps: Step[] = [
   {
     id: 1,
     title: 'Unified Profile Creation',

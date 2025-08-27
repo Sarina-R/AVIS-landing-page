@@ -94,13 +94,13 @@ const ModernHeroGrid = () => {
                 style={{ transform: 'translateZ(30px)' }}
               >
                 <motion.span className='block opacity-40' variants={textItem}>
-                  Create
+                  Connect
                 </motion.span>
                 <motion.span className='block font-medium' variants={textItem}>
-                  Beyond
+                  Your
                 </motion.span>
                 <motion.span className='block opacity-60' variants={textItem}>
-                  Reality
+                  Identity
                 </motion.span>
               </motion.h1>
 
@@ -109,7 +109,7 @@ const ModernHeroGrid = () => {
                 variants={textItem}
                 style={{ transform: 'translateZ(20px)' }}
               >
-                Where imagination meets innovation in three-dimensional space.
+                Seamlessly unite your AVIS experiences with a single identity.
               </motion.p>
 
               <motion.button
@@ -117,7 +117,7 @@ const ModernHeroGrid = () => {
                 className='group inline-flex items-center text-lg font-light hover:font-normal transition-all duration-500'
                 style={{ transform: 'translateZ(40px)' }}
               >
-                Enter Experience
+                Join AVIS Plus
                 <ArrowRight className='w-5 h-5 transition-transform duration-500 group-hover:translate-x-2' />
               </motion.button>
             </motion.div>

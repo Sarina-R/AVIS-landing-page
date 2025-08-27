@@ -1,4 +1,4 @@
-export const VercelFirewall = () => {
+export const AVISSecurity = () => {
   return (
     <div className='bg-black p-6 md:p-8 lg:p-10 border border-white/10 flex flex-col h-full'>
       <div className='flex items-center mb-4'>
@@ -15,15 +15,15 @@ export const VercelFirewall = () => {
             />
           </svg>
         </div>
-        <h2 className='text-lg font-medium'>Vercel Firewall</h2>
+        <h2 className='text-lg font-medium'>AVIS Security</h2>
       </div>
 
       <div className='mb-8 flex-1'>
         <p className='text-base font-medium mb-2'>
-          <span className='font-bold'>Edge-localized protection.</span>{' '}
+          <span className='font-bold'>Secure identity.</span>{' '}
           <span className='text-gray-400'>
-            L3/L4 protection at every edge location. Your site stays protected
-            without adding latency.
+            AVIS Plus provides robust protection for your identity across all
+            platforms, ensuring safety without compromising speed.
           </span>
         </p>
       </div>
@@ -56,7 +56,7 @@ export const VercelFirewall = () => {
                   />
                 </svg>
               </div>
-              <div className='text-xs text-gray-400'>L3/L4 DDoS</div>
+              <div className='text-xs text-gray-400'>SSO Security</div>
               <div className='w-full h-2 bg-red-500 rounded'></div>
               <div className='text-xs'>Protection</div>
             </div>
@@ -78,7 +78,7 @@ export const VercelFirewall = () => {
                   />
                 </svg>
               </div>
-              <div className='text-xs text-gray-400'>Global L7</div>
+              <div className='text-xs text-gray-400'>Global Auth</div>
               <div className='w-full h-2 bg-green-500 rounded'></div>
               <div className='text-xs'>Firewall</div>
             </div>
@@ -93,9 +93,9 @@ export const VercelFirewall = () => {
                   />
                 </svg>
               </div>
-              <div className='text-xs text-gray-400'>Bot</div>
+              <div className='text-xs text-gray-400'>Access</div>
               <div className='w-full h-2 bg-red-500 rounded'></div>
-              <div className='text-xs'>Management</div>
+              <div className='text-xs'>Control</div>
             </div>
           </div>
         </div>

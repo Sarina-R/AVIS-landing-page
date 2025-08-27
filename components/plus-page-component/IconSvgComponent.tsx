@@ -1,6 +1,7 @@
 'use client'
 
 import { motion, useInView } from 'framer-motion'
+import Image from 'next/image'
 import { useMemo, useRef } from 'react'
 
 const triangles = [
@@ -34,11 +35,11 @@ const IconSvgComponent: React.FC = () => {
       className='relative flex flex-col items-center justify-center min-h-screen p-6 sm:p-12 lg:p-24'
     >
       <h1 className='text-3xl sm:text-5xl font-bold mb-6 text-center max-w-4xl'>
-        Optimized, automated rendering for the web&apos;s favorite frameworks.
+        Unified identity across AVIS Engine, Event, and Community.
       </h1>
       <p className='text-neutral-400 mb-24 text-center max-w-2xl text-lg sm:text-xl'>
-        Leverage the power of serverless architecture to deliver your content
-        globally, without added infrastructure overhead.
+        Experience seamless connectivity with AVIS Plus, your single sign-on for
+        all AVIS platforms.
       </p>
 
       <div className='relative w-full max-w-[900px] mx-auto'>
@@ -66,7 +67,17 @@ const IconSvgComponent: React.FC = () => {
               top: '-2.5rem',
             }}
           >
-            <span className={`text-xl sm:text-2xl ${triangle.color}`}>△</span>
+            <span
+              className={`text-xl sm:text-2xl ${triangle.color} inline-flex items-center gap-1`}
+            >
+              <Image
+                src='https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/avis/logo/avis-mono-dark.png'
+                alt='Avis Logo'
+                width={20} // adjust size
+                height={20}
+                className='inline-block align-middle'
+              />
+            </span>
           </motion.div>
         ))}
 
@@ -221,7 +232,7 @@ const IconSvgComponent: React.FC = () => {
               left: '50%',
             }}
           >
-            Deployed.
+            AVIS Plus
           </button>
 
           {/* Animated vertical line */}

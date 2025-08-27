@@ -1,4 +1,4 @@
-export const VercelDataCache = () => {
+export const AVISIdentityHub = () => {
   return (
     <div className='bg-black/50 p-6 md:p-8 lg:p-10 border border-white/10 flex flex-col h-full backdrop-blur-xl'>
       {/* Header */}
@@ -22,16 +22,16 @@ export const VercelDataCache = () => {
             />
           </svg>
         </div>
-        <h2 className='text-lg font-medium text-white/90'>Vercel Data Cache</h2>
+        <h2 className='text-lg font-medium text-white/90'>AVIS Identity Hub</h2>
       </div>
 
       {/* Description */}
       <div className='mb-12 flex-1'>
         <p className='text-base font-medium mb-2'>
-          <span className='font-bold text-white/90'>Total control.</span>{' '}
+          <span className='font-bold text-white/90'>Single Sign-On.</span>{' '}
           <span className='text-gray-400'>
-            Regenerate pages or cache function responses on demand, improving
-            performance and reducing backend load.
+            Access all AVIS platforms with one unified identity, streamlining
+            your experience across Engine, Event, and Community.
           </span>
         </p>
       </div>
@@ -58,7 +58,7 @@ export const VercelDataCache = () => {
               />
             </svg>
             <span className='text-white/90 text-sm font-medium'>
-              Page Cache
+              Identity Cache
             </span>
             <span className='bg-orange-500/[0.15] text-orange-400 px-2 py-0.5 rounded-md text-xs font-semibold'>
               Old
@@ -72,13 +72,13 @@ export const VercelDataCache = () => {
 
           <div className='flex items-center justify-end mr-12 w-full'>
             <div className='bg-zinc-800/80 px-4 py-1 rounded-xl shadow-sm backdrop-blur-sm'>
-              <span className='text-zinc-400 text-xs'>Trigger or Interval</span>
+              <span className='text-zinc-400 text-xs'>Login or Update</span>
             </div>
           </div>
           <div className='relative right-28 h-8 border-l border-zinc-800/80'></div>
           <div className='bg-zinc-800/80 px-4 py-1 rounded-xl shadow-sm backdrop-blur-sm'>
             <span className='text-zinc-400 text-xs'>
-              Regenerate page + update cache
+              Sync identity + update cache
             </span>
           </div>
           <div className='relative right-28 h-8 border-l border-zinc-800/80'></div>
@@ -105,7 +105,7 @@ export const VercelDataCache = () => {
               />
             </svg>
             <span className='text-white/90 text-sm font-medium'>
-              Page Cache
+              Identity Cache
             </span>
             <span className='bg-yellow-500/[0.15] text-yellow-400 px-2 py-0.5 rounded-md text-xs font-semibold'>
               New

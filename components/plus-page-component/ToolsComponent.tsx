@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 
 export default function ToolsComponent() {
@@ -175,7 +176,7 @@ export default function ToolsComponent() {
                   fontSize='14'
                   fontWeight='bold'
                 >
-                  acme/web
+                  AVIS PLUS
                 </text>
               </g>
 
@@ -193,7 +194,7 @@ export default function ToolsComponent() {
                   filter='url(#glow)'
                 />
 
-                {/* Site folder - bold */}
+                {/* AVIS Events - bold */}
                 <g>
                   <rect
                     x='35'
@@ -218,11 +219,11 @@ export default function ToolsComponent() {
                     fontSize='13'
                     fontWeight='600'
                   >
-                    site
+                    AVIS Events
                   </text>
                 </g>
 
-                {/* Dashboard folder */}
+                {/* AVIS Challenge folder */}
                 <g transform='translate(35, 50)' opacity='0.5'>
                   <rect
                     x='0'
@@ -241,11 +242,11 @@ export default function ToolsComponent() {
                     opacity='0.3'
                   />
                   <text x='25' y='10' fill='#E2E8F0' fontSize='13'>
-                    dashboard
+                    AVIS Challenge
                   </text>
                 </g>
 
-                {/* Posts folder */}
+                {/* AVIS Community folder */}
                 <g transform='translate(35, 85)' opacity='0.5'>
                   <rect
                     x='0'
@@ -264,7 +265,7 @@ export default function ToolsComponent() {
                     opacity='0.3'
                   />
                   <text x='25' y='10' fill='#E2E8F0' fontSize='13'>
-                    posts
+                    AVIS Community
                   </text>
                 </g>
               </g>
@@ -304,7 +305,7 @@ export default function ToolsComponent() {
             />
 
             {/* Right side boxes with fade animation */}
-            {/* WWW box */}
+            {/* AVIS Events box */}
             <g
               transform='translate(350, 110)'
               className='fade-in-box fade-in-1'
@@ -321,10 +322,14 @@ export default function ToolsComponent() {
                 strokeWidth='2'
                 filter='url(#glow)'
               />
-              <circle cx='30' cy='30' r='12' fill='#3B82F6' />
-              <text x='26' y='35' fill='white' fontSize='12' fontWeight='bold'>
-                N
-              </text>
+              <circle cx='30' cy='30' r='12' fill='black' />
+              <image
+                href='https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/avis/logo/avis-mono-dark.png'
+                x='21'
+                y='20'
+                width='18'
+                height='18'
+              />
               <text
                 className='hidden md:block'
                 x='45'
@@ -333,7 +338,7 @@ export default function ToolsComponent() {
                 fontSize='14'
                 fontWeight='600'
               >
-                www
+                AVIS Events
               </text>
               <text
                 className='hidden md:block'
@@ -342,11 +347,11 @@ export default function ToolsComponent() {
                 fill='#64748B'
                 fontSize='12'
               >
-                acme.com
+                events.avisengine.com
               </text>
             </g>
 
-            {/* App box */}
+            {/* AVIS Challenge box */}
             <g
               transform='translate(350, 200)'
               className='fade-in-box fade-in-2'
@@ -363,10 +368,14 @@ export default function ToolsComponent() {
                 strokeWidth='2'
                 filter='url(#glow)'
               />
-              <circle cx='30' cy='30' r='12' fill='#EF4444' />
-              <text x='26' y='35' fill='white' fontSize='12' fontWeight='bold'>
-                S
-              </text>
+              <circle cx='30' cy='30' r='12' fill='black' />
+              <image
+                href='https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/avis/logo/avis-mono-dark.png'
+                x='21'
+                y='20'
+                width='18'
+                height='18'
+              />
               <text
                 className='hidden md:block'
                 x='45'
@@ -375,7 +384,7 @@ export default function ToolsComponent() {
                 fontSize='14'
                 fontWeight='600'
               >
-                app
+                AVIS Challenge
               </text>
               <text
                 className='hidden md:block'
@@ -384,11 +393,11 @@ export default function ToolsComponent() {
                 fill='#64748B'
                 fontSize='12'
               >
-                app.acme.com
+                challenge.avisengine.com
               </text>
             </g>
 
-            {/* Blog box */}
+            {/* AVIS Community box */}
             <g
               transform='translate(350, 290)'
               className='fade-in-box fade-in-3'
@@ -405,10 +414,14 @@ export default function ToolsComponent() {
                 strokeWidth='2'
                 filter='url(#glow)'
               />
-              <circle cx='30' cy='30' r='12' fill='#10B981' />
-              <text x='24' y='35' fill='white' fontSize='12' fontWeight='bold'>
-                M
-              </text>
+              <circle cx='30' cy='30' r='12' fill='black' />
+              <image
+                href='https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/avis/logo/avis-mono-dark.png'
+                x='21'
+                y='20'
+                width='18'
+                height='18'
+              />
               <text
                 className='hidden md:block'
                 x='45'
@@ -417,7 +430,7 @@ export default function ToolsComponent() {
                 fontSize='14'
                 fontWeight='600'
               >
-                blog
+                AVIS Community
               </text>
               <text
                 className='hidden md:block'
@@ -426,7 +439,7 @@ export default function ToolsComponent() {
                 fill='#64748B'
                 fontSize='12'
               >
-                blog.acme.com
+                community.avisengine.com
               </text>
             </g>
           </svg>
@@ -436,12 +449,12 @@ export default function ToolsComponent() {
       {/* Right side content */}
       <div className='flex-1 max-w-lg lg:max-w-80 text-center lg:text-left lg:px-4 py-8 lg:pr-8 lg:border-b-0 lg:border-l border-b border-white/10 min-w-full lg:min-w-auto lg:min-h-screen m-auto lg:pt-56'>
         <h2 className='text-4xl font-bold tracking-tight text-white'>
-          Align your workflow
+          Unite Your AVIS Identity
         </h2>
         <p className='mt-6 text-lg leading-8 text-neutral-400 max-w-lg m-auto'>
-          The Turborepo team collaborates with the creators behind your favorite
-          tools at Vercel—ensuring alignment, stability, and the ultimate
-          developer experience.
+          AVIS PLUS connects your workflow across Events, Challenge, and
+          Community—ensuring a seamless, unified experience with a single
+          identity.
         </p>
       </div>
     </div>

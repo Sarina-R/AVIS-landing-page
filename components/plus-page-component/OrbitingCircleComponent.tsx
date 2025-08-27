@@ -169,12 +169,12 @@ export const OrbitingCircleComponent = () => {
 
         <div className='flex-1 max-w-lg lg:max-w-80 text-center lg:text-left lg:px-4 py-8 lg:pr-8 lg:border-b-0 lg:border-l border-b border-white/10 min-w-full lg:min-w-auto lg:min-h-screen m-auto lg:pt-56'>
           <h2 className='text-4xl font-bold tracking-tight text-white'>
-            Align your workflow
+            Empower Your AVIS Plus Journey
           </h2>
           <p className='mt-6 text-lg leading-8 text-neutral-400 max-w-lg m-auto'>
-            The Turborepo team collaborates with the creators behind your
-            favorite tools at Vercel—ensuring alignment, stability, and the
-            ultimate developer experience.
+            AVIS PLUS integrates your experience across Events, Challenge, and
+            Community—delivering a unified, secure identity with unmatched
+            connectivity.
           </p>
         </div>
       </div>

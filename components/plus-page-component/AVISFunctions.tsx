@@ -1,10 +1,10 @@
-export const VercelFunctions = () => {
+export const AVISFunctions = () => {
   const codeLines = [
     {
       number: '1',
       content: [
         { text: 'export const', className: 'text-blue-400' },
-        { text: 'GET', className: 'ml-2' },
+        { text: 'LOGIN', className: 'ml-2' },
         { text: '(', className: 'text-yellow-400' },
         { text: 'request', className: 'text-orange-400' },
         { text: ') {', className: 'text-yellow-400' },
@@ -15,7 +15,7 @@ export const VercelFunctions = () => {
       content: [
         { text: 'if', className: 'text-blue-400 ml-4' },
         { text: '(', className: 'text-yellow-400' },
-        { text: 'isBetaUser', className: 'text-blue-400' },
+        { text: 'isAVISPlusUser', className: 'text-blue-400' },
         { text: '(', className: 'text-yellow-400' },
         { text: 'request', className: 'text-orange-400' },
         { text: ')) {', className: 'text-yellow-400' },
@@ -27,7 +27,7 @@ export const VercelFunctions = () => {
         { text: 'return new', className: 'text-blue-400 ml-8' },
         { text: 'Response', className: 'ml-2' },
         { text: '(', className: 'text-yellow-400' },
-        { text: '"🧪 Beta User"', className: 'text-green-400' },
+        { text: '"🔑 AVIS Plus User"', className: 'text-green-400' },
         { text: ');', className: 'text-yellow-400' },
       ],
     },
@@ -41,7 +41,7 @@ export const VercelFunctions = () => {
         { text: 'return new', className: 'text-blue-400 ml-4' },
         { text: 'Response', className: 'ml-2' },
         { text: '(', className: 'text-yellow-400' },
-        { text: '"🔥 User"', className: 'text-green-400' },
+        { text: '"🔐 Guest User"', className: 'text-green-400' },
         { text: ');', className: 'text-yellow-400' },
       ],
     },
@@ -78,16 +78,16 @@ export const VercelFunctions = () => {
             />
           </svg>
         </div>
-        <h2 className='text-lg font-medium'>Vercel Functions</h2>
+        <h2 className='text-lg font-medium'>AVIS Functions</h2>
       </div>
 
       {/* Description */}
       <div className='mb-8 flex-1'>
         <p className='text-base font-medium mb-2'>
-          <span className='font-bold'>Servers made simple.</span>{' '}
+          <span className='font-bold'>Identity simplified.</span>{' '}
           <span className='text-neutral-400'>
-            We deploy and optimize the necessary compute for any scale,
-            replicated across 18 regions.
+            AVIS Plus handles authentication across all platforms, ensuring
+            secure and scalable access.
           </span>
         </p>
       </div>

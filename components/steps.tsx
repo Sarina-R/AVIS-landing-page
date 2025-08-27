@@ -9,42 +9,42 @@ interface Step {
   content: React.ReactNode
 }
 
-const steps: Step[] = [
+const steps = [
   {
     id: 1,
-    title: 'One-Click Cycle Creation',
-    description: 'Effortlessly create cycles with intelligent templates.',
+    title: 'Unified Profile Creation',
+    description: 'Create your AVIS Plus profile with one click.',
     icon: <Plus className='w-4 h-4 text-white' />,
     content: (
       <div className='space-y-2'>
         <div className='flex items-center gap-2'>
           <Plus className='w-5 h-5 text-pink-500/70' />
-          <h3 className='text-sm font-medium text-white'>Cycle Creation</h3>
+          <h3 className='text-sm font-medium text-white'>Profile Setup</h3>
         </div>
-        <div className='text-xs text-gray-400'>No active cycles</div>
+        <div className='text-xs text-gray-400'>No active profile</div>
         <button className='flex items-center gap-1 px-3 py-1 bg-pink-600/70 text-xs rounded-full'>
-          <Zap className='w-3 h-3' /> Create Cycle
+          <Zap className='w-3 h-3' /> Create Profile
         </button>
       </div>
     ),
   },
   {
     id: 2,
-    title: 'Intelligent Progress Insights',
-    description: 'Real-time analytics for team velocity and bottlenecks.',
+    title: 'Connected Insights',
+    description: 'Track your activity across all AVIS platforms.',
     icon: <BarChart3 className='w-4 h-4 text-white' />,
     content: (
       <div className='space-y-2'>
         <div className='flex items-center gap-2'>
           <BarChart3 className='w-5 h-5 text-pink-500/70' />
-          <h3 className='text-sm font-medium text-white'>Progress Insights</h3>
+          <h3 className='text-sm font-medium text-white'>Activity Insights</h3>
         </div>
-        <div className='text-xs text-gray-400'>32/45 issues completed</div>
+        <div className='text-xs text-gray-400'>80% profile completion</div>
         <div className='w-full bg-gray-700 h-2 rounded-full overflow-hidden'>
           <motion.div
             className='bg-pink-500/70 h-full rounded-full'
             initial={{ width: '0%' }}
-            animate={{ width: '71%' }}
+            animate={{ width: '80%' }}
             transition={{ duration: 1 }}
           />
         </div>
@@ -53,39 +53,35 @@ const steps: Step[] = [
   },
   {
     id: 3,
-    title: 'Seamless Issue Migration',
-    description: 'Smart issue transfer with context preservation.',
+    title: 'Seamless Platform Access',
+    description: 'Access all AVIS platforms with one identity.',
     icon: <ArrowRight className='w-4 h-4 text-white' />,
     content: (
       <div className='space-y-2'>
         <div className='flex items-center gap-2'>
           <ArrowRight className='w-5 h-5 text-pink-500/70' />
-          <h3 className='text-sm font-medium text-white'>Issue Migration</h3>
+          <h3 className='text-sm font-medium text-white'>Platform Access</h3>
         </div>
-        <div className='text-xs text-gray-400'>5 issues remaining</div>
+        <div className='text-xs text-gray-400'>3 platforms connected</div>
         <button className='px-3 py-1 bg-pink-600/70 text-xs rounded-full'>
-          Smart Transfer
+          Connect Now
         </button>
       </div>
     ),
   },
   {
     id: 4,
-    title: 'Predictive Planning',
-    description: 'AI-powered forecasting for optimized cycles.',
+    title: 'Personalized Experience',
+    description: 'Tailored recommendations across AVIS platforms.',
     icon: <TrendingUp className='w-4 h-4 text-white' />,
     content: (
       <div className='space-y-2'>
         <div className='flex items-center gap-2'>
           <TrendingUp className='w-5 h-5 text-pink-500/70' />
-          <h3 className='text-sm font-medium text-white'>
-            Predictive Planning
-          </h3>
+          <h3 className='text-sm font-medium text-white'>Personalization</h3>
         </div>
-        <div className='text-xs text-gray-400'>Historical performance</div>
-        <div className='text-pink-500/70 text-xs'>
-          Add 2 buffer days to next cycle
-        </div>
+        <div className='text-xs text-gray-400'>Based on your activity</div>
+        <div className='text-pink-500/70 text-xs'>Explore new events</div>
       </div>
     ),
   },

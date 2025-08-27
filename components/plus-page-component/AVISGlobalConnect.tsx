@@ -1,4 +1,4 @@
-export const VercelEdgeNetwork = () => {
+export const AVISGlobalConnect = () => {
   return (
     <div className='bg-black p-6 md:p-8 lg:p-10 border border-white/10 flex flex-col h-full'>
       <div className='flex items-center mb-4'>
@@ -22,15 +22,15 @@ export const VercelEdgeNetwork = () => {
             />
           </svg>
         </div>
-        <h2 className='text-lg font-medium'>Vercel Edge Network</h2>
+        <h2 className='text-lg font-medium'>AVIS Global Connect</h2>
       </div>
 
       <div className='mb-8 flex-1'>
         <p className='text-base font-medium mb-2'>
-          <span className='font-bold'>Accelerate your delivery.</span>{' '}
+          <span className='font-bold'>Global access.</span>{' '}
           <span className='text-gray-400'>
-            Every request travels through private fiber to the nearest of
-            hundreds of Edge locations.
+            Your AVIS Plus identity connects you to platforms worldwide,
+            ensuring seamless access from any location.
           </span>
         </p>
       </div>

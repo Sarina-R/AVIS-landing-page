@@ -9,7 +9,7 @@ import { AVISIdentityHub } from '@/components/plus-page-component/AVISIdentityHu
 import { AVISGlobalConnect } from '@/components/plus-page-component/AVISGlobalConnect'
 import { AVISSecurity } from '@/components/plus-page-component/AVISSecurity'
 import { AVISFunctions } from '@/components/plus-page-component/AVISFunctions'
-// import ModernStepGuide from '@/components/plus-page-component/StepGuideComponent '
+import ModernStepGuide from '@/components/plus-page-component/StepGuideComponent '
 import Navigation from '@/components/page-components/Navigation'
 
 {
@@ -51,7 +51,7 @@ const AvisPlusLanding = () => {
           <AVISSecurity />
         </div>
         <OrbitingCircleComponent />
-        {/* <ModernStepGuide /> */}
+        <ModernStepGuide />
       </main>
 
       <Footer />

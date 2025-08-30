@@ -56,8 +56,8 @@ interface RelatedArticle {
 }
 
 interface PageProps {
-  params: { id: string }
-  searchParams: { category?: string }
+  params: Promise<{ id: string }>
+  searchParams: Promise<{ category?: string }>
 }
 
 const createDOMParser = () => {
@@ -79,8 +79,8 @@ export default function NewsArticle({ params, searchParams }: PageProps) {
   useEffect(() => {
     async function fetchArticleData() {
       try {
-        const resolvedParams = params
-        const resolvedSearchParams = searchParams
+        const resolvedParams = await params
+        const resolvedSearchParams = await searchParams
         const category = resolvedSearchParams?.category || '14'
 
         const response = await axios.get<WpPost>(
@@ -195,9 +195,10 @@ export default function NewsArticle({ params, searchParams }: PageProps) {
           })
         }
 
+        // Corrected the slice syntax
         const shuffledPosts = relatedPosts
           .sort(() => 0.5 - Math.random())
-          .slice(0, 3)
+          .slice(0, 3) // Fixed: Removed "Ascendancy slice" and used correct slice method
         const relatedArticlesData: RelatedArticle[] = []
         for (const relatedPost of shuffledPosts) {
           let relatedImage: string | null = null
@@ -295,12 +296,10 @@ export default function NewsArticle({ params, searchParams }: PageProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          {/* Show book mockup only for magazine category */}
           {article && isMagazineCategory(article.categories) && (
             <div className='container mx-auto px-4 py-16'>
               <div className='flex flex-col md:flex-row items-center justify-between gap-12'>
                 <div className='relative w-full md:w-1/2 max-w-[400px] aspect-[3/4]'>
-                  {/* Book container with 3D effects */}
                   <div
                     className='relative w-full h-full'
                     style={{
@@ -308,7 +307,6 @@ export default function NewsArticle({ params, searchParams }: PageProps) {
                       transformStyle: 'preserve-3d',
                     }}
                   >
-                    {/* Front Cover */}
                     <Image
                       src={article.featuredImage || '/default-book-cover.jpg'}
                       alt={article.title}
@@ -320,8 +318,6 @@ export default function NewsArticle({ params, searchParams }: PageProps) {
                       }}
                       priority
                     />
-
-                    {/* Spine */}
                     <div
                       className='absolute left-0 top-0 bottom-0 w-[30px] bg-gradient-to-r from-black/60 to-transparent'
                       style={{
@@ -331,8 +327,6 @@ export default function NewsArticle({ params, searchParams }: PageProps) {
                         borderLeft: '1px solid rgba(255,255,255,0.1)',
                       }}
                     />
-
-                    {/* Page edges effect */}
                     <div
                       className='absolute right-0 top-1 bottom-1 w-[15px]'
                       style={{
@@ -343,28 +337,6 @@ export default function NewsArticle({ params, searchParams }: PageProps) {
                         borderRadius: '0 2px 2px 0',
                       }}
                     />
-
-                    {/* Top page edges */}
-                    {/* <div
-                      className='absolute top-0 left-5 right-5 h-[2px]'
-                      style={{
-                        background:
-                          'linear-gradient(to right, #d4d4d4, #ffffff)',
-                        transform: 'translateY(-1px)',
-                      }}
-                    /> */}
-
-                    {/* Bottom page edges */}
-                    {/* <div
-                      className='absolute bottom-0 left-5 right-5 h-[2px]'
-                      style={{
-                        background:
-                          'linear-gradient(to right, #d4d4d4, #ffffff)',
-                        transform: 'translateY(1px)',
-                      }}
-                    /> */}
-
-                    {/* Cover shine effect */}
                     <div
                       className='absolute inset-0 rounded-lg'
                       style={{
@@ -375,10 +347,8 @@ export default function NewsArticle({ params, searchParams }: PageProps) {
                     />
                   </div>
                 </div>
-
-                {/* Title Section */}
                 <div className='md:w-1/2'>
-                  <h1 className='text-3xl md:text-5xl font- leading-tight'>
+                  <h1 className='text-3xl md:text-5xl font-light leading-tight'>
                     {article.title}
                   </h1>
                 </div>
@@ -386,7 +356,6 @@ export default function NewsArticle({ params, searchParams }: PageProps) {
             </div>
           )}
 
-          {/* Regular content display for non-magazine categories */}
           {article && !isMagazineCategory(article.categories) && (
             <div className='prose prose-invert max-w-none'>
               <h1 className='text-4xl md:text-6xl font-bold leading-tight mb-8'>

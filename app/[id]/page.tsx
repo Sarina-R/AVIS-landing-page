@@ -79,9 +79,9 @@ export default function NewsArticle({ params, searchParams }: PageProps) {
   useEffect(() => {
     async function fetchArticleData() {
       try {
-        const resolvedParams = await params
-        const resolvedSearchParams = await searchParams
-        const category = resolvedSearchParams.category || '14' // Default to News (14) if category not provided
+        const resolvedParams = params
+        const resolvedSearchParams = searchParams
+        const category = resolvedSearchParams?.category || '14'
 
         const response = await axios.get<WpPost>(
           `https://avisengine.com/wp-json/wp/v2/posts/${resolvedParams.id}`

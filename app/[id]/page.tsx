@@ -3,7 +3,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import axios from 'axios'
 import { notFound } from 'next/navigation'
-import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -76,7 +75,6 @@ export default function NewsArticle({ params, searchParams }: PageProps) {
   const [prevArticle, setPrevArticle] = useState<RelatedArticle | null>(null)
   const [nextArticle, setNextArticle] = useState<RelatedArticle | null>(null)
   const [loading, setLoading] = useState(true)
-  const router = useRouter()
 
   useEffect(() => {
     async function fetchArticleData() {

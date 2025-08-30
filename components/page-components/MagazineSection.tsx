@@ -81,7 +81,7 @@ export default function MagazineSection({
             title: post.title.rendered,
             description: post.excerpt.rendered.replace(/<p>|<\/p>/g, '').trim(),
             image: featuredImage,
-            link: `/${post.id}`,
+            link: `/${post.id}?category=13`,
             tags: post.tags
               .map((tagId) => tagsMap.get(tagId) || '')
               .filter(Boolean),

@@ -95,7 +95,7 @@ export default function NewsSection({
             tags:
               post.tags.length > 0 ? post.tags.map(String) : ['News', 'Update'],
             image: imageUrl,
-            link: `/${post.id}`,
+            link: `/${post.id}?category=14`,
           })
         }
         setNews(newsItems)

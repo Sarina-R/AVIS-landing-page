@@ -1,6 +1,7 @@
 import { ArrowRight } from 'lucide-react'
 import { motion, Variants } from 'framer-motion'
 import { useEffect, useRef } from 'react'
+import Link from 'next/link'
 
 const textContainer: Variants = {
   hidden: {},
@@ -112,14 +113,16 @@ const ModernHeroGrid = () => {
                 Seamlessly unite your AVIS experiences with a single identity.
               </motion.p>
 
-              <motion.button
-                variants={textItem}
-                className='group inline-flex items-center text-lg font-light hover:font-normal transition-all duration-500'
-                style={{ transform: 'translateZ(40px)' }}
-              >
-                Join AVIS Plus
-                <ArrowRight className='w-5 h-5 transition-transform duration-500 group-hover:translate-x-2' />
-              </motion.button>
+              <Link href='https://events.avisengine.com/auth/register'>
+                <motion.button
+                  variants={textItem}
+                  className='group inline-flex items-center text-lg font-light hover:font-normal transition-all duration-500 cursor-pointer'
+                  style={{ transform: 'translateZ(40px)' }}
+                >
+                  Join AVIS Plus
+                  <ArrowRight className='w-5 h-5 transition-transform duration-500 group-hover:translate-x-2' />
+                </motion.button>
+              </Link>
             </motion.div>
           </div>
 

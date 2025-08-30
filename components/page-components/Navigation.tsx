@@ -151,9 +151,11 @@ export default function Navigation({ logo, navItems }: NavigationProps) {
           </div>
         </div>
 
-        <button className='hidden md:block bg-white text-black px-4 lg:px-6 py-2 lg:py-2.5 rounded-lg text-sm font-medium hover:bg-neutral-200 transition-all duration-200 shadow-sm'>
-          Get Started
-        </button>
+        <Link href='https://events.avisengine.com/auth/register'>
+          <button className='hidden md:block bg-white text-black px-4 lg:px-6 py-2 lg:py-2.5 rounded-lg text-sm font-medium hover:bg-neutral-200 transition-all duration-200 shadow-sm cursor-pointer'>
+            Get Started
+          </button>
+        </Link>
 
         {/* Mobile Hamburger */}
         <button

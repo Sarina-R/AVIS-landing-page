@@ -18,7 +18,7 @@ const services = [
     buttonLink: 'https://github.com/AvisEngine/AVIS-Engine-Python-API',
   },
   {
-    title: 'Cloud + self-hosted',
+    title: 'Explore Docs',
     description:
       'Browse and explore the docs to learn more about the software and API.',
     buttonText: 'Explore Docs',

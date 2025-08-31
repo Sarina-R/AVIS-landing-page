@@ -17,7 +17,7 @@ const testimonials: Testimonial[] = [
     name: 'Niran',
     avatar: 'N',
     platform: 'discord',
-    text: "I am new here. It's been a blast using a self-hosted plane to handle my engineering projects. Really in love with the features and the smooth UI. 😍",
+    text: 'I’m in high school and started using AVIS Engine for our robotics club. Didn’t expect it to be this fun—the car sims feel super real.',
     color: 'from-purple-600 to-pink-600',
   },
   {
@@ -25,7 +25,7 @@ const testimonials: Testimonial[] = [
     name: 'The Ghost Lab',
     avatar: 'TL',
     platform: 'discord',
-    text: "Hey guys, I've been using Plane for the past few months and I think it's dope!",
+    text: "Hey guys, I've been using AVIS for the past few months and I think it's dope!",
     color: 'from-blue-600 to-cyan-600',
   },
   {
@@ -49,7 +49,7 @@ const testimonials: Testimonial[] = [
     name: 'Rockeer',
     avatar: 'RO',
     platform: 'discord',
-    text: 'I fell in love with Plane on first sight as it is not as complicated and packed as Jira, I love simplicity!',
+    text: 'Our uni team’s been testing self-driving stuff with AVIS Engine. The physics are amazing, and now we’re even showing results at an AVIS Events workshop. Honestly feels like a huge W for us 🔥.',
     color: 'from-indigo-600 to-purple-600',
   },
   {
@@ -57,7 +57,7 @@ const testimonials: Testimonial[] = [
     name: 'JGalt',
     avatar: 'JG',
     platform: 'discord',
-    text: "Hi guys! I'm a software engineer and I've been using Plane for our project management. It's just all lit!",
+    text: 'I’m not a pro coder, just a hobbyist, but AVIS Engine is actually fun for messing around with AI cars. Tried one of the AVIS Challenges too—didn’t win lol but the vibes were great 😅.',
     color: 'from-teal-600 to-blue-600',
   },
 ]
@@ -68,7 +68,7 @@ const moreTestimonials: Testimonial[] = [
     name: 'DevMaster',
     avatar: 'DM',
     platform: 'github',
-    text: "The best project management tool I've ever used. Clean, fast, and incredibly intuitive!",
+    text: 'Used AVIS Engine for my uni project proposal on autonomous vehicles. The docs were super clear, and I found some really chill ppl on AVIS Community. My proposal actually got approved 😭🙌.',
     color: 'from-rose-600 to-pink-600',
   },
   {
@@ -76,7 +76,7 @@ const moreTestimonials: Testimonial[] = [
     name: 'CodeNinja',
     avatar: 'CN',
     platform: 'twitter',
-    text: "Switched from Jira to Plane and never looked back. The UI is chef's kiss! 👨‍🍳💋",
+    text: 'I’m a researcher and AVIS Engine made my autonomous vehicle study so much easier. The tutorials from AVIS Events were actually useful (rare lol).',
     color: 'from-violet-600 to-purple-600',
   },
   {
@@ -84,7 +84,7 @@ const moreTestimonials: Testimonial[] = [
     name: 'TechGuru',
     avatar: 'TG',
     platform: 'linkedin',
-    text: 'Plane has revolutionized how our team manages projects. Highly recommend!',
+    text: 'AVIS has revolutionized how our team manages projects. Highly recommend!',
     color: 'from-amber-600 to-orange-600',
   },
 ]
@@ -321,7 +321,7 @@ const TestimonialSlider: React.FC = () => {
   return (
     <div className='min-h-screen bg-black text-white py-20 px-4 sm:px-6'>
       <div className='max-w-6xl mx-auto text-center mb-16 sm:mb-20'>
-        <h1 className='text-4xl sm:text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white via-purple-300 to-white bg-clip-text text-transparent tracking-tight'>
+        <h1 className='text-4xl sm:text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white via-accent to-white bg-clip-text text-transparent tracking-tight'>
           What Our Customers Say
         </h1>
         <p className='text-lg sm:text-xl md:text-2xl text-neutral-300 font-light max-w-3xl mx-auto'>

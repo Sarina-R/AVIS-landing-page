@@ -98,6 +98,16 @@ const HeroSection: React.FC = () => {
             </Link>
           </div>
         </div>
+
+        {/* Crosses */}
+        <div className=' absolute -bottom-3  left-[-12px] w-6 h-6 z-20'>
+          <div className='absolute top-1/2 left-0 w-full h-[1px] bg-white/50 -translate-y-1/2' />
+          <div className='absolute top-0 left-1/2 w-[1px] h-full bg-white/50 -translate-x-1/2' />
+        </div>
+        <div className=' absolute -bottom-3  right-[-12px] w-6 h-6 z-20'>
+          <div className='absolute top-1/2 left-0 w-full h-[1px] bg-white/50 -translate-y-1/2' />
+          <div className='absolute top-0 left-1/2 w-[1px] h-full bg-white/50 -translate-x-1/2' />
+        </div>
       </div>
 
       <div className='bg-black  w-full '>
@@ -110,14 +120,6 @@ const HeroSection: React.FC = () => {
         <div className='absolute top-0 left-1/2 w-[1px] h-full bg-white/50 -translate-x-1/2' />
       </div>
       <div className='absolute top-[-12px] right-[-12px] w-6 h-6 z-20'>
-        <div className='absolute top-1/2 left-0 w-full h-[1px] bg-white/50 -translate-y-1/2' />
-        <div className='absolute top-0 left-1/2 w-[1px] h-full bg-white/50 -translate-x-1/2' />
-      </div>
-      <div className=' absolute bottom-[180px] sm:bottom-[200px] lg:bottom-[266px] left-[-12px] w-6 h-6 z-20'>
-        <div className='absolute top-1/2 left-0 w-full h-[1px] bg-white/50 -translate-y-1/2' />
-        <div className='absolute top-0 left-1/2 w-[1px] h-full bg-white/50 -translate-x-1/2' />
-      </div>
-      <div className=' absolute bottom-[180px] sm:bottom-[200px] lg:bottom-[266px] right-[-12px] w-6 h-6 z-20'>
         <div className='absolute top-1/2 left-0 w-full h-[1px] bg-white/50 -translate-y-1/2' />
         <div className='absolute top-0 left-1/2 w-[1px] h-full bg-white/50 -translate-x-1/2' />
       </div>
